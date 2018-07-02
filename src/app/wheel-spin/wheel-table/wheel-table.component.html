@@ -1,0 +1,94 @@
+<div class="d-flex align-items-center">
+  <div class="gameTitle text-center mt-1 mb-2">Roulette Challenge</div>
+</div>
+<div class="row w-100">
+  <div class="back-stripe d-flex align-items-center ">
+    <div class="grid-container mr-auto">
+      <div class="grid-item-02">
+        <div class="d-flex h-100">
+          <div class="d-flex flex-column flex-wrap w-100">
+            <div [style.background-color]="square.color" *ngFor="let square of numberSquares; let $idx = index;"
+                 class="d-flex flex-column grid-number-cell"
+                 (click)="removeBetValue(square)"
+                 mwlDroppable
+                 (drop)="onDrop($event, square)">
+              <span class="header-md stacked-text">{{square.value}}</span>
+              <div *ngIf="square.directBet > 0" class="display-sm">${{square.directBet}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-cell-text grid-item-15"
+           (click)="removeBetValue(oddEven[1])"
+           mwlDroppable
+           (drop)="onDrop($event, oddEven[1])">
+        <span class="f-weight-600">{{oddEven[1].name}}</span>
+        <div *ngIf="oddEven[1].directBet > 0" class="display-sm ml-2">${{oddEven[1].directBet}}</div>
+      </div>
+
+
+      <div class="grid-cell-text grid-item-16"
+           (click)="removeBetValue(oddEven[1])"
+           mwlDroppable
+           (drop)="onDrop($event, oddEven[0])">
+        <span class="f-weight-600">{{oddEven[0].name}}</span>
+        <div *ngIf="oddEven[0].directBet > 0" class="display-sm ml-2">${{oddEven[0].directBet}}</div>
+      </div>
+
+      <div class="grid-blank grid-item-17"></div>
+
+      <div class="grid-cell-text grid-item-13">- 1 thru 18 -</div>
+      <div class="grid-cell-text grid-item-14">- 18 thru 36 -</div>
+
+      <div class="grid-cell-text grid-item-03">ROW</div>
+      <div class="grid-cell-text grid-item-04">ROW</div>
+      <div class="grid-item grid-cell-text grid-item-05">ROW</div>
+
+      <div class="grid-cell-text grid-item-06">- 1st 12 -</div>
+      <div class="grid-cell-text grid-item-07">- 2nd 12 -</div>
+      <div class="grid-cell-text grid-item-08">- 3rd 12 -</div>
+      <div class="grid-blank grid-item-18"></div>
+
+      <div class="grid-cell-text grid-item-10">ALL RED</div>
+      <div class="grid-cell-text grid-item-11">ALL BLACK</div>
+    </div>
+    <div>
+      <app-wheel-spinner
+        (tooltipEvent)="initToolEvent($event)"></app-wheel-spinner>
+    </div>
+  </div>
+  <div class="ml-auto">
+    <div class="d-flex flex-column last-ten-frame">
+      <label class="text-white f-weight-600">LAST TEN</label>
+      <div [style.background-color]="digit.color" *ngFor="let digit of lastTenNums;"
+           class="f-weight-600 stacked-text last-ten">{{digit.num}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="my-place-frame">
+    <div class="d-flex align-items-end">
+      <div class="chip-common dollar" mwlDraggable dropData=1>$1</div>
+      <div class="chip-common fiver" mwlDraggable dropData=5>$5</div>
+      <div class="chip-common twenty-fiver" mwlDraggable dropData=25>$25</div>
+      <div class="text-white">Cash
+        <span class="funds-frame stacked-text f-weight-600">${{myFunds}}.00</span>
+      </div>
+      <div *ngIf="winningNumber" class="funds-frame f-weight-600 ml-3">{{winningNumber}}</div>
+      <button *ngIf="winningNumber" class="btn btn-primary mr-1">Display Results</button>
+      <button *ngIf="winningNumber" class="btn btn-primary">Place Bets</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

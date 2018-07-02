@@ -1,0 +1,170 @@
+@import '../../../assets/stylesheets/variables';
+
+.index-top{
+  z-index:111100;
+}
+
+.carousel-container {
+  opacity: 1;
+  z-index:10;
+  margin:0 auto;
+  width: 250px;
+  height:200px;
+  perspective: 2000px;
+}
+
+.carousel {
+  height: 80%;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease-in-out;
+}
+
+
+
+.overlay {
+  height:500px;
+  background-color: rgba(0, 0, 60, 0.9);
+  position:absolute;
+  top:-100px;
+}
+
+
+
+.collapse-tab-static {
+  position:absolute;
+  top:-20px;
+  cursor:pointer;
+  font-size:18px;
+  padding:5px;
+  border-radius:5px;
+  color:black;
+  background-color:white;
+  z-index:10;
+  &:hover{
+    background-color:gold;
+  }
+}
+
+
+
+.anim-in {
+  animation: revealDown 0.55s forwards;
+}
+
+
+.anim-out {
+  animation: hideUp 0.55s forwards;
+}
+
+
+@keyframes hideUp {
+  0% {
+    transform: translate(0px, -300px);
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: translate(0px, 100px);
+    animation-timing-function: ease-in-out;
+  }
+}
+
+
+
+@keyframes revealDown {
+  0% {
+    transform: translate(0px, 100px);
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: translate(0px, -300px);
+    animation-timing-function: ease-in-out;
+  }
+}
+
+
+
+.item {
+  font-weight:600;
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  background: #172751;
+  border:2px solid #1D65A6;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+//  backface-visibility: hidden;
+  .box-image{
+    width:170px;
+    padding:10px;
+  }
+  &:hover{
+    border:2px solid gold;
+  }
+}
+
+
+
+.item img {
+  transform:rotate(0deg);
+}
+
+
+.a {
+  transform: rotateY(0deg) translateZ(400px);
+}
+.b {
+  transform: rotateY(36deg) translateZ(400px);
+}
+.c {
+  transform: rotateY(72deg) translateZ(400px);
+}
+.d {
+  transform: rotateY(108deg) translateZ(400px);
+}
+.e {
+  transform: rotateY(144deg) translateZ(400px);
+}
+.f {
+  transform: rotateY(180deg) translateZ(400px);
+}
+.g {
+  transform: rotateY(216deg) translateZ(400px);
+}
+.h {
+  transform: rotateY(252deg) translateZ(400px);
+}
+.i {
+  transform: rotateY(288deg) translateZ(400px);
+}
+.j {
+  transform: rotateY(324deg) translateZ(400px);
+}
+
+.next, .prev {
+  color: #eace4b;
+  font-size:50px;
+  cursor: pointer;
+  &:hover{
+    color:red;
+  }
+}
+
+
+.M-L{
+  margin-left:480px;
+}
+
+.M-R{
+  margin-right:480px;
+}

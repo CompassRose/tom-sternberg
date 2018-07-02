@@ -1,0 +1,24 @@
+<div class="modal-header d-flex align-items-center">
+  <div class="modal-title display-lg text-muted f-weight-600" id="exampleModalLabel">{{modalGroup[idx].name}}</div>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="d-flex">
+    <div class="d-flex justify-content-center w-100 overlay">
+      <div (click)="setOriginBack(1)" class="next mr-auto"><i class="fa fa-arrow-circle-o-left"></i></div>
+      <div class="m-auto">
+        <figure class="figure">
+          <img data-src="../assets/img/pictureCollection/{{modalGroup[idx].image}}.jpg" class="figure-img img-fluid" alt="...">
+          <figcaption class="figure-caption">{{modalGroup[idx].bio}}</figcaption>
+        </figure>
+        <!--<img src="../assets/img/pictureCollection/{{modalGroup[idx].image}}_tn.jpg">-->
+      </div>
+      <a (click)="setOriginForward(1)" class="prev ml-auto"><i class="fa fa-arrow-circle-o-right"></i></a>
+    </div>
+  </div>
+</div>
+
+
+

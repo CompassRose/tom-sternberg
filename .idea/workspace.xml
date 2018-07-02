@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cf907f29-65cc-41b2-8ec4-4365487448f6" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/tslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/family/family-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/family/family.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/family/models/category.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/family/models/picture.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/family/services/picture.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/games/Spacer.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/games/game-files/documentation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/games/game-files/swfobject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/games/games-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/games/games.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/drilldown-common.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/pie/pie.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/pie/pie.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/pie/pie.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/single-combo/single-combo.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/single-combo/single-combo.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/single-combo/single-combo.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/single-combo/single-combo.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/stacked-bar/stacked-bar.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/stacked-bar/stacked-bar.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/stacked-bar/stacked-bar.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/stacked-line/stacked-line.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/stacked-line/stacked-line.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/drilldown/stacked-line/stacked-line.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/inspector-common-styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/interfaces/AppCharts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/interfaces/Filters.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/inspector/services/mappings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/layout/layout.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/resume/carousel/carousel.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/resume/carousel/carousel.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/resume/carousel/carousel.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/resume/carousel/carousel.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/resume/resume-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/resume/resume.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/ngb-modal/ngb-modal.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/ngb-modal/ngb-modal.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/ngb-modal/ngb-modal.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/pipes/picture-filter.pipe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/familyPics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/A_J_BiarritzBeach_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/A_J_France_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/A_J_London3_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/AliBoardingQuepos_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/AliDadBooks_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/AsteNegusaMiscFerrisWheel_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/AsteNegusaRides_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/AsteNegusaStreets_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/BalboaBenBeach.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/BalboaBenBeach_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/BalboaVolleyball.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/BalboaVolleyball_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/Barrymore.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/Barrymore_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/BilbaoStreets_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/CostaRicaRioSevegreAli_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/CostaRicaRioSevegreJT_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/CostaRicaRioSevegreJ_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/DAJ_Redwoods_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/EiffelBlue_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/FranceEiffelNight_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/Guemes2013_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/GuemesClark2013_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/GuemesSage2013_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/GuemesSammySwimming_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/GuemesTopDown2013_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/Halo4Logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/HotelQuepos_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/HowquaRiverVictoriaAust_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreyDunes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreyDunes_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreyGlassBlow_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreyGuemes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreyGuemes_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreyPiggyBack.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreyPiggyBack_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreySammyGuemesSwimming.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreySammyGuemesSwimming_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreySydneySand.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreySydneySand_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreyWyattJackson.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JeffreyWyattJackson_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JimWithBike.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/JimWithBike_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/LondonChangingGuard_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/MomKentPhyllis.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/MomKentPhyllis_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/ReeseSageGuemes_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/RockingHorse_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/SixtySixVan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/SixtySixVan_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/VanAtTheBeach_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/WyattJeffreyGuemes_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/YosemiteVista2_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/balboaFamilyPic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/balboaFamilyPic_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/balboaMomAndDad.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/balboaPosers.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/balboaTrolley.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/balboaTrolley_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/bigPop.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/guemesCousinsSwimming_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/guemesSwimming_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/jKingsBeach.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/jKingsBeach_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/jeffBlueShark_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/jeffreyZipLine.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/jeffreyZipLine_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/jinsandSydney.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/pictureCollection/teacuppers_tn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/splashScreen4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/ZipperZ40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_Halo4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_Socom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_Socom2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_Socom3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_Socom4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_crimsonSkies.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_ftb2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_mag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_mechWarrior3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_recoil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/img_topGun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/vgames/logoFlat343.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/dist/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="details.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/inspector/details/details.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="details.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/inspector/details/details.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".angular-cli.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.angular-cli.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" selection-start-line="27" selection-end-line="27" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chart-config.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/inspector/services/chart-config.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="20" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="drilldown.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/inspector/drilldown/drilldown.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1445">
+              <caret line="93" column="18" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/layout/components/layout/layout.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>forEach</find>
+      <find>left</find>
+      <find>text-align-left</find>
+      <find>text-left</find>
+      <find>ngbd-modal-component</find>
+      <find>openModal</find>
+      <find>tipPosTop</find>
+      <find>interface</find>
+      <find>modalGroup</find>
+      <find>tooltipComponent</find>
+      <find>filters</find>
+      <find>getPictureContents</find>
+      <find>AppChart</find>
+      <find>_pictureService</find>
+      <find>placeSuffix</find>
+      <find>PlaceSuffixPipe</find>
+      <find>ngModel</find>
+      <find>pictureCategories</find>
+      <find>justify</find>
+      <find>LayoutComponent</find>
+      <find>app/inspector/inspect</find>
+      <find>router.navigate</find>
+      <find>this.dynamicData</find>
+      <find>getChartResults</find>
+      <find>getResults</find>
+      <find>getCsvData</find>
+      <find>ViewEncapsulation</find>
+      <find>Observable</find>
+      <find>HttpClient</find>
+      <find>jquery</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&quot;</replace>
+      <replace>grid-c-text</replace>
+      <replace>grid-cell-text</replace>
+      <replace>'</replace>
+      <replace>Shannon K Misner</replace>
+      <replace>Douglas Christopher</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\Tom\tsternberg-app\src\app\wheel-spin\wheel_spinner</dir>
+      <dir>C:\Users\DellM4800\tom-sternberg\src\app</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/resume/customers-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/resume/customers.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/resume/resume-parent/resume-parent.component.html" />
+        <option value="$PROJECT_DIR$/src/app/resume/resume.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/family/services/picture.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/family/family.component.html" />
+        <option value="$PROJECT_DIR$/src/app/inspector/drilldown/pie/pie.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/inspector/drilldown/stacked-bar/stacked-bar.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/inspector/drilldown/drilldown-common.scss" />
+        <option value="$PROJECT_DIR$/src/app/inspector/drilldown/stacked-line/stacked-line.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/inspector/drilldown/drilldown.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/resume/carousel/carousel.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/ngb-modal/ngb-modal.component.html" />
+        <option value="$PROJECT_DIR$/src/app/inspector/drilldown/single-combo/single-combo.component.scss" />
+        <option value="$PROJECT_DIR$/src/assets/stylesheets/styles.scss" />
+        <option value="$PROJECT_DIR$/src/app/resume/carousel/carousel.component.html" />
+        <option value="$PROJECT_DIR$/src/app/resume/carousel/carousel.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/custom-tooltip/custom-tooltip.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/custom-tooltip/custom-tooltip.component.html" />
+        <option value="$PROJECT_DIR$/src/app/resume/resume.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/wheel-spin/wheel-table/wheel-table.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/family/family.component.ts" />
+        <option value="$PROJECT_DIR$/src/assets/stylesheets/variables.scss" />
+        <option value="$PROJECT_DIR$/src/app/layout/components/layout/layout.component.html" />
+        <option value="$PROJECT_DIR$/src/app/layout/components/layout/layout.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/resume/resume.component.html" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/ngb-modal/ngb-modal.component.ts" />
+        <option value="$PROJECT_DIR$/src/assets/familyPics.json" />
+        <option value="$PROJECT_DIR$/src/app/family/models/picture.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/pipes/place-suffix.pipe.ts" />
+        <option value="$PROJECT_DIR$/src/app/family/family.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/shared.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/family/models/category.ts" />
+        <option value="$PROJECT_DIR$/src/app/family/pictures/pictures.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/pipes/picture-filter.pipe.ts" />
+        <option value="$PROJECT_DIR$/src/app/family/pictures/pictures.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/family/pictures/pictures.component.html" />
+        <option value="$PROJECT_DIR$/src/app/inspector/details/details.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/inspector/inspector.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/inspector/inspector-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/inspector/inspector-main/inspector-main.component.html" />
+        <option value="$PROJECT_DIR$/src/app/inspector/details/details.component.html" />
+        <option value="$PROJECT_DIR$/src/app/inspector/drilldown/drilldown.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/inspector/details/details.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/layout/components/layout/layout.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/inspector/services/chart-config.service.ts" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/.angular-cli.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <exe-path>$USER_HOME$/AppData/Roaming/npm/bower.cmd</exe-path>
+    <config-path />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+      <path value="$PROJECT_DIR$/src/assets/d3.geo.tile/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="215" />
+    <option name="y" value="37" />
+    <option name="width" value="1453" />
+    <option name="height" value="989" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tom-sternberg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tom-sternberg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tom-sternberg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tom-sternberg" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tom-sternberg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tom-sternberg" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="9.5.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.prettier" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.prettier" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="" />
+    <property name="node.js.selected.package.prettier" value="" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="C:\Users\DellM4800\tom-sternberg\node_modules\tslint" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\app\inspector" />
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\assets\img\vgames" />
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\assets" />
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\app\games" />
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\app\shared\components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\app\shared\pipes" />
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\assets\img" />
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\app\resume" />
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\app\games" />
+      <recent name="C:\Users\DellM4800\tom-sternberg\src\app" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf907f29-65cc-41b2-8ec4-4365487448f6" name="Default" comment="" />
+      <created>1518455453387</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518455453387</updated>
+      <workItem from="1518455454938" duration="12180000" />
+      <workItem from="1518528867217" duration="8615000" />
+      <workItem from="1518540651532" duration="2924000" />
+      <workItem from="1518544572671" duration="3727000" />
+      <workItem from="1518548423387" duration="3141000" />
+      <workItem from="1518551703362" duration="4546000" />
+      <workItem from="1518556536983" duration="12025000" />
+      <workItem from="1518629739948" duration="12676000" />
+      <workItem from="1518703648879" duration="23000" />
+      <workItem from="1518703682122" duration="1129000" />
+      <workItem from="1518708433142" duration="1922000" />
+      <workItem from="1518719995025" duration="3488000" />
+      <workItem from="1518845266070" duration="1912000" />
+      <workItem from="1519751630945" duration="1200000" />
+      <workItem from="1519840758334" duration="22990000" />
+      <workItem from="1519916007182" duration="22316000" />
+      <workItem from="1520004177151" duration="9638000" />
+      <workItem from="1520096037106" duration="4264000" />
+      <workItem from="1520294945446" duration="2221000" />
+      <workItem from="1520564477869" duration="113000" />
+      <workItem from="1520866721984" duration="17362000" />
+      <workItem from="1520950408629" duration="10857000" />
+      <workItem from="1521125252824" duration="28787000" />
+      <workItem from="1521209937288" duration="14061000" />
+      <workItem from="1521475132809" duration="13505000" />
+      <workItem from="1521639632795" duration="13439000" />
+      <workItem from="1521673056368" duration="2889000" />
+      <workItem from="1521727803033" duration="29724000" />
+      <workItem from="1521813893167" duration="17388000" />
+      <workItem from="1521914545122" duration="4559000" />
+      <workItem from="1521991700415" duration="2715000" />
+      <workItem from="1522014045136" duration="2287000" />
+      <workItem from="1522075336481" duration="27044000" />
+      <workItem from="1522157931753" duration="29775000" />
+      <workItem from="1522248707020" duration="29702000" />
+      <workItem from="1522331237472" duration="5346000" />
+      <workItem from="1522342170328" duration="3592000" />
+      <workItem from="1522355312043" duration="226000" />
+      <workItem from="1522362677132" duration="1048000" />
+      <workItem from="1523287384623" duration="112000" />
+      <workItem from="1523287609444" duration="31719000" />
+      <workItem from="1523367295354" duration="7849000" />
+      <workItem from="1523456931590" duration="6003000" />
+      <workItem from="1523544516638" duration="887000" />
+      <workItem from="1523546386615" duration="2551000" />
+      <workItem from="1523638787216" duration="5405000" />
+      <workItem from="1523720855736" duration="3649000" />
+      <workItem from="1523836823088" duration="2598000" />
+      <workItem from="1523892700162" duration="5000" />
+      <workItem from="1523972887047" duration="345000" />
+      <workItem from="1524228882487" duration="94000" />
+      <workItem from="1524229167486" duration="526000" />
+      <workItem from="1524320913174" duration="4153000" />
+      <workItem from="1524922075163" duration="8000" />
+      <workItem from="1524930198673" duration="1000" />
+      <workItem from="1525350581348" duration="1604000" />
+      <workItem from="1525352268530" duration="1775000" />
+      <workItem from="1529788610972" duration="755000" />
+      <workItem from="1530537480336" duration="252000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="455647000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="215" y="37" width="1453" height="989" extended-state="0" />
+    <layout>
+      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32906976" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49344262" visible="true" weight="0.2515901" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="npm" order="2" sideWeight="0.5065574" side_tool="true" weight="0.24959305" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.35939324" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32914287" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/services/chart-config.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/details/details.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/details/details.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/services/chart-config.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/drilldown/drilldown.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="92" column="22" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/layout/components/layout/layout.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/drilldown/stacked-line/stacked-line.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="873">
+          <caret line="397" column="25" selection-start-line="397" selection-start-column="25" selection-end-line="397" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/family/family.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/family/family.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/utilities/number-utility.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/wheel-spin/wheel-table/wheel-table.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="159" column="3" lean-forward="true" selection-start-line="159" selection-start-column="3" selection-end-line="159" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/wheel-spin/wheel-table/wheel-table.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/ngb-modal/ngb-modal.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/ngb-modal/ngb-modal.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/family/family-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/familyPics.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4896">
+          <caret line="288" column="15" selection-start-line="288" selection-start-column="5" selection-end-line="288" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/interfaces/AppCharts.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="27" lean-forward="true" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/family/models/picture.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/interfaces/Filters.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/pipes/place-suffix.pipe.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/family/family.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/shared.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/family/models/category.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/pipes/picture-filter.pipe.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/family/pictures/pictures.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/MyGames/BitsAndBolts/src/com/disney/GameAsset.as" />
+    <entry file="file://H:/MyGames/BitsAndBolts/src/com/disney/dimg/games/gameScreenManager/GameAsset.as" />
+    <entry file="file://H:/MyGames/BitsAndBolts/src/com/disney/dimg/games/gameScreenManager/GameScreenManager.as" />
+    <entry file="file://H:/MyGames/BitsAndBolts/src/com/disney/display/GameScreen.as" />
+    <entry file="file://H:/MyGames/BitsAndBolts/src/com/disney/controllers/TileManager.as" />
+    <entry file="file://H:/MyGames/BitsAndBolts/src/com/disney/BitsAndBolts.as" />
+    <entry file="file://$PROJECT_DIR$/src/app/family/pictures/pictures.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/family/pictures/pictures.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/details/details.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="27" selection-start-column="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/layout/components/layout/layout.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="71" column="38" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/layout/layout.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="30" column="71" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/inspector.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/inspector-main/inspector-main.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/inspector-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/drilldown/drilldown.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/drilldown/drilldown.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/layout/components/layout/layout.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/drilldown/drilldown.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="93" column="18" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/details/details.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.angular-cli.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" selection-start-line="27" selection-end-line="27" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/details/details.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/inspector/services/chart-config.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="20" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

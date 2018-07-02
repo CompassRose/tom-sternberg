@@ -1,0 +1,11 @@
+<div class="chart-tip-master" [style.left.px]="tipPosLeft - 120" [style.top.px]="tipPosTop -130">
+  <div class="header header-md f-weight-600">{{toolTitle}}</div>
+  <div *ngFor="let val of toolValues;" class="d-flex align-items-center display-xs tipCell">
+    <span class="mr-auto ml-1">{{val.name}}</span>
+    <span class="ml-auto mr-1">{{val.value}}</span>
+  </div>
+</div>
+
+
+
+

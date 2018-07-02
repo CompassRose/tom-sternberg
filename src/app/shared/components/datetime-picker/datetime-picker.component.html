@@ -1,0 +1,14 @@
+<div class="input-group">
+	<input ngbDatepicker
+			[(ngModel)]='date'
+			placeholder='yyyy-mm-dd'
+			class="form-control form-control-lg" />
+	<button (click)='showDatetime = !showDatetime' class="btn btn-primary input-group-addon">
+		<i class='fa fa-calendar'></i>
+	</button>
+</div>
+
+<div *ngIf='showDatetime' class='content'>
+	<ngb-datepicker class="item" #dp [(ngModel)]="date"></ngb-datepicker>
+	<ngb-timepicker class="item" [(ngModel)]="time"></ngb-timepicker>
+</div>

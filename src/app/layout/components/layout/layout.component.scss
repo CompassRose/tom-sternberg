@@ -1,0 +1,185 @@
+@import '../../../../assets/stylesheets/variables';
+
+.backdrop-frame {
+  width: 100%;
+  height: 100vh;
+}
+
+.logo{
+  font-family: 'Montserrat', sans-serif;
+  font-size:1.8rem;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.view {
+  background: url("https://mdbootstrap.com/img/Photos/Others/img (40).jpg")no-repeat center center;
+  background-size: cover;
+}
+
+.background1 {
+  background: url("../../../../assets/img/casino-backdrop2000.jpg");
+}
+
+.background2 {
+  background: url("../../../../assets/img/business.jpg");
+}
+
+.background3 {
+  @include gradient(#214869, lighten(#8192d1, 20));
+}
+
+.background4 {
+  @include gradient($green1, lighten($green1, 20));
+}
+
+
+
+.sidebar {
+  opacity: 0;
+  border-left: 0px solid black;
+  position: fixed;
+  background-color:#3f51b5 !important;
+  z-index: 20;
+  overflow-x: hidden;
+  right: 60px;
+  top: 50px;;
+  width: 250px;
+  height:100vh;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.35);
+}
+
+.main-navigation-groups {
+  ul {
+    padding: 0;
+    li {
+      padding: 1.235rem 0;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.69);
+      list-style: none;
+      font-size: 1.0rem;
+      color: white;
+      &:hover {
+        border-top: 1px solid;
+        border-color: gold;
+        background-color: rgba(31, 40, 62, 0.56);
+      }
+      &:disabled {
+        color: #ccc;
+      }
+      a {
+        margin-left: 1rem;
+        color: white;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+
+.in-visible {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: .5s;
+}
+
+
+.am-visible {
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: .5s;
+}
+
+// Main menu appear/disappear
+.anim-in {
+  animation: revealLeft 0.35s forwards;
+}
+
+.anim-out {
+  animation: hideRight 0.35s forwards;
+}
+
+@keyframes hideRight {
+  0% {
+    transform: translate(600px, 0);
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    transform: translate(60px, 0px);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes revealLeft {
+  0% {
+    transform: translate(60px, 0px);
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    transform: translate(600px, 0px);
+    animation-timing-function: ease-in;
+  }
+}
+
+.nav-icon3 {
+  width: 24px;
+  height: 16px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-icon3 span {
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: $light-gold;
+  border-radius: 0px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.nav-icon3 span:nth-child(1) {
+  top: 0px;
+}
+
+.nav-icon3 span:nth-child(2), .nav-icon3 span:nth-child(3) {
+  top: 8px;
+  height: 1px;
+}
+
+.nav-icon3 span:nth-child(4) {
+  top: 16px;
+}
+
+.nav-icon3.open span:nth-child(1) {
+  top: 0px;
+  width: 0%;
+  left: 50%;
+}
+
+.nav-icon3.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.nav-icon3.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.nav-icon3.open span:nth-child(4) {
+  top: 16px;
+  width: 0%;
+  left: 50%;
+}
+
+.accentBorder {
+  height: 5px;
+  width: 100%;
+  background: transparent;
+  margin-top: 5px;
+  border-top: 3px dotted $light-gold;
+}
