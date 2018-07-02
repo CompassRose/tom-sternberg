@@ -1,0 +1,193 @@
+<div class="row">
+  <ng-container *ngIf="showTip">
+    <app-custom-tooltip
+      [tiptitle]="toolTitle"
+      [tipvalues]="toolValues"
+      [tipPositionX]="tooltipPositionX"
+      [tipPositionY]="tooltipPositionY">
+    </app-custom-tooltip>
+  </ng-container>
+</div>
+<div class="row">
+  <div *ngFor="let chart of allCharts; let $index = index;"
+       [ngClass]="(chart.id=='timeline')?'col-md-8 mr-auto':'col-md-6 mr-auto'">
+    <div class="panel shadow1 p-1">
+      <div class="text-center display-xl p-1 f-weight-600 text-white">{{chart.title}}</div>
+      <div id="{{chart.id}}"
+           [ngClass]="tableActive === true ? 'widget shadow1 scroller' : 'widget shadow1 noscroller'">
+        <div class="chart">
+          <!--<h2 *ngIf="chart.chartType === 'bar'">{{chart.chartType}} - {{chart.id}}</h2>-->
+          <app-bar-chart *ngIf="chart.chartType === 'bar'"
+                         (resetEvent)="setCurrentChart($event, $index, chart.chartType)"
+                         (tooltipEvent)="initToolEvent($event)"
+                         (tooltipHide)="hideToolEvent($event)"
+                         [attachNode]="chart.id"
+                         [barData]="chart.data"
+                         [totalVal]="chart.total"
+                         [soldVal]="chart.sold"
+                         [colorVal]="chart.color"
+                         [isPremium]="chart.isPremium"></app-bar-chart>
+          <pie *ngIf="chart.chartType === 'pie'"
+               (resetEvent)="setCurrentChart($event, $index, chart.chartType)"
+               (tooltipEvent)="initToolEvent($event)"
+               (tooltipHide)="hideToolEvent($event)"
+               [attachNode]="chart.id"
+               [pieData]="chart.data"
+               [totalVal]="chart.total"
+               [soldVal]="chart.sold"
+               [isPremium]="chart.isPremium"></pie>
+          <app-line-chart *ngIf="chart.chartType === 'line'"
+                          (resetEvent)="setCurrentChart($event, $index, chart.chartType)"
+                          (tooltipEvent)="initToolEvent($event)"
+                          (tooltipHide)="hideToolEvent($event)"
+                          [attachNode]="chart.id"
+                          [lineData]="chart.data"
+                          [totalVal]="chart.total"
+                          [soldVal]="chart.sold"
+                          [colorVal]="chart.color"
+                          [isPremium]="chart.isPremium">
+          </app-line-chart>
+          <single-combo *ngIf="chart.chartType === 'single'"
+                        [attachNode]="chart.id"
+                        [singleData]="chart.data"
+                        [singleTitle]="chart.title">
+          </single-combo>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="btn-group btn-group-sm mr-3">
+          <button (click)="toggleTotalQuotes($index);"
+                  type="button"
+                  class="btn btn-indigo waves-light btn-sm active">
+            <i class="fa fa-comment-o"></i>
+          </button>
+          <button (click)="toggleTotalPremium($index);"
+                  type="button"
+                  class="btn btn-indigo waves-light btn-sm">
+            <i class="fa fa-usd"></i>
+          </button>
+        </div>
+        <div class="btn-group btn-group-sm">
+          <button type="button" class="btn btn-indigo waves-light btn-sm  {{chart.id}}"
+                  (click)="setChartType($index, 'bar', true)"><i class="fa fa-bar-chart"></i></button>
+          <button *ngIf="chart.id != 'timeline'" type="button" class="btn btn-indigo waves-light btn-sm {{chart.id}}"
+                  (click)="setChartType($index, 'pie', true)"><i class="fa fa-pie-chart"></i></button>
+          <button type="button" class="btn btn-indigo waves-light btn-sm {{chart.id}}" id="line-select"
+                  (click)="setChartType($index, 'line', true)"><i class="fa fa-line-chart"></i></button>
+          <button type="button" class="btn btn-indigo waves-light btn-sm {{chart.id}}" id="table-select"
+                  (click)="setChartType($index, 'table', false)"><i class="fa fa-th"></i></button>
+          <div *ngIf="chart.id != 'organization'">
+
+            <!--<div class="btn-group-sm" role="group">-->
+            <!--<button id="btnGroupDrop1" type="button" class="btn btn-indigo waves-light btn-sm dropdown-toggle"-->
+            <!--data-toggle="dropdown"-->
+            <!--aria-haspopup="true" aria-expanded="false">Dropdown-->
+            <!--</button>-->
+            <!--<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">-->
+            <!--<a class="dropdown-item" href="#">Dropdown link</a>-->
+            <!--<a class="dropdown-item" href="#">Dropdown link</a>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <span class="display-md text-white">Select Field:</span>
+            <select class="select-spec display-md" [ngModel]="chart.title"
+                    (ngModelChange)="dropdownSelector($index, chart.chartType, $event);"
+                    name="sel2">
+              <option [value]="i" *ngFor="let i of chart.columnData;">{{i}}</option>
+            </select>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="panel shadow1 p-2">
+      <div>
+        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link one active" id="filter-tab" role="tab" (click)="activateTabOne()"><h6>Search Criteria</h6></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link two" id="saved-tab"  (click)="activateTabTwo()">
+              <h6>Saved Searches<span *ngIf="filterSets.length > 0" class="badge" id="savedCount"
+                                      style="position:absolute; margin-top:2px; background-color:blue; margin-left: 6px;">{{filterSets.length}}</span>
+              </h6></a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane one fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+            <table id="searchTable" class="table">
+              <thead>
+              <tr *ngIf="saveActive === true">
+                <th class="searchTh">Field Name</th>
+                <th>Value</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let new of filters; let $idx = index;" class="filterRow">
+                <td>{{new.key}}</td>
+                <td>{{new.values}}</td>
+                <td>
+                  <button class="btn btn-sm btn-danger remove pull-right">
+                    <i class="fa fa-times glyphicon-remove savebtn" (click)="removeThisFilter(new, $idx)"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="controls" [ngClass]="saveActive === true ? 'turnOn' : 'turnOff'">
+              <button id="saveSearch" class="btn btn-sm btn-primary savebtn" (click)="saveFilterSet(filters);">
+                <i class="fa fa-floppy-o"></i>&nbsp;Save
+              </button>
+            </div>
+          </div>
+          <div class="tab-pane two fade" id="saver" role="tabpanel" aria-labelledby="saver-tab">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>Name</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let saved of filterSets; let $index = index;" class="filterRow" style="cursor:pointer;"
+                  (click)="loadFilterList( saved );">
+                <td><span>{{saved.name}}</span> &nbsp;&nbsp;&nbsp; <span *ngFor="let filterer of saved.filters;">&nbsp;&nbsp;&nbsp;({{filterer.values}})</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-danger remove pull-right" (click)="removeFilterSet(saved, $index)">
+                    <i class="fa fa-times glyphicon-remove savebtn"></i></button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="col-sm-4">-->
+    <!--<div class="panel shadow1 panelMinHeight p-3">-->
+      <!--<app-ngbd-tabs-->
+        <!--[tabContent1]="filters"-->
+        <!--[tabContent2]="filterSets"-->
+        <!--(removeFilterEvent)="removeFilter($event)"-->
+        <!--(removeFilterSetEvent)="saveFilterSets($event)"-->
+        <!--(saveFilterSetEvent)="removeFilterSets($event)">-->
+      <!--</app-ngbd-tabs>-->
+      <!--<div class="controls" [ngClass]="saveActive === true ? 'turnOn' : 'turnOff'">-->
+        <!--<button id="saveSearch" class="btn btn-sm btn-primary display-md" (click)="saveFilterSet(filters);">-->
+          <!--<i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save-->
+        <!--</button>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>
+
+
+
+
+

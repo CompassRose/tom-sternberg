@@ -1,0 +1,24 @@
+<ngb-tabset [justify]="currentJustify">
+  <ngb-tab title="FILTERS">
+    <ng-template ngbTabContent>
+      <div *ngFor="let filter of content_1; let $idx = index;" class="d-flex align-items-center filterRow mt-1">
+        <span class="display-md f-weight-600 mr-4">{{filter.key}}: </span><span class="display-md f-weight-600">{{filter.values}} </span>
+        <button class="btn btn-sm btn-danger remove ml-auto" (click)="testFunction(filter, $idx)">
+          <i class="fa fa-times glyphicon-remove savebtn"></i>
+        </button>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>SAVED</b></ng-template>
+    <ng-template ngbTabContent>
+      <div *ngFor="let filterSet of content_1; let $idx = index;" class="d-flex align-items-center filterRow">
+        {{filterSet.key}} {{filterSet.values}}
+        <button class="btn btn-sm btn-danger remove ml-auto" (click)="testFunction(filterSet, $idx)">
+          <i class="fa fa-times glyphicon-remove savebtn"></i>
+        </button>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+

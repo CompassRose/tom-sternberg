@@ -1,0 +1,96 @@
+@import '../../../assets/stylesheets/variables';
+
+.panel {
+  background-color: rgba(7, 9, 68, 0.35);
+  position: relative;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.41);
+}
+
+.panelMinHeight {
+  min-height: 260px;
+}
+
+.widget {
+  background-color: transparent;
+  position: relative;
+  border-radius: 3px 3px 0 0;
+  min-height: 140px;
+  overflow-x: hidden;
+  //  border-left: 1px solid rgba(0, 0, 0, 0.63);
+  //  border-right: 1px solid rgba(0, 0, 0, 0.63);
+  //  border-top: 1px solid rgba(0, 0, 0, 0.63);
+  // box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.select-spec {
+  width:160px;
+}
+
+.btn.btn-sm {
+  font-size: 0.6rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.scroller {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.noscroller {
+  max-height: 1200px;
+  overflow-y: hidden;
+}
+
+.controls {
+  position: relative;
+  border-radius: 0 0 3px 3px;
+  width: 100%;
+  text-align: center;
+  background: rgba(3, 20, 73, 0.3);
+  border-top: solid 1px rgba(163, 163, 163, 0.35);
+  border-left: 1px solid rgba(0, 0, 0, 0.53);
+  border-right: 1px solid rgba(0, 0, 0, 0.53);
+  padding: 5px;
+
+  i {
+    font-size: 15px;
+  }
+
+  button:disabled i {
+    color: darkblue;
+  }
+
+  label {
+    display: inline-block;
+    font-size: 10px;
+    margin-left: 20px;
+  }
+}
+
+.filterRow > td {
+  background-color: #fafaff;
+  border: 0px solid rgba(0, 0, 0, 0.17);
+  font-size: 13px;
+  white-space: nowrap;
+  vertical-align: middle;
+  color:black;
+  padding: 5px;
+}
+
+.filterRow > td:first-child {
+  border-radius: 0 0 0 0;
+}
+
+tr {
+  border-color: transparent !important;
+}
+
+.turnOff {
+  display: none;
+}
+
+.turnOn {
+  display: block;
+}

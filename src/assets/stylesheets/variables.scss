@@ -1,0 +1,52 @@
+/* Colors */
+
+$header: #007bff;
+$darkBlue: #191970;
+$green1: #157ad1;
+$default-text-blue: #1a2234;
+
+
+// Trusted Safe
+$dark-blue: #213159;
+$sky-blue:#3d6098;
+$sexy-red: #f04b4c;
+$fresh-grey: #e7e7e7;
+
+// High End
+$dark-gold: #8E793E;
+$light-gold: #AD974F;
+$intellectual-grey: #182345;
+$light-grey: rgba(0, 0, 0, 0.86);
+
+
+// Elegant
+$prussian-blue: #0a1d05;
+$royal-blue: #4169E1;
+$gold-leaf: #FFD700;
+$ivory-black: #1D2731;
+
+
+$gold: #F8BC00;
+
+$lightestGrey: #ececec;
+$lightGrey: #C9C9C9;
+$mediumGrey: #aaaaaa;
+$darkGrey: rgba(0, 0, 0, 0.4);
+$white-bg: #f0f0f0;
+
+
+@mixin gradient($startColor, $endColor){
+  background: $startColor; /* Old browsers */
+  background: -moz-linear-gradient(top, $startColor 0%, $endColor 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, $startColor 0%,$endColor 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, $startColor 0%,$endColor 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startColor', endColorstr='$endColor',GradientType=0 ); /* IE6-9 */
+}
+
+
+$layoutMargin: 4.6rem;
+$layoutPadding: 4.6rem;
+$layoutPaddingSm: 1.5rem;
+$mini-padding: 1rem;
+
+

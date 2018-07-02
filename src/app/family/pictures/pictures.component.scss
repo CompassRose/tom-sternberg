@@ -1,0 +1,66 @@
+@import '../../../assets/stylesheets/variables';
+
+
+.layout-grid{
+  display: grid;
+ // grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr) );
+  grid-gap: .5rem;
+}
+
+.layout-grid >*{
+ /// height:160px;
+}
+
+.picture-main{
+  grid-column: 2 / span 6;
+ // grid-row: 1 / span 3 ;
+}
+
+.left-gutter {
+  grid-column: 1;
+}
+
+
+.right-gutter {
+  grid-column: 8;
+}
+
+
+.thumbnail{
+ // margin:10px;
+  /// border:1px solid rgba(218, 181, 0, 0.74);
+  transition: transform 0.1s ease-in-out;
+  &:hover{
+   // border:2px solid rgba(218, 181, 0, 0.74);
+    transform: scale(1.02)
+  }
+}
+
+
+
+.chart-tip-master {
+  min-width: 230px;
+  max-width:240px;
+  overflow-wrap: normal;
+  border: 1px solid #e7e7e7;
+  position: absolute;
+  pointer-events: none;
+  z-index: 110000 !important;
+}
+
+.chart-tip-master .header {
+  background-color: #4c6cea;
+  font-size: .9rem;
+  padding: 2px 5px;
+  text-align: left;
+  color: #FFF;
+}
+
+.tipCell {
+  min-height: 40px;
+  font-size: 12px;
+  padding: 3px 0 3px 0;
+  border: 1px solid #CCC;
+  background-color: #fff;
+}
