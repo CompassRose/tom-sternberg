@@ -1,0 +1,45 @@
+<div class="draft-container">
+  <div class="team-container">\
+    <div *ngFor="let team of allTeams">
+      <div class="team-space">
+        <div class="team-name mb-1"><em>{{team.teamName}}</em></div>
+        <a mwlDroppable class="playerList text-left w-100" *ngFor="let teamPlayer of teamsPlayers"><span
+          class="team-player-text">{{teamPlayer.pnum}}{{teamPlayer.pname}}</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="player-container">
+    <div class="btnGroup">
+      <button
+        class="btn-sm btn-primary posButton"
+        (click)="activatePos('QB')">QB
+      </button>
+      <button class="btn-sm btn-primary posButton"
+              (click)="activatePos('RB')">RB
+      </button>
+      <button class="btn-sm btn-primary posButton"
+              (click)="activatePos('WR')">WR
+      </button>
+      <button class="btn-sm btn-primary posButton"
+              (click)="activatePos('TE')">TE
+      </button>
+      <button class="btn-sm btn-primary posButton"
+              (click)="activatePos('K')">K
+      </button>
+      <button class="btn-sm btn-primary posButton"
+              (click)="activatePos('D/ST')">D/ST
+      </button>
+      <!--<button-->
+      <!--(click)="activatePos('ALL')">ALL-->
+      <!--</button>-->
+    </div>
+    <div class="player-list-container">
+
+      <div mwlDraggable class="playerList text-left" *ngFor="let player of tempRows">
+        <div class="ml-2">{{player.position}}</div>
+        <div class="ml-3">{{player.playername}}</div>
+        <div class="ml-auto mr-2">{{player.team}}</div>
+      </div>
+    </div>
+  </div>
+</div>

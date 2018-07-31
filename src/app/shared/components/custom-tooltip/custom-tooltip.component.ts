@@ -19,9 +19,7 @@ export class CustomTooltipComponent implements OnInit, OnChanges {
   public tipPosLeft;
   public tipPosTop;
 
-  constructor() {
-  }
-
+  constructor() {}
 
   ngOnInit() {
     this.tipPosLeft = this.tipPositionX;
@@ -36,7 +34,6 @@ export class CustomTooltipComponent implements OnInit, OnChanges {
     this.toolTitle = this.tiptitle;
     this.setValueFormat(this.tipvalues);
   }
-
 
 
   setValueFormat(params) {
@@ -60,7 +57,6 @@ export class CustomTooltipComponent implements OnInit, OnChanges {
     document.addEventListener('mousemove', function (e: MouseEvent) {
       parent.mouse.x = (e.clientX || e.pageX) + (document.body.scrollLeft || document.documentElement.scrollLeft);
       parent.mouse.y = (e.clientY || e.pageY) + (document.body.scrollTop || document.documentElement.scrollTop);
-      //  console.log('initMouse x ', parent.mouse.x, ' y ', parent.mouse.y);
     }, false);
   }
 }

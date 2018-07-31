@@ -33,6 +33,18 @@
 }
 
 
+.in-visible {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: .5s;
+}
+
+
+.am-visible {
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: .5s;
+}
 
 .sidebar {
   opacity: 0;

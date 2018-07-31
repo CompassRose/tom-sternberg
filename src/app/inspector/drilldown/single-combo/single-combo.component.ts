@@ -42,7 +42,6 @@ export class SingleComboComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
 
     if (this.initialized) {
-      // console.log( "single on changes: Node ", this.attachNode, " this.data ", this.singleData[0] );
       this.margin = {top: 10, right: 40, bottom: 35, left: 40};
       this.key = this.singleTitle;
       this.color = ['#3f51b5', '#00b862', '#ff5722', '#2196f3', '#eeeb0c', '#ff9800', '#ff4514'];
@@ -216,11 +215,10 @@ export class SingleComboComponent implements OnInit, OnChanges {
       .attr('viewBox', '0, 0, ' + (this.container.width + this.margin.left + this.margin.right) +
         ', ' + (this.container.height - this.table.height() ));
 
-    console.log('this.table.height() ', this.table.height());
+   // console.log('this.table.height() ', this.table.height());
     for (let j = 0; j < d3.keys(this.premiumData).length; j++) {
       const isPrem: any = (j === 0) ? false : true;
       const color = this.color;
-      // console.log('j ', j);
       const chart: any = svg.append('g')
         .attr('class', 'pie')
         .attr('transform', function () {

@@ -1,15 +1,8 @@
-<div class="d-flex flex-column mt-5">
-  <button type="button" (click)="bring()">Bring</button>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
-  <div>details works!</div>
+<div class="detail-backdrop d-flex flex-column align-items-start mt-5">
+  <a class="detail-row" *ngFor="let row of detailRows | slice:0:100; ">
+    <div>{{row["Quote Date Created"]}}</div>
+    <div>{{row["Sales Person"]}}</div>
+    <div>{{row["Product"]}}</div>
+    <div>${{row["Total Premium Sold"]}}</div>
+  </a>
 </div>

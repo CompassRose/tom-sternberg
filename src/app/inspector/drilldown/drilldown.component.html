@@ -16,7 +16,6 @@
       <div id="{{chart.id}}"
            [ngClass]="tableActive === true ? 'widget shadow1 scroller' : 'widget shadow1 noscroller'">
         <div class="chart">
-          <!--<h2 *ngIf="chart.chartType === 'bar'">{{chart.chartType}} - {{chart.id}}</h2>-->
           <app-bar-chart *ngIf="chart.chartType === 'bar'"
                          (resetEvent)="setCurrentChart($event, $index, chart.chartType)"
                          (tooltipEvent)="initToolEvent($event)"
@@ -54,7 +53,6 @@
           </single-combo>
         </div>
       </div>
-
       <div class="controls">
         <div class="btn-group btn-group-sm mr-3">
           <button (click)="toggleTotalQuotes($index);"
@@ -77,114 +75,74 @@
                   (click)="setChartType($index, 'line', true)"><i class="fa fa-line-chart"></i></button>
           <button type="button" class="btn btn-indigo waves-light btn-sm {{chart.id}}" id="table-select"
                   (click)="setChartType($index, 'table', false)"><i class="fa fa-th"></i></button>
-          <div *ngIf="chart.id != 'organization'">
-
-            <!--<div class="btn-group-sm" role="group">-->
-            <!--<button id="btnGroupDrop1" type="button" class="btn btn-indigo waves-light btn-sm dropdown-toggle"-->
-            <!--data-toggle="dropdown"-->
-            <!--aria-haspopup="true" aria-expanded="false">Dropdown-->
-            <!--</button>-->
-            <!--<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">-->
-            <!--<a class="dropdown-item" href="#">Dropdown link</a>-->
-            <!--<a class="dropdown-item" href="#">Dropdown link</a>-->
-            <!--</div>-->
-            <!--</div>-->
-
-            <span class="display-md text-white">Select Field:</span>
-            <select class="select-spec display-md" [ngModel]="chart.title"
-                    (ngModelChange)="dropdownSelector($index, chart.chartType, $event);"
-                    name="sel2">
-              <option [value]="i" *ngFor="let i of chart.columnData;">{{i}}</option>
-            </select>
-
-          </div>
+        </div>
+        <div *ngIf="chart.id != 'organization'">
+          <span class="display-md text-white ml-2 mr-2">Select Field:</span>
+          <select class="select-spec display-md" [ngModel]="chart.title"
+                  (ngModelChange)="dropdownSelector($index, chart.chartType, $event);"
+                  name="sel2">
+            <option [value]="i" *ngFor="let i of chart.columnData;">{{i}}</option>
+          </select>
         </div>
       </div>
     </div>
   </div>
-
   <div class="col-sm-4">
     <div class="panel shadow1 p-2">
       <div>
-        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+        <ul class="filters-tabs nav nav-tabs nav-justified" id="myTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link one active" id="filter-tab" role="tab" (click)="activateTabOne()"><h6>Search Criteria</h6></a>
+            <a class="nav-link one active" id="filter-tab" role="tab" (click)="activateTabOne()"><h6>Search
+              Criteria</h6></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link two" id="saved-tab"  (click)="activateTabTwo()">
+            <a class="nav-link two" id="saved-tab" (click)="activateTabTwo()">
               <h6>Saved Searches<span *ngIf="filterSets.length > 0" class="badge" id="savedCount"
                                       style="position:absolute; margin-top:2px; background-color:blue; margin-left: 6px;">{{filterSets.length}}</span>
               </h6></a>
           </li>
         </ul>
-
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane one fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
-            <table id="searchTable" class="table">
-              <thead>
-              <tr *ngIf="saveActive === true">
-                <th class="searchTh">Field Name</th>
-                <th>Value</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let new of filters; let $idx = index;" class="filterRow">
-                <td>{{new.key}}</td>
-                <td>{{new.values}}</td>
-                <td>
+            <div>
+              <div *ngIf="saveActive === true" class="d-flex align-items-center justify-content-start w-100">
+                <div>Field Name</div>
+                <div>Value</div>
+              </div>
+              <div *ngFor="let new of filters; let $idx = index;" class="filterRow">
+                <div>{{new.key}}</div>
+                <div>{{new.values}}</div>
+                <div>
                   <button class="btn btn-sm btn-danger remove pull-right">
                     <i class="fa fa-times glyphicon-remove savebtn" (click)="removeThisFilter(new, $idx)"></i>
                   </button>
-                </td>
-              </tr>
-              </tbody>
-            </table>
+                </div>
+              </div>
+            </div>
             <div class="controls" [ngClass]="saveActive === true ? 'turnOn' : 'turnOff'">
               <button id="saveSearch" class="btn btn-sm btn-primary savebtn" (click)="saveFilterSet(filters);">
-                <i class="fa fa-floppy-o"></i>&nbsp;Save
+                <i class="fa fa-floppy-o mr-1"></i>&nbsp;Save
               </button>
             </div>
           </div>
           <div class="tab-pane two fade" id="saver" role="tabpanel" aria-labelledby="saver-tab">
-            <table class="table table-hover">
-              <thead>
-              <tr>
-                <th>Name</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let saved of filterSets; let $index = index;" class="filterRow" style="cursor:pointer;"
-                  (click)="loadFilterList( saved );">
-                <td><span>{{saved.name}}</span> &nbsp;&nbsp;&nbsp; <span *ngFor="let filterer of saved.filters;">&nbsp;&nbsp;&nbsp;({{filterer.values}})</span>
-                </td>
-                <td>
+            <div>
+              <div>Name</div>
+              <div *ngFor="let saved of filterSets; let $index = index;" class="filterRow" style="cursor:pointer;"
+                   (click)="loadFilterList( saved );">
+                <div><span>{{saved.name}}</span> &nbsp;&nbsp;&nbsp; <span *ngFor="let filterer of saved.filters;">&nbsp;&nbsp;&nbsp;({{filterer.values}})</span>
+                </div>
+                <div>
                   <button class="btn btn-sm btn-danger remove pull-right" (click)="removeFilterSet(saved, $index)">
                     <i class="fa fa-times glyphicon-remove savebtn"></i></button>
-                </td>
-              </tr>
-              </tbody>
-            </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--<div class="col-sm-4">-->
-    <!--<div class="panel shadow1 panelMinHeight p-3">-->
-      <!--<app-ngbd-tabs-->
-        <!--[tabContent1]="filters"-->
-        <!--[tabContent2]="filterSets"-->
-        <!--(removeFilterEvent)="removeFilter($event)"-->
-        <!--(removeFilterSetEvent)="saveFilterSets($event)"-->
-        <!--(saveFilterSetEvent)="removeFilterSets($event)">-->
-      <!--</app-ngbd-tabs>-->
-      <!--<div class="controls" [ngClass]="saveActive === true ? 'turnOn' : 'turnOff'">-->
-        <!--<button id="saveSearch" class="btn btn-sm btn-primary display-md" (click)="saveFilterSet(filters);">-->
-          <!--<i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save-->
-        <!--</button>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
 </div>
 
 

@@ -9,9 +9,8 @@ export class PictureFilterPipe implements PipeTransform {
   transform(items: any, filters?: any): any[] {
 
     return items = items.filter(a => {
-      console.log('filter ', filters);
+      // console.log('filter items ', items);
       return filters.length ? filters.indexOf(a.status) !== -1 : items;
     });
-  //  console.log('items', items, ' filter ', filter);
   }
 }

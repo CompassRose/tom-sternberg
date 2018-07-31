@@ -1,18 +1,13 @@
 import {Injectable} from '@angular/core';
- import {HttpClient} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/observable/of';
+import {Subject} from 'rxjs/Subject';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+
 import * as d3 from 'd3';
 import * as $ from 'jquery';
-import {timeFormat} from 'd3-time-format';
+import timeFormat from 'd3-time-format';
 import {MAPPING_DATA} from './mappings';
-
-
 
 
 @Injectable()
@@ -27,6 +22,7 @@ export class ChartConfigService {
   private margin;
   private columnData;
 
+public newQuoteSubject = new BehaviorSubject<any>(this.detailData);
 
   constructor(private http: HttpClient) {
     this.margin = {top: 10, right: 30, bottom: 10, left: 20};
@@ -36,24 +32,22 @@ export class ChartConfigService {
   }
 
 
+  getSubjectData(newList) {
+    this.newQuoteSubject.next(newList);
+  }
+
 // Old hard coded csv response
   getCsvData(): Observable<any> {
-    return this.http.get('../../../assets/data-collections/Quotes.csv', { responseType: 'text' })
+    return this.http.get('../../../assets/data-collections/Quotes.csv', {responseType: 'text'})
       .map((res) => this.mapInitialData(res))
       .catch(this.handleError);
   }
 
 
-// // Called from details tab to populate filtered details
-//   getChartResults(filter: QueryObject): Observable<any> {
-//     return this.catalogService.getResults(filter)
-//   }
-
-
   private handleError(error: any) {
     const errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); // log to console instead
+    // console.error(errMsg); // log to console instead
     return Observable.throw(errMsg);
   }
 
@@ -123,7 +117,7 @@ export class ChartConfigService {
           values: group.value
         };
       });
-    console.log('Chart nest ', nest);
+    // console.log('Chart nest ', nest);
     return nest;
   }
 
@@ -153,9 +147,6 @@ export class ChartConfigService {
   };
 
 
-
-
-
   // get rollup fields as defined in mappings.js
   private rollitup() {
     const rollup = [];
@@ -166,8 +157,6 @@ export class ChartConfigService {
     });
     return rollup;
   }
-
-
 
 
 // formats data according to rules specified in mappings.js
@@ -191,7 +180,6 @@ export class ChartConfigService {
       return d.value[v.value];
     }
   }
-
 
 
   // formats date (m/d/yyyy -> yyyy-mm-dd)
@@ -236,12 +224,9 @@ export class ChartConfigService {
   }
 
 
-
   sizeContainers = function (target) {
-   // console.log('chartWindow ', target);
     const pieChartWindow = document.getElementById(target);
     const chartWindow = pieChartWindow.getBoundingClientRect();
-   // console.log('chartWindow ', chartWindow.width);
     return {width: Math.abs(chartWindow.width), height: 260};
   };
 
@@ -271,10 +256,6 @@ export class ChartConfigService {
   }
 
 
-  // update row count badge text
-  setDetailCollection(rec) {
-    this.detailData = rec;
-  }
 
 
   // Map State data for map screen
@@ -326,16 +307,13 @@ export class ChartConfigService {
   }
 
 
-
-
   private initMouse(parent) {
     document.addEventListener('mousemove', function (e: MouseEvent) {
       parent.mouse.x = (e.clientX || e.pageX) + (document.body.scrollLeft || document.documentElement.scrollLeft);
       parent.mouse.y = (e.clientY || e.pageY) + (document.body.scrollTop || document.documentElement.scrollTop);
-    //  console.log('initMouse x ', parent.mouse.x, ' y ', parent.mouse.y);
+      //  console.log('initMouse x ', parent.mouse.x, ' y ', parent.mouse.y);
     }, false);
   }
-
 
 
   // hide the tip

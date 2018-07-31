@@ -10,10 +10,9 @@ import { DragAndDropModule } from 'angular-draggable-droppable';
 import { LayoutModule } from './layout/layout.module';
 
 
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     // Base

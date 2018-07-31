@@ -89,6 +89,7 @@ export class BarChartComponent implements OnInit, OnChanges {
 
 // Call parent function to show tooltip
   private showTooltip(values, x, y) {
+    console.log('showTooltip ', y);
     this.tooltipEvent.next({values: values, x: x, y: y});
   }
 
@@ -108,7 +109,6 @@ export class BarChartComponent implements OnInit, OnChanges {
     if (this.attachNode !== 'timeline') {
       this.sortData(this);
     }
-
 
     this.initSettings(this);
     this.drawSVG(this);
@@ -174,7 +174,6 @@ export class BarChartComponent implements OnInit, OnChanges {
 
 
   private drawSVG(parent) {
-
     d3.select('#' + this.attachNode).select('svg').remove();
     d3.select('#' + this.attachNode).select('table').remove();
 

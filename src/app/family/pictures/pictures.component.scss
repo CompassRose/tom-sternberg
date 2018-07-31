@@ -1,47 +1,33 @@
 @import '../../../assets/stylesheets/variables';
 
-
-.layout-grid{
-  display: grid;
- // grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr) );
-  grid-gap: .5rem;
-}
-
-.layout-grid >*{
- /// height:160px;
-}
-
-.picture-main{
-  grid-column: 2 / span 6;
- // grid-row: 1 / span 3 ;
-}
-
-.left-gutter {
-  grid-column: 1;
+.selection-frame {
+  border: 1px solid gold;
 }
 
 
-.right-gutter {
-  grid-column: 8;
+.master-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  // border: 1px solid gold;
 }
 
-
-.thumbnail{
- // margin:10px;
-  /// border:1px solid rgba(218, 181, 0, 0.74);
+.thumbnail {
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  margin: 5px 5px 0 0;
+  border: 1px solid rgb(249, 224, 4);
   transition: transform 0.1s ease-in-out;
-  &:hover{
-   // border:2px solid rgba(218, 181, 0, 0.74);
-    transform: scale(1.02)
+  img{
+    width: 120px;
+    height: 120px;
+  }
+  &:hover {
+    transform: scale(1.03)
   }
 }
-
-
-
 .chart-tip-master {
   min-width: 230px;
-  max-width:240px;
+  max-width: 240px;
   overflow-wrap: normal;
   border: 1px solid #e7e7e7;
   position: absolute;
@@ -51,15 +37,17 @@
 
 .chart-tip-master .header {
   background-color: #4c6cea;
-  font-size: .9rem;
+  font-size: .8rem;
   padding: 2px 5px;
   text-align: left;
   color: #FFF;
 }
 
+
 .tipCell {
-  min-height: 40px;
-  font-size: 12px;
+  height: auto;
+  // min-height: 40px;
+  font-size: .7rem;
   padding: 3px 0 3px 0;
   border: 1px solid #CCC;
   background-color: #fff;

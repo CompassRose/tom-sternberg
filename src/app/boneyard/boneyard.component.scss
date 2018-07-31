@@ -1,0 +1,96 @@
+
+body {
+  height: 100vh;
+}
+
+.draft-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnGroup {
+  display: flex;
+  width: 100%;
+  justify-content: stretch;
+}
+.posButton {
+  width: 80px;
+}
+
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
+  width: 45%;
+}
+
+.player-list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+.playerList {
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-start;
+  margin-right: auto;
+  border: 1px solid black;
+  width: 200px;
+
+  &:hover {
+    background-color: #f1f3db;
+  }
+}
+
+[mwlDraggable] {
+  background-color: #53b458;
+  position: relative;
+  z-index: 1;
+  margin-right: 10px;
+}
+
+[mwlDroppable] {
+  position: relative;
+  background-color: rgb(231, 241, 255);
+}
+
+[mwlDraggable],
+[mwlDroppable] {
+  color: white;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  width: 55%;
+}
+
+.team-space {
+  margin: 0px 5px 10px 5px;
+  border-radius: 4px;
+  padding: 5px 5px;
+  text-align: left;
+  color: white;
+  width: 200px;
+  height: auto;
+  border: 1px solid #9a9a9a;
+  background-color: #8bb5ff;
+  .team-name {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+  }
+  .team-player-text {
+    width: 100%;
+    font-size: 11px;
+    padding: 0 3px;
+    color: black;
+  }
+}
