@@ -11,6 +11,10 @@ import {LayoutComponent} from './layout/components/layout/layout.component';
         component: LayoutComponent,
         children: [
           {
+            path: 'boneyard',
+            loadChildren: './boneyard/boneyard.module#BoneyardModule'
+          },
+          {
             path: 'family',
             loadChildren: './family/family.module#FamilyModule'
           },

@@ -7,6 +7,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
+// const BASE_URL = 'http://localhost:3000/items/';
+
 @Injectable()
 export class PictureService {
 // API_URL = environment.apiUrl;

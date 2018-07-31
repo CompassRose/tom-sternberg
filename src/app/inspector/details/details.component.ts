@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit, Input} from '@angular/core';
 import {DrilldownComponent} from '../drilldown/drilldown.component';
+import {ChartConfigService} from '../services/chart-config.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-details',
@@ -7,14 +9,20 @@ import {DrilldownComponent} from '../drilldown/drilldown.component';
   styleUrls: ['./details.component.scss']
 })
 
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
 
-  @ViewChild(DrilldownComponent)
-  private drillComponent: DrilldownComponent;
+  constructor( public quoteService: ChartConfigService) {}
+
+  @Input() processedData: any[];
+  private detailRows = [];
 
 
-  bring() {
-    console.log('bring ', this.drillComponent.getValue());
+  ngOnInit(): any {
+    // updates details filter
+    this.quoteService.newQuoteSubject.subscribe(
+      data => {
+        console.log(' \\\\\\\\\\\\\\\\\\\\\\  data', data);
+        this.detailRows = data; }
+    );
   }
-
 }

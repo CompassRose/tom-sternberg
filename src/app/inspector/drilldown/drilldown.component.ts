@@ -12,18 +12,18 @@ import {AppChart} from '../interfaces/AppCharts';
 import * as $ from 'jquery';
 // declare var bootbox: any;
 
+// TODO  Get rid of jQuery
+
 @Component({
   selector: 'app-drilldown',
   templateUrl: './drilldown.component.html',
-  styleUrls: ['./drilldown.component.scss'],
-  providers: [ChartConfigService]
+  styleUrls: ['./drilldown.component.scss']
 })
+
 
 export class DrilldownComponent implements OnInit {
 
   constructor(private quoteService: ChartConfigService) {}
-
-
 
 //  private color1 = ['#2196f3', '#1a237e'];
   private color1 = ['#05d6ff', '#012172'];
@@ -43,8 +43,7 @@ export class DrilldownComponent implements OnInit {
   public toolValues: any[] = [];
   public tooltipPositionX;
   public tooltipPositionY;
-
-
+  public detailsOff  = false;
 
   public allCharts: AppChart[] = [
     <AppChart>{
@@ -101,13 +100,12 @@ export class DrilldownComponent implements OnInit {
       });
   }
 
-  getValue() {
-    return 'HELLO!!';
-  }
+
   removeFilter(e, idx) {
-    console.log('removeFilter ', e.key);
+   // console.log('removeFilter ', e.key);
     this.removeThisFilter(e, 0);
   }
+
 
   removeFilterSets(e) {
     console.log('removeFilterSets ', e);
@@ -120,7 +118,7 @@ export class DrilldownComponent implements OnInit {
 
   initToolEvent(e) {
     this.showTip = true;
-    this.tooltipPositionX = e.x - 10;
+    this.tooltipPositionX = e.x + 60;
     this.tooltipPositionY = e.y;
     this.toolTitle = e.values.key;
     this.toolValues = e.values.values;
@@ -129,7 +127,6 @@ export class DrilldownComponent implements OnInit {
 
   hideToolEvent() {
     this.showTip = false;
-  //  console.log('initToolPosition ');
   }
 
 
@@ -145,11 +142,9 @@ export class DrilldownComponent implements OnInit {
     this.allCharts[2].title = 'Quote Year and Month Created';
 
     const processedRows = this.quoteService.mapDataRows(this.allRows);
-  // console.log('\n\nprocessedRows ', processedRows);
     this.allRows = processedRows;
     this.dynamicData = processedRows;
-  //  console.log('this.allRows ', this.dynamicData);
-
+    this.quoteService.getSubjectData(this.dynamicData);
     this.allCharts.forEach((d, i) => {
       d.data = this.quoteService.nestChartData(d.title, processedRows);
     });
@@ -167,7 +162,6 @@ export class DrilldownComponent implements OnInit {
 
   // From chart elements click to set filters
   setCurrentChart(newData, index, setFilter) {
-    console.log('setCurrentChart  ', this.allCharts[index], ' newData ', newData);
     this.setChartBtnsState(this.allCharts[index], true);
     this.saveActive = true;
     const setFilterFormat = {key: this.allCharts[index].title, values: newData.key};
@@ -176,15 +170,14 @@ export class DrilldownComponent implements OnInit {
     this.filters.push(setFilterFormat);
     const filteredList = this.returnFiltered('new');
     this.setChartData(filteredList);
-    this.quoteService.setDetailCollection(newData);
-    // console.log('----this.filters ', this.filters);
+    this.quoteService.getSubjectData(filteredList);
   }
 
 
   // Draws charts with updated data
   setChartData(filteredResponse) {
     this.allCharts.forEach((v, i) => {
-      console.log('\n v', v);
+      // console.log('\n v', v);
       v.data = this.quoteService.nestChartData(v.title, filteredResponse);
       if (v.key !== '') {
         v.chartType = 'single';
@@ -201,7 +194,6 @@ export class DrilldownComponent implements OnInit {
 
   // From saved list delete filter
   removeThisFilter(item, i) {
-    console.log('removeThisFilter i ', i, ' item.key ', item.key);
     this.filters.splice(i, 1);
     this.allCharts.forEach((d, idx) => {
       if (item.key === d.title) {
@@ -273,8 +265,6 @@ export class DrilldownComponent implements OnInit {
   saveFilterSet(searchValues) {
 
     console.log('saveFilterSet searchValues ', searchValues);
-    // console.log('saveFilterSet this.filters ', this.filters);
-    // console.log('this.filterSets Before ', this.filterSets);
 
     let filterSetter = [];
 
@@ -302,7 +292,7 @@ export class DrilldownComponent implements OnInit {
           d.key = f.values;
         }
       });
-      console.log('setKeysToFilter d.title ', d.key);
+     // console.log('setKeysToFilter d.title ', d.key);
     });
 
   }
@@ -312,7 +302,7 @@ export class DrilldownComponent implements OnInit {
 // Load filter list
 
   loadFilterList(target) {
-    console.log('loadFilterList target ', target);
+    // console.log('loadFilterList target ', target);
     this.filters = [];
     let filterSetter = [];
 
@@ -348,7 +338,7 @@ export class DrilldownComponent implements OnInit {
         return (d[v.key] === v.values);
       });
     });
-    console.log('returnFiltered this.filters ', this.filters);
+   // console.log('returnFiltered this.filters ', this.filters);
     this.dynamicData = data;
     return data;
   }
@@ -372,7 +362,7 @@ export class DrilldownComponent implements OnInit {
 
 
   private toggleTotalQuotes(i) {
-    console.log('toggleTotalQuotes', i);
+   // console.log('toggleTotalQuotes', i);
     this.allCharts[i].isPremium = false;
 
     this.allCharts[i].color = this.color1;
@@ -382,7 +372,7 @@ export class DrilldownComponent implements OnInit {
 
 
   private toggleTotalPremium(i) {
-    console.log('toggleTotalPremium', i);
+   // console.log('toggleTotalPremium', i);
     this.allCharts[i].isPremium = true;
     this.allCharts[i].color = this.color2;
     this.allCharts[i].total = 'Total Premium Quoted';

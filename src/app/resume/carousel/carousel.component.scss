@@ -47,7 +47,18 @@
   }
 }
 
+.in-visible {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: .5s;
+}
 
+
+.am-visible {
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: .5s;
+}
 
 .anim-in {
   animation: revealDown 0.55s forwards;
@@ -61,7 +72,7 @@
 
 @keyframes hideUp {
   0% {
-    transform: translate(0px, -300px);
+    transform: translate(0px, -420px);
     animation-timing-function: ease-in-out;
   }
 
@@ -80,7 +91,7 @@
   }
 
   100% {
-    transform: translate(0px, -300px);
+    transform: translate(0px, -420px);
     animation-timing-function: ease-in-out;
   }
 }

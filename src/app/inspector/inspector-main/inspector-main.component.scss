@@ -1,0 +1,42 @@
+
+.nav-tab-format {
+  border-bottom: 1px transparent;
+  margin-top: 1px;
+}
+
+.nav-tabs .nav-link {
+  color: white;
+  background-color: transparent;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-color: rgba(49, 49, 98, 0.55);
+  border-radius: 5px 5px 0 0;
+  margin-right: 4px;
+  border-bottom: 1px transparent;
+  &:hover {
+    border-color: #52a3ff;
+    color: white;
+    border-bottom: 1px solid #4554a3;
+  }
+  &:active {
+    border-color: white;
+    border-bottom: 1px solid #4554a3;
+  }
+  &:focus {
+    border-color: white;
+    border-bottom: 1px solid #4554a3;
+  }
+}
+
+
+ .nav-tabs .nav-link.active {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+  border-bottom: 1px solid #4554a3;
+}
+//
+//.nav-tab-active-color {
+//  color: #007dc6 !important;
+//}

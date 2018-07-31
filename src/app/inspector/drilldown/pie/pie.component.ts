@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, OnChanges, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, OnChanges, EventEmitter, ViewEncapsulation} from '@angular/core';
 import {ChartConfigService} from '../../services/chart-config.service';
 import {CustomTooltipComponent} from '../../../shared/components/custom-tooltip/custom-tooltip.component';
 
@@ -9,7 +9,8 @@ import * as $ from 'jquery';
   selector: 'pie',
   styleUrls: ['./pie.component.scss', '../../inspector-common-styles.scss'],
   templateUrl: './pie.component.html',
-  providers: [ChartConfigService, CustomTooltipComponent]
+  providers: [ChartConfigService, CustomTooltipComponent],
+  encapsulation: ViewEncapsulation.None
 })
 
 
@@ -64,8 +65,7 @@ export class PieChartComponent implements OnInit, OnChanges {
   @Output() tooltipEvent = new EventEmitter<any>();
   @Output() tooltipHide = new EventEmitter<any>();
 
-  constructor(private quoteService: ChartConfigService) {
-  }
+  constructor(private quoteService: ChartConfigService) {}
 
   ngOnChanges(): void {
     if ( this.data) {
@@ -94,12 +94,12 @@ export class PieChartComponent implements OnInit, OnChanges {
       this.chartInit();
       this.initChart(this);
       this.initializeEvents(this);
-    }, 200);
+    }, 300);
   }
 
 // Call parent function to show tooltip
   private showTooltip(values, x, y) {
-    this.tooltipEvent.next({values: values, x: x, y: y});
+    this.tooltipEvent.next({values: values.data, x: x, y: y});
   }
 
   // Call parent function to show tooltip
@@ -113,11 +113,6 @@ export class PieChartComponent implements OnInit, OnChanges {
         this.pieData.splice(i, 1);
       }
     });
-
-    // this.initSettings(this);
-    // this.drawSVG(this);
-    // this.drawLegend(this);
-    // this.initializeEvents(this);
   }
 
 
@@ -128,14 +123,10 @@ export class PieChartComponent implements OnInit, OnChanges {
 
 
 
-
   initChart(parent) {
-
     d3.select('#' + this.attachNode).select('svg').remove();
     d3.select('#' + this.attachNode).select('table').remove();
-
     this.container = this.quoteService.sizeContainers('variable');
-
     const svg = d3.select('#' + this.attachNode)
       .append('center')
       .append('svg')
@@ -184,7 +175,6 @@ export class PieChartComponent implements OnInit, OnChanges {
     this.arc = arc;
     this.outerArc = outerArc;
     this.color = color;
-
     this.change(this.data, this);
 
     d3.select(window)
@@ -454,7 +444,6 @@ export class PieChartComponent implements OnInit, OnChanges {
   private selectArea(d, i, parent) {
     $('#' + parent.attachNode + ' .slice').not(':eq(' + i + ')').attr('fill-opacity', '0.25');
     $('#' + parent.attachNode + ' .legend .key').not(':eq(' + i + ')').find('rect').attr('fill-opacity', '0.45');
-    $('#' + parent.attachNode + ' .legend .key').not(':eq(' + i + ')').find('text').attr('fill-opacity', '0.45');
     this.quoteService.showTip(parent.quoteService.mouse.x, parent.quoteService.mouse.y, d.key, d.values);
   }
 
@@ -528,44 +517,22 @@ export class PieChartComponent implements OnInit, OnChanges {
 
 
 
-
   private initializeEvents(parent) {
     this.arcGroup
         .on('mousemove', (d, i) => {
-          console.log('mousemove ', d.data.key);
           parent.showTooltip(d, parent.quoteService.mouse.x, parent.quoteService.mouse.y);
         })
       .on('mouseleave', () => {
         parent.hideTooltip();
       })
       .on('click', function (d: any) {
-        // console.log('Pie click', d.data);
-        parent.quoteService.hideTip();
+        parent.hideTooltip();
+
         const filter = {key: d.data.key, values: d.data.values};
         // console.log('click', filter);
         parent.resetPieChart(filter);
 
       });
-
-
-    // this.legendKey.on('click', function (d) {
-    //   // console.log('Pie click', d);
-    //   parent.quoteService.hideTip();
-    //   var filter = {key: d.data.key, values: d.data.values};
-    //   // console.log('click', filter);
-    //   parent.resetPieChart(filter);
-    //
-    // })
-    //   .on('mouseenter', function (d, i) {
-    //     let arc = $('#' + parent.attachNode).find('.pie .arc').eq(i);
-    //     let txt = arc.find('text');
-    //     let mX: number = Math.round(txt.offset().left);
-    //     let mY: number = Math.round(txt.offset().top - 15);
-    //     parent.selectArea(d.data, i, parent);
-    //   })
-    //   .on('mouseleave', function () {
-    //     parent.deselectArea(parent);
-    //   });
   }
 }
 
