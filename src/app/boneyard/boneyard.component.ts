@@ -1,6 +1,8 @@
-import {Component, OnInit, AfterViewInit, Input} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {PlayerService} from './services/player.service';
 import {TeamService} from './services/team.service';
+
+// import fetch from '../../../node_modules/@types/isomorphic-fetch';
 
 @Component({
   selector: 'app-boneyard',
@@ -10,11 +12,12 @@ import {TeamService} from './services/team.service';
 })
 
 
-export class BoneyardComponent implements OnInit, AfterViewInit {
+export class BoneyardComponent implements OnInit {
+  API_URL = '../assets/testing.json';
 
   public allRows = [];
   public tempRows = [];
-  public team01Contents = [];
+  public playerList = [];
 
   public teamNames = [
     'Trump Empire',
@@ -45,78 +48,108 @@ export class BoneyardComponent implements OnInit, AfterViewInit {
     'Vince Iverson'];
 
 
-  public teamsPlayers = [
-    { pnum: 1, pname: 'Empty'},
-    { pnum: 2, pname: 'Empty'},
-    { pnum: 3, pname: 'Empty'},
-    { pnum: 4, pname: 'Empty'},
-    { pnum: 5, pname: 'Empty'},
-    { pnum: 6, pname: 'Empty'},
-    { pnum: 7, pname: 'Empty'},
-    { pnum: 8, pname: 'Empty'},
-    { pnum: 9, pname: 'Empty'},
-    { pnum: 10, pname: 'Empty'},
-    { pnum: 11, pname: 'Empty'},
-    { pnum: 12, pname: 'Empty'},
-    { pnum: 13, pname: 'Empty'},
-    { pnum: 14, pname: 'Empty'},
-    { pnum: 15, pname: 'Empty'}
+  public teamPlayersList = [
+    {pnum: 1, pname: 'Empty 1'},
+    {pnum: 2, pname: 'Empty 2'},
+    {pnum: 3, pname: 'Empty 3'},
+    {pnum: 4, pname: 'Empty 4'},
+    {pnum: 5, pname: 'Empty 5'},
+    {pnum: 6, pname: 'Empty 6'},
+    {pnum: 7, pname: 'Empty 7'},
+    {pnum: 8, pname: 'Empty 8'},
+    {pnum: 9, pname: 'Empty 9'},
+    {pnum: 10, pname: 'Empty 10'},
+    {pnum: 11, pname: 'Empty 11'},
+    {pnum: 12, pname: 'Empty 12'},
+    {pnum: 13, pname: 'Empty 13'},
+    {pnum: 14, pname: 'Empty 14'},
+    {pnum: 15, pname: 'Empty 15'}
   ];
 
   public allTeams = [];
-// @Input() team01Owners: any;
-
-  public team0: any;
-  public team1: any;
-  public team2: any;
-  public team3: any;
-  public team4: any;
-  public team5: any;
-  public team6: any;
-  public team7: any;
-  public team8: any;
-  public team9: any;
-  public team10: any;
-  public team11: any;
-
+  public teamId;
+  public draggedItem: any;
 
   constructor(private playerService: PlayerService) {
-    console.log('Teams ', this.allTeams);
-    this.allTeams.push(this.team0 = new TeamService(this.teamNames[0], this.ownerNames[0]));
-    this.allTeams.push(this.team1 = new TeamService(this.teamNames[1], this.ownerNames[1]));
-    this.allTeams.push(this.team2 = new TeamService(this.teamNames[2], this.ownerNames[2]));
-    this.allTeams.push(this.team3 = new TeamService(this.teamNames[3], this.ownerNames[3]));
-    this.allTeams.push(this.team4 = new TeamService(this.teamNames[4], this.ownerNames[4]));
-    this.allTeams.push(this.team5 = new TeamService(this.teamNames[5], this.ownerNames[5]));
-    this.allTeams.push(this.team6 = new TeamService(this.teamNames[6], this.ownerNames[6]));
-    this.allTeams.push(this.team7 = new TeamService(this.teamNames[7], this.ownerNames[7]));
-    this.allTeams.push(this.team8 = new TeamService(this.teamNames[8], this.ownerNames[8]));
-    this.allTeams.push(this.team9 = new TeamService(this.teamNames[9], this.ownerNames[9]));
-    this.allTeams.push(this.team10 = new TeamService(this.teamNames[10], this.ownerNames[10]));
-    this.allTeams.push(this.team11 = new TeamService(this.teamNames[11], this.ownerNames[11]));
+    //  console.log('Teams ', this.allTeams);
+
+    for (let i = 0; i < this.teamNames.length; i++) {
+      this.teamId = i;
+      this.allTeams.push({
+        Id: this.teamId,
+        teamName: this.teamNames[i],
+        ownerName: this.ownerNames[i],
+        playerList: this.fillPlayerList(i)
+      });
+      // console.log('ALLTEAM ', this.allTeams[i]);
+    }
   }
 
   ngOnInit() {
-
     this.playerService.getCsvData()
       .subscribe(rowData => {
         this.allRows = rowData;
         this.tempRows = this.allRows;
-         console.log('tempRows Data ', this.tempRows);
+        this.allRows.forEach((d, i) => {
+          d.picked = 0;
+        });
         this.activatePos('QB');
       });
   }
 
+  // Remove from x press
+  removeItem(tid, pid) {
+    console.log('removeItem ', tid, ' pid ', pid);
+    this.allTeams[tid].playerList[pid].pname = 'Empty';
+    this.allTeams[tid].playerList[pid].pos = 'pos';
+    this.allTeams[tid].playerList[pid].pteam = '';
+    this.allRows.forEach((d, i) => {
+      if ( d.Id === this.allTeams[tid].playerList[pid].plistId ) {
+        console.log('d ', d);
+        d.picked = 0;
+        this.allTeams[tid].playerList[pid].plistId = 0;
+      }
+    });
+  }
 
-  ngAfterViewInit() {
-    console.log('Values on ngAfterViewInit():');
+ // Fill team container with player objects
+  fillPlayerList(i) {
+    const player = [];
+    for (let j = 0; j < 15; j++) {
+      player.push({pid: j, pname: 'Empty', filled: 0, pos: 'pos', plistId: 0, pteam: ''});
+    }
+    return player;
+  }
+
+
+  // Called when lets go
+  dragEnd(player) {
+    this.draggedItem = player;
+    if (player.picked === 0) {
+      console.log('draggedItem ', this.draggedItem.picked);
+    }
+  }
+
+
+  onDrop(team, element, ID) {
+    console.log('picked ', this.draggedItem.picked);
+    if (this.draggedItem.picked !== 1 && this.allTeams[ID].playerList[element.pid].pos === 'pos' ) {
+      this.allTeams[ID].playerList[element.pid].pname = this.draggedItem.playername;
+      this.allTeams[ID].playerList[element.pid].pos = this.draggedItem.position;
+      this.allTeams[ID].playerList[element.pid].plistId = this.draggedItem.Id;
+      this.allTeams[ID].playerList[element.pid].pteam = this.draggedItem.team;
+      this.draggedItem.picked = 1;
+      // } else {
+      //  console.log('Already Used');
+    }
+    // console.log('ALLTEAM ', JSON.stringify(this.allTeams[ID], null, 2));
   }
 
 
   activatePos(posId) {
     const activePosition = [];
     this.tempRows = this.allRows;
-    console.log('posId ', posId);
+    // console.log('posId ', posId);
     if (posId === 'ALL') {
       this.tempRows = this.allRows;
     } else {
@@ -127,6 +160,6 @@ export class BoneyardComponent implements OnInit, AfterViewInit {
       });
       this.tempRows = activePosition;
     }
-    console.log('activePosition ', activePosition);
+    // console.log('activePosition ', activePosition);
   }
 }

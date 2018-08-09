@@ -3,11 +3,19 @@
     <div *ngFor="let team of allTeams">
       <div class="team-space">
         <div class="team-name mb-1"><em>{{team.teamName}}</em></div>
-        <a mwlDroppable class="playerList text-left w-100" *ngFor="let teamPlayer of teamsPlayers"><span
-          class="team-player-text">{{teamPlayer.pnum}}{{teamPlayer.pname}}</span></a>
+        <div mwlDroppable class="playerList text-left w-100 layout-row justify-content-between"
+             *ngFor="let teamPlayer of team.playerList; let $index = index;" (drop)="onDrop(team, teamPlayer, team.Id)">
+          <!--<span>{{team.Id}}</span>-->
+          <span class="ml-1">{{teamPlayer.pos}}</span>
+          <span>{{teamPlayer.pname}}</span>
+          <span>{{teamPlayer.pteam}}</span>
+          <!--<span>{{teamPlayer.plistId}}</span>-->
+          <a class="mr-2" (click)="removeItem(team.Id, teamPlayer.pid)">x</a>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="player-container">
     <div class="btnGroup">
       <button
@@ -34,12 +42,12 @@
       <!--</button>-->
     </div>
     <div class="player-list-container">
-
-      <div mwlDraggable class="playerList text-left" *ngFor="let player of tempRows">
-        <div class="ml-2">{{player.position}}</div>
-        <div class="ml-3">{{player.playername}}</div>
-        <div class="ml-auto mr-2">{{player.team}}</div>
-      </div>
+      <div (dragEnd)="dragEnd(player)" class="text-left" mwlDraggable *ngFor="let player of tempRows" [ngClass]="player.picked ?'playerList amtaken':'playerList amavailable'">
+          <div class="ml-2">{{player.position}}</div>
+          <div class="ml-3">{{player.playername}}</div>
+          <div class="ml-auto mr-2">{{player.team}}</div>
+          <!--<div>{{player.picked}}</div>-->
+        </div>
     </div>
   </div>
 </div>

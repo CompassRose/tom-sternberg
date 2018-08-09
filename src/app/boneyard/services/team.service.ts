@@ -2,17 +2,15 @@ import {Component, Input, Output, OnInit, OnChanges, EventEmitter, ViewEncapsula
 
 @Injectable()
 export class TeamService {
-
+  teamId: number;
   teamName: string;
   ownerNames: any;
-  teamPlayersList = [];
+  playerList = [];
 
-  constructor( franchiseName: string, franchiseOwner: string ) {
+  constructor( teamId: number, franchiseName: string, franchiseOwner: string ) {
    // console.log('TeamService ', franchiseName);
+    this.teamId = teamId;
     this.teamName = franchiseName;
     this.ownerNames = franchiseOwner;
-     // this.teamName = '';
-    // this.ownerNames = [];
-    // this.playerList = [];
   }
 }

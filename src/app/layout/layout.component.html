@@ -1,48 +1,21 @@
 <header>
-  <mdb-navbar
-    SideClass="navbar fixed-top navbar-expand-lg navbar-dark bg-indigo scrolling-navbar intro-fixed-nav align-items-center"
-    [containerInside]="false">
-    <logo>
-      <div class="pull-left gold-text header-xl ml-2 mt-1"><i class="fa fa-500px"></i></div>
-      <div class="logo navbar-brand ml-3">Tom Sternberg</div>
-    </logo>
-    <div class="pull-left gold-text header-xl ml-2"><i class="fa fa-500px"></i></div>
+  <div class="fixed-nav">
+    <div class="gold-text header-xl ml-2"><i class="fa fa-500px"></i></div>
     <div class="d-flex align-items-center">
       <div class="text-white header-lg ml-2">Tom Sternberg</div>
     </div>
-    <links>
-      <div class="ml-auto mr-3">
-        <form class="form-inline">
-          <div class="nav-icon3" (click)="menu_OnClick($event)"
-               [ngClass]="isExpanded ?'open':''">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </form>
-      </div>
-    </links>
-  </mdb-navbar>
-  <!-- Main -->
-  <div class="view hm-black-light">
-    <div class="full-bg-img flex-center">
-      <div class="container">
-        <div class="white-text text-center wow fadeInUp">
-          <h2>This Navbar is fixed</h2>
-          <h5>It will always stay visible on the top, even when you scroll down</h5>
-          <br>
-          <p>Full page intro with background image will be always displayed in full screen mode, regardless of
-            device </p>
-        </div>
-      </div>
+    <div class="nav-icon3 ml-auto mr-5" (click)="menu_OnClick($event)"
+         [ngClass]="isExpanded ?'open':''">
+
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </div>
-   <!--/.Main-->
 </header>
 
 <!--Main Layout-->
-
 <main>
   <!--<div class="backdrop-frame" [ngClass]="backdrop"></div>-->
   <div class="container text-center m-auto py-5">

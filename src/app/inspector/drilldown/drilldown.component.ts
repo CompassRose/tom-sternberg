@@ -25,7 +25,6 @@ export class DrilldownComponent implements OnInit {
 
   constructor(private quoteService: ChartConfigService) {}
 
-//  private color1 = ['#2196f3', '#1a237e'];
   private color1 = ['#05d6ff', '#012172'];
   private color2 = ['#00e75b', '#006f2e'];
 
@@ -89,6 +88,18 @@ export class DrilldownComponent implements OnInit {
 
 
   ngOnInit() {
+    const arr = [1, 2, 3, 4, 5];
+    console.log(arr);
+    arr.reverse();
+    console.log(arr);
+    // for (let i = 0; i < arr.length; i++ ) {
+    //   let val = arr[arr.length - 1]
+    //   const carray = arr.length - 1;
+    //   arr[counter] = arr[carray];
+    //   console.log(arr);
+    //   counter++;
+    // }
+
     this.quoteService.getCsvData()
       .subscribe( rowData => {
         this.allRows = rowData;
@@ -362,7 +373,6 @@ export class DrilldownComponent implements OnInit {
 
 
   private toggleTotalQuotes(i) {
-   // console.log('toggleTotalQuotes', i);
     this.allCharts[i].isPremium = false;
 
     this.allCharts[i].color = this.color1;
@@ -372,7 +382,6 @@ export class DrilldownComponent implements OnInit {
 
 
   private toggleTotalPremium(i) {
-   // console.log('toggleTotalPremium', i);
     this.allCharts[i].isPremium = true;
     this.allCharts[i].color = this.color2;
     this.allCharts[i].total = 'Total Premium Quoted';
