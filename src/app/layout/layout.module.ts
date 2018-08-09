@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {CommonModule} from '@angular/common';
-import {LayoutComponent} from './components/layout/layout.component';
+import {LayoutComponent} from './layout.component';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
 
@@ -19,5 +19,4 @@ import {SharedModule} from '../shared/shared.module';
 })
 export class LayoutModule {
 }
-
 

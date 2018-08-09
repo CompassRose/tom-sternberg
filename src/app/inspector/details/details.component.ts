@@ -21,7 +21,6 @@ export class DetailsComponent implements OnInit {
     // updates details filter
     this.quoteService.newQuoteSubject.subscribe(
       data => {
-        console.log(' \\\\\\\\\\\\\\\\\\\\\\  data', data);
         this.detailRows = data; }
     );
   }

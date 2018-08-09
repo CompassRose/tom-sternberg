@@ -4,18 +4,24 @@ body {
 }
 
 .draft-container {
+  margin-left: -20px;
+  margin-right: -20px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .btnGroup {
   display: flex;
   width: 100%;
   justify-content: stretch;
+  align-content: stretch;
+
+  .posButton {
+    flex-basis: 16%;
+  }
 }
-.posButton {
-  width: 80px;
-}
+
 
 
 .player-container {
@@ -32,57 +38,67 @@ body {
 }
 
 
-
 .playerList {
   font-size: 12px;
   display: flex;
   justify-content: flex-start;
-  margin-right: auto;
-  border: 1px solid black;
-  width: 200px;
+  padding: 2px;
+  border-right: 1px solid #141a72;
+  border-top: 1px solid #141a72;
+  border-left: 1px solid #141a72;
+  width: 225px;
+  &:last-child{
+    border-bottom: 1px solid #141a72;
+  }
+
+  &.amavailable {
+    background-color: #53b458;
+    color: white;
+  }
+
+  &.amtaken {
+    color: #989898;
+    background-color: #cdcdcd;
+  }
 
   &:hover {
-    background-color: #f1f3db;
+    background-color: #f3ef9f;
+    color: black;
   }
 }
 
+
 [mwlDraggable] {
-  background-color: #53b458;
   position: relative;
   z-index: 1;
   margin-right: 10px;
 }
 
 [mwlDroppable] {
-  position: relative;
-  background-color: rgb(231, 241, 255);
-}
-
-[mwlDraggable],
-[mwlDroppable] {
-  color: white;
+  background-color: #5dbded;
 }
 
 .team-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
+  justify-content: center;
+  align-content: center;
   width: 55%;
 }
 
 .team-space {
-  margin: 0px 5px 10px 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
   border-radius: 4px;
   padding: 5px 5px;
   text-align: left;
   color: white;
-  width: 200px;
+  width: 210px;
   height: auto;
-  border: 1px solid #9a9a9a;
-  background-color: #8bb5ff;
+  border: 1px solid #141a72;
+  background-color: #679fed;
   .team-name {
-    font-size: 14px;
+    font-size: 15px;
     text-align: center;
     font-weight: bold;
     text-shadow: 1px 1px 2px black;
@@ -90,7 +106,6 @@ body {
   .team-player-text {
     width: 100%;
     font-size: 11px;
-    padding: 0 3px;
     color: black;
   }
 }

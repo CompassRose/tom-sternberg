@@ -280,7 +280,6 @@ export class WheelSpinnerComponent implements OnInit {
   }
 
 
-
   rotTween() {
     const i = d3.interpolate(0, 1200);
     return function (t) {
