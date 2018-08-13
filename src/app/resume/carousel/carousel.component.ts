@@ -16,8 +16,7 @@ export class CarouselComponent implements OnInit {
   public menuOpen = false;
   public videoPlayer;
 
-  constructor( private modalService: NgbModal) {
-  }
+  constructor( private modalService: NgbModal) {}
 
   ngOnInit() {
     this.videoPlayer = true;
@@ -25,7 +24,6 @@ export class CarouselComponent implements OnInit {
 
 
   openModal(e) {
-    console.log('openModal ', e);
     const modalRef = this.modalService.open(NgbdModalComponent,
       {
         size: 'lg',
@@ -52,7 +50,6 @@ export class CarouselComponent implements OnInit {
     if (this.aggregate === 360) {
       this.aggregate = 0;
     }
-    console.log('setOriginForward ', this.currdeg1, ' this.aggregate ', this.aggregate);
     this.getCurrentPosition();
   }
 
@@ -69,11 +66,5 @@ export class CarouselComponent implements OnInit {
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
-    console.log('toggleMenu', this.menuOpen);
   }
-
-  setOrigin(e, index) {
-
-  }
-
 }

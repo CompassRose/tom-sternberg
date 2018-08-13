@@ -2,8 +2,6 @@ import {Component, OnInit, Input} from '@angular/core';
 import {PlayerService} from './services/player.service';
 import {TeamService} from './services/team.service';
 
-// import fetch from '../../../node_modules/@types/isomorphic-fetch';
-
 @Component({
   selector: 'app-boneyard',
   templateUrl: './boneyard.component.html',
@@ -13,11 +11,25 @@ import {TeamService} from './services/team.service';
 
 
 export class BoneyardComponent implements OnInit {
-  API_URL = '../assets/testing.json';
 
   public allRows = [];
   public tempRows = [];
-  public playerList = [];
+
+  public boneyardTeams = [
+    {team: 'Primetime', owners: 'Jeff Foster'},
+    {team: 'Limelite', owners: 'Graham-Benskin'},
+    {team: 'It Goes to 11', owners: 'Griz'},
+    {team: 'Nuke Em All', owners: 'Tom '},
+    {team: 'Make WAD Great Again', owners: 'Milt Turner'},
+    {team: 'Trump Empire', owners: 'Tom Sternberg'},
+    {team: 'Spinal Tap Mark II', owners: 'Vince Iverson'},
+    {team: 'Flying Solo', owners: 'Mike Foster'},
+    {team: 'Crushed by Jefferson', owners: 'Norton-Guhlke'},
+    {team: 'Mad n Nervous', owners: 'Wallebeck-Boyle'},
+    {team: 'Danger is Business', owners: 'Tim Foster'},
+    {team: 'Mother Love Bones', owners: 'Milburn-Smyth'}
+    ];
+
 
   public teamNames = [
     'Trump Empire',
@@ -40,31 +52,12 @@ export class BoneyardComponent implements OnInit {
     'Mike Foster',
     'Griz',
     'Graham-Benskin',
-    'Wallebeck-',
+    'Wallebeck-Boyle',
     'Milt Turner',
     'Milburn-Smyth',
     'Syltebo-Block',
     'Jeff Foz',
     'Vince Iverson'];
-
-
-  public teamPlayersList = [
-    {pnum: 1, pname: 'Empty 1'},
-    {pnum: 2, pname: 'Empty 2'},
-    {pnum: 3, pname: 'Empty 3'},
-    {pnum: 4, pname: 'Empty 4'},
-    {pnum: 5, pname: 'Empty 5'},
-    {pnum: 6, pname: 'Empty 6'},
-    {pnum: 7, pname: 'Empty 7'},
-    {pnum: 8, pname: 'Empty 8'},
-    {pnum: 9, pname: 'Empty 9'},
-    {pnum: 10, pname: 'Empty 10'},
-    {pnum: 11, pname: 'Empty 11'},
-    {pnum: 12, pname: 'Empty 12'},
-    {pnum: 13, pname: 'Empty 13'},
-    {pnum: 14, pname: 'Empty 14'},
-    {pnum: 15, pname: 'Empty 15'}
-  ];
 
   public allTeams = [];
   public teamId;
@@ -97,6 +90,12 @@ export class BoneyardComponent implements OnInit {
       });
   }
 
+  getStoredData() {
+    const array = JSON.parse(localStorage.getItem('array'));
+    console.log('getStoredData ', array);
+
+  }
+
   // Remove from x press
   removeItem(tid, pid) {
     console.log('removeItem ', tid, ' pid ', pid);
@@ -104,7 +103,7 @@ export class BoneyardComponent implements OnInit {
     this.allTeams[tid].playerList[pid].pos = 'pos';
     this.allTeams[tid].playerList[pid].pteam = '';
     this.allRows.forEach((d, i) => {
-      if ( d.Id === this.allTeams[tid].playerList[pid].plistId ) {
+      if (d.Id === this.allTeams[tid].playerList[pid].plistId) {
         console.log('d ', d);
         d.picked = 0;
         this.allTeams[tid].playerList[pid].plistId = 0;
@@ -112,7 +111,7 @@ export class BoneyardComponent implements OnInit {
     });
   }
 
- // Fill team container with player objects
+  // Fill team container with player objects
   fillPlayerList(i) {
     const player = [];
     for (let j = 0; j < 15; j++) {
@@ -133,12 +132,14 @@ export class BoneyardComponent implements OnInit {
 
   onDrop(team, element, ID) {
     console.log('picked ', this.draggedItem.picked);
-    if (this.draggedItem.picked !== 1 && this.allTeams[ID].playerList[element.pid].pos === 'pos' ) {
+    if (this.draggedItem.picked !== 1 && this.allTeams[ID].playerList[element.pid].pos === 'pos') {
       this.allTeams[ID].playerList[element.pid].pname = this.draggedItem.playername;
       this.allTeams[ID].playerList[element.pid].pos = this.draggedItem.position;
       this.allTeams[ID].playerList[element.pid].plistId = this.draggedItem.Id;
       this.allTeams[ID].playerList[element.pid].pteam = this.draggedItem.team;
       this.draggedItem.picked = 1;
+
+      localStorage.setItem('array', JSON.stringify(this.allTeams));
       // } else {
       //  console.log('Already Used');
     }
@@ -160,6 +161,6 @@ export class BoneyardComponent implements OnInit {
       });
       this.tempRows = activePosition;
     }
-    // console.log('activePosition ', activePosition);
+    console.log('activePosition ', activePosition);
   }
 }

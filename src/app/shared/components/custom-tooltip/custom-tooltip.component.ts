@@ -15,24 +15,36 @@ export class CustomTooltipComponent implements OnInit, OnChanges {
   @Input() tipPositionY;
 
   public toolTitle: string;
-  public toolValues: any[] = [];
+  public toolValues;
   public tipPosLeft;
   public tipPosTop;
-
+  public valueType = true;
   constructor() {}
 
   ngOnInit() {
     this.tipPosLeft = this.tipPositionX;
     this.tipPosTop = this.tipPositionY;
     this.toolTitle = this.tiptitle;
-    this.setValueFormat(this.tipvalues);
+    if ( typeof(this.tipvalues) === 'object' ) {
+      this.valueType = true;
+      this.setValueFormat(this.tipvalues);
+    } else {
+      this.valueType = false;
+      this.toolValues = this.tipvalues;
+    }
   }
 
   ngOnChanges(): void {
     this.tipPosLeft = this.tipPositionX;
     this.tipPosTop = this.tipPositionY;
     this.toolTitle = this.tiptitle;
-    this.setValueFormat(this.tipvalues);
+    if ( typeof(this.tipvalues) === 'object' ) {
+      this.valueType = true;
+      this.setValueFormat(this.tipvalues);
+    } else {
+      this.valueType = false;
+      this.toolValues = this.tipvalues;
+    }
   }
 
 
@@ -43,20 +55,12 @@ export class CustomTooltipComponent implements OnInit, OnChanges {
     const isTotal = function (key) {
       return key.indexOf('Total') !== -1;
     };
+    console.log();
     this.toolValues = [];
     for (let i = 0; i < d3.keys(params).length; i++) {
       const key: any = d3.keys(params)[i],
         value = (isTotal(key)) ? moneyFormat(params[key], '$') : params[key];
       this.toolValues.push({name: key, value: value});
     }
-  }
-
-
-
-  public initMouse(parent) {
-    document.addEventListener('mousemove', function (e: MouseEvent) {
-      parent.mouse.x = (e.clientX || e.pageX) + (document.body.scrollLeft || document.documentElement.scrollLeft);
-      parent.mouse.y = (e.clientY || e.pageY) + (document.body.scrollTop || document.documentElement.scrollTop);
-    }, false);
   }
 }

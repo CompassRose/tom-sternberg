@@ -2,7 +2,7 @@
 
 
 .chart-tip-master {
-  min-width: 230px;
+  width: 230px;
   border: 1px solid #e7e7e7;
   position: absolute;
   pointer-events: none;
@@ -21,6 +21,7 @@
   padding: 3px 0 3px 0;
   border: 1px solid #CCC;
   background-color: #fff;
+  text-align: left;
 }
 
 

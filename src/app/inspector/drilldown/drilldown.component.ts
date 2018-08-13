@@ -8,7 +8,6 @@ import {ChartConfigService} from '../services/chart-config.service';
 import {IFilter, NamedFilter} from '../interfaces/Filters';
 import {AppChart} from '../interfaces/AppCharts';
 
-// Holdover from click bar
 import * as $ from 'jquery';
 // declare var bootbox: any;
 
@@ -42,7 +41,6 @@ export class DrilldownComponent implements OnInit {
   public toolValues: any[] = [];
   public tooltipPositionX;
   public tooltipPositionY;
-  public detailsOff  = false;
 
   public allCharts: AppChart[] = [
     <AppChart>{
@@ -88,17 +86,6 @@ export class DrilldownComponent implements OnInit {
 
 
   ngOnInit() {
-    const arr = [1, 2, 3, 4, 5];
-    console.log(arr);
-    arr.reverse();
-    console.log(arr);
-    // for (let i = 0; i < arr.length; i++ ) {
-    //   let val = arr[arr.length - 1]
-    //   const carray = arr.length - 1;
-    //   arr[counter] = arr[carray];
-    //   console.log(arr);
-    //   counter++;
-    // }
 
     this.quoteService.getCsvData()
       .subscribe( rowData => {
@@ -113,7 +100,6 @@ export class DrilldownComponent implements OnInit {
 
 
   removeFilter(e, idx) {
-   // console.log('removeFilter ', e.key);
     this.removeThisFilter(e, 0);
   }
 
