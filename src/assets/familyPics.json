@@ -5,7 +5,6 @@
     "reference": "001",
     "keyword": "Balboa",
     "bio": "Beach Volleyball in Balboa-Dad's 80th bday",
-
     "searchable": [
       "Ben",
       "Sam",
@@ -16,17 +15,6 @@
       "Ali",
       "Jeffrey",
       "Mary Beth"
-    ]
-  },
-  {
-    "name": "My Old Eurovan",
-    "image": "VanAtTheBeach",
-    "reference": "002",
-    "keyword": "Miscellaneous",
-    "bio": "Sad to see it go",
-    "searchable": [
-      "Van",
-      "Tom"
     ]
   },
   {
@@ -80,7 +68,7 @@
     "name": "Brother Jim with bike in 1965",
     "image": "JimWithBike",
     "reference": "007",
-    "keyword": "other",
+    "keyword": "Miscellaneous",
     "bio": "Jim in the projects taking off on the bike. Circa 1965.",
     "searchable": [
       "Jim"
@@ -122,7 +110,7 @@
     ]
   },
   {
-    "name": "Jeffrey and cousins at Guemes",
+    "name": "Jeffrey and Cousins at Guemes",
     "keyword": "Guemes Island",
     "image": "JeffreyPiggyBack",
     "reference": "011",
@@ -139,7 +127,7 @@
     "name": "Bilbao Aste Negusa Upper",
     "image": "AsteNegusaMiscFerrisWheel",
     "reference": "012",
-    "keyword": "Spain",
+    "keyword": "Europe",
     "bio": "Beautiful view from the top of the festival.",
     "searchable": [
       "Ali",
@@ -152,7 +140,7 @@
     "name": "Ali and Jeffrey",
     "image": "A_J_London3",
     "reference": "013",
-    "keyword": "England",
+    "keyword": "Europe",
     "bio": "Good sports after a long day of dad taking pictues in London",
     "searchable": [
       "Ali",
@@ -165,7 +153,7 @@
     "name": "Ali and Jeffrey",
     "image": "A_J_France",
     "reference": "014",
-    "keyword": "France",
+    "keyword": "Europe",
     "bio": "Good sports after a long day of dad taking pictues in Paris",
     "searchable": [
       "Ali",
@@ -178,7 +166,7 @@
     "name": "Biarritz France",
     "image": "A_J_BiarritzBeach",
     "reference": "015",
-    "keyword": "France",
+    "keyword": "Europe",
     "bio": "One of the more special beach towns I have ever visited. Biarritz, France - 2012.",
     "searchable": [
       "Ali",
@@ -203,7 +191,7 @@
     "name": "Spain Streets",
     "image": "AsteNegusaStreets",
     "reference": "017",
-    "keyword": "Spain",
+    "keyword": "Europe",
     "bio": "Aste Negusa Festival in Bilbao Spain 2012.",
     "searchable": [
       "Ali",
@@ -218,19 +206,6 @@
     "reference": "018",
     "keyword": "Dunes",
     "bio": "Hiking on the Oregon Dunes at sunset."
-  },
-  {
-    "name": "London",
-    "image": "A_J_London3",
-    "reference": "019",
-    "keyword": "England",
-    "bio": "Ali and Jeffrey in London",
-    "searchable": [
-      "Ali",
-      "Jeffrey",
-      "Tom",
-      "Europe"
-    ]
   },
   {
     "name": "Jeffrey",
@@ -326,6 +301,17 @@
     "bio": "2013 high school Graduation for Ali",
     "searchable": [
       "Ali"
+    ]
+  },
+  {
+    "name": "Disneyland 2003",
+    "image": "teacuppers",
+    "reference": "028",
+    "keyword": "Disneyland",
+    "bio": "First trip to Disneyland",
+    "searchable": [
+      "Ali",
+      "Jeffrey"
     ]
   }
 ]

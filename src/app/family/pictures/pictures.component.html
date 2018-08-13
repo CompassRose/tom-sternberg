@@ -1,20 +1,22 @@
-<div *ngIf="showTip">
-  <div class="chart-tip-master" [style.left.px]="tooltipPositionX + 100" [style.top.px]="tooltipPositionY - 130">
-    <div class="header header-md f-weight-600">{{toolTitle}}</div>
-    <div class="tipCell text-left mr-auto p-1">{{toolValues}}</div>
-  </div>
+<div class="row">
+  <ng-container *ngIf="showTip">
+    <app-custom-tooltip
+      [tiptitle]="toolTitle"
+      [tipvalues]="toolValues"
+      [tipPositionX]="tooltipPositionX"
+      [tipPositionY]="tooltipPositionY">
+    </app-custom-tooltip>
+  </ng-container>
 </div>
 <div class="selection-frame d-flex">
   <div *ngFor="let category of pictureCategories; let i = index;" class="d-flex align-items-center ml-4">
-    <input #ref [(ngModel)]="ref.checked" type='checkbox'
-           (click)="ref.checked ? filterArr.push(category.name) : filterArr.splice(filterArr.indexOf(category.name), 1)">
+    <input type='checkbox'
+           (click)="filterTriage($event, category.name)">
     <label class="ml-1 mt-2 text-white">{{category.name}}</label>
-    <label>{{filterArr}}</label>
   </div>
 </div>
-
 <div class="master-container d-flex flex-wrap">
-  <div *ngFor="let picture of pictures | pictureFilter: filterArr; let $idx = index;"
+  <div *ngFor="let picture of activePictures let $idx = index;"
        class="thumbnail"
        (mouseenter)="onMouseOver($event, picture)"
        (mouseleave)="onMouseLeave($event, picture)"
@@ -22,12 +24,7 @@
     <img src="../assets/img/pictureCollection/{{picture.image}}_tn.jpg">
   </div>
 </div>
-<!--<div class="right-gutter">-->
-<!--<div *ngFor="let category of pictureCategories; let $idx = index;">-->
-<!--<input type='checkbox' id="checkbox"/>-->
-<!--<label>{{category}}</label>-->
-<!--</div>-->
-<!--</div>-->
+
 
 
 

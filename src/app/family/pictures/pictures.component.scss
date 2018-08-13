@@ -4,12 +4,10 @@
   border: 1px solid gold;
 }
 
-
 .master-container {
   margin-top: 3rem;
   display: flex;
   justify-content: flex-start;
-  // border: 1px solid gold;
 }
 
 .thumbnail {
@@ -25,30 +23,4 @@
     transform: scale(1.03)
   }
 }
-.chart-tip-master {
-  min-width: 230px;
-  max-width: 240px;
-  overflow-wrap: normal;
-  border: 1px solid #e7e7e7;
-  position: absolute;
-  pointer-events: none;
-  z-index: 110000 !important;
-}
 
-.chart-tip-master .header {
-  background-color: #4c6cea;
-  font-size: .8rem;
-  padding: 2px 5px;
-  text-align: left;
-  color: #FFF;
-}
-
-
-.tipCell {
-  height: auto;
-  // min-height: 40px;
-  font-size: .7rem;
-  padding: 3px 0 3px 0;
-  border: 1px solid #CCC;
-  background-color: #fff;
-}

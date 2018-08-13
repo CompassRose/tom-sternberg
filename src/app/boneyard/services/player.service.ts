@@ -9,16 +9,10 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class PlayerService {
-// API_URL = environment.apiUrl;
+
   API_URL = '../../assets/2018-NFL-All.csv';
 
   constructor(private http: HttpClient) {}
-
-  getPlayerData(): Observable<any> {
-    return this.http.get(this.API_URL)
-      .map(response => response)
-      .catch(this.handleError);
-  }
 
   // csv response
   getCsvData(): Observable<any> {

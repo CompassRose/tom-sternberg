@@ -10,21 +10,17 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 export class NgbdModalComponent implements OnInit {
 
-
-
   public modalRef: any;
   public modalName: string;
   public modalGroup = [];
   public idx: number;
-
-
 
   constructor(private modalService: NgbModal,
               public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
     this.idx = 0;
-    console.log('modal active ', this.idx);
+   // console.log('modal active ', this.idx);
   }
 
 
@@ -35,10 +31,8 @@ export class NgbdModalComponent implements OnInit {
 
   setOriginForward(num) {
     this.idx = this.idx + num;
-    console.log('setOriginForward ', this.idx);
+   // console.log('setOriginForward ', this.idx);
   }
-
-
 
   open(type) {
     this.modalRef = this.modalService.open(NgbModal);
