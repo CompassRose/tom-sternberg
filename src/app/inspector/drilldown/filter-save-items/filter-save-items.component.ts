@@ -1,10 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-filter-save-items',
   templateUrl: './filter-save-items.component.html',
   styleUrls: ['./filter-save-items.component.scss']
 })
+
 export class FilterSaveItemsComponent implements OnInit {
 
   @Input() filters: any[];

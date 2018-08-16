@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ChangeDetectionStrategy, EventEmitter, OnInit, Output} from '@angular/core';
 import { PicturesComponent } from './pictures/pictures.component';
 import { PictureService } from './services/picture.service';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
@@ -15,7 +15,6 @@ export class FamilyComponent implements OnInit {
   public pictures = [];
 
   constructor(
-
     private picturesComponent: PicturesComponent,
     private tooltipComponent: CustomTooltipComponent,
     private _pictureService: PictureService,

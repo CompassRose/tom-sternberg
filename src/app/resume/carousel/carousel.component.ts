@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ChangeDetectionStrategy, OnInit} from '@angular/core';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgbdModalComponent} from '../../shared/components/ngb-modal/ngb-modal.component';
 
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],

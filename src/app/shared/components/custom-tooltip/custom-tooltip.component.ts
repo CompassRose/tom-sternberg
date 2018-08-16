@@ -55,7 +55,6 @@ export class CustomTooltipComponent implements OnInit, OnChanges {
     const isTotal = function (key) {
       return key.indexOf('Total') !== -1;
     };
-    console.log();
     this.toolValues = [];
     for (let i = 0; i < d3.keys(params).length; i++) {
       const key: any = d3.keys(params)[i],
