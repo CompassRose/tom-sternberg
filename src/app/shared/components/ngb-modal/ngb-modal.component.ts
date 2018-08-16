@@ -1,8 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, ChangeDetectionStrategy} from '@angular/core';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'ngbd-modal-component',
   styleUrls: ['ngb-modal.component.scss'],
   templateUrl: 'ngb-modal.component.html'

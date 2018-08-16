@@ -4,7 +4,7 @@
     "image": "BalboaVolleyball",
     "reference": "001",
     "keyword": "Balboa",
-    "bio": "Beach Volleyball in Balboa-Dad's 80th bday",
+    "description": "Beach Volleyball in Balboa-Dad's 80th bday",
     "searchable": [
       "Ben",
       "Sam",
@@ -22,7 +22,7 @@
     "image": "YosemiteVista2",
     "reference": "003",
     "keyword": "Miscellaneous",
-    "bio": "Beautiful shot on the way in to Yosemite 2013",
+    "description": "Beautiful shot on the way in to Yosemite 2013",
     "searchable": [
       "Tom",
       "Yosemite"
@@ -33,7 +33,7 @@
     "image": "AliReeseSantaMonica",
     "reference": "004",
     "keyword": "Miscellaneous",
-    "bio": "Ali and cousin Reese in Santa Monica.",
+    "description": "Ali and cousin Reese in Santa Monica.",
     "searchable": [
       "Hallo",
       "Ali",
@@ -45,7 +45,7 @@
     "image": "JeffreyDunes",
     "reference": "005",
     "keyword": "Miscellaneous",
-    "bio": "Jeffrey just about ready to snowboard down.",
+    "description": "Jeffrey just about ready to snowboard down.",
     "searchable": [
       "Jim",
       "Jeffrey",
@@ -57,7 +57,7 @@
     "image": "HowquaRiverVictoriaAust",
     "reference": "006",
     "keyword": "Miscellaneous",
-    "bio": "Camping at the Howqua River in Victoria Australia - 1975",
+    "description": "Camping at the Howqua River in Victoria Australia - 1975",
     "searchable": [
       "Mary Beth",
       "Camping",
@@ -69,7 +69,7 @@
     "image": "JimWithBike",
     "reference": "007",
     "keyword": "Miscellaneous",
-    "bio": "Jim in the projects taking off on the bike. Circa 1965.",
+    "description": "Jim in the projects taking off on the bike. Circa 1965.",
     "searchable": [
       "Jim"
     ]
@@ -79,7 +79,7 @@
     "image": "JeffreyGuemes",
     "reference": "008",
     "keyword": "Guemes Island",
-    "bio": "Jeffrey getting ready for fireworks at Guemes Island",
+    "description": "Jeffrey getting ready for fireworks at Guemes Island",
     "searchable": [
       "Jeffrey",
       "Reunion"
@@ -90,7 +90,7 @@
     "image": "balboaMomAndDad",
     "reference": "009",
     "keyword": "Balboa",
-    "bio": "Great picture of Mom and Dad on his 80th birthday party at Balboa with 20 family members.",
+    "description": "Great picture of Mom and Dad on his 80th birthday party at Balboa with 20 family members.",
     "searchable": [
       "Lois",
       "Dick",
@@ -102,7 +102,7 @@
     "name": "Mister Sam Dagg at Guemes",
     "image": "GuemesSammySwimming",
     "reference": "010",
-    "bio": "Sam Dagg just out of the salt water while swimming with cousins.",
+    "description": "Sam Dagg just out of the salt water while swimming with cousins.",
     "searchable": [
       "Sam",
       "Guemes",
@@ -114,7 +114,7 @@
     "keyword": "Guemes Island",
     "image": "JeffreyPiggyBack",
     "reference": "011",
-    "bio": "Jeffrey doing his usual with the cousins",
+    "description": "Jeffrey doing his usual with the cousins",
     "searchable": [
       "Sam",
       "Reese",
@@ -128,7 +128,7 @@
     "image": "AsteNegusaMiscFerrisWheel",
     "reference": "012",
     "keyword": "Europe",
-    "bio": "Beautiful view from the top of the festival.",
+    "description": "Beautiful view from the top of the festival.",
     "searchable": [
       "Ali",
       "Jeffrey",
@@ -141,7 +141,7 @@
     "image": "A_J_London3",
     "reference": "013",
     "keyword": "Europe",
-    "bio": "Good sports after a long day of dad taking pictues in London",
+    "description": "Good sports after a long day of dad taking pictues in London",
     "searchable": [
       "Ali",
       "Jeffrey",
@@ -154,7 +154,7 @@
     "image": "A_J_France",
     "reference": "014",
     "keyword": "Europe",
-    "bio": "Good sports after a long day of dad taking pictues in Paris",
+    "description": "Good sports after a long day of dad taking pictues in Paris",
     "searchable": [
       "Ali",
       "Jeffrey",
@@ -167,7 +167,7 @@
     "image": "A_J_BiarritzBeach",
     "reference": "015",
     "keyword": "Europe",
-    "bio": "One of the more special beach towns I have ever visited. Biarritz, France - 2012.",
+    "description": "One of the more special beach towns I have ever visited. Biarritz, France - 2012.",
     "searchable": [
       "Ali",
       "Jeffrey",
@@ -180,7 +180,7 @@
     "image": "ReeseSageGuemes",
     "reference": "016",
     "keyword": "Guemes Island",
-    "bio": "Cousins Reese and Sage.",
+    "description": "Cousins Reese and Sage.",
     "searchable": [
       "Reese",
       "Sage",
@@ -192,7 +192,7 @@
     "image": "AsteNegusaStreets",
     "reference": "017",
     "keyword": "Europe",
-    "bio": "Aste Negusa Festival in Bilbao Spain 2012.",
+    "description": "Aste Negusa Festival in Bilbao Spain 2012.",
     "searchable": [
       "Ali",
       "Jeffrey",
@@ -205,14 +205,14 @@
     "image": "OregonDunesSunset",
     "reference": "018",
     "keyword": "Dunes",
-    "bio": "Hiking on the Oregon Dunes at sunset."
+    "description": "Hiking on the Oregon Dunes at sunset."
   },
   {
     "name": "Jeffrey",
     "image": "JeffreyGuemes",
     "reference": "020",
     "keyword": "Guemes Island",
-    "bio": "Having fun with cousins.",
+    "description": "Having fun with cousins.",
     "searchable": [
       "Jeffrey",
       "Reunion"
@@ -223,7 +223,7 @@
     "image": "DAJ_Redwoods",
     "reference": "021",
     "keyword": "Miscellaneous",
-    "bio": "Ali, Jeffrey and I just finished riding the rogue staying that night in the Redwoods - 2013.",
+    "description": "Ali, Jeffrey and I just finished riding the rogue staying that night in the Redwoods - 2013.",
     "searchable": [
       "Ali",
       "Jeffrey",
@@ -236,7 +236,7 @@
     "image": "CostaRicaRioSevegreJ",
     "reference": "022",
     "keyword": "Costa Rica",
-    "bio": "Jeffrey riding some heavy duty rapids on the Rio Sevegre river in Costa Rica.",
+    "description": "Jeffrey riding some heavy duty rapids on the Rio Sevegre river in Costa Rica.",
     "searchable": [
       "Ali",
       "Jeffrey",
@@ -248,7 +248,7 @@
     "image": "CostaRicaRioSevegreAli",
     "reference": "023",
     "keyword": "Costa Rica",
-    "bio": "Jeffrey, Ali and I riding the Rio Sevegre river in Costa Rica - 2012",
+    "description": "Jeffrey, Ali and I riding the Rio Sevegre river in Costa Rica - 2012",
     "searchable": [
       "Ali",
       "Jeffrey",
@@ -260,7 +260,7 @@
     "image": "AliRogueRiver",
     "keyword": "Miscellaneous",
     "reference": "024",
-    "bio": "Ali, Jeffrey, Alex and I riding the Rogue river in 2013. Nine miles of icy water on a 90 degree day.",
+    "description": "Ali, Jeffrey, Alex and I riding the Rogue river in 2013. Nine miles of icy water on a 90 degree day.",
     "searchable": [
       "Ali",
       "Jeffrey",
@@ -274,7 +274,7 @@
     "image": "AliNonnyPaintingNails",
     "reference": "025",
     "keyword": "Miscellaneous",
-    "bio": "One of my all time favorite pictures.",
+    "description": "One of my all time favorite pictures.",
     "searchable": [
       "Ali",
       "Grandma"
@@ -285,7 +285,7 @@
     "image": "balboaPosers",
     "reference": "026",
     "keyword": "Balboa",
-    "bio": "Cousins at Balboa. Jeffrey, Sammy and Liam were asked to goof around all day which is just what they did.",
+    "description": "Cousins at Balboa. Jeffrey, Sammy and Liam were asked to goof around all day which is just what they did.",
     "searchable": [
       "Liam",
       "Jeffrey",
@@ -298,7 +298,7 @@
     "image": "AliGrad01",
     "reference": "027",
     "keyword": "Miscellaneous",
-    "bio": "2013 high school Graduation for Ali",
+    "description": "2013 high school Graduation for Ali",
     "searchable": [
       "Ali"
     ]
@@ -308,7 +308,7 @@
     "image": "teacuppers",
     "reference": "028",
     "keyword": "Disneyland",
-    "bio": "First trip to Disneyland",
+    "description": "First trip to Disneyland",
     "searchable": [
       "Ali",
       "Jeffrey"

@@ -1,0 +1,17 @@
+<div class="add-comp d-flex flex-column">
+  <div class="d-flex flex-wrap mt-5">
+    <a class="new-pic mb-2" *ngFor="let pic of pictures | async; let i = index" (click)="delTutorial(i)">
+      <span>{{pic.name}}</span>
+      <span>{{pic.description}}</span>
+    </a>
+  </div>
+  <div class="d-flex flex-column mb-5 input-field">
+    <input type=text placeholder="Name" #name>
+    <input type="text" placeholder="Description" #description>
+    <button class="btn btn-primary" (click)="addPicture(name.value, description.value)">Add Picture</button>
+  </div>
+</div>
+
+
+
+

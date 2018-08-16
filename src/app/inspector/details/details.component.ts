@@ -1,27 +1,23 @@
-import {Component, OnInit, ViewChild, AfterViewInit, Input} from '@angular/core';
-import {DrilldownComponent} from '../drilldown/drilldown.component';
-import {ChartConfigService} from '../services/chart-config.service';
-import {Observable} from 'rxjs/Observable';
+import { Component, OnInit, ViewChild, AfterViewInit, Input } from '@angular/core';
+import { DrilldownComponent } from '../drilldown/drilldown.component';
+import { ChartConfigService } from '../services/chart-config.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+    selector: 'app-details',
+    templateUrl: './details.component.html',
+    styleUrls: ['./details.component.scss'],
 })
-
 export class DetailsComponent implements OnInit {
+    constructor(public quoteService: ChartConfigService) {}
+    @Input()
+    processedData: any[];
+    private detailRows = [];
 
-  constructor( public quoteService: ChartConfigService) {}
-
-  @Input() processedData: any[];
-  private detailRows = [];
-
-
-  ngOnInit(): any {
-    // updates details filter
-    this.quoteService.newQuoteSubject.subscribe(
-      data => {
-        this.detailRows = data; }
-    );
-  }
+    ngOnInit(): any {
+        // updates details filter
+        this.quoteService.newQuoteSubject.subscribe(data => {
+            this.detailRows = data;
+        });
+    }
 }
