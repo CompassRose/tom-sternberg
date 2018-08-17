@@ -1,22 +1,17 @@
-<div class="modal-header">
-  <div class="modal-title display-lg text-muted f-weight-600" id="exampleModalLabel">{{modalGroup[idx].name}}</div>
-  <a class="header-lg" (click)="activeModal.dismiss('Cross click')">&times;</a>
+<div class="my-header">
+  <div class="modal-title display-lg text-muted f-weight-600" id="exampleModalLabel">{{activeContent[idx].name}}</div>
+  <a class="header-lg ml-auto" (click)="activeModal.dismiss('Cross click')">&times;</a>
 </div>
-<div class="modal-body">
-  <div class="d-flex">
-    <div class="d-flex justify-content-center w-100 overlay">
-      <div class="d-flex align-items-center w-100">
-        <div (click)="setOriginBack(1)" class="next mr-auto ml-3 mb-3"><i class="fa fa-arrow-circle-o-left"></i></div>
-        <div class="m-auto">
-          <figure>
-            <img class="sized-max mt-3" data-src="../assets/img/pictureCollection/{{modalGroup[idx].image}}.jpg">
-            <figcaption class="figure-caption">{{modalGroup[idx].bio}}</figcaption>
-          </figure>
-          <!--<img src="../assets/img/pictureCollection/{{modalGroup[idx].image}}_tn.jpg">-->
-        </div>
-        <div (click)="setOriginForward(1)" class="prev ml-auto mr-3 mb-3"><i class="fa fa-arrow-circle-o-right"></i></div>
-      </div>
+<div class="modal-body framer">
+  <div class="d-flex align-items-center justify-content-center picture-frame m-auto mt-3">
+    <div (click)="setOriginBack()" class="next mr-auto ml-3 mb-3"><i class="fa fa-arrow-circle-o-left"></i></div>
+    <div class="">
+      <div><img onError="this.src='../assets/img/pictureCollection/default.jpg'" class="modalImage"
+                [src]="activeContent[idx].image + '.jpg' | defaultPicture: 'default.jpg'"></div>
     </div>
+    <div (click)="setOriginForward()" class="prev ml-auto mr-3 mb-3"><i class="fa fa-arrow-circle-o-right"></i></div>
   </div>
+  <div class="pic-caption text-center p-2">{{activeContent[idx].description}}</div>
 </div>
+
 

@@ -11,9 +11,11 @@
 <div class="selection-frame d-flex">
   <div *ngFor="let category of pictureCategories; let i = index;" class="d-flex align-items-center ml-4">
     <input type='checkbox'
+           [(ngModel)]="category.checked"
            (click)="filterTriage($event, category.name)">
     <label class="ml-1 mt-2 text-white">{{category.name}}</label>
   </div>
+  <h1>{{observable | async}}</h1>
 </div>
 <div class="master-container d-flex flex-wrap">
   <div *ngFor="let picture of activePictures let $idx = index;"
@@ -21,11 +23,9 @@
        (mouseenter)="onMouseOver($event, picture)"
        (mouseleave)="onMouseLeave($event, picture)"
        (click)="openModal($idx);">
-    <img src="../assets/img/pictureCollection/{{picture.image}}_tn.jpg">
+    <img [src]="picture.image + '_tn.jpg' | defaultPicture: 'default_tn.jpg'">
   </div>
 </div>
-
-
 
 
 

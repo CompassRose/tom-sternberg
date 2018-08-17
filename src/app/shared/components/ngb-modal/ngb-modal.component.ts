@@ -1,48 +1,43 @@
-import {Component, OnInit, Input, ChangeDetectionStrategy} from '@angular/core';
-import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'ngbd-modal-component',
-  styleUrls: ['ngb-modal.component.scss'],
-  templateUrl: 'ngb-modal.component.html'
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'ngbd-modal-component',
+    styleUrls: ['ngb-modal.component.scss'],
+    templateUrl: 'ngb-modal.component.html',
 })
-
 export class NgbdModalComponent implements OnInit {
+    @Input()
+    activeIndex;
+    @Input()
+    modalGroup;
 
-  public modalRef: any;
-  public modalName: string;
-  public modalGroup = [];
-  public idx: number;
+    public activeContent;
+    public idx: number;
 
-  constructor(private modalService: NgbModal,
-              public activeModal: NgbActiveModal) {}
+    constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
 
-  ngOnInit() {
-    this.idx = 0;
-   // console.log('modal active ', this.idx);
-  }
+    ngOnInit() {
+        this.idx = this.activeIndex;
+        this.activeContent = this.modalGroup;
+    }
 
+    setOriginBack() {
+        if (this.idx > 0) {
+            this.idx--;
+        } else {
+            this.idx = this.activeContent.length - 1;
+        }
+        console.log('setOriginBack ', this.idx, ' length ', this.activeContent.length);
+    }
 
-  setOriginBack(num) {
-    this.idx = this.idx - num;
-    console.log('setOriginBack ', this.idx);
-  }
-
-  setOriginForward(num) {
-    this.idx = this.idx + num;
-   // console.log('setOriginForward ', this.idx);
-  }
-
-  open(type) {
-    this.modalRef = this.modalService.open(NgbModal);
-    console.log('this.modalRef ', type);
-   // this.modalRef.componentInstance.modalName = this.modalName;
-  }
+    setOriginForward() {
+        if (this.idx < this.activeContent.length - 1) {
+            this.idx++;
+        } else {
+            this.idx = 0;
+        }
+        console.log('setOriginForward ', this.idx, ' length ', this.activeContent.length);
+    }
 }
-
-
-
-
-

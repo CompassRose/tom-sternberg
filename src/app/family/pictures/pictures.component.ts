@@ -5,13 +5,17 @@ import {
     EventEmitter,
     OnInit,
     Output,
+    Pipe,
+    PipeTransform,
 } from '@angular/core';
 import { Picture } from '../models/picture';
-import { ICategory } from '../models/category';
 import { PictureService } from '../services/picture.service';
 import { CustomTooltipComponent } from '../../shared/components/custom-tooltip/custom-tooltip.component';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalComponent } from '../../shared/components/ngb-modal/ngb-modal.component';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/take';
+import 'rxjs/add/observable/interval';
 
 @Component({
     // changeDetection: ChangeDetectionStrategy.OnPush, // works with store only
@@ -39,6 +43,9 @@ export class PicturesComponent {
     public tooltipPositionX;
     public tooltipPositionY;
 
+    public observable: Observable<number>;
+    public PICTURE_PATH = '../assets/img/pictureCollection/';
+
     // First char Upper rest Lower
     static toTitleCase(str) {
         return str.replace(/\w\S*/g, function(txt) {
@@ -48,14 +55,29 @@ export class PicturesComponent {
 
     constructor(private _pictureService: PictureService, private modalService: NgbModal) {
         this.getPictureCollection();
+        this.observable = this.getObservable();
+    }
+
+    getObservable() {
+        return Observable.interval(1000)
+            .take(10)
+            .map(v => v * v);
     }
 
     getPictureCollection(): void {
         this._pictureService.getPictureContents().subscribe(data => {
             this.pictures = data;
-            this.activePictures = data;
-            this.pictureCategories[0] = { name: 'All', status: true };
+            this.activePictures = data.map(d => {
+                if (d.image === '') {
+                    d.image = '';
+                } else {
+                    d.image = this.PICTURE_PATH + d.image;
+                }
+                return d;
+            });
+            this.pictureCategories[0] = { name: 'All', checked: true };
             this.addFilter('All');
+            this.pictureCategories[0].checked = true;
         });
     }
 
@@ -70,7 +92,6 @@ export class PicturesComponent {
 
     // Splices from the filter collection and draws list
     removeFilter(cat) {
-        console.log('cat ', cat);
         const index = this.activeFilters.indexOf(cat);
         this.activeFilters.splice(index);
         this.drawPictureList();
@@ -79,15 +100,23 @@ export class PicturesComponent {
     // Adds to the filter collection and calls draw
     addFilter(cat) {
         if (cat === 'All') {
+            this.resetAll();
             this.activeFilters = [];
             this.activeFilters.push(cat);
         } else {
             if (this.activeFilters[0] === 'All') {
                 this.activeFilters = [];
+                this.pictureCategories[0].checked = false;
             }
             this.activeFilters.push(cat);
         }
         this.drawPictureList();
+    }
+
+    resetAll() {
+        this.pictureCategories.forEach(item => {
+            item.checked = false;
+        });
     }
 
     // Draws selected picture categories
@@ -103,18 +132,18 @@ export class PicturesComponent {
                     }
                 });
             }
+            //  console.log('this.activeFilters.forEach ', this.activeFilters);
             this.filterByCategory(d);
         });
-        console.log('this.activePictures ', this.activePictures);
     }
 
-    // Sets up category list and capitolizes
+    // Sets up category list and capitalizes
     filterByCategory(picture) {
         if (!this.activeCategory.includes(picture.keyword)) {
             this.activeCategory.push(picture.keyword);
             this.pictureCategories.push({
                 name: PicturesComponent.toTitleCase(picture.keyword),
-                status: true,
+                checked: false,
             });
         }
     }
@@ -133,12 +162,12 @@ export class PicturesComponent {
     }
 
     openModal(e) {
+        console.log(e);
         const modalRef = this.modalService.open(NgbdModalComponent, {
             size: 'lg',
+            windowClass: 'modal-xxl',
         });
-        modalRef.componentInstance.index = e;
-        modalRef.componentInstance.modalName = this.pictures[e].name;
-        modalRef.componentInstance.modalGroup = this.pictures;
-        // console.log('openModal modalRef ', modalRef.componentInstance);
+        modalRef.componentInstance.activeIndex = e;
+        modalRef.componentInstance.modalGroup = this.activePictures;
     }
 }
