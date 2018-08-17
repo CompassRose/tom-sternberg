@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, AfterViewInit, Input } from '@angular/core';
-import { DrilldownComponent } from '../drilldown/drilldown.component';
 import { ChartConfigService } from '../services/chart-config.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class DetailsComponent implements OnInit {
     constructor(public quoteService: ChartConfigService) {}
+
     @Input()
     processedData: any[];
     private detailRows = [];

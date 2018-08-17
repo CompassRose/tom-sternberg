@@ -1,0 +1,20 @@
+{
+  "Sternberg": {
+    "Jonathan Sternberg": {
+      "id": 0,
+      "wife": [10]},
+    "Suzan Sternberg": {
+      "id": 10,
+      "born": "Suzan Jones",
+      "husband": [0] },
+    "Adam Sternberg": { "id": 1, "father": 0, "mother": 10 },
+    "Suzy Sternberg": { "id": 4, "father": 1 },
+    "Clare Sternberg": { "id": 5, "father": 1 },
+    "Aaron Sternberg": { "id": 6, "father": 1 },
+    "Simon Sternberg": { "id": 7, "father": 1 },
+    "Timmy Sternberg": { "id": 2, "father": 0, "mother": 10  },
+    "Alison Sternberg": { "id":3, "father": 0, "mother": 10  },
+    "Natasha Sternberg": { "id": 8, "father": 3 },
+    "Zak Sternberg": { "id": 9, "father": 3 }
+  }
+}
