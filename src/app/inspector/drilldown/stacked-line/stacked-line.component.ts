@@ -12,10 +12,6 @@ import { CustomTooltipComponent } from '../../../shared/components/custom-toolti
 
 import * as d3 from 'd3';
 import * as $ from 'jquery';
-
-import * as d3Scale from 'd3-scale';
-import * as d3Shape from 'd3-shape';
-import * as d3Axis from 'd3-axis';
 import { timeFormat } from 'd3-time-format';
 import { IChartMargin } from '../../interfaces/Filters';
 
@@ -131,8 +127,8 @@ export class LineChartComponent implements OnInit, OnChanges {
         this.drawSVG(this);
         this.drawLine(this.series1, this.line, this.sold, this.color[0], this);
         this.drawLine(this.series2, this.line2, this.total, this.color[1], this);
-        this.drawLegend(this.legend, 20, 0, this.color[0], this.total);
-        this.drawLegend(this.legend, 20, 20, this.color[1], this.sold);
+        this.drawLegend(this.legend, 20, 2, this.color[0], this.total);
+        this.drawLegend(this.legend, 20, 22, this.color[1], this.sold);
         this.initializeEvents(this);
     }
 
@@ -349,13 +345,14 @@ export class LineChartComponent implements OnInit, OnChanges {
         legend = legend
             .append('g')
             .attr('class', 'key')
-            .attr('transform', 'translate(' + (this.container.width - 180) + ', -20)');
+            .attr('transform', 'translate(' + (this.container.width - 190) + ', -10)');
 
         legend
             .append('rect')
-            .attr('height', 37)
-            .attr('width', 220)
-            .attr('x', 0)
+            .attr('height', 60)
+            .attr('width', 215)
+            .attr('x', -10)
+            .attr('y', -10)
             .attr('class', 'legend-back');
 
         this.lineStart = lineStart;
@@ -440,15 +437,15 @@ export class LineChartComponent implements OnInit, OnChanges {
     private drawLegend(legend, offsetX, offsetY, color, values) {
         legend
             .append('rect')
-            .attr('height', 12)
-            .attr('width', 12)
-            .attr('x', 5)
+            .attr('height', 14)
+            .attr('width', 14)
+            .attr('x', 2)
             .attr('y', offsetY)
             .attr('fill', color);
 
         legend
             .append('text')
-            .attr('dy', '1em')
+            .attr('dy', '.9em')
             .attr('x', offsetX)
             .attr('y', offsetY)
             .text(values);

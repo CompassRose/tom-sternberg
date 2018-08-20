@@ -1,16 +1,13 @@
-<div class="d-flex justify-content-start">
-  <ul class="inspector-tabs nav nav-tabs w-100" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" role="tab" id="filter-tab" routerLink="drilldown">Drilldown
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" routerLink="details" id="tab-tab" role="tab">Details</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" routerLink="drilldown" role="tab">Map</a>
-    </li>
-  </ul>
+<div id="topheader">
+  <nav class="">
+      <div class="styled-nav w-100">
+        <ul class="navbar-nav" style="border-bottom: 1px solid white;">
+          <li class="active"><a routerLink="drilldown" href="#home">Drilldown<span class="sr-only">(current)</span></a></li>
+          <li><a routerLink="details" href="#page1">Details</a></li>
+          <li><a routerLink="map" href="#page2">Map</a></li>
+        </ul>
+      </div>
+  </nav>
 </div>
 <router-outlet></router-outlet>
 

@@ -8,23 +8,24 @@ import 'rxjs/add/operator/catch';
 const BASE_URL = 'http://localhost:3000/pictures/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
-
 @Injectable()
 export class PictureService {
+    constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) {
-  }
+    getPictureContents(): Observable<any> {
+        return this.http
+            .get(BASE_URL)
+            .map(response => response)
+            .catch(this.handleError);
+    }
 
-  getPictureContents(): Observable<any> {
-    return this.http.get(BASE_URL)
-      .map(response => response)
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any) {
-    const errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); // log to console instead
-    return Observable.throw(errMsg);
-  }
+    private handleError(error: any) {
+        const errMsg = error.message
+            ? error.message
+            : error.status
+                ? `${error.status} - ${error.statusText}`
+                : 'Server error';
+        console.error(errMsg); // log to console instead
+        return Observable.throw(errMsg);
+    }
 }

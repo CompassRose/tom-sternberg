@@ -10,8 +10,6 @@ import { Observable } from 'rxjs/Observable';
 export class DetailsComponent implements OnInit {
     constructor(public quoteService: ChartConfigService) {}
 
-    @Input()
-    processedData: any[];
     private detailRows = [];
 
     ngOnInit(): any {

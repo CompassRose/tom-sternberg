@@ -84,7 +84,6 @@
   display: block;
 }
 
-
 .filters-tabs .nav-tabs .nav-link {
   color: white;
   background-color: transparent;
@@ -113,13 +112,52 @@
 
 .tab-pane {
   padding: 5px;
-  background-color:white;
+  background-color: white;
   border-right: 1px solid #d1d1d1;
   border-left: 1px solid #d1d1d1;
   border-bottom: 1px solid #d1d1d1;
 }
 
+.nav-justified .nav-item {
+  width: 240px;
+}
+.panel {
+  background-color: #4554a3;
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  border: 2px solid rgb(69, 84, 163);
+}
 
-.nav-justified .nav-item{
-  width:240px;
+.panel-header{
+  text-align:center;
+  color:white;
+  padding:0 0 6px 0;
+  font-size:14px;
+}
+
+
+.shadow1 {
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.45);
+}
+
+.shadow2{
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+.txt {
+  font-size: 13px;
+}
+
+.widget {
+  background-color: white;
+  position: relative;
+  border-radius: 3px 3px 0 0;
+  min-height: 140px;
+  overflow-x: hidden;
+  border-left: 1px solid rgba(0, 0, 0, 0.63);
+  border-right: 1px solid rgba(0, 0, 0, 0.63);
+  border-top: 1px solid rgba(0, 0, 0, 0.63);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.05);
 }

@@ -102,7 +102,6 @@ export class BarChartComponent implements OnInit, OnChanges {
 
     // Call parent function to show tooltip
     private showTooltip(values, x, y) {
-        console.log('showTooltip ', y);
         this.tooltipEvent.next({ values: values, x: x, y: y });
     }
 
@@ -302,13 +301,14 @@ export class BarChartComponent implements OnInit, OnChanges {
         legend = legend
             .append('g')
             .attr('class', 'key')
-            .attr('transform', 'translate(' + (this.container.width - 190) + ', -30)');
+            .attr('transform', 'translate(' + (this.container.width - 190) + ', -10)');
 
         legend
             .append('rect')
-            .attr('height', 50)
-            .attr('width', 196)
-            .attr('x', 0)
+            .attr('height', 60)
+            .attr('width', 215)
+            .attr('x', -10)
+            .attr('y', -10)
             .attr('class', 'legend-back');
 
         this.chart = chart;
@@ -329,7 +329,7 @@ export class BarChartComponent implements OnInit, OnChanges {
             .attr('y', d => {
                 return parent.y(0);
             })
-            .attr('width', parent.x.bandwidth() * 0.8)
+            .attr('width', parent.x.bandwidth() * 0.95)
             .attr('height', 0)
             .transition()
             .duration(500)
@@ -368,7 +368,7 @@ export class BarChartComponent implements OnInit, OnChanges {
 
         legend
             .append('text')
-            .attr('dy', '.8em')
+            .attr('dy', '.9em')
             .attr('x', offsetX)
             .attr('y', offsetY)
             .text(values);

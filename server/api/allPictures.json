@@ -339,6 +339,16 @@
       "searchable": [
         "tom"
       ]
+    },
+    {
+      "name": "Jim, Kent, Tom",
+      "image": "RockingHorse",
+      "reference": "034",
+      "keyword": "Miscellaneous",
+      "description": "",
+      "searchable": [
+        "tom"
+      ]
     }
   ]
 }

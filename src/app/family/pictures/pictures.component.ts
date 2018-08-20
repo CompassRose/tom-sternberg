@@ -18,7 +18,7 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/observable/interval';
 
 @Component({
-    // changeDetection: ChangeDetectionStrategy.OnPush, // works with store only
+    changeDetection: ChangeDetectionStrategy.OnPush, // works with store only
     selector: 'app-pictures',
     templateUrl: './pictures.component.html',
     styleUrls: ['./pictures.component.scss'],
