@@ -23,7 +23,6 @@ export class ReadComponent implements OnInit {
         console.log('delTutorial ', index);
         this.store.dispatch(new PictureActions.RemovePicture(index));
     }
-
     addPicture(name, description) {
         this.store.dispatch(
             new PictureActions.AddPicture({ name: name, description: description }),

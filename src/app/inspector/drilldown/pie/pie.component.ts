@@ -15,7 +15,7 @@ import * as $ from 'jquery';
 
 @Component({
     selector: 'pie',
-    styleUrls: ['./pie.component.scss', '../../inspector-common-styles.scss'],
+    styleUrls: ['./pie.component.scss', '../drilldown-common.scss'],
     templateUrl: './pie.component.html',
     providers: [ChartConfigService, CustomTooltipComponent],
     encapsulation: ViewEncapsulation.None,
@@ -26,7 +26,6 @@ export class PieChartComponent implements OnInit, OnChanges {
     private x: any;
     private y: any;
     private svg: any;
-    // private g: any;
 
     private data: any;
     private arcGroup: any;
@@ -83,11 +82,15 @@ export class PieChartComponent implements OnInit, OnChanges {
 
     ngOnChanges(): void {
         if (this.data) {
-            this.total = this.totalVal;
+            this.data = [];
             this.data = this.pieData;
-            this.sold = this.soldVal;
-            this.isPrem = this.isPremium;
-            this.change(this.data, this);
+            setTimeout(() => {
+                this.total = this.totalVal;
+                this.sold = this.soldVal;
+                this.isPrem = this.isPremium;
+                this.initChart(this);
+                this.drawLegend(this);
+            }, 1200);
         }
     }
 
@@ -106,8 +109,9 @@ export class PieChartComponent implements OnInit, OnChanges {
             }
             this.chartInit();
             this.initChart(this);
+            this.drawLegend(this);
             this.initializeEvents(this);
-        }, 300);
+        }, 600);
     }
 
     // Call parent function to show tooltip
@@ -184,7 +188,7 @@ export class PieChartComponent implements OnInit, OnChanges {
 
         svg.attr(
             'transform',
-            'translate(' + this.container.width / 2 + ',' + this.container.height / 2 + ')',
+            'translate(' + this.container.width / 1.8 + ',' + this.container.height / 1.55 + ')',
         );
 
         const color = d3.scaleOrdinal().range(this.colors);
@@ -200,16 +204,6 @@ export class PieChartComponent implements OnInit, OnChanges {
     }
 
     change(data, parent) {
-        // let minimumThreshold = 5;
-        // let sum = 0;
-        // for ( let x in chartData ) {
-        //   chartData[x].value = chartData[x].litres;
-        //   sum += chartData[x].value;
-        //   if ( chartData[x].litres < minimumThreshold ) {
-        //     chartData[x].value = minimumThreshold;
-        //   }
-        // }
-
         const slice = this.svg
             .select('.slices')
             .selectAll('path.slice')
@@ -222,9 +216,8 @@ export class PieChartComponent implements OnInit, OnChanges {
 
         slice
             .transition()
-            .duration(500)
+            .duration(100)
             .attrTween('d', function(d) {
-                // console.log('this._current ', this._current);
                 this._current = this._current || d;
                 const interpolate = d3.interpolate(this._current, d);
                 this._current = interpolate(0);
@@ -233,9 +226,7 @@ export class PieChartComponent implements OnInit, OnChanges {
                 };
             })
             .style('fill', function(d, i) {
-                // console.log('d ', parent.color(d.data.key));
                 return parent.color(d.data.key);
-                // return parent.color[i];
             });
 
         this.arcGroup = slice;
@@ -249,7 +240,7 @@ export class PieChartComponent implements OnInit, OnChanges {
 
         text.enter()
             .append('text')
-            .style('fill', 'white')
+            .style('fill', 'black')
             .attr('dy', '.35em')
             .text(function(d) {
                 return d.data.key + 'values';
@@ -296,7 +287,7 @@ export class PieChartComponent implements OnInit, OnChanges {
             .enter()
             .append('polyline')
             .style('fill', 'none')
-            .style('stroke', 'white')
+            .style('stroke', 'black')
             .style('opacity', 0.6)
             .style('stroke-width', '2px');
 
@@ -377,30 +368,11 @@ export class PieChartComponent implements OnInit, OnChanges {
         const svg = d3
             .select('#' + this.attachNode)
             .append('center')
-            .append('svg')
-            .attr('width', this.container.width - this.margin.left - this.margin.right)
-            .attr('height', this.container.height + this.margin.top + this.margin.bottom)
-            .attr(
-                'viewBox',
-                '0, 0, ' +
-                    (this.container.width + this.margin.left + this.margin.right) +
-                    ', ' +
-                    (this.container.height + this.margin.top + this.margin.bottom),
-            );
+            .append('svg');
 
         this.svg = svg;
 
-        const chart = svg
-            .append('g')
-            .attr('class', 'pie')
-            .attr(
-                'transform',
-                'translate(' +
-                    (this.container.width + this.margin.left + this.margin.right) / 2 +
-                    ',' +
-                    (this.container.height + this.margin.top + this.margin.bottom) / 2 +
-                    ')',
-            );
+        const chart = svg.append('g').attr('class', 'pie');
 
         const arcGroup: any = chart
             .selectAll('.arc')
@@ -415,7 +387,6 @@ export class PieChartComponent implements OnInit, OnChanges {
                 return color(d.data.key);
             })
             .attr('class', 'slice')
-            // .attr('stroke', 'white')
             .transition()
             .delay(function(d, i) {
                 return i * 200;
@@ -444,6 +415,7 @@ export class PieChartComponent implements OnInit, OnChanges {
             .append('tspan')
             .attr('x', 0)
             .attr('dy', '1em')
+            .attr('fill', 'black')
             .text(function(d: any) {
                 if (Math.round((d.value / parent.sum) * 100) > 2) {
                     if (parent.isPrem) {
@@ -499,10 +471,7 @@ export class PieChartComponent implements OnInit, OnChanges {
         const legend = this.svg
             .append('g')
             .attr('class', 'legend')
-            .attr('transform', function(d, i) {
-                console.log('hi ', 'translate(' + parent.margin.left + ', 30)');
-                return 'translate(' + parent.margin.left + ', 30)';
-            });
+            .attr('transform', 'translate(' + this.container.height + ', -200)');
 
         let j = 0;
         const offset = 25;
@@ -518,7 +487,7 @@ export class PieChartComponent implements OnInit, OnChanges {
                 const limit = Math.ceil(parent.container.height / offset);
                 if (i >= limit) {
                     j++;
-                    return 'translate(90, ' + offset * j + ')';
+                    return 'translate(130, ' + offset * j + ')';
                 } else {
                     return 'translate(0, ' + offset * (i + 1) + ')';
                 }
@@ -526,18 +495,17 @@ export class PieChartComponent implements OnInit, OnChanges {
 
         key.append('rect')
             .attr('height', offset)
-            .attr('width', 90)
-            .attr('x', 0)
-            .attr('y', -(offset - 10) / 2)
-            .attr('fill', 'white');
+            .attr('width', 160)
+            .attr('x', -20)
+            .attr('y', -10)
+            .attr('class', 'legend-back');
 
         key.append('rect')
             .attr('height', 16)
             .attr('width', 16)
-            .attr('fill', function(d, i) {
-                return parent.color[i];
+            .attr('fill', function(d) {
+                return parent.color(d.data.key);
             });
-        j = 0;
 
         key.append('text')
             .attr('dy', '.9em')

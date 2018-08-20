@@ -8,110 +8,19 @@ body {
 
 
 .container {
-  min-width: 1600px;
+  min-width: 1800px;
   padding: 20px;
   height: 100%;
-  background-color: rgba(3, 18, 68, 0.25);
+  background-color: #23577a;
 }
-
 
 a {
   cursor: pointer
 }
 
-
 .gold-text {
   color: $gold-leaf;
 }
-
-
-.pieLabel {
-  fill: white;
-  font-weight: bold;
-  font-size: 12px;
-}
-
-
-.legend .key text {
-  font-size: .9rem;
-  font-weight: bold;
-  fill: #f4f4f4;
-}
-
-.legend .key:hover {
-  cursor: pointer;
-}
-
-
-.headerBold {
-  color: white;
-  font-size: 11px;
-  font-weight: normal;
-}
-
-.dataRow {
-  color: white;
-  font-size: 12px;
-  font-weight: normal;
-}
-
-table {
-  border-collapse: separate;
-  border-spacing: 0px 3px;
-}
-
-table {
-  margin: 0;
-}
-
-.table td, .table th {
-  padding: .75rem;
-  vertical-align: top;
-  border-top: 0px solid #e9ecef;
-}
-
-
-// Line chart holdover
-.chart-tip {
-  position: absolute;
-  pointer-events: none;
-  display: none;
-  top: 0;
-  left: 0;
-  z-index: 12000 !important;
-}
-
-.chart-tip table {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(0, 0, 0, 0.83);
-  border-collapse: collapse;
-  border-spacing: 0;
-  background-color: #fff;
-  empty-cells: show;
-  opacity: 0.9;
-}
-
-.chart-tip table tr {
-  border: 1px solid #CCC;
-}
-
-.chart-tip table th {
-  background-color: #4c6cea;
-  font-size: 12px;
-  padding: 2px 5px;
-  text-align: left;
-  color: #FFF;
-  border-left: 1px dotted #fff;
-}
-
-.chart-tip table td {
-  font-size: 11px;
-  padding: 3px 6px;
-  background-color: #fff;
-  border-left: 1px dotted #999;
-}
-
-
 
 .display-xs {
   font-size: 0.7rem;
@@ -168,3 +77,44 @@ table {
 }
 
 
+.navbar-nav {
+  flex-direction: row;
+  padding: 11px;
+  margin-bottom: 3px;
+}
+
+
+#topheader li > a {
+  text-transform: capitalize;
+  transition: background-color .2s, color .2s;
+  padding: 12px 35px;
+  color: white;
+  background-color: transparent;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-color: rgba(37, 38, 88, 0.75);
+  border-radius: 5px 5px 0 0;
+  margin-right: 4px;
+  border-bottom: 1px transparent;
+  &:hover {
+    border-color: #52a3ff;
+    color: white;
+    border-bottom: 1px solid #4554a3;
+  }
+  &:active {
+    border-color: white;
+    border-bottom: 1px solid #23577a;
+  }
+  &:focus {
+    border-color: white;
+    border-bottom: 1px solid #4554a3;
+  }
+}
+
+#topheader li.active > a {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+  border-bottom: 2px solid #23577a;
+}

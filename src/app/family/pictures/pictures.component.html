@@ -15,7 +15,7 @@
            (click)="filterTriage($event, category.name)">
     <label class="ml-1 mt-2 text-white">{{category.name}}</label>
   </div>
-  <!--<h1>{{observable | async}}</h1>-->
+  <h1>{{observable | async}}</h1>
 </div>
 <div class="master-container d-flex flex-wrap">
   <div *ngFor="let picture of activePictures let $idx = index;"

@@ -87,62 +87,62 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-4">
-    <div class="panel shadow1 p-2">
-      <div>
-        <ul class="filters-tabs nav nav-tabs nav-justified" id="myTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link one active" id="filter-tab" role="tab" (click)="activateTabOne()"><h6>Search
-              Criteria</h6></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link two" id="saved-tab" (click)="activateTabTwo()">
-              <h6>Saved Searches<span *ngIf="filterSets.length > 0" class="badge" id="savedCount"
-                                      style="position:absolute; margin-top:2px; background-color:blue; margin-left: 6px;">{{filterSets.length}}</span>
-              </h6></a>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane one fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
-            <div>
-              <div *ngIf="saveActive === true" class="d-flex align-items-center justify-content-start w-100">
-                <div>Field Name</div>
-                <div>Value</div>
-              </div>
-              <div *ngFor="let new of filters; let $idx = index;" class="filterRow">
-                <div>{{new.key}}</div>
-                <div>{{new.values}}</div>
-                <div>
-                  <button class="btn btn-sm btn-danger remove pull-right">
-                    <i class="fa fa-times glyphicon-remove savebtn" (click)="removeThisFilter(new, $idx)"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="controls" [ngClass]="saveActive === true ? 'turnOn' : 'turnOff'">
-              <button id="saveSearch" class="btn btn-sm btn-primary savebtn" (click)="saveFilterSet(filters);">
-                <i class="fa fa-floppy-o mr-1"></i>&nbsp;Save
-              </button>
-            </div>
-          </div>
-          <div class="tab-pane two fade" id="saver" role="tabpanel" aria-labelledby="saver-tab">
-            <div>
-              <div>Name</div>
-              <div *ngFor="let saved of filterSets; let $index = index;" class="filterRow" style="cursor:pointer;"
-                   (click)="loadFilterList( saved );">
-                <div><span>{{saved.name}}</span> &nbsp;&nbsp;&nbsp; <span *ngFor="let filterer of saved.filters;">&nbsp;&nbsp;&nbsp;({{filterer.values}})</span>
-                </div>
-                <div>
-                  <button class="btn btn-sm btn-danger remove pull-right" (click)="removeFilterSet(saved, $index)">
-                    <i class="fa fa-times glyphicon-remove savebtn"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--<div class="col-sm-4">-->
+    <!--<div class="panel shadow1 p-2">-->
+      <!--<div>-->
+        <!--<ul class="filters-tabs nav nav-tabs nav-justified" id="myTab" role="tablist">-->
+          <!--<li class="nav-item">-->
+            <!--<a class="nav-link one active" id="filter-tab" role="tab" (click)="activateTabOne()"><h6>Search-->
+              <!--Criteria</h6></a>-->
+          <!--</li>-->
+          <!--<li class="nav-item">-->
+            <!--<a class="nav-link two" id="saved-tab" (click)="activateTabTwo()">-->
+              <!--<h6>Saved Searches<span *ngIf="filterSets.length > 0" class="badge" id="savedCount"-->
+                                      <!--style="position:absolute; margin-top:2px; background-color:blue; margin-left: 6px;">{{filterSets.length}}</span>-->
+              <!--</h6></a>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<div class="tab-content" id="myTabContent">-->
+          <!--<div class="tab-pane one fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">-->
+            <!--<div>-->
+              <!--<div *ngIf="saveActive === true" class="d-flex align-items-center justify-content-start w-100">-->
+                <!--<div>Field Name</div>-->
+                <!--<div>Value</div>-->
+              <!--</div>-->
+              <!--<div *ngFor="let new of filters; let $idx = index;" class="filterRow">-->
+                <!--<div>{{new.key}}</div>-->
+                <!--<div>{{new.values}}</div>-->
+                <!--<div>-->
+                  <!--<button class="btn btn-sm btn-danger remove pull-right">-->
+                    <!--<i class="fa fa-times glyphicon-remove savebtn" (click)="removeThisFilter(new, $idx)"></i>-->
+                  <!--</button>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="controls" [ngClass]="saveActive === true ? 'turnOn' : 'turnOff'">-->
+              <!--<button id="saveSearch" class="btn btn-sm btn-primary savebtn" (click)="saveFilterSet(filters);">-->
+                <!--<i class="fa fa-floppy-o mr-1"></i>&nbsp;Save-->
+              <!--</button>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="tab-pane two fade" id="saver" role="tabpanel" aria-labelledby="saver-tab">-->
+            <!--<div>-->
+              <!--<div>Name</div>-->
+              <!--<div *ngFor="let saved of filterSets; let $index = index;" class="filterRow" style="cursor:pointer;"-->
+                   <!--(click)="loadFilterList( saved );">-->
+                <!--<div><span>{{saved.name}}</span> &nbsp;&nbsp;&nbsp; <span *ngFor="let filterer of saved.filters;">&nbsp;&nbsp;&nbsp;({{filterer.values}})</span>-->
+                <!--</div>-->
+                <!--<div>-->
+                  <!--<button class="btn btn-sm btn-danger remove pull-right" (click)="removeFilterSet(saved, $index)">-->
+                    <!--<i class="fa fa-times glyphicon-remove savebtn"></i></button>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 </div>
 
 

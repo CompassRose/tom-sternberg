@@ -9,7 +9,6 @@ import { IFilter, NamedFilter } from '../interfaces/Filters';
 import { AppChart } from '../interfaces/AppCharts';
 
 import * as $ from 'jquery';
-// declare var bootbox: any;
 
 // TODO  Get rid of jQuery
 
@@ -202,6 +201,7 @@ export class DrilldownComponent implements OnInit {
 
     // From timeline and variable charts dropdown selector
     dropdownSelector(i, type, newValue) {
+        console.log('dropdownSelector i ', i, ' type ', type, 'newValue ', newValue);
         this.allCharts[i].data = this.quoteService.nestChartData(newValue, this.dynamicData);
         this.allCharts[i].title = newValue;
         let drawTypeVal: number;
@@ -222,21 +222,21 @@ export class DrilldownComponent implements OnInit {
         type === 'table' ? (this.tableActive = true) : (this.tableActive = false);
     }
 
-    activateTabTwo() {
-        $('a.nav-link.one').removeClass('active');
-        $('div.tab-pane.one').removeClass('active');
-
-        $('a.nav-link.two').addClass('active');
-        $('div.tab-pane.two').addClass('active show');
-    }
-
-    activateTabOne() {
-        $('a.nav-link.two').removeClass('active');
-        $('div.tab-pane.two').removeClass('active');
-
-        $('a.nav-link.one').addClass('active');
-        $('div.tab-pane.one').addClass('active show');
-    }
+    // activateTabTwo() {
+    //     $('a.nav-link.one').removeClass('active');
+    //     $('div.tab-pane.one').removeClass('active');
+    //
+    //     $('a.nav-link.two').addClass('active');
+    //     $('div.tab-pane.two').addClass('active show');
+    // }
+    //
+    // activateTabOne() {
+    //     $('a.nav-link.two').removeClass('active');
+    //     $('div.tab-pane.two').removeClass('active');
+    //
+    //     $('a.nav-link.one').addClass('active');
+    //     $('div.tab-pane.one').addClass('active show');
+    // }
 
     // From Saved list press event
     //////////////////////////////
@@ -253,12 +253,12 @@ export class DrilldownComponent implements OnInit {
         // });
 
         const setLength = this.filterSets.length;
-        // need to find a better way of doing this
-        $('a.nav-link.one').removeClass('active');
-        $('div.tab-pane.one').removeClass('active');
-
-        $('a.nav-link.two').addClass('active');
-        $('div.tab-pane.two').addClass('active show');
+        // // need to find a better way of doing this
+        // $('a.nav-link.one').removeClass('active');
+        // $('div.tab-pane.one').removeClass('active');
+        //
+        // $('a.nav-link.two').addClass('active');
+        // $('div.tab-pane.two').addClass('active show');
     }
 
     setKeysToFilter() {
@@ -295,11 +295,11 @@ export class DrilldownComponent implements OnInit {
         this.setChartData(filteredList);
 
         // Need to find a better way of doing this
-        $('a.nav-link.one').removeClass('active');
-        $('div.tab-pane.one').removeClass('active');
-
-        $('a.nav-link.two').addClass('active');
-        $('div.tab-pane.two').addClass('active show');
+        // $('a.nav-link.one').removeClass('active');
+        // $('div.tab-pane.one').removeClass('active');
+        //
+        // $('a.nav-link.two').addClass('active');
+        // $('div.tab-pane.two').addClass('active show');
     }
 
     // update the dataset when a filter is added, removed, etc
@@ -322,12 +322,11 @@ export class DrilldownComponent implements OnInit {
         // console.log('removed... ', this.filterSets);
         if (this.filterSets.length === 0) {
             // console.log('No filterSets elements left... ');
-
-            $('a.nav-link.two').removeClass('active');
-            $('div.tab-pane.two').removeClass('active');
-
-            $('a.nav-link.one').addClass('active');
-            $('div.tab-pane.one').addClass('active show');
+            // $('a.nav-link.two').removeClass('active');
+            // $('div.tab-pane.two').removeClass('active');
+            //
+            // $('a.nav-link.one').addClass('active');
+            // $('div.tab-pane.one').addClass('active show');
         }
     }
 
