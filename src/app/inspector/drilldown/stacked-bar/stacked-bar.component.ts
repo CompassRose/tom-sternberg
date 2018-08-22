@@ -11,13 +11,13 @@ import { ChartConfigService } from '../../services/chart-config.service';
 import { CustomTooltipComponent } from '../../../shared/components/custom-tooltip/custom-tooltip.component';
 import * as d3 from 'd3';
 import { timeFormat } from 'd3-time-format';
+import { IChartMargin } from '../../interfaces/Filters';
 
 @Component({
     selector: 'app-bar-chart',
     templateUrl: './stacked-bar.component.html',
-    styleUrls: ['./stacked-bar.component.scss', '../drilldown-common.scss'],
+    styleUrls: ['./stacked-bar.component.scss'],
     providers: [ChartConfigService, CustomTooltipComponent],
-    encapsulation: ViewEncapsulation.None,
 })
 export class BarChartComponent implements OnInit, OnChanges {
     @Input()
@@ -45,7 +45,7 @@ export class BarChartComponent implements OnInit, OnChanges {
         private tooltipComponent: CustomTooltipComponent,
     ) {}
 
-    private margin: any = {};
+    private margin: IChartMargin = { top: 20, right: 20, bottom: 30, left: 50 };
     private container: any = {};
     private x: any;
     private y: any;
@@ -76,7 +76,6 @@ export class BarChartComponent implements OnInit, OnChanges {
     }
 
     ngOnInit(): any {
-        this.margin = { top: 20, right: 20, bottom: 30, left: 50 };
         this.total = this.totalVal;
         this.sold = this.soldVal;
         this.isPrem = this.isPremium;
@@ -301,7 +300,7 @@ export class BarChartComponent implements OnInit, OnChanges {
         legend = legend
             .append('g')
             .attr('class', 'key')
-            .attr('transform', 'translate(' + (this.container.width - 190) + ', -10)');
+            .attr('transform', 'translate(' + (this.container.width - 170) + ', -10)');
 
         legend
             .append('rect')

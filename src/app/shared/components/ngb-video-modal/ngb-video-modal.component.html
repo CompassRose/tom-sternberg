@@ -1,0 +1,30 @@
+<div class="my-header">
+  <div class="modal-title display-lg text-muted f-weight-600" id="exampleModalLabel">{{gameName}}</div>
+  <a class="header-lg ml-auto" (click)="activeModal.dismiss('Cross click')">&times;</a>
+</div>
+<div class="modal-body framer">
+  <div class="d-flex align-items-center justify-content-center picture-frame m-auto mt-3">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-body mb-0 p-0">
+      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half modalImage">
+        <iframe id="player" class="embed-responsive-item"
+                [src]="videoSignal | bSafe: 'resourceUrl'" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex align-items-center my-footer">
+    <span class="display-lg ml-5">HUD/UI Artist for massive online video game for PlayStation3</span>
+    <button type="button" class="btn btn-indigo waves-light ml-auto" data-dismiss="modal"
+            (click)="activeModal.dismiss('Cross click'); stopVideo();">Close
+    </button>
+  </div>
+  <!--<div class="pic-caption text-center p-2">{{activeContent[idx].description}}</div>-->
+</div>
+
+
+
+
+
+

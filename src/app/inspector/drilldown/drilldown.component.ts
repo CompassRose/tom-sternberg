@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/toPromise';
 import { ChartConfigService } from '../services/chart-config.service';
+import { FormatService } from '../services/format.service';
 import { IFilter, NamedFilter } from '../interfaces/Filters';
 import { AppChart } from '../interfaces/AppCharts';
 
@@ -16,9 +17,10 @@ import * as $ from 'jquery';
     selector: 'app-drilldown',
     templateUrl: './drilldown.component.html',
     styleUrls: ['./drilldown.component.scss'],
+    providers: [FormatService],
 })
 export class DrilldownComponent implements OnInit {
-    constructor(private quoteService: ChartConfigService) {}
+    constructor(private quoteService: ChartConfigService, private formatService: FormatService) {}
 
     private color1 = ['#05d6ff', '#012172'];
     private color2 = ['#00e75b', '#006f2e'];
@@ -27,8 +29,8 @@ export class DrilldownComponent implements OnInit {
     filterSets: NamedFilter[] = [];
     private fields;
     private btnTypes: any = ['bar', 'pie', 'line', 'table'];
-    private allRows: any = [];
-    public dynamicData: any = [];
+    private allRows: any[] = [];
+    public dynamicData: any[] = [];
     public saveActive = false;
     public tableActive = false;
 
@@ -95,14 +97,6 @@ export class DrilldownComponent implements OnInit {
         this.removeThisFilter(e, 0);
     }
 
-    removeFilterSets(e) {
-        console.log('removeFilterSets ', e);
-    }
-
-    saveFilterSets(e) {
-        console.log('saveFilterSets ', e);
-    }
-
     initToolEvent(e) {
         this.showTip = true;
         this.tooltipPositionX = e.x + 60;
@@ -143,6 +137,7 @@ export class DrilldownComponent implements OnInit {
 
     // From chart elements click to set filters
     setCurrentChart(newData, index, setFilter) {
+        console.log('setCurrentChart  ', this.allCharts[index], ' newData ', newData);
         this.setChartBtnsState(this.allCharts[index], true);
         this.saveActive = true;
         const setFilterFormat = { key: this.allCharts[index].title, values: newData.key };
@@ -156,8 +151,8 @@ export class DrilldownComponent implements OnInit {
 
     // Draws charts with updated data
     setChartData(filteredResponse) {
+        console.log('\n filteredResponse', filteredResponse);
         this.allCharts.forEach((v, i) => {
-            // console.log('\n v', v);
             v.data = this.quoteService.nestChartData(v.title, filteredResponse);
             if (v.key !== '') {
                 v.chartType = 'single';
@@ -201,7 +196,14 @@ export class DrilldownComponent implements OnInit {
 
     // From timeline and variable charts dropdown selector
     dropdownSelector(i, type, newValue) {
-        console.log('dropdownSelector i ', i, ' type ', type, 'newValue ', newValue);
+        console.log(
+            'dropdownSelector i ',
+            this.allCharts[i].data.length,
+            ' type ',
+            type,
+            'newValue ',
+            newValue,
+        );
         this.allCharts[i].data = this.quoteService.nestChartData(newValue, this.dynamicData);
         this.allCharts[i].title = newValue;
         let drawTypeVal: number;
@@ -222,21 +224,21 @@ export class DrilldownComponent implements OnInit {
         type === 'table' ? (this.tableActive = true) : (this.tableActive = false);
     }
 
-    // activateTabTwo() {
-    //     $('a.nav-link.one').removeClass('active');
-    //     $('div.tab-pane.one').removeClass('active');
-    //
-    //     $('a.nav-link.two').addClass('active');
-    //     $('div.tab-pane.two').addClass('active show');
-    // }
-    //
-    // activateTabOne() {
-    //     $('a.nav-link.two').removeClass('active');
-    //     $('div.tab-pane.two').removeClass('active');
-    //
-    //     $('a.nav-link.one').addClass('active');
-    //     $('div.tab-pane.one').addClass('active show');
-    // }
+    activateTabTwo() {
+        $('a.nav-link.one').removeClass('active');
+        $('div.tab-pane.one').removeClass('active');
+
+        $('a.nav-link.two').addClass('active');
+        $('div.tab-pane.two').addClass('active show');
+    }
+
+    activateTabOne() {
+        $('a.nav-link.two').removeClass('active');
+        $('div.tab-pane.two').removeClass('active');
+
+        $('a.nav-link.one').addClass('active');
+        $('div.tab-pane.one').addClass('active show');
+    }
 
     // From Saved list press event
     //////////////////////////////
@@ -254,11 +256,11 @@ export class DrilldownComponent implements OnInit {
 
         const setLength = this.filterSets.length;
         // // need to find a better way of doing this
-        // $('a.nav-link.one').removeClass('active');
-        // $('div.tab-pane.one').removeClass('active');
-        //
-        // $('a.nav-link.two').addClass('active');
-        // $('div.tab-pane.two').addClass('active show');
+        $('a.nav-link.one').removeClass('active');
+        $('div.tab-pane.one').removeClass('active');
+
+        $('a.nav-link.two').addClass('active');
+        $('div.tab-pane.two').addClass('active show');
     }
 
     setKeysToFilter() {
@@ -295,11 +297,11 @@ export class DrilldownComponent implements OnInit {
         this.setChartData(filteredList);
 
         // Need to find a better way of doing this
-        // $('a.nav-link.one').removeClass('active');
-        // $('div.tab-pane.one').removeClass('active');
-        //
-        // $('a.nav-link.two').addClass('active');
-        // $('div.tab-pane.two').addClass('active show');
+        $('a.nav-link.one').removeClass('active');
+        $('div.tab-pane.one').removeClass('active');
+
+        $('a.nav-link.two').addClass('active');
+        $('div.tab-pane.two').addClass('active show');
     }
 
     // update the dataset when a filter is added, removed, etc

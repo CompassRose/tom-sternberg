@@ -15,7 +15,7 @@ import * as $ from 'jquery';
     selector: 'single-combo',
     templateUrl: './single-combo.component.html',
     styleUrls: ['./single-combo.component.scss', '../drilldown-common.scss'],
-    encapsulation: ViewEncapsulation.None,
+    //  encapsulation: ViewEncapsulation.None,
 })
 export class SingleComboComponent implements OnInit, OnChanges {
     private key: any;

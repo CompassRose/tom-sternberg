@@ -12,16 +12,17 @@ import { CustomTooltipComponent } from '../../../shared/components/custom-toolti
 
 import * as d3 from 'd3';
 import * as $ from 'jquery';
+import { IChartMargin } from '../../interfaces/Filters';
 
 @Component({
     selector: 'pie',
     styleUrls: ['./pie.component.scss', '../drilldown-common.scss'],
     templateUrl: './pie.component.html',
     providers: [ChartConfigService, CustomTooltipComponent],
-    encapsulation: ViewEncapsulation.None,
+    // encapsulation: ViewEncapsulation.None,
 })
 export class PieChartComponent implements OnInit, OnChanges {
-    private margin = { top: 20, right: 20, bottom: 30, left: 50 };
+    private margin: IChartMargin = { top: 20, right: 20, bottom: 30, left: 50 };
     private container: any;
     private x: any;
     private y: any;
@@ -327,6 +328,8 @@ export class PieChartComponent implements OnInit, OnChanges {
             return { x: labelX, y: labelY };
         };
 
+        // TODO  moneyformat @pipe
+
         const sum: number = d3.sum(parent.data, function(d: any) {
             const n = d.values[parent.total];
             const moneyFormat = function(n, currency) {
@@ -442,39 +445,14 @@ export class PieChartComponent implements OnInit, OnChanges {
         this.arcGroup = arcGroup;
     }
 
-    private selectArea(d, i, parent) {
-        $('#' + parent.attachNode + ' .slice')
-            .not(':eq(' + i + ')')
-            .attr('fill-opacity', '0.25');
-        $('#' + parent.attachNode + ' .legend .key')
-            .not(':eq(' + i + ')')
-            .find('rect')
-            .attr('fill-opacity', '0.45');
-        this.quoteService.showTip(
-            parent.quoteService.mouse.x,
-            parent.quoteService.mouse.y,
-            d.key,
-            d.values,
-        );
-    }
-
-    private deselectArea(parent) {
-        $('#' + parent.attachNode + ' .slice').attr('fill-opacity', '1.0');
-        $('#' + parent.attachNode + ' .legend .key')
-            .find('rect')
-            .add('text')
-            .attr('fill-opacity', '1.0');
-        parent.quoteService.hideTip(parent);
-    }
-
     private drawLegend(parent) {
         const legend = this.svg
             .append('g')
             .attr('class', 'legend')
-            .attr('transform', 'translate(' + this.container.height + ', -200)');
+            .attr('transform', 'translate(' + this.container.height + ', -180)');
 
         let j = 0;
-        const offset = 25;
+        const offset = 20;
 
         // key
         const key = legend
@@ -485,19 +463,20 @@ export class PieChartComponent implements OnInit, OnChanges {
             .attr('class', 'key')
             .attr('transform', function(d, i) {
                 const limit = Math.ceil(parent.container.height / offset);
+                console.log('limit ', limit);
                 if (i >= limit) {
                     j++;
                     return 'translate(130, ' + offset * j + ')';
                 } else {
-                    return 'translate(0, ' + offset * (i + 1) + ')';
+                    return 'translate(80, ' + offset * (i + 1) + ')';
                 }
             });
 
         key.append('rect')
             .attr('height', offset)
-            .attr('width', 160)
+            .attr('width', 180)
             .attr('x', -20)
-            .attr('y', -10)
+            .attr('y', 0)
             .attr('class', 'legend-back');
 
         key.append('rect')
@@ -537,7 +516,6 @@ export class PieChartComponent implements OnInit, OnChanges {
                 parent.hideTooltip();
 
                 const filter = { key: d.data.key, values: d.data.values };
-                // console.log('click', filter);
                 parent.resetPieChart(filter);
             });
     }

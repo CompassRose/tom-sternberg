@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdModalComponent } from '../../shared/components/ngb-modal/ngb-modal.component';
+import { NgbdVideoModalComponent } from '../../shared/components/ngb-video-modal/ngb-video-modal.component';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,21 +14,22 @@ export class CarouselComponent implements OnInit {
     public aggregate = 0;
     public menuOpen = false;
     public videoPlayer;
+    public videoSignal: string;
 
     constructor(private modalService: NgbModal) {}
 
     ngOnInit() {
         this.videoPlayer = true;
+        // this.videoSignal = 'https://www.youtube.com/embed/low8HlogFFQ';
     }
 
     openModal(e) {
         console.log('openModal ', e);
-        const modalRef = this.modalService.open(NgbdModalComponent, {
+        const modalRef = this.modalService.open(NgbdVideoModalComponent, {
             size: 'lg',
         });
-        modalRef.componentInstance.index = e;
         modalRef.componentInstance.modalName = e;
-        modalRef.componentInstance.modalGroup = e;
+        modalRef.componentInstance.modalGroup = 'My Game Name';
     }
 
     setOriginBack(value) {
@@ -47,10 +48,6 @@ export class CarouselComponent implements OnInit {
             this.aggregate = 0;
         }
         this.getCurrentPosition();
-    }
-
-    stopVideo() {
-        this.videoPlayer = false;
     }
 
     getCurrentPosition() {

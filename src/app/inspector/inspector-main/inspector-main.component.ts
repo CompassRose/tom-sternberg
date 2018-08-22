@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ChartConfigService } from '../services/chart-config.service';
 import * as $ from 'jquery';
 
@@ -6,6 +6,7 @@ import * as $ from 'jquery';
     selector: 'app-inspector-main',
     templateUrl: './inspector-main.component.html',
     styleUrls: ['./inspector-main.component.scss'],
+    encapsulation: ViewEncapsulation.None,
     providers: [ChartConfigService],
 })
 export class InspectorMainComponent implements OnInit {
@@ -20,5 +21,7 @@ export class InspectorMainComponent implements OnInit {
                 .parent('li')
                 .addClass('active');
         });
+
+        // this.quoteService.getSubjectData(filteredList);
     }
 }

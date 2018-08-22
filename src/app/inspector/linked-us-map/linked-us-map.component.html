@@ -1,3 +1,11 @@
+<ng-container *ngIf="showTip" class="mt-5">
+  <app-custom-tooltip
+    [tiptitle]="toolTitle"
+    [tipvalues]="toolValues"
+    [tipPositionX]="tooltipPositionX"
+    [tipPositionY]="tooltipPositionY">
+  </app-custom-tooltip>
+</ng-container>
 <div class="tab-pane" id="us-map">
   <div class="row">
     <div class="col-sm-12">

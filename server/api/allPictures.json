@@ -349,6 +349,16 @@
       "searchable": [
         "tom"
       ]
+    },
+    {
+      "name": "Mom and Dad On Sea-Ray",
+      "image": "searayGuemes",
+      "reference": "035",
+      "keyword": "Guemes Island",
+      "description": "",
+      "searchable": [
+        "tom"
+      ]
     }
   ]
 }
