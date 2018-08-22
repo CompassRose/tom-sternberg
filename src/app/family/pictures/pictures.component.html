@@ -1,13 +1,12 @@
-<div class="row">
-  <ng-container *ngIf="showTip">
-    <app-custom-tooltip
-      [tiptitle]="toolTitle"
-      [tipvalues]="toolValues"
-      [tipPositionX]="tooltipPositionX"
-      [tipPositionY]="tooltipPositionY">
-    </app-custom-tooltip>
-  </ng-container>
-</div>
+<ng-container *ngIf="showTip">
+  <app-custom-tooltip
+    [tiptitle]="toolTitle"
+    [tipvalues]="toolValues"
+    [tipPositionX]="tooltipPositionX"
+    [tipPositionY]="tooltipPositionY">
+  </app-custom-tooltip>
+</ng-container>
+
 <div class="selection-frame d-flex">
   <div *ngFor="let category of pictureCategories; let i = index;" class="d-flex align-items-center ml-4">
     <input type='checkbox'

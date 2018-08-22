@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { FormatService } from './format.service';
+
 import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/toPromise';
+
 import * as d3 from 'd3';
 import { timeFormat } from 'd3-time-format';
-import { timeParse } from 'd3-time-format';
 
 import { MAPPING_DATA } from './mappings';
 const BASE_URL = '../assets/us.json';
@@ -36,7 +35,12 @@ export interface ChartData {
 
 @Injectable()
 export class MapService {
-    constructor(private _http: HttpClient) {}
+    public mapDrawValue;
+
+    constructor(private _http: HttpClient, private formatService: FormatService) {
+        this.mapDrawValue = 'Prospect State';
+    }
+    private mappingData = MAPPING_DATA;
 
     getMapData(): Observable<any> {
         return this._http
@@ -52,7 +56,78 @@ export class MapService {
                 ? `${error.status} - ${error.statusText}`
                 : 'Server error';
         console.error(errMsg); // log to console instead
-        return Observable.throw(errMsg);
+        return errMsg;
+    }
+
+    // Map State data for map screen
+    mapStateData(dataRows) {
+        const mapper: any = this.mappingData;
+        let data = d3.entries(dataRows);
+        data = data.map(d => {
+            const obj: any = {};
+            mapper.quotes.forEach((item, index) => {
+                if (!item.count) {
+                    obj[item.value] = this.formatService.formatData(d, item);
+                }
+            });
+            return obj;
+        });
+        console.log('map state ', this.nestMapData(this.mapDrawValue, data));
+        return this.nestMapData(this.mapDrawValue, data);
+    }
+
+    private nestMapData = function(key, data): any {
+        const tempMap = d3
+            .nest()
+            .key(function(d) {
+                return d[key];
+            })
+            .sortKeys(d3.ascending)
+            .rollup(leaves => {
+                const obj = {},
+                    rollup = this.rollitup();
+                rollup.forEach(function(v, i) {
+                    if (v.count) {
+                        obj[v.value] = leaves.length;
+                    } else {
+                        obj[v.value] = d3.sum(leaves, function(d) {
+                            return d[v.value];
+                        });
+                    }
+                });
+                return obj as any;
+            })
+            .entries(data);
+        return tempMap;
+    };
+
+    // get rollup fields as defined in mappings.js
+    private rollitup() {
+        const rollup = [];
+        this.mappingData.quotes.forEach(function(v: any) {
+            if (v.rollup) {
+                rollup.push(v);
+            }
+        });
+        return rollup;
+    }
+
+    // get the right fields pertaining to this widget
+    getFields(id: string) {
+        let fields: any = this.mappingData;
+        fields = fields.quotes.filter((d: any) => {
+            return d[id];
+        });
+        fields.sort(function(a, b) {
+            if (a.value < b.value) {
+                return -1;
+            }
+            if (a.value > b.value) {
+                return 1;
+            }
+            return 0;
+        });
+        return fields;
     }
 
     // getContinentData(): Observable<ChartData> {

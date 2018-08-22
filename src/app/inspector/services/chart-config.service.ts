@@ -8,25 +8,21 @@ import * as d3 from 'd3';
 import * as $ from 'jquery';
 import timeFormat from 'd3-time-format';
 import { MAPPING_DATA } from './mappings';
+import { FormatService } from './format.service';
 
 @Injectable()
 export class ChartConfigService {
     private mappingData = MAPPING_DATA;
-    private mapNest;
     public mapDrawValue: string;
     public detailData;
     private rowData: any;
     public mouse: any = { x: 0, y: 0 };
-    private margin;
-    private columnData;
+    private columnData: any[] = [];
 
     public newQuoteSubject = new BehaviorSubject<any>(this.detailData);
 
-    constructor(private http: HttpClient) {
-        this.margin = { top: 10, right: 30, bottom: 10, left: 20 };
+    constructor(private http: HttpClient, private formatService: FormatService) {
         this.initMouse(this);
-        this.initTip(this);
-        this.mapDrawValue = 'Prospect State';
     }
 
     getSubjectData(newList) {
@@ -68,7 +64,7 @@ export class ChartConfigService {
             const obj: any = {};
             mapper.quotes.forEach((item, index) => {
                 if (!item.count) {
-                    obj[item.value] = this.formatData(d, item, index);
+                    obj[item.value] = this.formatService.formatData(d, item);
                 }
             });
             return obj;
@@ -112,31 +108,6 @@ export class ChartConfigService {
         return nest;
     }
 
-    private nestMapData = function(key, data): any {
-        this.mapNest = d3
-            .nest()
-            .key(function(d) {
-                return d[key];
-            })
-            .sortKeys(d3.ascending)
-            .rollup(leaves => {
-                const obj = {},
-                    rollup = this.rollitup();
-                rollup.forEach(function(v, i) {
-                    if (v.count) {
-                        obj[v.value] = leaves.length;
-                    } else {
-                        obj[v.value] = d3.sum(leaves, function(d) {
-                            return d[v.value];
-                        });
-                    }
-                });
-                return obj as any;
-            })
-            .entries(data);
-        return this.mapNest;
-    };
-
     // get rollup fields as defined in mappings.js
     private rollitup() {
         const rollup = [];
@@ -148,69 +119,10 @@ export class ChartConfigService {
         return rollup;
     }
 
-    // formats data according to rules specified in mappings.js
-    private formatData(d, v, i) {
-        if (v.type === 'money') {
-            return parseFloat(d.value[v.value]);
-        } else if (v.type === 'string') {
-            return this.titleCase(d.value[v.value]);
-        } else if (v.type === 'leadingZero') {
-            return this.addLeadingZero(d.value[v.value]);
-        } else if (v.type === 'date') {
-            if (v.format === 'year') {
-                // console.log("Format year ");
-                return this.formatDate(d.value[v.key], 'year');
-            } else if (v.format === 'yearMonth') {
-                return this.formatDate(d.value[v.key], 'month');
-            } else {
-                return this.formatDate(d.value[v.value], 'day');
-            }
-        } else {
-            return d.value[v.value];
-        }
-    }
-
-    // formats date (m/d/yyyy -> yyyy-mm-dd)
-    private formatDate(d, timeframe) {
-        if (d) {
-            const aDate = new Date(d);
-            let parseDate;
-
-            if (timeframe === 'year') {
-                parseDate = d3.timeFormat('%Y');
-            } else if (timeframe === 'month') {
-                parseDate = d3.timeFormat('%m-%Y');
-            } else {
-                parseDate = d3.timeFormat('%m-%d-%Y');
-            }
-            const date = parseDate(aDate);
-            return date;
-        } else {
-            return '';
-        }
-    }
-
-    // adds a leading 0 to a single digit number
-    private addLeadingZero(num: string) {
-        return parseInt(num) < 10 ? '0' + num : num;
-    }
-
-    // converts a string to Lower and then TitleCase.
-    // Used for normalizing city names.
-
-    private titleCase(s: string) {
-        if (s) {
-            return s.toLowerCase().replace(/^(.)|\s(.)/g, $1 => {
-                return $1.toUpperCase();
-            });
-        }
-        return '';
-    }
-
     sizeContainers = function(target) {
         const pieChartWindow = document.getElementById(target);
         const chartWindow = pieChartWindow.getBoundingClientRect();
-        return { width: Math.abs(chartWindow.width), height: 260 };
+        return { width: Math.abs(chartWindow.width), height: 230 };
     };
 
     // get the right fields pertaining to this widget
@@ -234,22 +146,6 @@ export class ChartConfigService {
     // populate the widget's dropdown with the fields
     initDropdown(val: { value: any }[]) {
         return val.map(v => v.value);
-    }
-
-    // Map State data for map screen
-    mapStateData(dataRows) {
-        const mapper: any = this.mappingData;
-        let data = d3.entries(dataRows);
-        data = data.map(d => {
-            const obj: any = {};
-            mapper.quotes.forEach((item, index) => {
-                if (!item.count) {
-                    obj[item.value] = this.formatData(d, item, index);
-                }
-            });
-            return obj;
-        });
-        return this.nestMapData(this.mapDrawValue, data);
     }
 
     // update row count badge text
@@ -278,7 +174,6 @@ export class ChartConfigService {
             color = '#f0ad4e';
             message = 'Should just be a few seconds.';
         }
-
         return { count: count, color: color, message: message };
     }
 
@@ -296,66 +191,5 @@ export class ChartConfigService {
             },
             false,
         );
-    }
-
-    // hide the tip
-    private hideTip() {
-        const tip = $('#chartTip');
-        tip.hide();
-    }
-
-    // add html for holding rollover tip data
-    private initTip(parent) {
-        let chartTip = '<div class="chart-tip" id="chartTip"><table>';
-        chartTip += '<thead><tr><th class="key" colspan="2"></th></tr></thead>';
-        chartTip += '<tbody></tbody>';
-        chartTip += '</table></div>';
-        $('body').prepend(chartTip);
-    }
-
-    // update tip position and data
-    public showTip(left, top, stateValues, values) {
-        const tip = $('#chartTip'),
-            keyTD = tip.find('.key'),
-            valueTD = tip.find('.value'),
-            moneyFormat = function(n, currency) {
-                return currency + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-            },
-            isTotal = function(key) {
-                return key.indexOf('Total') !== -1;
-            };
-        keyTD.text(stateValues);
-        valueTD.text(values.total);
-
-        tip.find('tbody').empty();
-        for (let i = 0; i < d3.keys(values).length; i++) {
-            const key: any = d3.keys(values)[i],
-                value = isTotal(key) ? moneyFormat(values[key], '$') : values[key];
-            // console.log("value ", value);
-            tip.find('tbody').append(
-                '<tr><td>' + key + '</td><td class="text-right">' + value + '</td></tr>',
-            );
-        }
-
-        const tipW = tip.width() + 30,
-            tipH = tip.outerHeight(),
-            winW = $(window).width(),
-            winH = $(window).height(),
-            wDiff = Math.ceil(winW - tipW),
-            hDiff = Math.ceil(winH - tipH);
-
-        if (Math.ceil(top - tipH) > 0) {
-            top = top - tipH;
-        }
-        if (Math.ceil(left) >= wDiff) {
-            left = left - tipW + 10;
-        } else {
-            left = left + 30;
-        }
-        tip.css({
-            top: top + 'px',
-            left: left + 'px',
-        });
-        tip.show();
     }
 }

@@ -12,7 +12,9 @@ import { PieChartComponent } from './drilldown/pie/pie.component';
 import { LineChartComponent } from './drilldown/stacked-line/stacked-line.component';
 import { SingleComboComponent } from './drilldown/single-combo/single-combo.component';
 import { DetailsComponent } from './details/details.component';
+import { TableViewComponent } from './drilldown/table-view/table-view.component';
 import { LinkedUSMapComponent } from './linked-us-map/linked-us-map.component';
+import { FormatService } from './services/format.service';
 
 @NgModule({
     imports: [
@@ -32,7 +34,9 @@ import { LinkedUSMapComponent } from './linked-us-map/linked-us-map.component';
         SingleComboComponent,
         DetailsComponent,
         LinkedUSMapComponent,
+        TableViewComponent,
     ],
+    providers: [FormatService],
     schemas: [NO_ERRORS_SCHEMA],
 })
 export class InspectorModule {}

@@ -3,6 +3,7 @@
 $header: #007bff;
 $darkBlue: #191970;
 $green1: #157ad1;
+$green2: #005491;
 $default-text-blue: #1a2234;
 
 
@@ -43,9 +44,16 @@ $white-bg: #f0f0f0;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startColor', endColorstr='$endColor',GradientType=0 ); /* IE6-9 */
 }
 
-@mixin navColor($startColor){
-  background: $startColor;
+$layout-breakpoint-xs:     600px !default;
+$layout-breakpoint-sm:     960px !default;
+$layout-breakpoint-md:     1280px !default;
+$layout-breakpoint-lg:     1920px !default;
+
+
+@mixin navColor($navColor){
+  background-color: $navColor;
 }
+
 
 $layoutMargin: 4.6rem;
 $layoutPadding: 4.6rem;

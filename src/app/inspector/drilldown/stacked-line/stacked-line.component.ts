@@ -20,7 +20,6 @@ import { IChartMargin } from '../../interfaces/Filters';
     templateUrl: './stacked-line.component.html',
     styleUrls: ['./stacked-line.component.scss', '../drilldown-common.scss'],
     providers: [ChartConfigService, CustomTooltipComponent],
-    encapsulation: ViewEncapsulation.None,
 })
 export class LineChartComponent implements OnInit, OnChanges {
     constructor(private quoteService: ChartConfigService) {}
@@ -48,7 +47,7 @@ export class LineChartComponent implements OnInit, OnChanges {
     tooltipHide = new EventEmitter<any>();
 
     private data: any;
-    private margin: IChartMargin;
+    private margin: IChartMargin = { top: 20, right: 20, bottom: 30, left: 50 };
     private line;
     private line2;
     private lineStart;
@@ -70,11 +69,9 @@ export class LineChartComponent implements OnInit, OnChanges {
     private color: any = [];
     private key: string;
     private chartType: string;
-    private id = 'timeline';
 
     ngOnChanges(): void {
         if (this.data) {
-            // console.log( '\n\nLine changing ', this.lineData );
             this.total = this.totalVal;
             this.sold = this.soldVal;
             this.data = this.lineData;
@@ -85,7 +82,6 @@ export class LineChartComponent implements OnInit, OnChanges {
     }
 
     ngOnInit() {
-        this.margin = { top: 20, right: 20, bottom: 30, left: 40 };
         this.total = this.totalVal;
         this.sold = this.soldVal;
         this.color = this.colorVal;
@@ -94,10 +90,9 @@ export class LineChartComponent implements OnInit, OnChanges {
 
         setTimeout(() => {
             this.data = this.lineData;
-            // this.quoteService.sizeContainers('timeline');
             this.container = this.quoteService.sizeContainers('svgLine');
             this.chartInit();
-        }, 300);
+        }, 600);
     }
 
     // Call parent function to reset to single on click
@@ -132,6 +127,7 @@ export class LineChartComponent implements OnInit, OnChanges {
         this.initializeEvents(this);
     }
 
+    // Line interpolation options
     private initChart(parent): void {
         const curveArray = [
             { d3Curve: d3.curveLinear, curveTitle: 'curveLinear' },

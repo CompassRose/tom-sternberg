@@ -19,7 +19,6 @@ import { LinkedUSMapComponent } from './linked-us-map/linked-us-map.component';
             },
         ]),
     ],
-    // imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
 export class InspectorRoutingModule {}

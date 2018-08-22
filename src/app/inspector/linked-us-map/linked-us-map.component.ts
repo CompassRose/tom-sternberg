@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as d3 from 'd3';
 import * as d3GeoTile from '../../../assets/d3.geo.tile';
 import * as topojson from 'topojson';
@@ -37,7 +37,19 @@ export class LinkedUSMapComponent implements OnInit {
     private albers: any;
     private mouse: any = { x: 0, y: 0 };
     private mapDetails;
-    public filteredMapData;
+
+    public showToolTip = false;
+    public toolTitle: string;
+    public toolValues: any[] = [];
+    public tooltipPositionX;
+    public tooltipPositionY;
+
+    @Output()
+    resetEvent = new EventEmitter<any>();
+    @Output()
+    tooltipEvent = new EventEmitter<any>();
+    @Output()
+    tooltipHide = new EventEmitter<any>();
 
     constructor(private mapService: MapService, private quoteService: ChartConfigService) {}
 
@@ -45,8 +57,8 @@ export class LinkedUSMapComponent implements OnInit {
         // updates details filter
         this.quoteService.newQuoteSubject.subscribe(data => {
             this.mapDetails = data;
-            console.log('map data ', data);
-            this.stateDetails = this.quoteService.mapStateData(data);
+            this.stateDetails = this.mapService.mapStateData(data);
+            console.log('quoteService ', this.stateDetails);
             const stateDetail: any = [];
             this.stateDetails.forEach((d, i) => {
                 if (d.key !== 'Unknown') {
@@ -57,36 +69,28 @@ export class LinkedUSMapComponent implements OnInit {
             console.log('map stateDetails ', this.stateDetails);
         });
 
-        // this.quoteService.getCsvData().subscribe(res => {
-        //   this.mapDetails = res;
-        //   this.stateDetails = this.quoteService.mapStateData(res);
-        //   const stateDetail: any = [];
-        //   this.stateDetails.forEach((d, i) => {
-        //     if (d.key !== 'Unknown') {
-        //       stateDetail.push(d);
-        //     }
-        //   });
-        //   this.stateDetails = stateDetail;
-        //   // onsole.log("map stateDetails ", this.stateDetails);
-        // });
-
         this.mapService.getMapData().subscribe(res => {
             this.mapFile = res;
-            console.log('map shape data ', this.mapFile);
+            // console.log('map shape data ', this.mapFile);
             this.setMapDrawElements();
         });
     }
 
+    // Call parent function to show tooltip
+    // private showTooltip(values, x, y) {
+    //     //     this.tooltipEvent.next({ values: values, x: x, y: y });
+    //     // }
+    //     //
+    //     // // Call parent function to show tooltip
+    //     // private hideTooltip() {
+    //     //     this.tooltipHide.next();
+    //     // }
+
     private setMapDrawElements() {
         this.sData = topojson.feature(this.mapFile, this.mapFile.objects.states).features;
         this.pData = topojson.feature(this.mapFile, this.mapFile.objects.places).features;
-        // console.log("sData ", this.sData);
-        // console.log("pData ", this.pData);
         this.initMouse(this);
-        this.initTip(this);
         this.resize();
-        // console.log("map shape sData ", this.sData);
-        // console.log("map shape pData ", this.pData);
     }
 
     private initMouse(parent) {
@@ -195,7 +199,7 @@ export class LinkedUSMapComponent implements OnInit {
         // console.log("self.mapGroup ", this.mapGroup);
         // console.log("this.states ", this.states);
         // console.log("this.places ", this.places);
-        console.log('self.background ', this.background);
+        // console.log('self.background ', this.background);
     }
 
     private drawStates(parent, mercator) {
@@ -268,17 +272,22 @@ export class LinkedUSMapComponent implements OnInit {
                     })
                     .on('mousemove', function(e) {
                         if (state) {
-                            parent.selectArea(state.key, state.value, this, parent);
+                            // console.log('select-all values ', this.toolValues);
+                            parent.showTip = true;
+                            parent.tooltipPositionX = parent.mouse.x + 100;
+                            parent.tooltipPositionY = parent.mouse.y;
+                            parent.toolTitle = state.key;
+                            parent.toolValues = state.value;
                         }
                     })
                     .on('mouseleave', function() {
-                        parent.deselectArea();
+                        parent.showTip = false;
                     });
             });
 
         this.states.selectAll('path').each(function(d, i) {
-            let that = d3.select(this);
-            let node = that.node();
+            const that = d3.select(this);
+            const node = that.node();
             d.properties['zWidth'] = Math.ceil(node.getBoundingClientRect().width * parent.zoom);
             d.properties['zHeight'] = Math.ceil(node.getBoundingClientRect().height * parent.zoom);
         });
@@ -293,10 +302,10 @@ export class LinkedUSMapComponent implements OnInit {
         if (d && this.centered !== d && hasQuote) {
             this.changeProjection(this.mercator, this);
 
-            var centroid = this.setPath(this.mercator).centroid(d);
+            const centroid = this.setPath(this.mercator).centroid(d);
 
-            var w = d.properties.zWidth;
-            var h = d.properties.zHeight;
+            const w = d.properties.zWidth;
+            const h = d.properties.zHeight;
 
             var x = centroid[0];
             var y = centroid[1];
@@ -311,14 +320,14 @@ export class LinkedUSMapComponent implements OnInit {
             var map_x = this.mapX;
             var map_y = this.mapY;
 
-            var perW = w / this.width;
-            var perH = h / this.height;
+            const perW = w / this.width;
+            const perH = h / this.height;
 
             var diff: any = Math.max(perW, perH);
 
-            //console.log("perW ", perW);
-            //console.log("perH ", perH);
-            //console.log("diff ", diff);
+            // console.log("perW ", perW);
+            // console.log("perH ", perH);
+            // console.log("diff ", diff);
 
             if (diff > 1) {
                 zoom = zoom / diff;
@@ -327,7 +336,7 @@ export class LinkedUSMapComponent implements OnInit {
                 diff = parseFloat(1 + diff);
                 zoom = zoom * diff;
             }
-            //console.log("this.zoom ", zoom);
+            // console.log("this.zoom ", zoom);
         } else {
             this.changeProjection(this.albers, this);
             x = this.mapX;
@@ -336,7 +345,7 @@ export class LinkedUSMapComponent implements OnInit {
             this.centered = null;
             this.state = null;
         }
-        //console.log("this.centered ", this.centered);
+        // console.log("this.centered ", this.centered);
         // Should return active classed states ??
         this.mapGroup.selectAll('path').classed(
             'active',
@@ -488,12 +497,12 @@ export class LinkedUSMapComponent implements OnInit {
                         .attr('class', 'place')
                         .attr('r', 0)
                         .attr('fill', 'rgba(15,20,170,0.3')
-                        .attr('transform', function(d: any) {
+                        .attr('transform', function() {
                             return 'translate(' + parent.mercator(geo.geometry.coordinates) + ')';
                         })
-                        .on('mousemove', function(d, i) {
-                            parent.selectArea(geo.properties.name, geo.values, this, parent);
-                        })
+                        // .on('mousemove', function(d) {
+                        //     parent.selectArea(geo.properties.name, geo.values, this, parent);
+                        // })
                         .transition()
                         .duration(1000)
                         .attr('r', radius);
@@ -506,7 +515,16 @@ export class LinkedUSMapComponent implements OnInit {
                     //   // })
                     //   .text("Hello");
 
-                    // console.log("cName ", cName, " coord1 ", coord1, " coord2 ", coord2, " this ", this);
+                    console.log(
+                        'cName ',
+                        cName,
+                        ' coord1 ',
+                        coord1,
+                        ' coord2 ',
+                        coord2,
+                        ' this ',
+                        this,
+                    );
                 });
         }, 400);
     }
@@ -529,86 +547,6 @@ export class LinkedUSMapComponent implements OnInit {
                     parent.mapGroup.attr('opacity', 1);
                 }
             });
-    }
-
-    // show tip on state or city hover
-    private selectArea(stateKey, values, hoverNode, parent) {
-        const node: any = $(hoverNode),
-            css = node.attr('class');
-        if (css.indexOf('active') > -1) {
-            parent.hideTip();
-        } else {
-            parent.showTip(parent.mouse.x, parent.mouse.y, stateKey, values);
-        }
-    }
-
-    // add html for holding rollover tip data
-    private initTip(parent) {
-        let chartTip = '<div class="chart-tip" id="chartTip"><table>';
-        chartTip += '<thead><tr><th class="key" colspan="2"></th></tr></thead>';
-        chartTip += '<tbody></tbody>';
-        chartTip += '</table></div>';
-        $('body').prepend(chartTip);
-    }
-
-    // update tip position and data
-    private showTip(left, top, stateValues, values) {
-        const tip = $('#chartTip'),
-            keyTD = tip.find('.key'),
-            valueTD = tip.find('.value'),
-            moneyFormat = function(n, currency) {
-                return currency + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-            },
-            isTotal = function(key) {
-                return key.indexOf('Total') !== -1;
-            };
-        // console.log("stateValues ", stateValues);
-        keyTD.text(stateValues);
-        valueTD.text(values.total);
-
-        tip.find('tbody').empty();
-        for (let i = 0; i < d3.keys(values).length; i++) {
-            const key: any = d3.keys(values)[i],
-                value = isTotal(key) ? moneyFormat(values[key], '$') : values[key];
-            tip.find('tbody').append(
-                '<tr><td>' + key + '</td><td class="text-right">' + value + '</td></tr>',
-            );
-        }
-
-        const tipW = tip.width() + 30,
-            tipH = tip.outerHeight(),
-            winW = $(window).width(),
-            winH = $(window).height(),
-            wDiff = Math.ceil(winW - tipW),
-            hDiff = Math.ceil(winH - tipH);
-
-        if (Math.ceil(top - tipH) > 0) {
-            top = top - tipH;
-        }
-
-        if (Math.ceil(left) >= wDiff) {
-            left = left - tipW + 10;
-        } else {
-            left = left + 30;
-        }
-
-        tip.css({
-            top: top + 'px',
-            left: left + 'px',
-        });
-
-        tip.show();
-    }
-
-    // hide tip
-    private deselectArea() {
-        this.hideTip();
-    }
-
-    // hide the tip
-    private hideTip() {
-        const tip = $('#chartTip');
-        tip.hide();
     }
 
     // array of colors for the map
