@@ -41,7 +41,6 @@ typings/
 
 # IDEs and editors
 .idea/
-.idea.bak/
 .project
 .classpath
 .c9/
