@@ -1,4 +1,4 @@
-## Tom-sternberg -- Sandbox Project
+## Tom-Sternberg -- Sandbox Project
 
 This is an Angular/cli Sandbox where I learn/practice concepts needed to work in this industry.
 It is a test bed, not production by any means. 
