@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalComponent } from './components/ngb-modal/ngb-modal.component';
 import { NgbdVideoModalComponent } from './components/ngb-video-modal/ngb-video-modal.component';
-import { NgbdTabsComponent } from './ngbd-tabs/ngbd-tabs.component';
 import { CustomTooltipComponent } from './components/custom-tooltip/custom-tooltip.component';
 import { DefaultPicturePipe } from './pipes/default-picture.pipe';
 
@@ -20,7 +19,6 @@ import { DefaultPicturePipe } from './pipes/default-picture.pipe';
         NgbdModalComponent,
         NgbdVideoModalComponent,
         CustomTooltipComponent,
-        NgbdTabsComponent,
         // pipes
         PlaceSuffixPipe,
         DefaultPicturePipe,
@@ -29,16 +27,10 @@ import { DefaultPicturePipe } from './pipes/default-picture.pipe';
     exports: [
         DatetimePickerComponent,
         NgbdModalComponent,
-        NgbdTabsComponent,
         CustomTooltipComponent,
         DefaultPicturePipe,
         SafePipe,
     ],
-    entryComponents: [
-        NgbdModalComponent,
-        NgbdTabsComponent,
-        CustomTooltipComponent,
-        NgbdVideoModalComponent,
-    ],
+    entryComponents: [NgbdModalComponent, CustomTooltipComponent, NgbdVideoModalComponent],
 })
 export class SharedModule {}

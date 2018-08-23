@@ -91,7 +91,9 @@ export class PieChartComponent implements OnInit, OnChanges {
                 this.isPrem = this.isPremium;
                 this.initChart(this);
                 this.drawLegend(this);
-            }, 1200);
+                this.initializeEvents(this);
+                console.log('this.isPremium ', this.isPremium);
+            }, 0);
         }
     }
 
@@ -112,12 +114,12 @@ export class PieChartComponent implements OnInit, OnChanges {
             this.initChart(this);
             this.drawLegend(this);
             this.initializeEvents(this);
-        }, 600);
+        }, 0);
     }
 
     // Call parent function to show tooltip
     private showTooltip(values, x, y) {
-        this.tooltipEvent.next({ values: values.data, x: x, y: y });
+        this.tooltipEvent.next({ values: values.data, x: x + 30, y: y });
     }
 
     // Call parent function to show tooltip
@@ -217,7 +219,7 @@ export class PieChartComponent implements OnInit, OnChanges {
 
         slice
             .transition()
-            .duration(100)
+            .duration(0)
             .attrTween('d', function(d) {
                 this._current = this._current || d;
                 const interpolate = d3.interpolate(this._current, d);
@@ -233,7 +235,6 @@ export class PieChartComponent implements OnInit, OnChanges {
         this.arcGroup = slice;
         slice.exit().remove();
 
-        // Please save these commented out items --Tom
         const text = this.svg
             .select('.labels')
             .selectAll('text')
@@ -254,7 +255,11 @@ export class PieChartComponent implements OnInit, OnChanges {
         text.transition()
             .duration(500)
             .attrTween('transform', function(d) {
+                // if (d.data.values[parent.total] > 20) {
+                console.log('transform ', d);
+
                 this._current = this._current || d;
+
                 const interpolate = d3.interpolate(this._current, d);
                 this._current = interpolate(0);
                 return function(t) {
@@ -263,9 +268,14 @@ export class PieChartComponent implements OnInit, OnChanges {
                     pos[0] = parent.radius * (midAngle(d2) < Math.PI ? 1 : -1);
                     return 'translate(' + pos + ')';
                 };
+                // }
             })
             .text(function(d, i) {
-                return d.data.key + ':  ' + d.data.values[parent.total];
+                if (parent.isPrem) {
+                    return d.data.key + ':  ' + parent.setValueFormat(d.data.values[parent.total]);
+                } else {
+                    return d.data.key + ':  ' + parent.setValueFormat(d.data.values[parent.sold]);
+                }
             })
             .styleTween('text-anchor', function(d) {
                 this._current = this._current || d;
@@ -310,6 +320,14 @@ export class PieChartComponent implements OnInit, OnChanges {
         polyline.exit().remove();
     }
 
+    setValueFormat(params) {
+        if (this.isPrem) {
+            return '$' + params.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        } else {
+            return params;
+        }
+    }
+
     private initSettings(parent) {
         const radius: number = Math.min(this.container.width, this.container.height) / 2;
         const labelr: number = radius - 30;
@@ -330,16 +348,17 @@ export class PieChartComponent implements OnInit, OnChanges {
 
         // TODO  moneyformat @pipe
 
-        const sum: number = d3.sum(parent.data, function(d: any) {
-            const n = d.values[parent.total];
-            const moneyFormat = function(n, currency) {
-                return currency + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-            };
-            return d.values[parent.total];
-        });
+        // const sum: number = d3.sum(parent.data, function(d: any) {
+        //         //     const n = d.values[parent.total];
+        //         //     const moneyFormat = function(n, currency) {
+        //         //         console.log('moneyFormat ', moneyFormat);
+        //         //         return currency + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        //         //     };
+        //         //     return d.values[parent.total];
+        //         // });
         this.arc = arc;
         this.arcLabel = arcLabel;
-        this.sum = sum;
+        // this.sum = sum;
     }
 
     private drawSVG(parent) {
@@ -414,31 +433,31 @@ export class PieChartComponent implements OnInit, OnChanges {
             })
             .attr('text-anchor', 'middle');
 
-        label
-            .append('tspan')
-            .attr('x', 0)
-            .attr('dy', '1em')
-            .attr('fill', 'black')
-            .text(function(d: any) {
-                if (Math.round((d.value / parent.sum) * 100) > 2) {
-                    if (parent.isPrem) {
-                        const amount = Math.round(d.value),
-                            M = amount / 1000000,
-                            K = amount / 1000;
-                        if (M >= 1) {
-                            return '$' + M.toFixed(2) + 'M';
-                        } else if (K >= 1) {
-                            return '$' + Math.round(K) + 'K';
-                        } else {
-                            return '$' + amount;
-                        }
-                    } else {
-                        return d.value;
-                    }
-                } else {
-                    return '';
-                }
-            });
+        // label
+        //     .append('tspan')
+        //     .attr('x', 0)
+        //     .attr('dy', '1em')
+        //     .attr('fill', 'red')
+        //     .text(function(d: any) {
+        //         if (Math.round((d.value / parent.sum) * 100) > 2) {
+        //             if (parent.isPrem) {
+        //                 const amount = Math.round(d.value),
+        //                     M = amount / 1000000,
+        //                     K = amount / 1000;
+        //                 if (M >= 1) {
+        //                     return '$' + M.toFixed(2) + 'M';
+        //                 } else if (K >= 1) {
+        //                     return '$' + Math.round(K) + 'K';
+        //                 } else {
+        //                     return '$' + amount;
+        //                 }
+        //             } else {
+        //                 return d.value;
+        //             }
+        //         } else {
+        //             return '';
+        //         }
+        //     });
 
         this.pie = pie;
         this.svg = svg;

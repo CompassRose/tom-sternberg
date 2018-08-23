@@ -92,18 +92,18 @@ export class LineChartComponent implements OnInit, OnChanges {
             this.data = this.lineData;
             this.container = this.quoteService.sizeContainers('svgLine');
             this.chartInit();
-        }, 600);
+        }, 0);
     }
 
     // Call parent function to reset to single on click
     private resetLineChart(value, parent) {
-        parent.quoteService.hideTip();
+        // parent.quoteService.hideTip();
         this.resetEvent.next(value);
     }
 
     // Call parent function to show tooltip
     private showTooltip(values, x, y) {
-        this.tooltipEvent.next({ values: values, x: x, y: y });
+        this.tooltipEvent.next({ values: values, x: x + 30, y: y });
     }
 
     // Call parent function to show tooltip
@@ -418,9 +418,6 @@ export class LineChartComponent implements OnInit, OnChanges {
                 const drilldownFilter = { key: d.key, values: d.values };
                 parent.hideTooltip();
                 parent.resetLineChart(drilldownFilter, parent);
-                setTimeout(() => {
-                    parent.quoteService.hideTip();
-                }, 300);
             })
             .on('mousemove', function(d, i) {
                 parent.showTooltip(d, parent.quoteService.mouse.x, parent.quoteService.mouse.y);
