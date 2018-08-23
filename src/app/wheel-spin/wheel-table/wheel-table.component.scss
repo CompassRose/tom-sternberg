@@ -1,8 +1,6 @@
 
-
-
 .game-container {
-  width:100%;
+  width: 100%;
   display: grid;
   padding: 15px;
   grid-template-columns: 2fr 1.5fr 1fr;
@@ -36,8 +34,8 @@
 // table background stripe
 .back-stripe {
   padding: 15px;
-  margin:0 0px 0 0px;
-  border:15px solid green;
+  margin: 0 0px 0 0px;
+  border: 15px solid green;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 220px;
@@ -47,7 +45,7 @@
 
 .back-inner {
   padding: 0px;
-  margin:0 160px 0 0px;
+  margin: 0 160px 0 0px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 220px;
@@ -70,60 +68,69 @@
   border-radius: 3px;
 }
 
+.table-description {
+  font-size: 18px;
+  padding: 10px;
+  text-shadow: 1px 1px 0px black;
+}
 
 .my-place-frame {
+  min-height: 120px;
   background-color: rgba(14, 133, 48, 0.61);
-  border:10px solid green;
+  border: 10px solid green;
   color: black;
   padding: 14px;
   border-radius: 10px;
 }
 
+.winnings-frame {
+  min-height: 120px;
+  background-color: white;
+  border: 10px solid green;
+  color: black;
+  padding: 14px;
+  border-radius: 10px;
+}
 
 .last-ten-frame {
   background-color: rgba(14, 133, 48, 0.61);
-  border:10px solid green;
+  border: 10px solid green;
   color: black;
   text-align: center;
   padding: 14px;
-  width:180px;
-  height:300px;
+  width: 180px;
+  height: 300px;
   border-radius: 10px;
 }
 
 .last-ten {
   background-color: white;
-  padding:3px;
-  width:100%;
+  padding: 3px;
+  width: 100%;
   color: white;
 }
 
 .chip-common {
   border-radius: 23px;
   box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.32);
- // box-shadow:    inset 0 0 1px #ffffff;
+  // box-shadow:    inset 0 0 1px #ffffff;
   z-index: 11;
 }
-
 
 .dollar {
   background-color: blue;
   border: 1px solid blue;
 }
 
-
 .fiver {
   background-color: orangered;
   border: 1px solid orangered;
 }
 
-
 .twenty-fiver {
   background-color: purple;
   border: 1px solid purple;
 }
-
-
 
 div span.stacked-text {
   display: list-item;
@@ -131,17 +138,15 @@ div span.stacked-text {
   text-align: center;
 }
 
-
 .grid-container {
   height: 400px;
-  width:700px;
+  width: 700px;
   border: 0 solid white;
   display: grid;
   padding: 15px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
   grid-template-rows: 1.5fr 1.5fr 3fr 3fr 3fr 1.5fr 1.5fr;
 }
-
 
 .grid-number-cell {
   border: 1px solid #ffffff;
@@ -159,7 +164,6 @@ div span.stacked-text {
   }
 }
 
-
 .grid-blank {
   box-sizing: border-box;
   color: white;
@@ -172,7 +176,7 @@ div span.stacked-text {
   align-items: center;
   justify-content: center;
   color: white;
-  font-weight:600;
+  font-weight: 600;
   border: 1px solid #ffffff;
   background-color: #008b00;
   transition: transform 0.1s ease-in-out;

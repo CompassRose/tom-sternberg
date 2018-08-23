@@ -65,6 +65,7 @@ export class WheelTableComponent implements OnInit {
     public lastTenNums = [];
     public winningNumber: number;
     public myFunds: number;
+    public winningsPaneActive = false;
 
     constructor() {}
 
@@ -100,6 +101,10 @@ export class WheelTableComponent implements OnInit {
         console.log('Element was dragged', event);
     }
 
+    displayWinnings() {
+        this.winningsPaneActive = !this.winningsPaneActive;
+    }
+
     getRandomColor(i) {
         if (i % 2 === 0) {
             return 'black';
@@ -107,15 +112,3 @@ export class WheelTableComponent implements OnInit {
         return 'red';
     }
 }
-
-// Reds / Blacks (color)	      1 to 1
-// Evens / Odds	              1 to 1
-// Lows / Highs (1-18 / 19-36)	1 to 1
-// Dozens	                    2 to 1
-// Columns	                    3 to 1
-// 6 Numbers (6 line)	        5 to 1
-// 5 Numbers (top line)	      6 to 1
-// 4 Numbers (square)	        8 to 1
-// 3 Numbers (street)	        11 to 1
-// 2 Numbers (split)	          5 to 1
-// 1 Number (straight)	        35 to 1

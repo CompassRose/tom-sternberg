@@ -58,6 +58,10 @@
         (tooltipEvent)="initToolEvent($event)"></app-wheel-spinner>
     </div>
   </div>
+  <div *ngIf="winningsPaneActive" class="winnings-frame d-flex align-items-start">
+    <div class="funds-frame f-weight-600 ml-1 align-content-stretch">Winning Number: {{winningNumber}}</div>
+    <button class="btn btn-primary mt-auto" (click)="displayWinnings();">Display Results</button>
+  </div>
   <div class="ml-auto">
     <div class="d-flex flex-column last-ten-frame">
       <label class="text-white f-weight-600">LAST TEN</label>
@@ -68,19 +72,23 @@
   </div>
 </div>
 
-<div class="row mt-3">
-  <div class="my-place-frame">
-    <div class="d-flex align-items-end">
+<div class="d-flex flex-column align-items-start justify-content-start">
+  <div class="table-description f-weight-600 text-white">Drag chips over table to place bets, and spin!</div>
+</div>
+<div class="d-flex align-items-center">
+  <div class="my-place-frame d-flex align-items-center mr-2">
+    <div class="d-flex align-items-center">
       <div class="chip-common dollar" mwlDraggable dropData=1>$1</div>
       <div class="chip-common fiver" mwlDraggable dropData=5>$5</div>
       <div class="chip-common twenty-fiver" mwlDraggable dropData=25>$25</div>
-      <div class="text-white">Cash
-        <span class="funds-frame stacked-text f-weight-600">${{myFunds}}.00</span>
-      </div>
-      <div *ngIf="winningNumber" class="funds-frame f-weight-600 ml-3">{{winningNumber}}</div>
-      <button *ngIf="winningNumber" class="btn btn-primary mr-1">Display Results</button>
-      <button *ngIf="winningNumber" class="btn btn-primary">Place Bets</button>
+      <div class="text-white ml-2 mr-2">Cash on Hand</div>
+      <span class="funds-frame stacked-text f-weight-600 ml-auto">${{myFunds}}.00</span>
     </div>
+  </div>
+  <div class="my-place-frame d-flex align-items-center">
+    <div *ngIf="winningNumber" class="funds-frame f-weight-600 ml-1">Winner: {{winningNumber}}</div>
+    <button class="btn btn-primary" (click)="displayWinnings();">Display Results</button>
+    <button class="btn btn-primary" (click)="winningNumber = !winningNumber">Place Bets</button>
   </div>
 </div>
 

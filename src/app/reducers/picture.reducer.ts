@@ -31,6 +31,7 @@ export function reducer(state: Picture[] = [initialState1], action: PictureActio
             // return the initial state(...state) and add new payload to the end
             return [...state, action.payload];
         case PictureActions.ADD_PICTURE:
+            console.log('reducer ', action.payload);
             // return the initial state(...state) and add new payload to the end
             return [...state, action.payload];
         case PictureActions.REMOVE_PICTURE:
