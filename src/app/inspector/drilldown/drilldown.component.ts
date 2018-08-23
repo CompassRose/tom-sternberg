@@ -151,7 +151,7 @@ export class DrilldownComponent implements OnInit {
 
     // Draws charts with updated data
     setChartData(filteredResponse) {
-        console.log('\n filteredResponse', filteredResponse);
+        //  console.log('\n filteredResponse', filteredResponse);
         this.allCharts.forEach((v, i) => {
             v.data = this.quoteService.nestChartData(v.title, filteredResponse);
             if (v.key !== '') {
@@ -217,6 +217,7 @@ export class DrilldownComponent implements OnInit {
 
     // From chart specific button presses
     setChartType(i, type, saved) {
+        console.log('setChartType ', type, ' saved ', saved);
         if (saved) {
             this.allCharts[i].chartTypeInit = type;
         }

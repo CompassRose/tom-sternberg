@@ -22,13 +22,13 @@
 
 
 .pieLabel {
-  fill: black;
+  fill: white;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 14px;
 }
 
 .horizontalGrid {
-  shape-rendering: geometricPrecision ;
+  shape-rendering: geometricPrecision;
   stroke: rgba(191, 191, 191, 0.15);
   stroke-width: 1px;
 }
@@ -58,11 +58,12 @@
 .headerBold {
   color: black;
   font-size: 11px;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .dataRow {
   color: black;
   font-size: 12px;
   font-weight: normal;
+  text-align: left;
 }

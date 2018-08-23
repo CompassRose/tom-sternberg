@@ -9,13 +9,13 @@ import {
 import { ChartConfigService } from '../../services/chart-config.service';
 import * as d3 from 'd3';
 import * as $ from 'jquery';
+import { IChartMargin } from '../../interfaces/Filters';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'single-combo',
     templateUrl: './single-combo.component.html',
-    styleUrls: ['./single-combo.component.scss', '../drilldown-common.scss'],
-    //  encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./single-combo.component.scss'],
 })
 export class SingleComboComponent implements OnInit, OnChanges {
     private key: any;
@@ -24,7 +24,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
     private container;
     private isPrem: any;
     private sold: string;
-    private margin: any;
+    private margin: IChartMargin = { top: 20, right: 20, bottom: 30, left: 50 };
     private premium;
     private quotes;
     private radius;
@@ -32,7 +32,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
     private arc;
     private arcLabel;
     private table;
-    private color;
+    private color = ['#3f51b5', '#00b862', '#ff5722', '#2196f3', '#eeeb0c', '#ff9800', '#ff4514'];
     private initialized = false;
 
     @Input()
@@ -50,17 +50,6 @@ export class SingleComboComponent implements OnInit, OnChanges {
 
     ngOnChanges(): void {
         if (this.initialized) {
-            this.margin = { top: 10, right: 40, bottom: 35, left: 40 };
-            this.key = this.singleTitle;
-            this.color = [
-                '#3f51b5',
-                '#00b862',
-                '#ff5722',
-                '#2196f3',
-                '#eeeb0c',
-                '#ff9800',
-                '#ff4514',
-            ];
             this.key = this.singleTitle;
             this.isPrem = this.isPremium;
             this.data = this.singleData;
@@ -70,9 +59,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
 
     ngOnInit() {
         if (!this.initialized) {
-            // console.log("Single ngOnInit this.attachNode ", this.attachNode );
             this.margin = { top: 10, right: 40, bottom: 35, left: 40 };
-            // console.log("Single this.attachNode ", this.attachNode);
 
             if (this.attachNode === 'organization') {
                 this.container = this.quoteService.sizeContainers('organization');
@@ -81,21 +68,12 @@ export class SingleComboComponent implements OnInit, OnChanges {
             } else if (this.attachNode === 'timeline') {
                 this.container = this.quoteService.sizeContainers('timeline');
             }
-            this.color = [
-                '#3f51b5',
-                '#00b862',
-                '#ff5722',
-                '#2196f3',
-                '#eeeb0c',
-                '#ff9800',
-                '#ff4514',
-            ];
             setTimeout(() => {
                 this.data = this.singleData;
                 this.key = this.singleTitle;
                 this.isPrem = this.isPremium;
                 this.chartInit();
-            }, 500);
+            }, 0);
         }
         this.initialized = true;
     }
@@ -208,6 +186,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
             });
 
         row.append('td')
+            .attr('class', 'text-left')
             .attr('class', 'dataRow')
             .style('fill', 'white')
             .text(function(d: any) {
@@ -223,7 +202,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
                     return key.indexOf('Total') !== -1;
                 };
             row.append('td')
-                .attr('class', 'dataRow text-right')
+                .attr('class', 'dataRow text-left')
                 .text(function(d: any) {
                     return isTotal(key) ? moneyFormat(d.values[key], '$') : d.values[key];
                 });
@@ -284,7 +263,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
                 .duration(20)
                 .attr('d', this.arc);
 
-            // label
+            // label % of quotes
             const label = g
                 .append('text')
                 .attr('class', 'pieLabel')
@@ -302,6 +281,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
                     return '';
                 });
 
+            // Percent premium
             chart
                 .append('text')
                 .attr('class', 'title')

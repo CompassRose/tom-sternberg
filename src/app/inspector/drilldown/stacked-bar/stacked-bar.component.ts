@@ -91,7 +91,7 @@ export class BarChartComponent implements OnInit, OnChanges {
                 this.container = this.quoteService.sizeContainers('timeline');
             }
             this.chartInit();
-        }, 200);
+        }, 0);
     }
 
     // Call parent function to reset to single on click
@@ -101,7 +101,7 @@ export class BarChartComponent implements OnInit, OnChanges {
 
     // Call parent function to show tooltip
     private showTooltip(values, x, y) {
-        this.tooltipEvent.next({ values: values, x: x, y: y });
+        this.tooltipEvent.next({ values: values, x: x + 30, y: y });
     }
 
     // Call parent function to show tooltip
