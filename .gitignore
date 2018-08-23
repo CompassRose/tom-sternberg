@@ -40,7 +40,7 @@ jspm_packages/
 typings/
 
 # IDEs and editors
-/.idea
+.idea/
 .project
 .classpath
 .c9/
@@ -54,6 +54,7 @@ typings/
 
 # Optional npm cache directory
 .npm
+yarn.lock
 
 # Optional eslint cache
 .eslintcache
