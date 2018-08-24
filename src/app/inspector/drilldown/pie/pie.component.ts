@@ -256,10 +256,7 @@ export class PieChartComponent implements OnInit, OnChanges {
             .duration(500)
             .attrTween('transform', function(d) {
                 // if (d.data.values[parent.total] > 20) {
-                console.log('transform ', d);
-
                 this._current = this._current || d;
-
                 const interpolate = d3.interpolate(this._current, d);
                 this._current = interpolate(0);
                 return function(t) {

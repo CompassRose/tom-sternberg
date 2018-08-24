@@ -26,7 +26,7 @@ export class WheelSpinnerComponent implements OnInit {
     public resultsValue: number;
 
     @Output()
-    tooltipEvent = new EventEmitter<any>();
+    spinResultsEvent = new EventEmitter<any>();
 
     constructor() {
         this.wheelData = [
@@ -70,6 +70,14 @@ export class WheelSpinnerComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.resetSpinner();
+    }
+
+    public spinFromBtn() {
+        this.spin(this);
+    }
+
+    private resetSpinner() {
         console.log('wheelspin');
         this.color = [
             '#b3090a',
@@ -149,7 +157,7 @@ export class WheelSpinnerComponent implements OnInit {
         const arc = d3
             .arc()
             .outerRadius(r)
-            .innerRadius(r * 0.35)
+            .innerRadius(r * 0.4)
             .padRadius(100)
             .padAngle(0.0)
             .cornerRadius(0);
@@ -178,11 +186,9 @@ export class WheelSpinnerComponent implements OnInit {
 
         arcs.append('path')
             .attr('d', arcBorder)
-            .attr('stroke-dasharray', 8)
             .attr('stroke-width', 3)
-            .attr('stroke-linecap', 'round')
-            .attr('stroke', '#faf2e3')
-            .attr('stroke-opacity', 0.5);
+            .attr('stroke', '#eec600')
+            .attr('stroke-opacity', 0.7);
 
         // add the text
         arcs.append('text')
@@ -255,20 +261,24 @@ export class WheelSpinnerComponent implements OnInit {
         feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
     }
 
-    public spinFromBtn() {
-        this.spin(this);
-    }
-
     // Click Container
     private spin(parent) {
+        // this.picked = 100000;
+        // this.oldpick = [];
+        // this.rotation = 0;
+        // this.oldrotation = 0;
+
         // all slices have been seen, all done
         // Only allow single spin temp;
-        parent.container.on('click', null);
+        //  parent.container.on('click', null);
+
+        // parent.spin(d, parent);
+
         //  End allow temp
-        if (this.oldpick.length === this.wheelData.length) {
-            parent.container.on('click', null);
-            return;
-        }
+        // if (this.oldpick.length === this.wheelData.length) {
+        //     parent.container.on('click', null);
+        //     return;
+        // }
 
         const ps = 360 / this.wheelData.length;
         // let  pieslice = Math.round(1440/this.wheelData.length);
@@ -281,9 +291,11 @@ export class WheelSpinnerComponent implements OnInit {
                 : this.picked;
 
         if (this.oldpick.indexOf(this.picked) !== -1) {
+            console.log('this.picked ', this.picked);
             d3.select(this).call(this.spin);
             return;
         } else {
+            console.log('else this.picked ', this.picked);
             this.oldpick.push(this.picked);
         }
         this.rotation += 90 - Math.round(ps / 2);
@@ -297,25 +309,29 @@ export class WheelSpinnerComponent implements OnInit {
             .attrTween('transform', parent.rotTween)
             .on('end', () => {
                 this.resultsValue = this.wheelData[parent.picked].label;
-                this.showTooltip(this.resultsValue);
+                this.showResults(this.resultsValue);
                 d3.select('.slice:nth-child(' + (parent.picked + 1) + ') path')
-                    .attr('fill', 'crimson')
-                    .style('stroke-width', '3px');
-                d3.select('.prize')
-                    .style('opacity', 1)
-                    .style('margin-left', '15px')
-                    .text(this.wheelData[parent.picked].label);
-                parent.oldrotation = parent.rotation;
-                // this.container.on('click', function (d: any) {
-                //   parent.spin(d, parent);
+                    // .attr('fill', '#00ff00')
+                    .style('stroke-width', '3px')
+                    .attr('stroke', '#000')
+                    .attr('stroke-opacity', 1);
+                // d3.select('.prize')
+                //     .style('opacity', 1)
+                //     .style('margin-left', '15px');
+                //   .text(this.wheelData[parent.picked].label);
+                // parent.oldrotation = parent.rotation;
+
+                // parent.container.on('click', function(d: any) {
+                //     this.resetSpinner();
+                //     // parent.spin(d, parent);
                 // });
             });
     }
 
     // Call parent function to show tooltip
-    private showTooltip(value) {
-        console.log('showTooltip ', this.resultsValue);
-        this.tooltipEvent.next({ value });
+    showResults(value) {
+        console.log('showTooltip ', value);
+        this.spinResultsEvent.next({ value });
     }
 
     rotTween() {
