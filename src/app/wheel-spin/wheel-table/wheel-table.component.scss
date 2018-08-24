@@ -31,6 +31,13 @@
   justify-content: center;
 }
 
+.funds-frame {
+  color: black;
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+
 // table background stripe
 .back-stripe {
   padding: 15px;
@@ -40,18 +47,9 @@
   border-bottom-left-radius: 10px;
   border-top-right-radius: 220px;
   border-bottom-right-radius: 220px;
-  background-color: rgba(14, 133, 48, 0.61);
+  //box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.69), inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.back-inner {
-  padding: 0px;
-  margin: 0 160px 0 0px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 220px;
-  border-bottom-right-radius: 220px;
-  background-color: rgba(13, 85, 36, 0.61);
-}
 
 .gameTitle {
   font-family: 'Racing Sans One', cursive;
@@ -61,12 +59,7 @@
   text-shadow: 2px 2px 2px #bcff00;
 }
 
-.funds-frame {
-  background-color: white;
-  color: black;
-  padding: 10px;
-  border-radius: 3px;
-}
+
 
 .table-description {
   font-size: 18px;
@@ -76,46 +69,68 @@
 
 .my-place-frame {
   min-height: 120px;
-  background-color: rgba(14, 133, 48, 0.61);
   border: 10px solid green;
   color: black;
-  padding: 14px;
+  padding: 0 14px;
   border-radius: 10px;
 }
 
-.winnings-frame {
-  min-height: 120px;
-  background-color: white;
-  border: 10px solid green;
-  color: black;
-  padding: 14px;
-  border-radius: 10px;
+.borders {
+  background-color: rgba(16, 195, 68, 0.67);
+}
+
+.shadow-medium {
+  box-shadow: 0px 0px 46px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.shadow-light {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.7);
 }
 
 .last-ten-frame {
-  background-color: rgba(14, 133, 48, 0.61);
   border: 10px solid green;
-  color: black;
   text-align: center;
-  padding: 14px;
-  width: 180px;
-  height: 300px;
+  color: white;
+  padding: 0 6px;
+  width: 230px;
+  height: 460px;
   border-radius: 10px;
+  .last-ten {
+    padding: 2px 3px;
+    width: 100%;
+    border: 1px solid white;
+    margin-top: 8px;
+  }
+  .bet-reveal {
+    padding: 4px;
+    border-bottom: 1px solid white;
+  }
+  .text-backed {
+    width: 100%;
+    padding: 8px 0;
+  }
 }
 
-.last-ten {
-  background-color: white;
-  padding: 3px;
-  width: 100%;
-  color: white;
-}
 
 .chip-common {
   border-radius: 23px;
-  box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.32);
-  // box-shadow:    inset 0 0 1px #ffffff;
+  box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.32), inset 0 0 3px #ffffff;
   z-index: 11;
 }
+
+.btn {
+  padding: 0.84rem 2.14rem;
+  font-size: .91rem;
+}
+
+.circle{
+  width:55px;height:55px;
+  border: solid 1px #555;
+  box-shadow: 2px 2px 3px  rgba(0,0,0,0.6);
+  border-radius:100px;
+  z-index: 11;
+}
+
 
 .dollar {
   background-color: blue;
@@ -125,6 +140,7 @@
 .fiver {
   background-color: orangered;
   border: 1px solid orangered;
+  box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.32), inset 0 0 3px orangered;
 }
 
 .twenty-fiver {
@@ -132,11 +148,12 @@
   border: 1px solid purple;
 }
 
-div span.stacked-text {
-  display: list-item;
-  list-style: none;
-  text-align: center;
+.hundred {
+  background-color: #dbb200;
+  border: 1px solid #dbb200;
 }
+
+
 
 .grid-container {
   height: 400px;
@@ -181,7 +198,7 @@ div span.stacked-text {
   background-color: #008b00;
   transition: transform 0.1s ease-in-out;
   &:hover {
-    transform: scale(1.015);
+    transform: scale(1.0);
     border: 2px solid yellow;
     z-index: 10;
   }
