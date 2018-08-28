@@ -1,10 +1,14 @@
+$window-height: 460px;
 
 .game-container {
-  width: 100%;
-  display: grid;
-  padding: 15px;
-  grid-template-columns: 2fr 1.5fr 1fr;
-  grid-template-rows: 1fr;
+  margin: 0 auto;
+  width: 1500px;
+}
+
+.table-description {
+  font-size: 16px;
+  padding-top: 20px;
+  text-shadow: 1px 1px 0px black;
 }
 
 [mwlDraggable] {
@@ -38,18 +42,15 @@
   border-radius: 4px;
 }
 
-// table background stripe
+
 .back-stripe {
   padding: 15px;
-  margin: 0 0px 0 0px;
   border: 15px solid green;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 220px;
   border-bottom-right-radius: 220px;
-  //box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.69), inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
-
 
 .gameTitle {
   font-family: 'Racing Sans One', cursive;
@@ -59,21 +60,24 @@
   text-shadow: 2px 2px 2px #bcff00;
 }
 
-
-
-.table-description {
-  font-size: 18px;
-  padding: 10px;
-  text-shadow: 1px 1px 0px black;
-}
-
 .my-place-frame {
-  min-height: 120px;
+  min-height: 105px;
   border: 10px solid green;
   color: black;
-  padding: 0 14px;
   border-radius: 10px;
+  &.one-third {
+    flex: 0 0 33%;
+  }
+  .last-ten {
+    width: 40px;
+    height: 82px;
+    line-height: 80px;
+    // margin: 2px;
+    color: white;
+  }
 }
+
+
 
 .borders {
   background-color: rgba(16, 195, 68, 0.67);
@@ -87,73 +91,163 @@
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.7);
 }
 
-.last-ten-frame {
+.state-frame {
+  display: flex;
+  flex-direction: column;
   border: 10px solid green;
   text-align: center;
+  padding: 0 16px;
   color: white;
-  padding: 0 6px;
-  width: 230px;
-  height: 460px;
+  width: 270px;
+  height: $window-height;
   border-radius: 10px;
-  .last-ten {
-    padding: 2px 3px;
-    width: 100%;
-    border: 1px solid white;
-    margin-top: 8px;
-  }
   .bet-reveal {
-    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    top: 10px;
+    height: calc(100% - #{$window-height / 2.5});
+    overflow-y: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
     border-bottom: 1px solid white;
   }
-  .text-backed {
-    width: 100%;
-    padding: 8px 0;
+  .win-reveal {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    top: calc(100% - #{$window-height / 1.5});
+    overflow-y: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
   }
 }
 
-
-.chip-common {
-  border-radius: 23px;
-  box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.32), inset 0 0 3px #ffffff;
-  z-index: 11;
-}
 
 .btn {
   padding: 0.84rem 2.14rem;
   font-size: .91rem;
 }
 
-.circle{
-  width:55px;height:55px;
-  border: solid 1px #555;
-  box-shadow: 2px 2px 3px  rgba(0,0,0,0.6);
-  border-radius:100px;
-  z-index: 11;
+a {
+  color: #89310F;
 }
 
 
-.dollar {
-  background-color: blue;
-  border: 1px solid blue;
+.pokerchip {
+  margin: .25em;
+  position: relative;
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5), 0 0 3px 0 rgba(0, 0, 0, 0.4) inset;
+  border-radius: 50%;
+  background-size: 151px 151px;
+  background-position: center center;
+  z-index: 100;
 }
 
-.fiver {
-  background-color: orangered;
-  border: 1px solid orangered;
-  box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.32), inset 0 0 3px orangered;
+.pokerchip:before {
+  position: absolute;
+  content: "";
+  z-index: 1;
+  width: 67px;
+  height: 67px;
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
+  background-size: 151px 151px;
+  background-position: center center;
 }
 
-.twenty-fiver {
-  background-color: purple;
-  border: 1px solid purple;
+.pokerchip:after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: absolute;
+  content: "25";
+  text-align: center;
+  font: bold 26px Arial;
+  white-space: pre;
+  width: 57px;
+  height: 57px;
+  border-radius: 50%;
+  top: 9px;
+  left: 9px;
+  text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.3), 1px 1px 0px rgba(255, 255, 255, 0.3);
 }
 
-.hundred {
-  background-color: #dbb200;
-  border: 1px solid #dbb200;
+@mixin chip-color-values($baseColorStart, $baseColorEnd, $chip-value) {
+  background-image: linear-gradient(0deg, transparent 0, transparent 67.5px, #fff 67.5px, #fff 83.5px, transparent 83.5px, transparent 151px),
+  linear-gradient(60deg, transparent 0, transparent 97.4304px, #fff 97.4304px, #fff 113.4304px, transparent 113.4304px, transparent 151px),
+  linear-gradient(120deg, $baseColorStart 0, $baseColorStart 97.4304px, #fff 97.4304px, #fff 113.4304px, $baseColorStart 113.4304px, $baseColorStart 151px);
+
+  &:before {
+    border: 3px solid $baseColorStart;
+    background-image:
+    linear-gradient(30deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px),
+    linear-gradient(90deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px),
+   linear-gradient(150deg, $baseColorEnd 0, $baseColorEnd 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, $baseColorEnd 110.7104px, $baseColorEnd 151px);
+  }
+  &:after {
+    content: $chip-value;
+    background: $baseColorStart;
+    color: $baseColorEnd;
+  }
+}
+
+@mixin chip-shadow($x-pos, $y-pos) {
+  position: absolute;
+  margin-left: $x-pos;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.chip-shadow-1 {
+  @include chip-shadow(10px, 20px);
+}
+
+.chip-shadow-2 {
+  @include chip-shadow(85px, 20px);
+}
+
+.chip-shadow-3 {
+  @include chip-shadow(170px, 20px);
+}
+
+.chip-shadow-4 {
+  @include chip-shadow(255px, 20px);
+}
+
+.chip-shadow-5 {
+  @include chip-shadow(335px, 20px);
 }
 
 
+.magic-yellow {
+  @include chip-color-values(#ffc600, #d6a400, '1');
+}
+
+.magic-red {
+  @include chip-color-values(#800000, #6C0000, '5');
+}
+
+.magic-blue {
+  @include chip-color-values(#000099, #00016C, '25');
+}
+
+.magic-green {
+  @include chip-color-values(#008000, #016C00, '50');
+}
+
+.magic-black {
+  @include chip-color-values(#000000, #012500, '100');
+}
 
 .grid-container {
   height: 400px;
