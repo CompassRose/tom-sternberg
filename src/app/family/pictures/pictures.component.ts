@@ -6,7 +6,7 @@ import {
     OnInit,
     Output,
     Pipe,
-    PipeTransform,
+    PipeTransform
 } from '@angular/core';
 import { Picture } from '../models/picture';
 import { PictureService } from '../services/picture.service';
@@ -15,6 +15,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalComponent } from '../../shared/components/ngb-modal/ngb-modal.component';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/interval';
 
 @Component({
@@ -27,8 +28,8 @@ import 'rxjs/add/observable/interval';
         CustomTooltipComponent,
         NgbModal,
         NgbActiveModal,
-        NgbdModalComponent,
-    ],
+        NgbdModalComponent
+    ]
 })
 export class PicturesComponent {
     public pictures: Picture[] = [];
@@ -60,15 +61,16 @@ export class PicturesComponent {
 
     getObservable() {
         return Observable.interval(1000)
-            .take(10)
+            .take(3)
             .map(v => v * v);
     }
 
     getPictureCollection(): void {
         this._pictureService.getPictureContents().subscribe(data => {
-            this.pictures = data;
-            this.activePictures = data.map(d => {
-                if (d.image === '') {
+            console.log('getPictureContents ', data);
+            this.pictures = data.pictures;
+            this.activePictures = this.pictures.map(d => {
+                if (d.image === '' || d.image === undefined) {
                     d.image = '';
                 } else {
                     d.image = this.PICTURE_PATH + d.image;
@@ -143,7 +145,7 @@ export class PicturesComponent {
             this.activeCategory.push(picture.keyword);
             this.pictureCategories.push({
                 name: PicturesComponent.toTitleCase(picture.keyword),
-                checked: false,
+                checked: false
             });
         }
     }
@@ -165,7 +167,7 @@ export class PicturesComponent {
         console.log(e);
         const modalRef = this.modalService.open(NgbdModalComponent, {
             size: 'lg',
-            windowClass: 'modal-xxl',
+            windowClass: 'modal-xxl'
         });
         modalRef.componentInstance.activeIndex = e;
         modalRef.componentInstance.modalGroup = this.activePictures;

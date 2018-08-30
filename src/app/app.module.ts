@@ -20,7 +20,7 @@ import { ReadComponent } from './read/read.component';
         LayoutModule,
         BrowserModule,
         StoreModule.forRoot({
-            picture: reducer,
+            picture: reducer
         }),
 
         // Application
@@ -28,12 +28,11 @@ import { ReadComponent } from './read/read.component';
 
         // Third Party
         DragAndDropModule.forRoot(),
-        MDBBootstrapModule.forRoot(),
-        NgbModule.forRoot(),
+        MDBBootstrapModule.forRoot()
     ],
 
     schemas: [NO_ERRORS_SCHEMA],
-    providers: [HttpClientModule],
-    bootstrap: [AppComponent],
+    providers: [HttpClientModule, HttpClient],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,4 +1,4 @@
-<div class="game-container">
+<div class="game-container ml-4 mr-4">
   <div class="d-flex align-items-center">
     <div class="gameTitle text-center mt-1 mb-2">Roulette Challenge</div>
     <div class="ml-auto w-50">
@@ -137,8 +137,7 @@
       <div class="win-reveal">
         <div class="f-weight-600 display-lg mt-3">WINNERS:</div>
         <div *ngFor="let win of displayArray">
-          <div *ngIf="win.name" class="display-md"><span *ngIf="win.name < 37">Number </span>{{win.name}}
-            = ${{win.directBet * win.value}}
+          <div *ngIf="win.name" class="display-md"><span *ngIf="win.name < 37">Number </span>{{win.name}} = ${{win.value}}
           </div>
         </div>
       </div>
@@ -160,7 +159,7 @@
     <div class="my-place-frame one-third borders shadow-light d-flex align-items-center mr-2">
       <div class="text-white ml-2 mr-2">Cash on Hand</div>
       <span class="funds-frame f-weight-600 ml-auto">${{myFunds}}.00</span>
-      <button class="btn btn-primary ml-auto" (click)="removeAllBets();">Reset Bets</button>
+      <button class="btn btn-success ml-auto" (click)="removeAllBets();">Reset Bets</button>
     </div>
     <div class="my-place-frame one-third borders shadow-light d-flex align-items-center">
       <div class="ml-2 mr-2 text-white f-weight-600">LAST TEN NUMBERS</div>

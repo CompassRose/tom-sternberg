@@ -27,11 +27,16 @@
   position: fixed;
   display: flex;
   align-items: center;
-  @include navColor($green2);
+  @include navColor($central-blue);
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 70px;
+  border-bottom: 1px solid $central-gold;
   box-shadow: 4px 0 7px black;
+}
+
+.contained-elements {
+  width: 1600px;
 }
 
 .in-visible {
@@ -51,7 +56,7 @@
   opacity: 0;
   border-left: 0px solid black;
   position: fixed;
-  background-color:#3f51b5 !important;
+  background-color: #2c3c70 !important;
   z-index: 20;
   overflow-x: hidden;
   right: 60px;
@@ -66,13 +71,13 @@
     padding: 0;
     li {
       padding: 1.235rem 0;
+      border-top: 1px solid transparent;
       border-bottom: 1px solid rgba(128, 128, 128, 0.69);
       list-style: none;
       font-size: 1.0rem;
-      color: white;
       &:hover {
         border-top: 1px solid;
-        border-color: gold;
+        border-color: $central-gold;
         background-color: rgba(31, 40, 62, 0.56);
       }
       &:disabled {
@@ -80,7 +85,7 @@
       }
       a {
         margin-left: 1rem;
-        color: white;
+        color: $central-gold-text;
         font-weight: 400;
       }
     }
@@ -148,7 +153,7 @@
   position: absolute;
   height: 1px;
   width: 100%;
-  background: $light-gold;
+  background: $central-gold;
   border-radius: 0px;
   opacity: 1;
   left: 0;

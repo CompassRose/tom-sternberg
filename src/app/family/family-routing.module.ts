@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FamilyComponent } from './family.component';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: FamilyComponent
-  }
-];
+import { PicturesComponent } from './pictures/pictures.component';
+import { FamilyTreeComponent } from './family-tree/family-tree.component';
 
 @NgModule({
- imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forChild([
+            {
+                path: 'family-routes',
+                component: FamilyComponent,
+                children: [
+                    { path: 'pictures', component: PicturesComponent },
+                    { path: 'familyTree', component: FamilyTreeComponent }
+                ]
+            }
+        ])
+    ],
+    exports: [RouterModule]
 })
-export class FamilyRoutingModule { }
+export class FamilyRoutingModule {}
