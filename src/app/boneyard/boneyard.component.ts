@@ -3,10 +3,9 @@ import { PlayerService } from './services/player.service';
 import { TeamService } from './services/team.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
-import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
-import { catchError } from 'rxjs/operators';
+import 'rxjs/add/observable/interval';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,53 +17,12 @@ import { catchError } from 'rxjs/operators';
 export class BoneyardComponent implements OnInit {
     public allRows = [];
     public tempRows = [];
+    public timerValue = 0;
+    public intervalSetter;
+
     POST_API_URL = '../assets/newTeamData.json';
 
-    public boneyardTeams = [
-        { team: 'Primetime', owners: 'Jeff Foster' },
-        { team: 'Limelite', owners: 'Graham-Benskin' },
-        { team: 'It Goes to 11', owners: 'Griz' },
-        { team: 'Nuke Em All', owners: 'Tom ' },
-        { team: 'Make WAD Great Again', owners: 'Milt Turner' },
-        { team: 'Trump Empire', owners: 'Tom Sternberg' },
-        { team: 'Spinal Tap Mark II', owners: 'Vince Iverson' },
-        { team: 'Flying Solo', owners: 'Mike Foster' },
-        { team: 'Crushed by Jefferson', owners: 'Norton-Guhlke' },
-        { team: 'Mad n Nervous', owners: 'Wallebeck-Boyle' },
-        { team: 'Danger is Business', owners: 'Tim Foster' },
-        { team: 'Mother Love Bones', owners: 'Milburn-Smyth' }
-    ];
-
-    public teamNames = [
-        'Trump Empire',
-        'Crushed by Jefferson',
-        'Danger is Business',
-        'Flying Solo',
-        'It Goes to 11',
-        'Limelite',
-        'Mad n Nervous',
-        'Make WAD Great Again',
-        'Mother Love Bones',
-        'Nuke Em All',
-        'Primetime',
-        'Spinal Tap Mark 11'
-    ];
-
-    public ownerNames = [
-        'Tom Sternberg',
-        'Norton-Guhlke',
-        'Tim Foster',
-        'Mike Foster',
-        'Griz',
-        'Graham-Benskin',
-        'Wallebeck-Boyle',
-        'Milt Turner',
-        'Milburn-Smyth',
-        'Syltebo-Block',
-        'Jeff Foz',
-        'Vince Iverson'
-    ];
-
+    // Draft Order
     // 1 - Primetime
     // 2 - Limelite
     // 3 - The Eleven
@@ -80,60 +38,40 @@ export class BoneyardComponent implements OnInit {
 
     public allTeams = [];
     public draggedItem: any;
+    public observable: Observable<any>;
+    public timevalue = 30;
+    public searchText: string;
 
-    constructor(
-        private teamService: TeamService,
-        private playerService: PlayerService,
-        private http: HttpClient
-    ) {
-        //  console.log('Teams ', this.allTeams);
-        // for (let i = 0; i < this.teamNames.length; i++) {
-        //     this.teamId = i;
-        //     this.allTeams.push({
-        //         Id: this.teamId,
-        //         teamName: this.teamNames[i],
-        //         ownerName: this.ownerNames[i],
-        //         playerList: this.fillPlayerList(i)
-        //     });
-        //     // console.log(JSON.stringify(this.allTeams[i], undefined, 2));
-        // }
-    }
+    constructor(private teamService: TeamService, private http: HttpClient) {}
 
     ngOnInit() {
         if (localStorage.getItem('teams') === null) {
-            this.getPlayers(true);
             this.getTeamCollection();
             console.log('EMPTY ');
         } else {
-            this.allTeams = this.getStoredData();
-            this.getPlayers(false);
+            this.getStoredData();
         }
+    }
+
+    callObservable() {
+        this.observable = this.getObservable();
+    }
+
+    getObservable() {
+        return Observable.interval(1000)
+            .take(this.timevalue)
+            .map(v => v);
     }
 
     deleteStoredData() {
         localStorage.removeItem('teams');
-        this.getPlayers(true);
         this.getTeamCollection();
         console.log('deleteStoredData ');
-    }
-
-    getPlayers(state: boolean) {
-        this.playerService.getCsvData().subscribe(rowData => {
-            this.allRows = rowData;
-            console.log(' this.allRows ', this.allRows);
-
-            this.allRows.forEach((d, i) => {
-                d.picked = Number(d.picked);
-            });
-
-            this.activatePos('QB');
-        });
     }
 
     activatePos(posId) {
         const activePosition = [];
         this.tempRows = this.allRows;
-        // console.log('posId ', posId);
         if (posId === 'ALL') {
             this.tempRows = this.allRows;
         } else {
@@ -144,23 +82,22 @@ export class BoneyardComponent implements OnInit {
             });
             this.tempRows = activePosition;
         }
-        // console.log('activePosition ', activePosition);
     }
 
     getTeamCollection() {
         this.teamService.getTeamContents().subscribe(data => {
             this.allTeams = data.teams;
-            console.log('getTeamContents allTeams ', this.allTeams);
-            // this.pictures = data;
+            this.allRows = data.players;
+            this.activatePos('QB');
+            // console.log('getTeamContents allTeams ', data);
         });
-        // }
-        // localStorage.removeItem('teams');
     }
 
     getStoredData() {
         const teamArray = JSON.parse(localStorage.getItem('teams'));
-        return teamArray;
-        // console.log('getStoredData ', teamArray);
+        this.allTeams = teamArray.teams;
+        this.allRows = teamArray.players;
+        this.activatePos('QB');
     }
 
     // Fill team container with player objects
@@ -224,15 +161,9 @@ export class BoneyardComponent implements OnInit {
             this.allTeams[ID].playerList[element.pid].plistId = this.draggedItem.Id;
             this.allTeams[ID].playerList[element.pid].pteam = this.draggedItem.team;
             this.draggedItem.picked = 1;
-            console.log('saving ', this.allTeams[ID].pname);
-            //  this.teamService.httpPutExample(this.allTeams);
-
-            localStorage.setItem('teams', JSON.stringify(this.allTeams));
-
-            // } else {
-            // console.log('Already Used');
+            const teamAllData = JSON.stringify({ teams: this.allTeams, players: this.allRows });
+            localStorage.setItem('teams', teamAllData);
+            //  console.log('\n\n ALL ', teamAllData);
         }
-        console.log('getPlayers ', this.tempRows);
-        // console.log('ALLTEAM ', JSON.stringify(this.allTeams[ID], null, 2));
     }
 }

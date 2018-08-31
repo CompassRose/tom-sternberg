@@ -131,7 +131,7 @@ export class WheelTableComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {
-        this.myFunds = 2000;
+        this.myFunds = 500;
         this.lastTenNums.push({
             name: 20,
             value: 35,
@@ -150,11 +150,12 @@ export class WheelTableComponent implements OnInit {
     }
 
     onDrop(dropData, element) {
-        console.log('onDrop ', dropData.dropData, ' element ', element);
+        // console.log('onDrop ', dropData, ' element ', element.directBet, ' $ ', this.myFunds);
         const value: number = Number(dropData.dropData);
-        element.directBet += value;
-        this.myFunds -= value;
-        //  this.checkBets();
+        if (this.myFunds >= Number(dropData.dropData)) {
+            element.directBet += value;
+            this.myFunds -= value;
+        }
     }
 
     // Determines winning returns

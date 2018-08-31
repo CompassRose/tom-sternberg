@@ -1,8 +1,22 @@
-<button class="btn btn-success" (click)="getStoredData()">Get Stored Data</button>
-<button class="btn btn-primary" (click)="deleteStoredData()">Delete Data</button>
-<button class="btn btn-warning" (click)="getTeamCollection()">Get Data</button>
 
-<div class="draft-container ml-4 mr-4">
+<div class="d-flex all-container">
+  <button class="btn btn-success" (click)="getStoredData()">Get Stored Data</button>
+  <button class="btn btn-primary" (click)="deleteStoredData()">Delete Data</button>
+  <button class="btn btn-warning" (click)="getTeamCollection()">Get Data</button>
+  <div class="d-flex align-items-center ml-auto">
+    <div class="text-white mr-2">Search:</div>
+    <input type="text" class="input-search mr-5" [(ngModel)]="searchText"
+           placeholder="Search"/>
+    <div class="text-white mr-2">Seconds::</div>
+    <input type="text" class="input-time mr-2" (value)="timevalue" (input)="timevalue = $event.target.value"
+           placeholder="30"/>
+    <button class="btn btn-warning ml-auto" (click)="callObservable()">Reset Timer</button>
+    <div class="timer-base">
+      <div>{{observable | async}}</div>
+    </div>
+  </div>
+</div>
+<div class="draft-container">
   <div class="team-container">
     <div *ngFor="let team of allTeams">
       <div class="team-space">
@@ -45,9 +59,9 @@
       <!--</button>-->
     </div>
     <div class="player-list-container">
-      <div (dragEnd)="dragEnd(player)" class="text-left" mwlDraggable *ngFor="let player of tempRows">
+      <div (dragEnd)="dragEnd(player)" class="text-left" mwlDraggable *ngFor="let player of tempRows | filter : searchText">
         <div [ngClass]="player?.picked ?'playerList amtaken':'playerList amavailable'">
-          <div>{{player?.picked}}</div>
+          <!--<div>{{player?.picked}}</div>-->
           <div class="ml-2">{{player?.position}}</div>
           <div class="ml-3">{{player?.playername}}</div>
           <div class="ml-auto mr-2">{{player?.team}}</div>
