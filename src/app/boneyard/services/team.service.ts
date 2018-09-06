@@ -49,32 +49,6 @@ export class TeamService {
             .pipe(catchError((error: any) => Observable.throw(error.json())));
     }
 
-    // httpPutExample(payload: any) {
-    //     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    //     // const httpOptions = {
-    //     //     headers: new HttpHeaders({
-    //     //         'Content-Type': 'application/json',
-    //     //         apikey: this.apikey,
-    //     //         appkey: this.appkey
-    //     //     }),
-    //     //     params: new HttpParams().set('program_id', this.program_id)
-    //     // };
-    //
-    //     console.log('PUT', headers);
-    //     const BASE_URL = '../assets/allNewData.json';
-    //     this.http.put(this.BASE_PICTURE_URL, payload, { headers }).subscribe(
-    //         val => {
-    //             console.log('PUT call successful value returned in body', val);
-    //         },
-    //         response => {
-    //             console.log('PUT call in error', response);
-    //         },
-    //         () => {
-    //             console.log('The PUT observable is now completed.');
-    //         }
-    //     );
-    // }
-
     private handleError(error: any) {
         const errMsg = error.message
             ? error.message

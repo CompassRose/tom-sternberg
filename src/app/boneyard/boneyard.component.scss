@@ -1,6 +1,3 @@
-
-
-
 .timer-base {
   width: 50px;
   height: 36px;
@@ -10,12 +7,8 @@
   font-size: 22px;
 }
 
-.btn {
-  padding: 0.5rem 2.14rem;
-  font-size: .91rem;
-}
-
 .input-time {
+  text-align: center;
   width: 50px;
   height: 36px;
 }
@@ -26,81 +19,108 @@
 }
 
 .all-container {
+  height:50px;
   background-color: black;
-  margin-left: -130px;
-  margin-right: -100px;
 }
+
 .draft-container {
   background-color: black;
-  margin-left: -130px;
-  margin-right: -140px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  //z-index: 101;
 }
 
 .btnGroup {
   display: flex;
   width: 100%;
-  justify-content: stretch;
-  align-content: stretch;
+ // justify-content: flex-end;
+  align-content: flex-end;
 
   .posButton {
-    flex-basis: 16%;
+    flex-basis: 10%;
   }
 }
 
-
+.btn {
+  min-width: 160px;
+  padding: 0.5rem 1.14rem;
+  font-size: .75rem;
+}
 
 .player-container {
   display: flex;
   flex-direction: column;
- // align-content: center;
   justify-content: flex-start;
-  width: 40%;
+  background-color: black;
+  padding: 3px;
+  width: 25%;
 }
 
-
 .player-list-container {
+  height: 1000px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+  align-content: flex-end;
 }
 
 .team-container {
   display: flex;
   flex-wrap: wrap;
- // justify-content: center;
   align-content: center;
-  width: 60%;
+  width: 75%;
 }
 
+
+.team-playerlist {
+  display: flex;
+  justify-content: flex-start;
+  border-right: 1px solid #141a72;
+  border-top: 1px solid #141a72;
+  border-left: 1px solid #141a72;
+  width: 205px;
+  &.for-teams {
+    font-size: 14px;
+  }
+  &:last-child {
+    border-bottom: 1px solid #141a72;
+  }
+  &:hover {
+    border-color: red;
+    background-color: #fff800;
+    color: black;
+  }
+}
+
+
 .playerList {
-  font-size: 12px;
   display: flex;
   justify-content: flex-start;
   padding: 2px;
   border-right: 1px solid #141a72;
   border-top: 1px solid #141a72;
   border-left: 1px solid #141a72;
-  width: 225px;
-  &:last-child{
+  width: 205px;
+  &:last-child {
     border-bottom: 1px solid #141a72;
   }
-
-  &.amavailable {
-    background-color: #53b458;
-    color: white;
+  &.for-players {
+    font-size: 13px;
   }
+  &.amavailable {
+    background-color: rgba(253, 253, 13, 1);
+    color: black;
+    &:hover {
+      border-color: red;
+      background-color: #f3ef9f;
+      color: black;
+    }
+  }
+
 
   &.amtaken {
-    color: #989898;
+    color: #656565;
     background-color: #cdcdcd;
-  }
-
-  &:hover {
-    background-color: #f3ef9f;
-    color: black;
   }
 }
 
@@ -112,7 +132,9 @@
 }
 
 [mwlDroppable] {
-  background-color: #5dbded;
+  background-color: #ffffff;
+  padding: 1px 0;
+  color: black;
 }
 
 
@@ -123,19 +145,14 @@
   padding: 5px 5px;
   text-align: left;
   color: white;
-  width: 210px;
+  width: 218px;
   height: auto;
   border: 1px solid #141a72;
   background-color: #679fed;
   .team-name {
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
     font-weight: bold;
     text-shadow: 1px 1px 2px black;
-  }
-  .team-player-text {
-    width: 100%;
-    font-size: 11px;
-    color: black;
   }
 }

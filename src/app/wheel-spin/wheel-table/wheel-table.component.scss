@@ -1,20 +1,29 @@
+@import '../../../assets/stylesheets/variables';
+
 $window-height: 460px;
 
 .game-container {
+  max-width: $container-width;
   margin: 0 auto;
-  width: 1500px;
+  padding: 20px;
+}
+
+.gameTitle {
+  font-family: 'Racing Sans One', cursive;
+  font-size: 4.0rem;
+  letter-spacing: 1px;
+  color: #00b700;
+  text-shadow: 2px 2px 2px #bcff00;
 }
 
 .table-description {
   font-size: 16px;
   padding-top: 20px;
+  width: 60%;
   text-shadow: 1px 1px 0px black;
 }
 
 [mwlDraggable] {
-  background-color: red;
-  width: 50px;
-  height: 50px;
   position: relative;
   z-index: 1;
   float: left;
@@ -35,16 +44,10 @@ $window-height: 460px;
   justify-content: center;
 }
 
-.funds-frame {
-  color: black;
-  background-color: white;
+.table-background-frame {
+  max-width: calc(0% + #{$container-width * 0.7});
+  box-shadow: 0px 0px 46px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.8);
   padding: 10px;
-  border-radius: 4px;
-}
-
-
-.back-stripe {
-  padding: 15px;
   border: 15px solid green;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -52,70 +55,116 @@ $window-height: 460px;
   border-bottom-right-radius: 220px;
 }
 
-.gameTitle {
-  font-family: 'Racing Sans One', cursive;
-  font-size: 4.5rem;
-  letter-spacing: 1px;
-  color: #00b700;
-  text-shadow: 2px 2px 2px #bcff00;
-}
+.table-utilities {
+  display: flex;
+  flex-direction: row;
 
-.my-place-frame {
-  min-height: 105px;
-  border: 10px solid green;
-  color: black;
-  border-radius: 10px;
-  &.one-third {
-    flex: 0 0 33%;
-  }
-  .last-ten {
-    width: 40px;
-    height: 82px;
-    line-height: 80px;
-    color: white;
+  @media (max-width: ($layout-breakpoint-md)) {
+    flex-direction: column;
   }
 }
 
-
-
-.borders {
-  background-color: rgba(16, 195, 68, 0.67);
-}
-
-.shadow-medium {
-  box-shadow: 0px 0px 46px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.8);
-}
-
-.shadow-light {
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.7);
-}
-
-.state-frame {
+.chip-frame {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+}
+
+.chip-shadow-frame {
+  padding-top: 10px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cash-drop {
+  position: absolute;
+  padding: 0 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+
+.chip-shadow {
+  margin-bottom: 10px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.borders {
+  background-color: rgba(14, 137, 49, 0.67);
   border: 10px solid green;
+}
+
+.category-header {
+  margin-bottom: 8px;
   text-align: center;
-  padding: 0 16px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-state-frame {
+  display: flex;
+  flex-direction: row;
+  max-width: calc(0% + #{$container-width * 0.3});
   color: white;
-  width: 270px;
+  width: 400px;
   height: $window-height;
-  border-radius: 10px;
+  border-radius: 6px;
+
+  .spin-state-reveal {
+    width: 60%;
+    display: flex;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    top: 10px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .funds-frame {
+    text-align: center;
+    color: black;
+    background-color: white;
+  }
+
+  .last-ten-frame {
+    width: 98%;
+    box-shadow: inset 3px 0 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .table-state-reveal {
+    margin: 0 3px 0 2px;
+    width: 40%;
+    display: flex;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    border-right: 7px solid green;
+    top: 10px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
   .bet-reveal {
     display: flex;
     flex-direction: column;
-    padding: 0 16px;
-    top: 10px;
     height: calc(100% - #{$window-height / 2.5});
-    overflow-y: auto;
-    justify-content: flex-start;
+    width: 100%;
+   overflow-y: auto;
     align-items: flex-start;
     flex-wrap: nowrap;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.49);
   }
   .win-reveal {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 16px;
     top: calc(100% - #{$window-height / 1.5});
     overflow-y: auto;
     justify-content: flex-start;
@@ -123,7 +172,6 @@ $window-height: 460px;
     flex-wrap: nowrap;
   }
 }
-
 
 .btn {
   padding: 0.84rem 2.14rem;
@@ -133,7 +181,6 @@ $window-height: 460px;
 a {
   color: #89310F;
 }
-
 
 .pokerchip {
   margin: .25em;
@@ -186,10 +233,9 @@ a {
 
   &:before {
     border: 3px solid $baseColorStart;
-    background-image:
-    linear-gradient(30deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px),
+    background-image: linear-gradient(30deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px),
     linear-gradient(90deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px),
-   linear-gradient(150deg, $baseColorEnd 0, $baseColorEnd 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, $baseColorEnd 110.7104px, $baseColorEnd 151px);
+    linear-gradient(150deg, $baseColorEnd 0, $baseColorEnd 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, $baseColorEnd 110.7104px, $baseColorEnd 151px);
   }
   &:after {
     content: $chip-value;
@@ -197,36 +243,6 @@ a {
     color: $baseColorEnd;
   }
 }
-
-@mixin chip-shadow($x-pos, $y-pos) {
-  position: absolute;
-  margin-left: $x-pos;
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-
-.chip-shadow-1 {
-  @include chip-shadow(10px, 20px);
-}
-
-.chip-shadow-2 {
-  @include chip-shadow(85px, 20px);
-}
-
-.chip-shadow-3 {
-  @include chip-shadow(170px, 20px);
-}
-
-.chip-shadow-4 {
-  @include chip-shadow(255px, 20px);
-}
-
-.chip-shadow-5 {
-  @include chip-shadow(335px, 20px);
-}
-
 
 .magic-yellow {
   @include chip-color-values(#ffc600, #d6a400, '1');
@@ -250,7 +266,7 @@ a {
 
 .grid-container {
   height: 400px;
-  width: 700px;
+  width: 800px;
   border: 0 solid white;
   display: grid;
   padding: 15px;
@@ -260,6 +276,8 @@ a {
 
 .grid-number-cell {
   border: 1px solid #ffffff;
+  font-size: 17px;
+  font-weight: 600;
   color: white;
   width: 8.33%;
   height: 33.33%;
@@ -282,6 +300,7 @@ a {
 }
 
 .grid-cell-text {
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -341,13 +360,11 @@ a {
 .grid-item-10 {
   grid-column: 1 / 4;
   grid-row: 7 / 8;
-  background-color: red;
 }
 
 .grid-item-11 {
   grid-column: 4 / 7;
   grid-row: 7 / 8;
-  background-color: black;
 }
 
 .grid-item-12 {

@@ -384,8 +384,8 @@
     },
     {
       "Id": 3,
-      "teamName": "Spinal Tarp",
-      "ownerName": "Vince Iverson",
+      "teamName": "Nuke",
+      "ownerName": "Block - Syltebo",
       "playerList": [
         {
           "pid": 0,
@@ -1526,24 +1526,43 @@
       ]
     }
   ],
+
   "players": [
     {
       "Id": 1,
       "franchise": 0,
       "picked": 0,
-      "playername": "Dak Prescott",
+      "playername": "Aaron Rodgers",
       "position": "QB",
-      "team": "DAL",
-      "bye": 8
+      "team": "GB",
+      "bye": 7
     },
     {
       "Id": 2,
       "franchise": 0,
       "picked": 0,
-      "playername": "Teddy Bridgewater",
+      "playername": "Russell Wilson",
       "position": "QB",
-      "team": "NYJ",
+      "team": "SEA",
+      "bye": 7
+    },
+    {
+      "Id": 3,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Tom Brady",
+      "position": "QB",
+      "team": "NE",
       "bye": 11
+    },
+    {
+      "Id": 4,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Drew Brees",
+      "position": "QB",
+      "team": "NO",
+      "bye": 6
     },
     {
       "Id": 3,
@@ -1567,10 +1586,10 @@
       "Id": 5,
       "franchise": 0,
       "picked": 0,
-      "playername": "Tom Brady",
+      "playername": "Philip Rivers",
       "position": "QB",
-      "team": "NE",
-      "bye": 11
+      "team": "LAC",
+      "bye": 8
     },
     {
       "Id": 6,
@@ -1672,30 +1691,12 @@
       "bye": 9
     },
     {
-      "Id": 17,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Russell Wilson",
-      "position": "QB",
-      "team": "SEA",
-      "bye": 7
-    },
-    {
       "Id": 18,
       "franchise": 0,
       "picked": 0,
       "playername": "Deshaun Watson",
       "position": "QB",
       "team": "HOU",
-      "bye": 10
-    },
-    {
-      "Id": 19,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Paxton Lynch",
-      "position": "QB",
-      "team": "DEN",
       "bye": 10
     },
     {
@@ -1720,9 +1721,9 @@
       "Id": 22,
       "franchise": 0,
       "picked": 0,
-      "playername": "Philip Rivers",
+      "playername": "Dak Prescott",
       "position": "QB",
-      "team": "LAC",
+      "team": "DAL",
       "bye": 8
     },
     {
@@ -1733,15 +1734,6 @@
       "position": "QB",
       "team": "PIT",
       "bye": 7
-    },
-    {
-      "Id": 24,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Drew Brees",
-      "position": "QB",
-      "team": "NO",
-      "bye": 6
     },
     {
       "Id": 25,
@@ -1816,24 +1808,6 @@
       "bye": 7
     },
     {
-      "Id": 33,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jay Cutler",
-      "position": "QB",
-      "team": "",
-      "bye": ""
-    },
-    {
-      "Id": 34,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Aaron Rodgers",
-      "position": "QB",
-      "team": "GB",
-      "bye": 7
-    },
-    {
       "Id": 35,
       "franchise": 0,
       "picked": 0,
@@ -1850,15 +1824,6 @@
       "position": "QB",
       "team": "GB",
       "bye": 7
-    },
-    {
-      "Id": 37,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Carson Palmer",
-      "position": "QB",
-      "team": "ARI",
-      "bye": 9
     },
     {
       "Id": 38,
@@ -1888,33 +1853,6 @@
       "bye": 5
     },
     {
-      "Id": 41,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Brock Osweiler",
-      "position": "QB",
-      "team": "CLE",
-      "bye": 11
-    },
-    {
-      "Id": 42,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Brian Hoyer",
-      "position": "QB",
-      "team": "SF",
-      "bye": 11
-    },
-    {
-      "Id": 43,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Blaine Gabbert",
-      "position": "QB",
-      "team": "ARI",
-      "bye": 9
-    },
-    {
       "Id": 44,
       "franchise": 0,
       "picked": 0,
@@ -1924,22 +1862,13 @@
       "bye": 11
     },
     {
-      "Id": 45,
+      "Id": 50,
       "franchise": 0,
       "picked": 0,
-      "playername": "Mike Glennon",
+      "playername": "Teddy Bridgewater",
       "position": "QB",
-      "team": "CHI",
-      "bye": 5
-    },
-    {
-      "Id": 46,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "T.J. Yates",
-      "position": "QB",
-      "team": "",
-      "bye": ""
+      "team": "NYJ",
+      "bye": 11
     },
     {
       "Id": 47,
@@ -1958,15 +1887,6 @@
       "position": "QB",
       "team": "OAK",
       "bye": 7
-    },
-    {
-      "Id": 49,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ryan Mallett",
-      "position": "QB",
-      "team": "HOU",
-      "bye": 10
     },
     {
       "Id": 50,
@@ -1994,78 +1914,6 @@
       "position": "QB",
       "team": "CLE",
       "bye": 11
-    },
-    {
-      "Id": 53,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Matt Cassel",
-      "position": "QB",
-      "team": "TEN",
-      "bye": 8
-    },
-    {
-      "Id": 54,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Colin Kaepernick",
-      "position": "QB",
-      "team": "",
-      "bye": ""
-    },
-    {
-      "Id": 55,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Matt Barkley",
-      "position": "QB",
-      "team": "SF",
-      "bye": 11
-    },
-    {
-      "Id": 56,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Derek Anderson",
-      "position": "QB",
-      "team": "CAR",
-      "bye": 4
-    },
-    {
-      "Id": 57,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Charlie Whitehurst",
-      "position": "QB",
-      "team": "CLE",
-      "bye": 11
-    },
-    {
-      "Id": 58,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Shaun Hill",
-      "position": "QB",
-      "team": "MIN",
-      "bye": 10
-    },
-    {
-      "Id": 59,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Trevone Boykin",
-      "position": "QB",
-      "team": "SEA",
-      "bye": 7
-    },
-    {
-      "Id": 60,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Robert Griffin III",
-      "position": "QB",
-      "team": "",
-      "bye": ""
     },
     {
       "Id": 61,
@@ -2140,15 +1988,6 @@
       "bye": 9
     },
     {
-      "Id": 69,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Mike White",
-      "position": "QB",
-      "team": "DAL",
-      "bye": 8
-    },
-    {
       "Id": 70,
       "franchise": 0,
       "picked": 0,
@@ -2156,24 +1995,6 @@
       "position": "QB",
       "team": "TEN",
       "bye": 8
-    },
-    {
-      "Id": 71,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Tanner Lee",
-      "position": "QB",
-      "team": "JAC",
-      "bye": 9
-    },
-    {
-      "Id": 72,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Danny Etling",
-      "position": "QB",
-      "team": "NE",
-      "bye": 11
     },
     {
       "Id": 73,
@@ -2185,34 +2006,16 @@
       "bye": 7
     },
     {
-      "Id": 74,
+      "Id": 1,
       "franchise": 0,
       "picked": 0,
-      "playername": "Logan Woodside",
-      "position": "QB",
-      "team": "CIN",
-      "bye": 9
-    },
-    {
-      "Id": 75,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jordan Howard",
+      "playername": "Todd Gurley II",
       "position": "RB",
-      "team": "CHI",
-      "bye": 5
+      "team": "LAR",
+      "bye": 12
     },
     {
-      "Id": 76,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Melvin Gordon",
-      "position": "RB",
-      "team": "LAC",
-      "bye": 8
-    },
-    {
-      "Id": 77,
+      "Id": 2,
       "franchise": 0,
       "picked": 0,
       "playername": "Ezekiel Elliott",
@@ -2221,13 +2024,346 @@
       "bye": 8
     },
     {
-      "Id": 78,
+      "Id": 3,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Le'Veon Bell",
+      "position": "RB",
+      "team": "PIT",
+      "bye": 7
+    },
+    {
+      "Id": 4,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Alvin Kamara",
+      "position": "RB",
+      "team": "NO",
+      "bye": 6
+    },
+    {
+      "Id": 5,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Kareem Hunt",
+      "position": "RB",
+      "team": "KC",
+      "bye": 12
+    },
+    {
+      "Id": 6,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "David Johnson",
+      "position": "RB",
+      "team": "ARI",
+      "bye": 9
+    },
+    {
+      "Id": 7,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Leonard Fournette",
+      "position": "RB",
+      "team": "JAC",
+      "bye": 9
+    },
+    {
+      "Id": 8,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Saquon Barkley",
+      "position": "RB",
+      "team": "NYG",
+      "bye": 9
+    },
+    {
+      "Id": 9,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Melvin Gordon",
+      "position": "RB",
+      "team": "LAC",
+      "bye": 8
+    },
+    {
+      "Id": 9,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Devonta Freeman",
+      "position": "RB",
+      "team": "ATL",
+      "bye": 8
+    },
+    {
+      "Id": 10,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Joe Mixon",
+      "position": "RB",
+      "team": "CIN",
+      "bye": 9
+    },
+    {
+      "Id": 11,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Dalvin Cook",
+      "position": "RB",
+      "team": "MIN",
+      "bye": 10
+    },
+    {
+      "Id": 12,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Alex Collins",
+      "position": "RB",
+      "team": "BAL",
+      "bye": 10
+    },
+    {
+      "Id": 13,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jordan Howard",
+      "position": "RB",
+      "team": "CHI",
+      "bye": 5
+    },
+    {
+      "Id": 14,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jerick McKinnon",
+      "position": "RB",
+      "team": "SF",
+      "bye": 11
+    },
+    {
+      "Id": 15,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Kenyon Drake",
+      "position": "RB",
+      "team": "MIA",
+      "bye": 11
+    },
+    {
+      "Id": 16,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jay Ajayi",
+      "position": "RB",
+      "team": "PHI",
+      "bye": 9
+    },
+    {
+      "Id": 17,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Derrius Guice",
+      "position": "RB",
+      "team": "WAS",
+      "bye": 4
+    },
+    {
+      "Id": 18,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Lamar Miller",
+      "position": "RB",
+      "team": "HOU",
+      "bye": 10
+    },
+    {
+      "Id": 19,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Derrick Henry",
+      "position": "RB",
+      "team": "TEN",
+      "bye": 8
+    },
+    {
+      "Id": 20,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "C.J. Anderson",
+      "position": "RB",
+      "team": "CAR",
+      "bye": 4
+    },
+    {
+      "Id": 21,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Mark Ingram",
+      "position": "RB",
+      "team": "NO",
+      "bye": 6
+    },
+    {
+      "Id": 22,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Dion Lewis",
+      "position": "RB",
+      "team": "TEN",
+      "bye": 8
+    },
+    {
+      "Id": 23,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Christian McCaffrey",
+      "position": "RB",
+      "team": "CAR",
+      "bye": 4
+    },
+    {
+      "Id": 24,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Ronald Jones",
+      "position": "RB",
+      "team": "TB",
+      "bye": 5
+    },
+    {
+      "Id": 25,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Sony Michel",
+      "position": "RB",
+      "team": "NE",
+      "bye": 11
+    },
+    {
+      "Id": 26,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Marlon Mack",
+      "position": "RB",
+      "team": "IND",
+      "bye": 9
+    },
+    {
+      "Id": 27,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Tevin Coleman",
+      "position": "RB",
+      "team": "ATL",
+      "bye": 8
+    },
+    {
+      "Id": 28,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Rashaad Penny",
+      "position": "RB",
+      "team": "SEA",
+      "bye": 7
+    },
+    {
+      "Id": 29,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Rex Burkhead",
+      "position": "RB",
+      "team": "NE",
+      "bye": 11
+    },
+    {
+      "Id": 30,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Corey Clement",
+      "position": "RB",
+      "team": "PHI",
+      "bye": 9
+    },
+    {
+      "Id": 31,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Tarik Cohen",
+      "position": "RB",
+      "team": "CHI",
+      "bye": 5
+    },
+    {
+      "Id": 32,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Marshawn Lynch",
+      "position": "RB",
+      "team": "OAK",
+      "bye": 7
+    },
+    {
+      "Id": 33,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Matt Breida",
+      "position": "RB",
+      "team": "SF",
+      "bye": 11
+    },
+    {
+      "Id": 34,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Isaiah Crowell",
+      "position": "RB",
+      "team": "NYJ",
+      "bye": 11
+    },
+    {
+      "Id": 35,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Chris Thompson",
+      "position": "RB",
+      "team": "WAS",
+      "bye": 4
+    },
+    {
+      "Id": 36,
       "franchise": 0,
       "picked": 0,
       "playername": "Austin Ekeler",
       "position": "RB",
       "team": "LAC",
       "bye": 8
+    },
+    {
+      "Id": 37,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Latavius Murray",
+      "position": "RB",
+      "team": "MIN",
+      "bye": 10
+    },
+    {
+      "Id": 38,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Devontae Booker",
+      "position": "RB",
+      "team": "DEN",
+      "bye": 10
+    },
+    {
+      "Id": 39,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "LeSean McCoy",
+      "position": "RB",
+      "team": "BUF",
+      "bye": 11
     },
     {
       "Id": 79,
@@ -2239,51 +2375,6 @@
       "bye": 10
     },
     {
-      "Id": 80,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Tevin Coleman",
-      "position": "RB",
-      "team": "ATL",
-      "bye": 8
-    },
-    {
-      "Id": 81,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Isaiah Crowell",
-      "position": "RB",
-      "team": "NYJ",
-      "bye": 11
-    },
-    {
-      "Id": 82,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Marlon Mack",
-      "position": "RB",
-      "team": "IND",
-      "bye": 9
-    },
-    {
-      "Id": 83,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Alvin Kamara",
-      "position": "RB",
-      "team": "NO",
-      "bye": 6
-    },
-    {
-      "Id": 84,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Leonard Fournette",
-      "position": "RB",
-      "team": "JAC",
-      "bye": 9
-    },
-    {
       "Id": 85,
       "franchise": 0,
       "picked": 0,
@@ -2291,60 +2382,6 @@
       "position": "RB",
       "team": "GB",
       "bye": 7
-    },
-    {
-      "Id": 86,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "LeSean McCoy",
-      "position": "RB",
-      "team": "BUF",
-      "bye": 11
-    },
-    {
-      "Id": 87,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Christian McCaffrey",
-      "position": "RB",
-      "team": "CAR",
-      "bye": 4
-    },
-    {
-      "Id": 88,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jay Ajayi",
-      "position": "RB",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 89,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Devonta Freeman",
-      "position": "RB",
-      "team": "ATL",
-      "bye": 8
-    },
-    {
-      "Id": 90,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Kareem Hunt",
-      "position": "RB",
-      "team": "KC",
-      "bye": 12
-    },
-    {
-      "Id": 91,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "David Johnson",
-      "position": "RB",
-      "team": "ARI",
-      "bye": 9
     },
     {
       "Id": 92,
@@ -2356,48 +2393,12 @@
       "bye": 7
     },
     {
-      "Id": 93,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Dalvin Cook",
-      "position": "RB",
-      "team": "MIN",
-      "bye": 10
-    },
-    {
-      "Id": 94,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jerick McKinnon",
-      "position": "RB",
-      "team": "SF",
-      "bye": 11
-    },
-    {
       "Id": 95,
       "franchise": 0,
       "picked": 0,
       "playername": "James Conner",
       "position": "RB",
       "team": "PIT",
-      "bye": 7
-    },
-    {
-      "Id": 96,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Le'Veon Bell",
-      "position": "RB",
-      "team": "PIT",
-      "bye": 7
-    },
-    {
-      "Id": 97,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Marshawn Lynch",
-      "position": "RB",
-      "team": "OAK",
       "bye": 7
     },
     {
@@ -2410,42 +2411,6 @@
       "bye": 4
     },
     {
-      "Id": 99,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Kenyon Drake",
-      "position": "RB",
-      "team": "MIA",
-      "bye": 11
-    },
-    {
-      "Id": 100,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Todd Gurley II",
-      "position": "RB",
-      "team": "LAR",
-      "bye": 12
-    },
-    {
-      "Id": 101,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Joe Mixon",
-      "position": "RB",
-      "team": "CIN",
-      "bye": 9
-    },
-    {
-      "Id": 102,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "C.J. Anderson",
-      "position": "RB",
-      "team": "CAR",
-      "bye": 4
-    },
-    {
       "Id": 103,
       "franchise": 0,
       "picked": 0,
@@ -2453,15 +2418,6 @@
       "position": "RB",
       "team": "SF",
       "bye": 11
-    },
-    {
-      "Id": 104,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Derrick Henry",
-      "position": "RB",
-      "team": "TEN",
-      "bye": 8
     },
     {
       "Id": 105,
@@ -2473,24 +2429,6 @@
       "bye": 12
     },
     {
-      "Id": 106,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Mark Ingram",
-      "position": "RB",
-      "team": "NO",
-      "bye": 6
-    },
-    {
-      "Id": 107,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Dion Lewis",
-      "position": "RB",
-      "team": "TEN",
-      "bye": 8
-    },
-    {
       "Id": 108,
       "franchise": 0,
       "picked": 0,
@@ -2498,24 +2436,6 @@
       "position": "RB",
       "team": "CLE",
       "bye": 11
-    },
-    {
-      "Id": 109,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Lamar Miller",
-      "position": "RB",
-      "team": "HOU",
-      "bye": 10
-    },
-    {
-      "Id": 110,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Alex Collins",
-      "position": "RB",
-      "team": "BAL",
-      "bye": 10
     },
     {
       "Id": 111,
@@ -2534,15 +2454,6 @@
       "position": "RB",
       "team": "MIA",
       "bye": 11
-    },
-    {
-      "Id": 113,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Latavius Murray",
-      "position": "RB",
-      "team": "MIN",
-      "bye": 10
     },
     {
       "Id": 114,
@@ -2581,15 +2492,6 @@
       "bye": 9
     },
     {
-      "Id": 118,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Chris Thompson",
-      "position": "RB",
-      "team": "WAS",
-      "bye": 4
-    },
-    {
       "Id": 119,
       "franchise": 0,
       "picked": 0,
@@ -2617,15 +2519,6 @@
       "bye": 6
     },
     {
-      "Id": 122,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Rex Burkhead",
-      "position": "RB",
-      "team": "NE",
-      "bye": 11
-    },
-    {
       "Id": 123,
       "franchise": 0,
       "picked": 0,
@@ -2635,48 +2528,12 @@
       "bye": 6
     },
     {
-      "Id": 124,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ameer Abdullah",
-      "position": "RB",
-      "team": "DET",
-      "bye": 6
-    },
-    {
-      "Id": 125,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Tarik Cohen",
-      "position": "RB",
-      "team": "CHI",
-      "bye": 5
-    },
-    {
-      "Id": 126,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Corey Clement",
-      "position": "RB",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
       "Id": 127,
       "franchise": 0,
       "picked": 0,
       "playername": "Matt Forte",
       "position": "RB",
       "team": "NYJ",
-      "bye": 11
-    },
-    {
-      "Id": 128,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Matt Breida",
-      "position": "RB",
-      "team": "SF",
       "bye": 11
     },
     {
@@ -2739,7 +2596,7 @@
       "picked": 0,
       "playername": "Adrian Peterson",
       "position": "RB",
-      "team": "",
+      "team": "WA",
       "bye": ""
     },
     {
@@ -2761,15 +2618,6 @@
       "bye": 11
     },
     {
-      "Id": 138,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Devontae Booker",
-      "position": "RB",
-      "team": "DEN",
-      "bye": 10
-    },
-    {
       "Id": 139,
       "franchise": 0,
       "picked": 0,
@@ -2777,51 +2625,6 @@
       "position": "RB",
       "team": "JAC",
       "bye": 9
-    },
-    {
-      "Id": 140,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jalen Richard",
-      "position": "RB",
-      "team": "OAK",
-      "bye": 7
-    },
-    {
-      "Id": 141,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "DeAndre Washington",
-      "position": "RB",
-      "team": "OAK",
-      "bye": 7
-    },
-    {
-      "Id": 142,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Andre Ellington",
-      "position": "RB",
-      "team": "HOU",
-      "bye": 10
-    },
-    {
-      "Id": 143,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Charcandrick West",
-      "position": "RB",
-      "team": "KC",
-      "bye": 12
-    },
-    {
-      "Id": 144,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jamaal Charles",
-      "position": "RB",
-      "team": "",
-      "bye": ""
     },
     {
       "Id": 145,
@@ -2842,33 +2645,6 @@
       "bye": 10
     },
     {
-      "Id": 147,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jacquizz Rodgers",
-      "position": "RB",
-      "team": "TB",
-      "bye": 5
-    },
-    {
-      "Id": 148,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Damien Williams",
-      "position": "RB",
-      "team": "KC",
-      "bye": 12
-    },
-    {
-      "Id": 149,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Mike Tolbert",
-      "position": "RB",
-      "team": "BUF",
-      "bye": 11
-    },
-    {
       "Id": 150,
       "franchise": 0,
       "picked": 0,
@@ -2887,60 +2663,6 @@
       "bye": 7
     },
     {
-      "Id": 152,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Shane Vereen",
-      "position": "RB",
-      "team": "NYG",
-      "bye": 9
-    },
-    {
-      "Id": 153,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Wendell Smallwood",
-      "position": "RB",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 154,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Charles Sims",
-      "position": "RB",
-      "team": "TB",
-      "bye": 5
-    },
-    {
-      "Id": 155,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Terrance West",
-      "position": "RB",
-      "team": "BAL",
-      "bye": 10
-    },
-    {
-      "Id": 156,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Tavon Austin",
-      "position": "RB",
-      "team": "DAL",
-      "bye": 8
-    },
-    {
-      "Id": 157,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Danny Woodhead",
-      "position": "RB",
-      "team": "BAL",
-      "bye": 10
-    },
-    {
       "Id": 158,
       "franchise": 0,
       "picked": 0,
@@ -2950,57 +2672,12 @@
       "bye": 11
     },
     {
-      "Id": 159,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Eddie Lacy",
-      "position": "RB",
-      "team": "",
-      "bye": ""
-    },
-    {
-      "Id": 160,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Stevan Ridley",
-      "position": "RB",
-      "team": "PIT",
-      "bye": 7
-    },
-    {
-      "Id": 161,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Chris Johnson",
-      "position": "RB",
-      "team": "ARI",
-      "bye": 9
-    },
-    {
-      "Id": 162,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Robert Turbin",
-      "position": "RB",
-      "team": "IND",
-      "bye": 9
-    },
-    {
       "Id": 163,
       "franchise": 0,
       "picked": 0,
       "playername": "Darren Sproles",
       "position": "RB",
       "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 164,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Paul Perkins",
-      "position": "RB",
-      "team": "NYG",
       "bye": 9
     },
     {
@@ -3022,87 +2699,6 @@
       "bye": 11
     },
     {
-      "Id": 167,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Zach Zenner",
-      "position": "RB",
-      "team": "DET",
-      "bye": 6
-    },
-    {
-      "Id": 168,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Bobby Rainey",
-      "position": "RB",
-      "team": "NYG",
-      "bye": 9
-    },
-    {
-      "Id": 169,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Branden Oliver",
-      "position": "RB",
-      "team": "LAC",
-      "bye": 8
-    },
-    {
-      "Id": 170,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Brandon Bolden",
-      "position": "RB",
-      "team": "NE",
-      "bye": 11
-    },
-    {
-      "Id": 171,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Matt Jones",
-      "position": "RB",
-      "team": "WAS",
-      "bye": 4
-    },
-    {
-      "Id": 172,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Christine Michael",
-      "position": "RB",
-      "team": "GB",
-      "bye": 7
-    },
-    {
-      "Id": 173,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ryan Mathews",
-      "position": "RB",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 174,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Tim Hightower",
-      "position": "RB",
-      "team": "SF",
-      "bye": 11
-    },
-    {
-      "Id": 175,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Shaun Draughn",
-      "position": "RB",
-      "team": "NYG",
-      "bye": 9
-    },
-    {
       "Id": 176,
       "franchise": 0,
       "picked": 0,
@@ -3110,105 +2706,6 @@
       "position": "RB",
       "team": "BAL",
       "bye": 10
-    },
-    {
-      "Id": 177,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "John Kuhn",
-      "position": "RB",
-      "team": "",
-      "bye": ""
-    },
-    {
-      "Id": 178,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Denard Robinson",
-      "position": "RB",
-      "team": "JAC",
-      "bye": 9
-    },
-    {
-      "Id": 179,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ka'Deem Carey",
-      "position": "RB",
-      "team": "CHI",
-      "bye": 5
-    },
-    {
-      "Id": 180,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Josh Ferguson",
-      "position": "RB",
-      "team": "IND",
-      "bye": 9
-    },
-    {
-      "Id": 181,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jordan Todman",
-      "position": "RB",
-      "team": "IND",
-      "bye": 9
-    },
-    {
-      "Id": 182,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Marcel Reece",
-      "position": "RB",
-      "team": "OAK",
-      "bye": 7
-    },
-    {
-      "Id": 183,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "C.J. Spiller",
-      "position": "RB",
-      "team": "KC",
-      "bye": 12
-    },
-    {
-      "Id": 184,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Matt Asiata",
-      "position": "RB",
-      "team": "MIN",
-      "bye": 10
-    },
-    {
-      "Id": 185,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "James Starks",
-      "position": "RB",
-      "team": "GB",
-      "bye": 7
-    },
-    {
-      "Id": 186,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jeremy Langford",
-      "position": "RB",
-      "team": "CHI",
-      "bye": 5
-    },
-    {
-      "Id": 187,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Rashad Jennings",
-      "position": "RB",
-      "team": "",
-      "bye": ""
     },
     {
       "Id": 188,
@@ -3220,78 +2717,6 @@
       "bye": 8
     },
     {
-      "Id": 189,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Reggie Bush",
-      "position": "RB",
-      "team": "",
-      "bye": ""
-    },
-    {
-      "Id": 190,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Darren McFadden",
-      "position": "RB",
-      "team": "DAL",
-      "bye": 8
-    },
-    {
-      "Id": 191,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Justin Forsett",
-      "position": "RB",
-      "team": "",
-      "bye": ""
-    },
-    {
-      "Id": 192,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Arian Foster",
-      "position": "RB",
-      "team": "MIA",
-      "bye": 11
-    },
-    {
-      "Id": 193,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "DeAngelo Williams",
-      "position": "RB",
-      "team": "PIT",
-      "bye": 7
-    },
-    {
-      "Id": 194,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Saquon Barkley",
-      "position": "RB",
-      "team": "NYG",
-      "bye": 9
-    },
-    {
-      "Id": 195,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Rashaad Penny",
-      "position": "RB",
-      "team": "SEA",
-      "bye": 7
-    },
-    {
-      "Id": 196,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Sony Michel",
-      "position": "RB",
-      "team": "NE",
-      "bye": 11
-    },
-    {
       "Id": 197,
       "franchise": 0,
       "picked": 0,
@@ -3301,15 +2726,6 @@
       "bye": 11
     },
     {
-      "Id": 198,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ronald Jones",
-      "position": "RB",
-      "team": "TB",
-      "bye": 5
-    },
-    {
       "Id": 199,
       "franchise": 0,
       "picked": 0,
@@ -3317,15 +2733,6 @@
       "position": "RB",
       "team": "DET",
       "bye": 6
-    },
-    {
-      "Id": 200,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Derrius Guice",
-      "position": "RB",
-      "team": "WAS",
-      "bye": 4
     },
     {
       "Id": 201,
@@ -3346,24 +2753,6 @@
       "bye": 9
     },
     {
-      "Id": 203,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Mark Walton",
-      "position": "RB",
-      "team": "CIN",
-      "bye": 9
-    },
-    {
-      "Id": 204,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ito Smith",
-      "position": "RB",
-      "team": "ATL",
-      "bye": 8
-    },
-    {
       "Id": 205,
       "franchise": 0,
       "picked": 0,
@@ -3382,15 +2771,6 @@
       "bye": 9
     },
     {
-      "Id": 207,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jaylen Samuels",
-      "position": "RB",
-      "team": "PIT",
-      "bye": 7
-    },
-    {
       "Id": 208,
       "franchise": 0,
       "picked": 0,
@@ -3398,15 +2778,6 @@
       "position": "RB",
       "team": "IND",
       "bye": 9
-    },
-    {
-      "Id": 209,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "John Kelly",
-      "position": "RB",
-      "team": "LAR",
-      "bye": 12
     },
     {
       "Id": 210,
@@ -3418,24 +2789,6 @@
       "bye": 6
     },
     {
-      "Id": 211,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Trenton Cannon",
-      "position": "RB",
-      "team": "NYJ",
-      "bye": 11
-    },
-    {
-      "Id": 212,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "David Williams",
-      "position": "RB",
-      "team": "DEN",
-      "bye": 10
-    },
-    {
       "Id": 213,
       "franchise": 0,
       "picked": 0,
@@ -3443,15 +2796,6 @@
       "position": "RB",
       "team": "DAL",
       "bye": 8
-    },
-    {
-      "Id": 214,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Nick Bawden",
-      "position": "RB",
-      "team": "DET",
-      "bye": 6
     },
     {
       "Id": 215,
@@ -3463,16 +2807,34 @@
       "bye": 8
     },
     {
-      "Id": 216,
+      "Id": 1,
       "franchise": 0,
       "picked": 0,
-      "playername": "Josh Doctson",
+      "playername": "Antonio Brown",
       "position": "WR",
-      "team": "WAS",
-      "bye": 4
+      "team": "PIT",
+      "bye": 7
     },
     {
-      "Id": 217,
+      "Id": 2,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "DeAndre Hopkins",
+      "position": "WR",
+      "team": "HOU",
+      "bye": 10
+    },
+    {
+      "Id": 3,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Michael Thomas",
+      "position": "WR",
+      "team": "NO",
+      "bye": 6
+    },
+    {
+      "Id": 4,
       "franchise": 0,
       "picked": 0,
       "playername": "Odell Beckham Jr.",
@@ -3481,43 +2843,7 @@
       "bye": 9
     },
     {
-      "Id": 218,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Corey Davis",
-      "position": "WR",
-      "team": "TEN",
-      "bye": 8
-    },
-    {
-      "Id": 219,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Julian Edelman",
-      "position": "WR",
-      "team": "NE",
-      "bye": 11
-    },
-    {
-      "Id": 220,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Nelson Agholor",
-      "position": "WR",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 221,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Cooper Kupp",
-      "position": "WR",
-      "team": "LAR",
-      "bye": 12
-    },
-    {
-      "Id": 222,
+      "Id": 5,
       "franchise": 0,
       "picked": 0,
       "playername": "Keenan Allen",
@@ -3526,25 +2852,106 @@
       "bye": 8
     },
     {
-      "Id": 223,
+      "Id": 6,
       "franchise": 0,
       "picked": 0,
-      "playername": "Michael Crabtree",
+      "playername": "Amari Cooper",
       "position": "WR",
-      "team": "BAL",
-      "bye": 10
+      "team": "OAK",
+      "bye": 7
     },
     {
-      "Id": 224,
+      "Id": 7,
       "franchise": 0,
       "picked": 0,
-      "playername": "Emmanuel Sanders",
+      "playername": "Julio Jones",
       "position": "WR",
-      "team": "DEN",
-      "bye": 10
+      "team": "ATL",
+      "bye": 8
     },
     {
-      "Id": 225,
+      "Id": 8,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "T.Y. Hilton",
+      "position": "WR",
+      "team": "IND",
+      "bye": 9
+    },
+    {
+      "Id": 9,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "JuJu Smith-Schuster",
+      "position": "WR",
+      "team": "PIT",
+      "bye": 7
+    },
+    {
+      "Id": 10,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Mike Evans",
+      "position": "WR",
+      "team": "TB",
+      "bye": 5
+    },
+    {
+      "Id": 11,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "A.J. Green",
+      "position": "WR",
+      "team": "CIN",
+      "bye": 9
+    },
+    {
+      "Id": 12,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Davante Adams",
+      "position": "WR",
+      "team": "GB",
+      "bye": 7
+    },
+    {
+      "Id": 13,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Tyreek Hill",
+      "position": "WR",
+      "team": "KC",
+      "bye": 12
+    },
+    {
+      "Id": 14,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Doug Baldwin",
+      "position": "WR",
+      "team": "SEA",
+      "bye": 7
+    },
+    {
+      "Id": 15,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Marvin Jones Jr",
+      "position": "WR",
+      "team": "DET",
+      "bye": 6
+    },
+    {
+      "Id": 16,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Golden Tate",
+      "position": "WR",
+      "team": "DET",
+      "bye": 6
+    },
+    {
+      "Id": 17,
       "franchise": 0,
       "picked": 0,
       "playername": "Adam Thielen",
@@ -3553,13 +2960,355 @@
       "bye": 10
     },
     {
-      "Id": 226,
+      "Id": 18,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Stefon Diggs",
+      "position": "WR",
+      "team": "MIN",
+      "bye": 10
+    },
+    {
+      "Id": 19,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Devin Funchess",
+      "position": "WR",
+      "team": "CAR",
+      "bye": 4
+    },
+    {
+      "Id": 20,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Nelson Agholor",
+      "position": "WR",
+      "team": "PHI",
+      "bye": 9
+    },
+    {
+      "Id": 21,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Corey Davis",
+      "position": "WR",
+      "team": "TEN",
+      "bye": 8
+    },
+    {
+      "Id": 21,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Larry Fitzgerald",
+      "position": "WR",
+      "team": "ARI",
+      "bye": 9
+    },
+    {
+      "Id": 22,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Emmanuel Sanders",
+      "position": "WR",
+      "team": "DEN",
+      "bye": 10
+    },
+    {
+      "Id": 23,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Sterling Shepard",
+      "position": "WR",
+      "team": "NYG",
+      "bye": 9
+    },
+    {
+      "Id": 24,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Josh Gordon",
+      "position": "WR",
+      "team": "CLE",
+      "bye": 11
+    },
+    {
+      "Id": 25,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Brandin Cooks",
+      "position": "WR",
+      "team": "LAR",
+      "bye": 12
+    },
+    {
+      "Id": 26,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Robert Woods",
+      "position": "WR",
+      "team": "LAR",
+      "bye": 12
+    },
+    {
+      "Id": 27,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Robby Anderson",
+      "position": "WR",
+      "team": "NYJ",
+      "bye": 11
+    },
+    {
+      "Id": 28,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Tyler Lockett",
+      "position": "WR",
+      "team": "SEA",
+      "bye": 7
+    },
+    {
+      "Id": 29,
       "franchise": 0,
       "picked": 0,
       "playername": "Pierre Garcon",
       "position": "WR",
       "team": "SF",
       "bye": 11
+    },
+    {
+      "Id": 30,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Allen Robinson",
+      "position": "WR",
+      "team": "CHI",
+      "bye": 5
+    },
+    {
+      "Id": 31,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Demaryius Thomas",
+      "position": "WR",
+      "team": "DEN",
+      "bye": 10
+    },
+    {
+      "Id": 32,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Cooper Kupp",
+      "position": "WR",
+      "team": "LAR",
+      "bye": 12
+    },
+    {
+      "Id": 33,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Will Fuller",
+      "position": "WR",
+      "team": "HOU",
+      "bye": 10
+    },
+    {
+      "Id": 34,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jamison Crowder",
+      "position": "WR",
+      "team": "WAS",
+      "bye": 4
+    },
+    {
+      "Id": 35,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Sammy Watkins",
+      "position": "WR",
+      "team": "KC",
+      "bye": 12
+    },
+    {
+      "Id": 36,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Alshon Jeffery",
+      "position": "WR",
+      "team": "PHI",
+      "bye": 9
+    },
+    {
+      "Id": 37,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Randall Cobb",
+      "position": "WR",
+      "team": "GB",
+      "bye": 7
+    },
+    {
+      "Id": 38,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Kenny Stills",
+      "position": "WR",
+      "team": "MIA",
+      "bye": 11
+    },
+    {
+      "Id": 39,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Chris Hogan",
+      "position": "WR",
+      "team": "NE",
+      "bye": 11
+    },
+    {
+      "Id": 40,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Rishard Matthews",
+      "position": "WR",
+      "team": "TEN",
+      "bye": 8
+    },
+    {
+      "Id": 41,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jarvis Landry",
+      "position": "WR",
+      "team": "CLE",
+      "bye": 11
+    },
+    {
+      "Id": 42,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Michael Crabtree",
+      "position": "WR",
+      "team": "BAL",
+      "bye": 10
+    },
+    {
+      "Id": 42,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Ted Ginn Jr.",
+      "position": "WR",
+      "team": "NO",
+      "bye": 6
+    },
+    {
+      "Id": 43,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "DeVante Parker",
+      "position": "WR",
+      "team": "MIA",
+      "bye": 11
+    },
+    {
+      "Id": 44,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Tyrell Williams",
+      "position": "WR",
+      "team": "LAC",
+      "bye": 8
+    },
+    {
+      "Id": 45,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Marquise Goodwin",
+      "position": "WR",
+      "team": "SF",
+      "bye": 11
+    },
+    {
+      "Id": 46,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Mike Williams",
+      "position": "WR",
+      "team": "LAC",
+      "bye": 8
+    },
+    {
+      "Id": 47,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Kenny Golladay",
+      "position": "WR",
+      "team": "DET",
+      "bye": 6
+    },
+    {
+      "Id": 48,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Julian Edelman",
+      "position": "WR",
+      "team": "NE",
+      "bye": 11
+    },
+    {
+      "Id": 49,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Mohamed Sanu",
+      "position": "WR",
+      "team": "ATL",
+      "bye": 8
+    },
+    {
+      "Id": 50,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Josh Doctson",
+      "position": "WR",
+      "team": "WAS",
+      "bye": 4
+    },
+    {
+      "Id": 51,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Kelvin Benjamin",
+      "position": "WR",
+      "team": "BUF",
+      "bye": 11
+    },
+    {
+      "Id": 52,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Martavis Bryant",
+      "position": "WR",
+      "team": "OAK",
+      "bye": 7
+    },
+    {
+      "Id": 53,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "DeSean Jackson",
+      "position": "WR",
+      "team": "TB",
+      "bye": 5
+    },
+    {
+      "Id": 54,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jordy Nelson",
+      "position": "WR",
+      "team": "OAK",
+      "bye": 7
     },
     {
       "Id": 227,
@@ -3571,132 +3320,6 @@
       "bye": 11
     },
     {
-      "Id": 228,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Josh Gordon",
-      "position": "WR",
-      "team": "CLE",
-      "bye": 11
-    },
-    {
-      "Id": 229,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "DeAndre Hopkins",
-      "position": "WR",
-      "team": "HOU",
-      "bye": 10
-    },
-    {
-      "Id": 230,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Sammy Watkins",
-      "position": "WR",
-      "team": "KC",
-      "bye": 12
-    },
-    {
-      "Id": 231,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Tyrell Williams",
-      "position": "WR",
-      "team": "LAC",
-      "bye": 8
-    },
-    {
-      "Id": 232,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Kelvin Benjamin",
-      "position": "WR",
-      "team": "BUF",
-      "bye": 11
-    },
-    {
-      "Id": 233,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Kenny Golladay",
-      "position": "WR",
-      "team": "DET",
-      "bye": 6
-    },
-    {
-      "Id": 234,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Marvin Jones Jr",
-      "position": "WR",
-      "team": "DET",
-      "bye": 6
-    },
-    {
-      "Id": 235,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Larry Fitzgerald",
-      "position": "WR",
-      "team": "ARI",
-      "bye": 9
-    },
-    {
-      "Id": 236,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Michael Thomas",
-      "position": "WR",
-      "team": "NO",
-      "bye": 6
-    },
-    {
-      "Id": 237,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jordy Nelson",
-      "position": "WR",
-      "team": "OAK",
-      "bye": 7
-    },
-    {
-      "Id": 238,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Martavis Bryant",
-      "position": "WR",
-      "team": "OAK",
-      "bye": 7
-    },
-    {
-      "Id": 239,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jarvis Landry",
-      "position": "WR",
-      "team": "CLE",
-      "bye": 11
-    },
-    {
-      "Id": 240,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Alshon Jeffery",
-      "position": "WR",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 241,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Golden Tate",
-      "position": "WR",
-      "team": "DET",
-      "bye": 6
-    },
-    {
       "Id": 242,
       "franchise": 0,
       "picked": 0,
@@ -3704,87 +3327,6 @@
       "position": "WR",
       "team": "MIA",
       "bye": 11
-    },
-    {
-      "Id": 243,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Brandin Cooks",
-      "position": "WR",
-      "team": "LAR",
-      "bye": 12
-    },
-    {
-      "Id": 244,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "JuJu Smith-Schuster",
-      "position": "WR",
-      "team": "PIT",
-      "bye": 7
-    },
-    {
-      "Id": 245,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Tyreek Hill",
-      "position": "WR",
-      "team": "KC",
-      "bye": 12
-    },
-    {
-      "Id": 246,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Doug Baldwin",
-      "position": "WR",
-      "team": "SEA",
-      "bye": 7
-    },
-    {
-      "Id": 247,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Sterling Shepard",
-      "position": "WR",
-      "team": "NYG",
-      "bye": 9
-    },
-    {
-      "Id": 248,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Devin Funchess",
-      "position": "WR",
-      "team": "CAR",
-      "bye": 4
-    },
-    {
-      "Id": 249,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Will Fuller",
-      "position": "WR",
-      "team": "HOU",
-      "bye": 10
-    },
-    {
-      "Id": 250,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jamison Crowder",
-      "position": "WR",
-      "team": "WAS",
-      "bye": 4
-    },
-    {
-      "Id": 251,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Antonio Brown",
-      "position": "WR",
-      "team": "PIT",
-      "bye": 7
     },
     {
       "Id": 252,
@@ -3796,33 +3338,6 @@
       "bye": 5
     },
     {
-      "Id": 253,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Chris Hogan",
-      "position": "WR",
-      "team": "NE",
-      "bye": 11
-    },
-    {
-      "Id": 254,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "T.Y. Hilton",
-      "position": "WR",
-      "team": "IND",
-      "bye": 9
-    },
-    {
-      "Id": 255,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Mike Williams",
-      "position": "WR",
-      "team": "LAC",
-      "bye": 8
-    },
-    {
       "Id": 256,
       "franchise": 0,
       "picked": 0,
@@ -3830,69 +3345,6 @@
       "position": "WR",
       "team": "CIN",
       "bye": 9
-    },
-    {
-      "Id": 257,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Demaryius Thomas",
-      "position": "WR",
-      "team": "DEN",
-      "bye": 10
-    },
-    {
-      "Id": 258,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Julio Jones",
-      "position": "WR",
-      "team": "ATL",
-      "bye": 8
-    },
-    {
-      "Id": 259,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "A.J. Green",
-      "position": "WR",
-      "team": "CIN",
-      "bye": 9
-    },
-    {
-      "Id": 260,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Davante Adams",
-      "position": "WR",
-      "team": "GB",
-      "bye": 7
-    },
-    {
-      "Id": 261,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Stefon Diggs",
-      "position": "WR",
-      "team": "MIN",
-      "bye": 10
-    },
-    {
-      "Id": 262,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Robby Anderson",
-      "position": "WR",
-      "team": "NYJ",
-      "bye": 11
-    },
-    {
-      "Id": 263,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Mike Evans",
-      "position": "WR",
-      "team": "TB",
-      "bye": 5
     },
     {
       "Id": 264,
@@ -3904,33 +3356,6 @@
       "bye": ""
     },
     {
-      "Id": 265,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Kenny Stills",
-      "position": "WR",
-      "team": "MIA",
-      "bye": 11
-    },
-    {
-      "Id": 266,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Marquise Goodwin",
-      "position": "WR",
-      "team": "SF",
-      "bye": 11
-    },
-    {
-      "Id": 267,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Amari Cooper",
-      "position": "WR",
-      "team": "OAK",
-      "bye": 7
-    },
-    {
       "Id": 268,
       "franchise": 0,
       "picked": 0,
@@ -3940,24 +3365,6 @@
       "bye": 4
     },
     {
-      "Id": 269,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Mohamed Sanu",
-      "position": "WR",
-      "team": "ATL",
-      "bye": 8
-    },
-    {
-      "Id": 270,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Robert Woods",
-      "position": "WR",
-      "team": "LAR",
-      "bye": 12
-    },
-    {
       "Id": 271,
       "franchise": 0,
       "picked": 0,
@@ -3965,24 +3372,6 @@
       "position": "WR",
       "team": "NYJ",
       "bye": 11
-    },
-    {
-      "Id": 272,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ted Ginn Jr.",
-      "position": "WR",
-      "team": "NO",
-      "bye": 6
-    },
-    {
-      "Id": 273,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Rishard Matthews",
-      "position": "WR",
-      "team": "TEN",
-      "bye": 8
     },
     {
       "Id": 274,
@@ -4003,15 +3392,6 @@
       "bye": 8
     },
     {
-      "Id": 276,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Randall Cobb",
-      "position": "WR",
-      "team": "GB",
-      "bye": 7
-    },
-    {
       "Id": 277,
       "franchise": 0,
       "picked": 0,
@@ -4030,15 +3410,6 @@
       "bye": 9
     },
     {
-      "Id": 279,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "DeSean Jackson",
-      "position": "WR",
-      "team": "TB",
-      "bye": 5
-    },
-    {
       "Id": 280,
       "franchise": 0,
       "picked": 0,
@@ -4046,15 +3417,6 @@
       "position": "WR",
       "team": "WAS",
       "bye": 4
-    },
-    {
-      "Id": 281,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Tyler Lockett",
-      "position": "WR",
-      "team": "SEA",
-      "bye": 7
     },
     {
       "Id": 282,
@@ -4075,15 +3437,6 @@
       "bye": 9
     },
     {
-      "Id": 284,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "DeVante Parker",
-      "position": "WR",
-      "team": "MIA",
-      "bye": 11
-    },
-    {
       "Id": 285,
       "franchise": 0,
       "picked": 0,
@@ -4091,15 +3444,6 @@
       "position": "WR",
       "team": "TB",
       "bye": 5
-    },
-    {
-      "Id": 286,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Deonte Thompson",
-      "position": "WR",
-      "team": "DAL",
-      "bye": 8
     },
     {
       "Id": 287,
@@ -4135,15 +3479,6 @@
       "playername": "Jeremy Maclin",
       "position": "WR",
       "team": "",
-      "bye": ""
-    },
-    {
-      "Id": 291,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Eric Decker",
-      "position": "WR",
-      "team": "NE",
       "bye": ""
     },
     {
@@ -4201,15 +3536,6 @@
       "bye": 10
     },
     {
-      "Id": 298,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Seth Roberts",
-      "position": "WR",
-      "team": "OAK",
-      "bye": 7
-    },
-    {
       "Id": 299,
       "franchise": 0,
       "picked": 0,
@@ -4217,15 +3543,6 @@
       "position": "WR",
       "team": "CHI",
       "bye": 5
-    },
-    {
-      "Id": 300,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Cody Latimer",
-      "position": "WR",
-      "team": "NYG",
-      "bye": 9
     },
     {
       "Id": 301,
@@ -4327,15 +3644,6 @@
       "bye": 11
     },
     {
-      "Id": 312,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Louis Murphy",
-      "position": "WR",
-      "team": "SF",
-      "bye": 11
-    },
-    {
       "Id": 313,
       "franchise": 0,
       "picked": 0,
@@ -4363,15 +3671,6 @@
       "bye": 7
     },
     {
-      "Id": 316,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Brandon Tate",
-      "position": "WR",
-      "team": "BUF",
-      "bye": 11
-    },
-    {
       "Id": 317,
       "franchise": 0,
       "picked": 0,
@@ -4390,48 +3689,12 @@
       "bye": 10
     },
     {
-      "Id": 319,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Brian Quick",
-      "position": "WR",
-      "team": "WAS",
-      "bye": 4
-    },
-    {
-      "Id": 320,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Sammie Coates",
-      "position": "WR",
-      "team": "HOU",
-      "bye": 10
-    },
-    {
       "Id": 321,
       "franchise": 0,
       "picked": 0,
       "playername": "Breshad Perriman",
       "position": "WR",
       "team": "BAL",
-      "bye": 10
-    },
-    {
-      "Id": 322,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Markus Wheaton",
-      "position": "WR",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 323,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Michael Floyd",
-      "position": "WR",
-      "team": "MIN",
       "bye": 10
     },
     {
@@ -4453,15 +3716,6 @@
       "bye": 11
     },
     {
-      "Id": 326,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Steve Smith",
-      "position": "WR",
-      "team": "BAL",
-      "bye": 10
-    },
-    {
       "Id": 327,
       "franchise": 0,
       "picked": 0,
@@ -4471,15 +3725,6 @@
       "bye": 11
     },
     {
-      "Id": 328,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Victor Cruz",
-      "position": "WR",
-      "team": "NYG",
-      "bye": 9
-    },
-    {
       "Id": 329,
       "franchise": 0,
       "picked": 0,
@@ -4487,15 +3732,6 @@
       "position": "WR",
       "team": "TEN",
       "bye": 8
-    },
-    {
-      "Id": 330,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Doriel Green-Beckham",
-      "position": "WR",
-      "team": "PHI",
-      "bye": 9
     },
     {
       "Id": 331,
@@ -4514,105 +3750,6 @@
       "position": "WR",
       "team": "ATL",
       "bye": 8
-    },
-    {
-      "Id": 333,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Marquess Wilson",
-      "position": "WR",
-      "team": "CHI",
-      "bye": 5
-    },
-    {
-      "Id": 334,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Harry Douglas",
-      "position": "WR",
-      "team": "TEN",
-      "bye": 8
-    },
-    {
-      "Id": 335,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Charles Johnson",
-      "position": "WR",
-      "team": "CAR",
-      "bye": 4
-    },
-    {
-      "Id": 336,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Greg Salas",
-      "position": "WR",
-      "team": "BUF",
-      "bye": 11
-    },
-    {
-      "Id": 337,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Cecil Shorts III",
-      "position": "WR",
-      "team": "HOU",
-      "bye": 10
-    },
-    {
-      "Id": 338,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Leonte Carroo",
-      "position": "WR",
-      "team": "MIA",
-      "bye": 11
-    },
-    {
-      "Id": 339,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Anquan Boldin",
-      "position": "WR",
-      "team": "BUF",
-      "bye": 11
-    },
-    {
-      "Id": 340,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Eddie Royal",
-      "position": "WR",
-      "team": "CHI",
-      "bye": 5
-    },
-    {
-      "Id": 341,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Vincent Jackson",
-      "position": "WR",
-      "team": "TB",
-      "bye": 5
-    },
-    {
-      "Id": 342,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Andre Johnson",
-      "position": "WR",
-      "team": "IND",
-      "bye": 9
-    },
-    {
-      "Id": 343,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Allen Robinson",
-      "position": "WR",
-      "team": "CHI",
-      "bye": 5
     },
     {
       "Id": 344,
@@ -4705,232 +3842,7 @@
       "bye": 8
     },
     {
-      "Id": 354,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Keke Coutee",
-      "position": "WR",
-      "team": "HOU",
-      "bye": 8
-    },
-    {
-      "Id": 355,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Antonio Callaway",
-      "position": "WR",
-      "team": "CLE",
-      "bye": 8
-    },
-    {
-      "Id": 356,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "DaeSean Hamilton",
-      "position": "WR",
-      "team": "DEN",
-      "bye": 8
-    },
-    {
-      "Id": 357,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jaleel Scott",
-      "position": "WR",
-      "team": "BAL",
-      "bye": 8
-    },
-    {
-      "Id": 358,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "J'Mon Moore",
-      "position": "WR",
-      "team": "GB",
-      "bye": 8
-    },
-    {
-      "Id": 359,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Justin Watson",
-      "position": "WR",
-      "team": "TB",
-      "bye": 8
-    },
-    {
-      "Id": 360,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Daurice Fountain",
-      "position": "WR",
-      "team": "IND",
-      "bye": 8
-    },
-    {
-      "Id": 361,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jordan Lasley",
-      "position": "WR",
-      "team": "BAL",
-      "bye": 8
-    },
-    {
-      "Id": 362,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Marquez Valdes-Scantling",
-      "position": "WR",
-      "team": "GB",
-      "bye": 8
-    },
-    {
-      "Id": 363,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Damion Ratley",
-      "position": "WR",
-      "team": "CLE",
-      "bye": 8
-    },
-    {
-      "Id": 364,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Deon Cain",
-      "position": "WR",
-      "team": "IND",
-      "bye": 8
-    },
-    {
-      "Id": 365,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ray-Ray McCloud",
-      "position": "WR",
-      "team": "BUF",
-      "bye": 8
-    },
-    {
-      "Id": 366,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Dylan Cantrell",
-      "position": "WR",
-      "team": "LAC",
-      "bye": 8
-    },
-    {
-      "Id": 367,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Russell Gage",
-      "position": "WR",
-      "team": "ATL",
-      "bye": 8
-    },
-    {
-      "Id": 368,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Equanimeous St. Brown",
-      "position": "WR",
-      "team": "GB",
-      "bye": 8
-    },
-    {
-      "Id": 369,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ced Wilson",
-      "position": "WR",
-      "team": "DAL",
-      "bye": 8
-    },
-    {
-      "Id": 370,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Braxton Berrios",
-      "position": "WR",
-      "team": "NE",
-      "bye": 8
-    },
-    {
-      "Id": 371,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Javon Wims",
-      "position": "WR",
-      "team": "CHI",
-      "bye": 8
-    },
-    {
-      "Id": 372,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Marcell Ateman",
-      "position": "WR",
-      "team": "OAK",
-      "bye": 8
-    },
-    {
-      "Id": 373,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Richie James",
-      "position": "WR",
-      "team": "SF",
-      "bye": 8
-    },
-    {
-      "Id": 374,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Auden Tate",
-      "position": "WR",
-      "team": "CIN",
-      "bye": 8
-    },
-    {
-      "Id": 375,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Austin Proehl",
-      "position": "WR",
-      "team": "BUF",
-      "bye": 8
-    },
-    {
-      "Id": 376,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Trey Quinn",
-      "position": "WR",
-      "team": "WAS",
-      "bye": 8
-    },
-    {
-      "Id": 377,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "O.J. Howard",
-      "position": "TE",
-      "team": "TB",
-      "bye": 5
-    },
-    {
-      "Id": 378,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Travis Kelce",
-      "position": "TE",
-      "team": "KC",
-      "bye": 12
-    },
-    {
-      "Id": 379,
+      "Id": 1,
       "franchise": 0,
       "picked": 0,
       "playername": "Rob Gronkowski",
@@ -4939,13 +3851,185 @@
       "bye": 11
     },
     {
-      "Id": 380,
+      "Id": 2,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Travis Kelce",
+      "position": "TE",
+      "team": "KC",
+      "bye": 12
+    },
+    {
+      "Id": 3,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Zach Ertz",
+      "position": "TE",
+      "team": "PHI",
+      "bye": 9
+    },
+    {
+      "Id": 4,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Greg Olsen",
+      "position": "TE",
+      "team": "CAR",
+      "bye": 4
+    },
+    {
+      "Id": 5,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Kyle Rudolph",
+      "position": "TE",
+      "team": "MIN",
+      "bye": 10
+    },
+    {
+      "Id": 6,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jimmy Graham",
+      "position": "TE",
+      "team": "GB",
+      "bye": 7
+    },
+    {
+      "Id": 7,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Evan Engram",
+      "position": "TE",
+      "team": "NYG",
+      "bye": 9
+    },
+    {
+      "Id": 8,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Delanie Walker",
+      "position": "TE",
+      "team": "TEN",
+      "bye": 8
+    },
+    {
+      "Id": 9,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Trey Burton",
+      "position": "TE",
+      "team": "CHI",
+      "bye": 5
+    },
+    {
+      "Id": 10,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Cameron Brate",
+      "position": "TE",
+      "team": "TB",
+      "bye": 5
+    },
+    {
+      "Id": 11,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jordan Reed",
+      "position": "TE",
+      "team": "WAS",
+      "bye": 4
+    },
+    {
+      "Id": 12,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Tyler Eifert",
+      "position": "TE",
+      "team": "CIN",
+      "bye": 9
+    },
+    {
+      "Id": 13,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "O.J. Howard",
+      "position": "TE",
+      "team": "TB",
+      "bye": 5
+    },
+    {
+      "Id": 14,
       "franchise": 0,
       "picked": 0,
       "playername": "Jack Doyle",
       "position": "TE",
       "team": "IND",
       "bye": 9
+    },
+
+    {
+      "Id": 15,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Eric Ebron",
+      "position": "TE",
+      "team": "IND",
+      "bye": 9
+    },
+    {
+      "Id": 16,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Charles Clay",
+      "position": "TE",
+      "team": "BUF",
+      "bye": 11
+    },
+    {
+      "Id": 17,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Austin Seferian-Jenkins",
+      "position": "TE",
+      "team": "JAC",
+      "bye": 9
+    },
+    {
+      "Id": 18,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Austin Hooper",
+      "position": "TE",
+      "team": "ATL",
+      "bye": 8
+    },
+    {
+      "Id": 19,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "George Kittle",
+      "position": "TE",
+      "team": "SF",
+      "bye": 11
+    },
+    {
+      "Id": 20,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Benjamin Watson",
+      "position": "TE",
+      "team": "SEA",
+      "bye": 6
+    },
+    {
+      "Id": 21,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Ed Dickson",
+      "position": "TE",
+      "team": "NO",
+      "bye": 7
     },
     {
       "Id": 381,
@@ -4955,114 +4039,6 @@
       "position": "TE",
       "team": "CLE",
       "bye": 11
-    },
-    {
-      "Id": 382,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jimmy Graham",
-      "position": "TE",
-      "team": "GB",
-      "bye": 7
-    },
-    {
-      "Id": 383,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Austin Hooper",
-      "position": "TE",
-      "team": "ATL",
-      "bye": 8
-    },
-    {
-      "Id": 384,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Zach Ertz",
-      "position": "TE",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 385,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Trey Burton",
-      "position": "TE",
-      "team": "CHI",
-      "bye": 5
-    },
-    {
-      "Id": 386,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Evan Engram",
-      "position": "TE",
-      "team": "NYG",
-      "bye": 9
-    },
-    {
-      "Id": 387,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Kyle Rudolph",
-      "position": "TE",
-      "team": "MIN",
-      "bye": 10
-    },
-    {
-      "Id": 388,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Tyler Eifert",
-      "position": "TE",
-      "team": "CIN",
-      "bye": 9
-    },
-    {
-      "Id": 389,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Greg Olsen",
-      "position": "TE",
-      "team": "CAR",
-      "bye": 4
-    },
-    {
-      "Id": 390,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Delanie Walker",
-      "position": "TE",
-      "team": "TEN",
-      "bye": 8
-    },
-    {
-      "Id": 391,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Cameron Brate",
-      "position": "TE",
-      "team": "TB",
-      "bye": 5
-    },
-    {
-      "Id": 392,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Hunter Henry",
-      "position": "TE",
-      "team": "LAC",
-      "bye": 8
-    },
-    {
-      "Id": 393,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jason Witten",
-      "position": "TE",
-      "team": "DAL",
-      "bye": 8
     },
     {
       "Id": 394,
@@ -5083,15 +4059,6 @@
       "bye": 4
     },
     {
-      "Id": 396,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Benjamin Watson",
-      "position": "TE",
-      "team": "NO",
-      "bye": 6
-    },
-    {
       "Id": 397,
       "franchise": 0,
       "picked": 0,
@@ -5099,24 +4066,6 @@
       "position": "TE",
       "team": "OAK",
       "bye": 7
-    },
-    {
-      "Id": 398,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Eric Ebron",
-      "position": "TE",
-      "team": "IND",
-      "bye": 9
-    },
-    {
-      "Id": 399,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Charles Clay",
-      "position": "TE",
-      "team": "BUF",
-      "bye": 11
     },
     {
       "Id": 400,
@@ -5128,30 +4077,12 @@
       "bye": 7
     },
     {
-      "Id": 401,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "George Kittle",
-      "position": "TE",
-      "team": "SF",
-      "bye": 11
-    },
-    {
       "Id": 402,
       "franchise": 0,
       "picked": 0,
       "playername": "Garrett Celek",
       "position": "TE",
       "team": "SF",
-      "bye": 11
-    },
-    {
-      "Id": 403,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Julius Thomas",
-      "position": "TE",
-      "team": "MIA",
       "bye": 11
     },
     {
@@ -5164,31 +4095,13 @@
       "bye": 7
     },
     {
-      "Id": 405,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Antonio Gates",
-      "position": "TE",
-      "team": "",
-      "bye": ""
-    },
-    {
-      "Id": 406,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Austin Seferian-Jenkins",
-      "position": "TE",
-      "team": "JAC",
-      "bye": 9
-    },
-    {
       "Id": 407,
       "franchise": 0,
       "picked": 0,
-      "playername": "Ed Dickson",
+      "playername": "Gates Antonio",
       "position": "TE",
-      "team": "SEA",
-      "bye": 7
+      "team": "LAC",
+      "bye": 8
     },
     {
       "Id": 408,
@@ -5225,15 +4138,6 @@
       "position": "TE",
       "team": "DET",
       "bye": 6
-    },
-    {
-      "Id": 412,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jordan Reed",
-      "position": "TE",
-      "team": "WAS",
-      "bye": 4
     },
     {
       "Id": 413,
@@ -5344,15 +4248,6 @@
       "bye": 10
     },
     {
-      "Id": 425,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Michael Hoomanawanui",
-      "position": "TE",
-      "team": "NO",
-      "bye": 6
-    },
-    {
       "Id": 426,
       "franchise": 0,
       "picked": 0,
@@ -5414,15 +4309,6 @@
       "position": "TE",
       "team": "ATL",
       "bye": 8
-    },
-    {
-      "Id": 433,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ladarius Green",
-      "position": "TE",
-      "team": "",
-      "bye": ""
     },
     {
       "Id": 434,
@@ -5578,61 +4464,7 @@
       "bye": 11
     },
     {
-      "Id": 451,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Dustin Hopkins",
-      "position": "K",
-      "team": "WAS",
-      "bye": 4
-    },
-    {
-      "Id": 452,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Dan Bailey",
-      "position": "K",
-      "team": "DAL",
-      "bye": 8
-    },
-    {
-      "Id": 453,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Matt Bryant",
-      "position": "K",
-      "team": "ATL",
-      "bye": 8
-    },
-    {
-      "Id": 454,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Will Lutz",
-      "position": "K",
-      "team": "NO",
-      "bye": 6
-    },
-    {
-      "Id": 455,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Justin Tucker",
-      "position": "K",
-      "team": "BAL",
-      "bye": 10
-    },
-    {
-      "Id": 456,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Chris Boswell",
-      "position": "K",
-      "team": "PIT",
-      "bye": 7
-    },
-    {
-      "Id": 457,
+      "Id": 1,
       "franchise": 0,
       "picked": 0,
       "playername": "Stephen Gostkowski",
@@ -5641,7 +4473,7 @@
       "bye": 11
     },
     {
-      "Id": 458,
+      "Id": 2,
       "franchise": 0,
       "picked": 0,
       "playername": "Greg Zuerlein",
@@ -5650,7 +4482,34 @@
       "bye": 12
     },
     {
-      "Id": 459,
+      "Id": 3,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Justin Tucker",
+      "position": "K",
+      "team": "BAL",
+      "bye": 10
+    },
+    {
+      "Id": 4,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Chris Boswell",
+      "position": "K",
+      "team": "PIT",
+      "bye": 7
+    },
+    {
+      "Id": 5,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Will Lutz",
+      "position": "K",
+      "team": "NO",
+      "bye": 6
+    },
+    {
+      "Id": 6,
       "franchise": 0,
       "picked": 0,
       "playername": "Robbie Gould",
@@ -5659,7 +4518,7 @@
       "bye": 11
     },
     {
-      "Id": 460,
+      "Id": 7,
       "franchise": 0,
       "picked": 0,
       "playername": "Harrison Butker",
@@ -5668,7 +4527,52 @@
       "bye": 5
     },
     {
-      "Id": 461,
+      "Id": 8,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Matt Bryant",
+      "position": "K",
+      "team": "ATL",
+      "bye": 8
+    },
+    {
+      "Id": 9,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jake Elliott",
+      "position": "K",
+      "team": "PHI",
+      "bye": 9
+    },
+    {
+      "Id": 10,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Josh Lambo",
+      "position": "K",
+      "team": "JAC",
+      "bye": 9
+    },
+    {
+      "Id": 11,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Matt Prater",
+      "position": "K",
+      "team": "DET",
+      "bye": 6
+    },
+    {
+      "Id": 12,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Graham Gano",
+      "position": "K",
+      "team": "CAR",
+      "bye": 4
+    },
+    {
+      "Id": 13,
       "franchise": 0,
       "picked": 0,
       "playername": "Ryan Succop",
@@ -5677,13 +4581,85 @@
       "bye": 8
     },
     {
-      "Id": 462,
+      "Id": 14,
       "franchise": 0,
       "picked": 0,
-      "playername": "Matt Prater",
+      "playername": "Dan Bailey",
       "position": "K",
-      "team": "DET",
-      "bye": 6
+      "team": "DAL",
+      "bye": 8
+    },
+    {
+      "Id": 15,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Dustin Hopkins",
+      "position": "K",
+      "team": "WAS",
+      "bye": 4
+    },
+    {
+      "Id": 16,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Caleb Sturgis",
+      "position": "K",
+      "team": "LAC",
+      "bye": 8
+    },
+    {
+      "Id": 17,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Adam Vinatieri",
+      "position": "K",
+      "team": "IND",
+      "bye": 9
+    },
+    {
+      "Id": 18,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Mason Crosby",
+      "position": "K",
+      "team": "GB",
+      "bye": 7
+    },
+    {
+      "Id": 19,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Brandon McManus",
+      "position": "K",
+      "team": "DEN",
+      "bye": 10
+    },
+    {
+      "Id": 20,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Randy Bullock",
+      "position": "K",
+      "team": "CIN",
+      "bye": 9
+    },
+    {
+      "Id": 21,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Chandler Catanzaro",
+      "position": "K",
+      "team": "TB",
+      "bye": 5
+    },
+    {
+      "Id": 22,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Ka'imi Fairbairn",
+      "position": "K",
+      "team": "HOU",
+      "bye": 10
     },
     {
       "Id": 463,
@@ -5713,51 +4689,6 @@
       "bye": 9
     },
     {
-      "Id": 466,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Jake Elliott",
-      "position": "K",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 467,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Graham Gano",
-      "position": "K",
-      "team": "CAR",
-      "bye": 4
-    },
-    {
-      "Id": 468,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Adam Vinatieri",
-      "position": "K",
-      "team": "IND",
-      "bye": 9
-    },
-    {
-      "Id": 469,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Chandler Catanzaro",
-      "position": "K",
-      "team": "TB",
-      "bye": 5
-    },
-    {
-      "Id": 470,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Brandon McManus",
-      "position": "K",
-      "team": "DEN",
-      "bye": 10
-    },
-    {
       "Id": 471,
       "franchise": 0,
       "picked": 0,
@@ -5766,15 +4697,7 @@
       "team": "SEA",
       "bye": 7
     },
-    {
-      "Id": 472,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ka'imi Fairbairn",
-      "position": "K",
-      "team": "HOU",
-      "bye": 10
-    },
+
     {
       "Id": 473,
       "franchise": 0,
@@ -5785,15 +4708,6 @@
       "bye": 5
     },
     {
-      "Id": 474,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Randy Bullock",
-      "position": "K",
-      "team": "CIN",
-      "bye": 9
-    },
-    {
       "Id": 475,
       "franchise": 0,
       "picked": 0,
@@ -5802,24 +4716,7 @@
       "team": "OAK",
       "bye": 7
     },
-    {
-      "Id": 476,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Josh Lambo",
-      "position": "K",
-      "team": "JAC",
-      "bye": 9
-    },
-    {
-      "Id": 477,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Mason Crosby",
-      "position": "K",
-      "team": "GB",
-      "bye": 7
-    },
+
     {
       "Id": 478,
       "franchise": 0,
@@ -5874,15 +4771,7 @@
       "team": "TB",
       "bye": 5
     },
-    {
-      "Id": 484,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Caleb Sturgis",
-      "position": "K",
-      "team": "LAC",
-      "bye": 8
-    },
+
     {
       "Id": 485,
       "franchise": 0,
@@ -5947,7 +4836,16 @@
       "bye": 11
     },
     {
-      "Id": 492,
+      "Id": 1,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Jaguars",
+      "position": "D/ST",
+      "team": "JAC",
+      "bye": 9
+    },
+    {
+      "Id": 2,
       "franchise": 0,
       "picked": 0,
       "playername": "Rams",
@@ -5956,12 +4854,202 @@
       "bye": 12
     },
     {
-      "Id": 493,
+      "Id": 3,
       "franchise": 0,
       "picked": 0,
-      "playername": "Jaguars",
+      "playername": "Eagles",
       "position": "D/ST",
-      "team": "JAC",
+      "team": "PHI",
+      "bye": 9
+    },
+    {
+      "Id": 4,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Chargers",
+      "position": "D/ST",
+      "team": "LAC",
+      "bye": 8
+    },
+    {
+      "Id": 5,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Panthers",
+      "position": "D/ST",
+      "team": "CAR",
+      "bye": 4
+    },
+    {
+      "Id": 6,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Ravens",
+      "position": "D/ST",
+      "team": "BAL",
+      "bye": 10
+    },
+    {
+      "Id": 7,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Saints",
+      "position": "D/ST",
+      "team": "NO",
+      "bye": 6
+    },
+    {
+      "Id": 8,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Titans",
+      "position": "D/ST",
+      "team": "TEN",
+      "bye": 8
+    },
+    {
+      "Id": 9,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Vikings",
+      "position": "D/ST",
+      "team": "MIN",
+      "bye": 9
+    },
+    {
+      "Id": 10,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Steelers",
+      "position": "D/ST",
+      "team": "PIT",
+      "bye": 7
+    },
+    {
+      "Id": 11,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Broncos",
+      "position": "D/ST",
+      "team": "DEN",
+      "bye": 10
+    },
+    {
+      "Id": 12,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Texans",
+      "position": "D/ST",
+      "team": "HOU",
+      "bye": 10
+    },
+    {
+      "Id": 13,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Chiefs",
+      "position": "D/ST",
+      "team": "KC",
+      "bye": 12
+    },
+    {
+      "Id": 14,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Falcons",
+      "position": "D/ST",
+      "team": "ATL",
+      "bye": 8
+    },
+    {
+      "Id": 15,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Bears",
+      "position": "D/ST",
+      "team": "CHI",
+      "bye": 5
+    },
+    {
+      "Id": 16,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Lions",
+      "position": "D/ST",
+      "team": "DET",
+      "bye": 6
+    },
+    {
+      "Id": 17,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Buccaneers",
+      "position": "D/ST",
+      "team": "TB",
+      "bye": 5
+    },
+    {
+      "Id": 18,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Packers",
+      "position": "D/ST",
+      "team": "GB",
+      "bye": 7
+    },
+    {
+      "Id": 19,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Patriots",
+      "position": "D/ST",
+      "team": "NE",
+      "bye": 11
+    },
+
+    {
+      "Id": 20,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Cowboys",
+      "position": "D/ST",
+      "team": "DAL",
+      "bye": 8
+    },
+    {
+      "Id": 21,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Seahawks",
+      "position": "D/ST",
+      "team": "SEA",
+      "bye": 7
+    },
+    {
+      "Id": 22,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Bills",
+      "position": "D/ST",
+      "team": "BUF",
+      "bye": 11
+    },
+    {
+      "Id": 23,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Redskins",
+      "position": "D/ST",
+      "team": "WAS",
+      "bye": 4
+    },
+    {
+      "Id": 24,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "Cardinals",
+      "position": "D/ST",
+      "team": "ARI",
       "bye": 9
     },
     {
@@ -5973,33 +5061,7 @@
       "team": "CIN",
       "bye": 9
     },
-    {
-      "Id": 495,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Chiefs",
-      "position": "D/ST",
-      "team": "KC",
-      "bye": 12
-    },
-    {
-      "Id": 496,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Patriots",
-      "position": "D/ST",
-      "team": "NE",
-      "bye": 11
-    },
-    {
-      "Id": 497,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Vikings",
-      "position": "D/ST",
-      "team": "MIN",
-      "bye": 9
-    },
+
     {
       "Id": 498,
       "franchise": 0,
@@ -6009,177 +5071,8 @@
       "team": "NYG",
       "bye": 9
     },
-    {
-      "Id": 499,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Panthers",
-      "position": "D/ST",
-      "team": "CAR",
-      "bye": 4
-    },
-    {
-      "Id": 500,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Texans",
-      "position": "D/ST",
-      "team": "HOU",
-      "bye": 10
-    },
-    {
-      "Id": 501,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Cardinals",
-      "position": "D/ST",
-      "team": "ARI",
-      "bye": 9
-    },
-    {
-      "Id": 502,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Ravens",
-      "position": "D/ST",
-      "team": "BAL",
-      "bye": 10
-    },
-    {
-      "Id": 503,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Lions",
-      "position": "D/ST",
-      "team": "DET",
-      "bye": 6
-    },
-    {
-      "Id": 504,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Eagles",
-      "position": "D/ST",
-      "team": "PHI",
-      "bye": 9
-    },
-    {
-      "Id": 505,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Chargers",
-      "position": "D/ST",
-      "team": "LAC",
-      "bye": 8
-    },
-    {
-      "Id": 506,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Saints",
-      "position": "D/ST",
-      "team": "NO",
-      "bye": 6
-    },
-    {
-      "Id": 507,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Bears",
-      "position": "D/ST",
-      "team": "CHI",
-      "bye": 5
-    },
-    {
-      "Id": 508,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Seahawks",
-      "position": "D/ST",
-      "team": "SEA",
-      "bye": 7
-    },
-    {
-      "Id": 509,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Steelers",
-      "position": "D/ST",
-      "team": "PIT",
-      "bye": 7
-    },
-    {
-      "Id": 510,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Redskins",
-      "position": "D/ST",
-      "team": "WAS",
-      "bye": 4
-    },
-    {
-      "Id": 511,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Broncos",
-      "position": "D/ST",
-      "team": "DEN",
-      "bye": 10
-    },
-    {
-      "Id": 512,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Buccaneers",
-      "position": "D/ST",
-      "team": "TB",
-      "bye": 5
-    },
-    {
-      "Id": 513,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Cowboys",
-      "position": "D/ST",
-      "team": "DAL",
-      "bye": 8
-    },
-    {
-      "Id": 514,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Titans",
-      "position": "D/ST",
-      "team": "TEN",
-      "bye": 8
-    },
-    {
-      "Id": 515,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Bills",
-      "position": "D/ST",
-      "team": "BUF",
-      "bye": 11
-    },
-    {
-      "Id": 516,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Falcons",
-      "position": "D/ST",
-      "team": "ATL",
-      "bye": 8
-    },
-    {
-      "Id": 517,
-      "franchise": 0,
-      "picked": 0,
-      "playername": "Packers",
-      "position": "D/ST",
-      "team": "GB",
-      "bye": 7
-    },
+
+
     {
       "Id": 518,
       "franchise": 0,
@@ -6229,9 +5122,72 @@
       "Id": 523,
       "franchise": 0,
       "picked": 0,
-      "playername": "Raiders",
-      "position": "D/ST",
-      "team": "OAK",
+      "playername": "",
+      "position": "EXTRA",
+      "team": "",
+      "bye": 7
+    },
+    {
+      "Id": 523,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "",
+      "position": "EXTRA",
+      "team": "",
+      "bye": 7
+    },
+    {
+      "Id": 523,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "",
+      "position": "EXTRA",
+      "team": "",
+      "bye": 7
+    },
+    {
+      "Id": 523,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "",
+      "position": "EXTRA",
+      "team": "",
+      "bye": 7
+    },
+    {
+      "Id": 523,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "",
+      "position": "EXTRA",
+      "team": "",
+      "bye": 7
+    },
+    {
+      "Id": 523,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "",
+      "position": "EXTRA",
+      "team": "",
+      "bye": 7
+    },
+    {
+      "Id": 523,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "",
+      "position": "EXTRA",
+      "team": "",
+      "bye": 7
+    },
+    {
+      "Id": 523,
+      "franchise": 0,
+      "picked": 0,
+      "playername": "",
+      "position": "EXTRA",
+      "team": "",
       "bye": 7
     }
   ]

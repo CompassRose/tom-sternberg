@@ -1,0 +1,65 @@
+@import '../../../../assets/stylesheets/variables';
+
+.modal-body {
+  background-color: white;
+  padding: 0;
+}
+
+.my-header {
+  //border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 880px;
+  padding: .8rem;
+  background-color: #e9e9e9;
+  border-bottom: 1px solid #a4a4a4;
+  display: flex;
+  align-items: center;
+}
+
+.picture-frame {
+  background-color: white;
+  margin: 0 auto;
+  width: 880px;
+  height: 540px;
+}
+
+.pic-caption {
+  background-color: white;
+  border-bottom-right-radius: 10px;
+  margin: 0 auto;
+  width: 880px;
+}
+
+.modal-title {
+  font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.modalImage {
+  margin: 0 auto;
+  width: 640px;
+  height: auto;
+}
+
+.next, .prev {
+  color: #eace4b;
+  font-size: 50px;
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+  }
+}
+
+.overlay {
+  position: absolute;
+  background-color: white;
+}
+
+
+
+
+
+
+
+

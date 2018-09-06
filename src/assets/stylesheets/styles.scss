@@ -9,11 +9,10 @@ body {
 
 
 .container {
-  min-width: 1600px;
+  min-width: $container-width;
   margin-left: -20px;
  // padding: 20px;
   height: 100vh;
-  // background-color: #23577a;
   background-color: $central-blue-container;
 }
 

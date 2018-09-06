@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
 import { PlayerService } from './services/player.service';
 import { TeamService } from './services/team.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
@@ -22,27 +21,13 @@ export class BoneyardComponent implements OnInit {
 
     POST_API_URL = '../assets/newTeamData.json';
 
-    // Draft Order
-    // 1 - Primetime
-    // 2 - Limelite
-    // 3 - The Eleven
-    // 4 - Nuke Em
-    // 5 - WAD
-    // 6 - Trump empire
-    // 7 - Spinal Tarp
-    // 8 - Flying Solo
-    // 9 - CBJ
-    // 10 - Mad and Nervous
-    // 11 - DIMB
-    // 12 - MLB
-
     public allTeams = [];
     public draggedItem: any;
     public observable: Observable<any>;
-    public timevalue = 30;
+    public timevalue = 45;
     public searchText: string;
 
-    constructor(private teamService: TeamService, private http: HttpClient) {}
+    constructor(private teamService: TeamService) {}
 
     ngOnInit() {
         if (localStorage.getItem('teams') === null) {
@@ -53,20 +38,27 @@ export class BoneyardComponent implements OnInit {
         }
     }
 
+    // Starts Timer
     callObservable() {
         this.observable = this.getObservable();
     }
 
+    // Timer
     getObservable() {
         return Observable.interval(1000)
             .take(this.timevalue)
-            .map(v => v);
+            .map(v => {
+                if (v === this.timevalue - 1) {
+                    const audio = new Audio('../assets/desk-bells.mp3');
+                    audio.play();
+                }
+                return Number(v + 1);
+            });
     }
 
     deleteStoredData() {
         localStorage.removeItem('teams');
         this.getTeamCollection();
-        console.log('deleteStoredData ');
     }
 
     activatePos(posId) {
@@ -84,15 +76,16 @@ export class BoneyardComponent implements OnInit {
         }
     }
 
+    // If no storage resets team data
     getTeamCollection() {
         this.teamService.getTeamContents().subscribe(data => {
             this.allTeams = data.teams;
             this.allRows = data.players;
             this.activatePos('QB');
-            // console.log('getTeamContents allTeams ', data);
         });
     }
 
+    // get localStorage item and distributes
     getStoredData() {
         const teamArray = JSON.parse(localStorage.getItem('teams'));
         this.allTeams = teamArray.teams;
@@ -100,70 +93,44 @@ export class BoneyardComponent implements OnInit {
         this.activatePos('QB');
     }
 
-    // Fill team container with player objects
-    fillPlayerList(i) {
-        const player = [];
-        for (let j = 0; j < 15; j++) {
-            player.push({ pid: j, pname: 'Empty', filled: 0, pos: 'pos', plistId: 0, pteam: '' });
-        }
-        return player;
-    }
-
-    getMapData(): Observable<any> {
-        const BASE_URL = '../assets/allNewData.json';
-        return this.http
-            .get(BASE_URL)
-            .map(response => response)
-            .catch(this.handleError);
-    }
-
-    private handleError(error: any) {
-        const errMsg = error.message
-            ? error.message
-            : error.status
-                ? `${error.status} - ${error.statusText}`
-                : 'Server error';
-        console.error(errMsg); // log to console instead
-        return errMsg;
-    }
-
     // Remove from x press
     removeItem(tid, pid) {
-        console.log('removeItem ', tid, ' pid ', pid);
+        const elementPos = this.allRows
+            .map(function(x) {
+                return x.playername;
+            })
+            .indexOf(this.allTeams[tid].playerList[pid].pname);
+        // const objectFound = this.allRows[elementPos];
+        this.allRows[elementPos].picked = 0;
         this.allTeams[tid].playerList[pid].pname = 'Empty';
         this.allTeams[tid].playerList[pid].pos = 'pos';
         this.allTeams[tid].playerList[pid].pteam = '';
-        this.allRows.forEach((d, i) => {
-            if (d.Id === this.allTeams[tid].playerList[pid].plistId) {
-                console.log('d ', d);
-                d.picked = 0;
-                this.allTeams[tid].playerList[pid].plistId = 0;
-            }
-        });
+        this.saveAllData();
     }
 
     // Called when lets go
     dragEnd(player) {
         this.draggedItem = player;
-        if (player.picked === 0) {
-            console.log('draggedItem ', this.draggedItem.picked, ' player ', player);
+        // if (player.picked === 0) {
+        //     console.log('draggedItem ', this.draggedItem.picked, ' player ', player);
+        // }
+    }
+
+    onDrop(teamPlayer, ID) {
+        if (
+            this.draggedItem.picked !== 1 &&
+            this.allTeams[ID].playerList[teamPlayer.pid].pos === 'pos'
+        ) {
+            this.allTeams[ID].playerList[teamPlayer.pid].pname = this.draggedItem.playername;
+            this.allTeams[ID].playerList[teamPlayer.pid].pos = this.draggedItem.position;
+            this.allTeams[ID].playerList[teamPlayer.pid].pteam = this.draggedItem.team;
+            this.draggedItem.picked = 1;
+            this.saveAllData();
         }
     }
 
-    onDrop(team, element, ID) {
-        console.log('picked ', team, ' element ', element, ' ID ', ID);
-        if (
-            this.draggedItem.picked !== 1 &&
-            this.allTeams[ID].playerList[element.pid].pos === 'pos'
-        ) {
-            this.allTeams[ID].playerList[element.pid].pname = this.draggedItem.playername;
-            this.allTeams[ID].playerList[element.pid].pos = this.draggedItem.position;
-            this.allTeams[ID].playerList[element.pid].plistId = this.draggedItem.Id;
-            this.allTeams[ID].playerList[element.pid].pteam = this.draggedItem.team;
-            this.draggedItem.picked = 1;
-            const teamAllData = JSON.stringify({ teams: this.allTeams, players: this.allRows });
-            localStorage.setItem('teams', teamAllData);
-            //  console.log('\n\n ALL ', teamAllData);
-        }
+    saveAllData() {
+        const teamAllData = JSON.stringify({ teams: this.allTeams, players: this.allRows });
+        localStorage.setItem('teams', teamAllData);
     }
 }

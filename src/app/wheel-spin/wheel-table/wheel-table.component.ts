@@ -49,76 +49,92 @@ export class WheelTableComponent implements OnInit {
             name: '-1st 12-',
             value: 2.5,
             directBet: 0,
-            contents: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+            contents: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            color: 'red'
         },
         {
             name: '~2nd 12~',
             value: 2.5,
             directBet: 0,
-            contents: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+            contents: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+            color: 'red'
         },
         {
             name: '~3rd 12~',
             value: 2.5,
             directBet: 0,
-            contents: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+            contents: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+            color: 'red'
         },
         {
             name: '-1 thru 18-',
             value: 2,
             directBet: 0,
-            contents: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+            contents: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+            color: 'red'
         },
         {
             name: '-18 thru 36-',
             value: 2,
             directBet: 0,
-            contents: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+            contents: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+            color: 'red'
         },
         // Odd/Even 41
         {
             name: 'EVEN',
             value: 2,
             directBet: 0,
-            contents: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36]
+            contents: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36],
+            color: 'red'
         },
         {
             name: 'ODD',
             value: 2,
             directBet: 0,
-            contents: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35]
+            contents: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35],
+            color: 'red'
         },
         // Red/Balck 43
         {
             name: 'ALL RED',
             value: 2,
             directBet: 0,
-            contents: [1, 7, 16, 19, 25, 34, 5, 14, 23, 32, 3, 9, 12, 18, 21, 27, 30, 36]
+            contents: [1, 7, 16, 19, 25, 34, 5, 14, 23, 32, 3, 9, 12, 18, 21, 27, 30, 36],
+            color: 'red'
         },
         {
             name: 'ALL BLACK',
             value: 2,
             directBet: 0,
-            contents: [4, 10, 13, 22, 28, 31, 2, 8, 11, 17, 20, 26, 29, 35, 6, 15, 24, 33]
+            contents: [4, 10, 13, 22, 28, 31, 2, 8, 11, 17, 20, 26, 29, 35, 6, 15, 24, 33],
+            color: 'black',
+            grid: {
+                'grid-column': 4 / 7,
+                'grid-row': 7 / 8
+            }
         },
         // Rows 45
         {
             name: 'ROW',
             value: 2,
             directBet: 0,
-            contents: [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34]
+            contents: [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34],
+            color: 'red'
         },
         {
             name: 'ROW',
             value: 2,
             directBet: 0,
-            contents: [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35]
+            contents: [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
+            color: 'red'
         },
         {
             name: 'ROW',
             value: 2,
             directBet: 0,
-            contents: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36]
+            contents: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36],
+            color: 'red'
         }
     ];
 
@@ -132,13 +148,22 @@ export class WheelTableComponent implements OnInit {
 
     ngOnInit() {
         this.myFunds = 500;
-        this.lastTenNums.push({
-            name: 20,
-            value: 35,
-            directBet: 0,
-            color: 'black',
-            row: 2
-        });
+        this.lastTenNums.push(
+            {
+                name: 20,
+                value: 35,
+                directBet: 0,
+                color: 'black',
+                row: 2
+            },
+            {
+                name: 21,
+                value: 35,
+                directBet: 0,
+                color: 'red',
+                row: 2
+            }
+        );
     }
 
     checkBets() {

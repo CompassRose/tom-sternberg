@@ -3,8 +3,8 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
-    selector: 'ngb-modal-component',
-    styleUrls: ['ngb-modal.component.scss'],
+    selector: 'ngb-transclude-modal-component',
+    styleUrls: ['ngb-transclude-modal.component.scss'],
     templateUrl: 'ngb-modal.component.html'
 })
 export class NgbdModalComponent implements OnInit {
