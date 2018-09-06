@@ -4,7 +4,7 @@ import {
     EventEmitter,
     Input,
     OnInit,
-    Output,
+    Output
 } from '@angular/core';
 import * as d3 from 'd3';
 
@@ -12,7 +12,7 @@ import * as d3 from 'd3';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-wheel-spinner',
     templateUrl: './wheel-spinner.component.html',
-    styleUrls: ['./wheel-spinner.component.scss'],
+    styleUrls: ['./wheel-spinner.component.scss']
 })
 export class WheelSpinnerComponent implements OnInit {
     wheelData: any[] = [];
@@ -65,7 +65,7 @@ export class WheelSpinnerComponent implements OnInit {
             { label: '33', value: 1, Prize: '$250' },
             { label: '34', value: 1, Prize: '$500' },
             { label: '35', value: 1, Prize: '$250' },
-            { label: '36', value: 1, Prize: '$500' },
+            { label: '36', value: 1, Prize: '$500' }
         ];
     }
 
@@ -104,7 +104,7 @@ export class WheelSpinnerComponent implements OnInit {
             .attr('class', 'chartholder')
             .attr(
                 'transform',
-                'translate(' + (w / 2 + padding.left) + ',' + (h / 2 + padding.top) + ')',
+                'translate(' + (w / 2 + padding.left) + ',' + (h / 2 + padding.top) + ')'
             );
 
         const wheel = container.append('g');
