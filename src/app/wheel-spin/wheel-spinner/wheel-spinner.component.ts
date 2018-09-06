@@ -79,44 +79,7 @@ export class WheelSpinnerComponent implements OnInit {
 
     private resetSpinner() {
         console.log('wheelspin');
-        this.color = [
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-            '#b3090a',
-            '#fcc721',
-        ];
+        this.color = ['red', '#000'];
 
         const padding = { top: 16, right: 16, bottom: 16, left: 16 };
         const w = 400 - padding.left - padding.right;
@@ -172,7 +135,11 @@ export class WheelSpinnerComponent implements OnInit {
 
         arcs.append('path')
             .attr('fill', (d, i) => {
-                return this.color[i];
+                if (i % 2) {
+                    return this.color[1];
+                } else {
+                    return this.color[0];
+                }
             })
 
             .attr('d', function(d, i) {
@@ -186,9 +153,9 @@ export class WheelSpinnerComponent implements OnInit {
 
         arcs.append('path')
             .attr('d', arcBorder)
-            .attr('stroke-width', 3)
-            .attr('stroke', '#eec600')
-            .attr('stroke-opacity', 0.7);
+            .attr('stroke-width', 2)
+            .attr('stroke', '#ffc600')
+            .attr('stroke-opacity', 1);
 
         // add the text
         arcs.append('text')
@@ -210,6 +177,7 @@ export class WheelSpinnerComponent implements OnInit {
                 return d.data.label;
             })
             .style('font-size', '20px')
+            .style('fill', 'white')
             .style('font-weight', '600');
 
         this.wheel = wheel;
@@ -218,47 +186,6 @@ export class WheelSpinnerComponent implements OnInit {
         this.container.on('click', function(d: any) {
             parent.spin(parent);
         });
-
-        // // filters go in defs element
-        const defs = svg.append('defs');
-
-        // create filter with id #drop-shadow
-        // height=130% so that the shadow is not clipped
-        const filter = defs
-            .append('filter')
-            .attr('id', 'drop-shadow')
-            .attr('height', '130%');
-
-        // SourceAlpha refers to opacity of graphic that this filter will be applied to
-        // convolve that with a Gaussian with standard deviation 3 and store result
-        // in blur
-        filter
-            .append('feGaussianBlur')
-            .attr('in', 'SourceAlpha')
-            .attr('stdDeviation', 3);
-
-        // translate output of Gaussian blur to the right and downwards with 2px
-        // store result in offsetBlur
-        filter
-            .append('feOffset')
-            .attr('dx', 3)
-            .attr('dy', 3)
-            .attr('result', 'offsetBlur');
-
-        // Control opacity of shadow filter
-        const feTransfer = filter.append('feComponentTransfer');
-
-        feTransfer
-            .append('feFuncA')
-            .attr('type', 'linear')
-            .attr('slope', 0.7);
-
-        // overlay original SourceGraphic over translated blurred opacity by using
-        // feMerge filter. Order of specifying inputs is important!
-        const feMerge = filter.append('feMerge');
-
-        feMerge.append('feMergeNode');
-        feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
     }
 
     // Click Container
@@ -313,7 +240,7 @@ export class WheelSpinnerComponent implements OnInit {
                 d3.select('.slice:nth-child(' + (parent.picked + 1) + ') path')
                     // .attr('fill', '#00ff00')
                     .style('stroke-width', '3px')
-                    .attr('stroke', '#000')
+                    .attr('stroke', '#ffc600')
                     .attr('stroke-opacity', 1);
                 // d3.select('.prize')
                 //     .style('opacity', 1)

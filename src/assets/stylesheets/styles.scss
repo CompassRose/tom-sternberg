@@ -2,16 +2,18 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  @include gradient(#23577a, lighten(#8192d1, 10));
+  // @include gradient(#23577a, lighten(#8192d1, 10));
+  background-color: #040e16;
   color: black;
 }
 
 
 .container {
-  min-width: 1800px;
-  padding: 20px;
-  height: 100%;
-  background-color: #23577a;
+  min-width: $container-width;
+  margin-left: -20px;
+ // padding: 20px;
+  height: 100vh;
+  background-color: $central-blue-container;
 }
 
 a {
@@ -19,7 +21,7 @@ a {
 }
 
 .gold-text {
-  color: $gold-leaf;
+  color: $central-gold;
 }
 
 .display-xs {
@@ -78,6 +80,7 @@ a {
 
 
 .navbar-nav {
+  width: 100%;
   flex-direction: row;
   padding: 11px;
   margin-bottom: 3px;
@@ -100,15 +103,15 @@ a {
   &:hover {
     border-color: #52a3ff;
     color: white;
-    border-bottom: 1px solid #4554a3;
+    border-bottom: 1px solid $central-blue-container;
   }
   &:active {
     border-color: white;
-    border-bottom: 1px solid #23577a;
+    border-bottom: 1px solid $central-blue-container;
   }
   &:focus {
     border-color: white;
-    border-bottom: 1px solid #4554a3;
+    border-bottom: 1px solid $central-blue-container;
   }
 }
 
@@ -116,5 +119,5 @@ a {
   background-color: transparent;
   border-color: white;
   color: white;
-  border-bottom: 2px solid #23577a;
+  border-bottom: 2px solid $central-blue-container;
 }

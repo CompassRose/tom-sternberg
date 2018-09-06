@@ -1,5 +1,5 @@
-<div class="detail-backdrop d-flex flex-column align-items-start mt-5">
-  <a class="detail-row" *ngFor="let row of detailRows | slice:0:100; ">
+<div class="detail-backdrop mt-5">
+  <a class="detail-row" *ngFor="let row of detailRows | slice:0:100;">
     <div>{{row["Quote Date Created"]}}</div>
     <div>{{row["Sales Person"]}}</div>
     <div>{{row["Product"]}}</div>

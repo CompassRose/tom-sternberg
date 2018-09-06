@@ -1,0 +1,17 @@
+<div class="my-header">
+  <div class="modal-title display-lg text-muted f-weight-600" id="exampleModalLabel">{{activeContent[idx].name}}</div>
+  <a class="header-lg ml-auto" (click)="activeModal.dismiss('Cross click')">&times;</a>
+</div>
+<div class="modal-body framer">
+  <div class="d-flex align-items-center justify-content-center picture-frame m-auto mt-3">
+    <div (click)="setOriginBack()" class="next mr-auto ml-3 mb-3"><i class="fa fa-arrow-circle-o-left"></i></div>
+    <div class="">
+      <div><img onError="this.src='../assets/img/pictureCollection/default.jpg'" class="modalImage"
+                [src]="activeContent[idx].image + '.jpg' | defaultPicture: 'default.jpg'"></div>
+    </div>
+    <div (click)="setOriginForward()" class="prev ml-auto mr-3 mb-3"><i class="fa fa-arrow-circle-o-right"></i></div>
+  </div>
+  <div class="pic-caption text-center p-2">{{activeContent[idx].description}}</div>
+</div>
+
+

@@ -1,0 +1,32 @@
+<div class="d-flex align-items-center">
+  <div *ngFor="let node of treeData">
+    <div class="family-node-styling d-flex flex-column align-items-center mr-5">
+      <div class="d-flex align-items-center mb-4 text-white">
+        <a class="parent-node-styling d-flex flex-column justify-content-center align-items-center mr-3">
+          <div>{{node.member.firstname}} {{node.member.lastname}}</div>
+          <img height="70" width="70" [src]="'src/app/family/people/' +node.member.image"/>
+        </a>
+        <a class="parent-node-styling  d-flex flex-column justify-content-center align-items-center">
+          <div>{{node.partner.firstname}} {{node.partner.lastname}}</div>
+          <img height="70" width="70" [src]="'src/app/family/people/' + node.partner.image"/>
+        </a>
+      </div>
+      <div class="child-group-styling d-flex align-items-center">
+        <div *ngFor="let kid of node.children">
+          <div class="child-node-styling d-flex flex-column justify-content-center align-items-center mr-3">
+            <div class="display-sm">{{kid.member.firstname}} {{kid.member.lastname}}</div>
+            <img height="50" width="50" [src]="'src/app/family/people/' +node.member.image"/>
+          </div>
+          <!--<div *ngIf="kid.member.children" class="child-group-styling d-flex align-items-center">-->
+            <!--<div *ngFor="let kidChild of kid.member.children">-->
+              <!--<div class="child-child-node-styling d-flex flex-column justify-content-center align-items-center mr-3">-->
+                <!--<div class="display-sm">{{kidChild.firstname}} {{kidChild.lastname}}</div>-->
+                <!--<img height="50" width="50" [src]="'src/app/family/people/' +kidChild.image"/>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

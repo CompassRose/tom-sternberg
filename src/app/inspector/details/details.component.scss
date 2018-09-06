@@ -1,6 +1,7 @@
 @import '../../../assets/stylesheets/variables';
 
 .detail-backdrop {
+  width: 100%;
   background-color: white;
 }
 
@@ -10,7 +11,7 @@
   display: flex;
   text-align: left;
   align-content: center;
-  justify-content: space-between;
+  justify-content: stretch;
   padding: 5px;
   border-bottom: 1px solid black;
   &:hover {

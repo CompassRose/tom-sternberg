@@ -1,0 +1,31 @@
+.family-node-styling {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+
+.parent-node-styling {
+  min-width: 150px;
+  padding: 10px;
+  background-color: rgba(0, 0, 255, 0.27);
+}
+
+.child-group-styling {
+  padding: 20px;
+  border: 1px solid white;
+  border-bottom-color: transparent;
+}
+
+.child-node-styling {
+  min-width: 140px;
+  color: white;
+  padding: 10px;
+  background-color: blue;
+}
+
+.child-child-node-styling {
+  margin-top:200px;
+  min-width: 140px;
+  color: white;
+  padding: 10px;
+  background-color: red;
+}

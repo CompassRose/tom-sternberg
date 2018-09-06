@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
     selector: 'app-layout',
     templateUrl: './layout.component.html',
     styleUrls: ['./layout.component.scss'],
-    encapsulation: ViewEncapsulation.Emulated,
+    encapsulation: ViewEncapsulation.Emulated
 })
 export class LayoutComponent implements OnInit {
     public isExpanded = false;
@@ -18,7 +18,7 @@ export class LayoutComponent implements OnInit {
         // this.router.navigate(['app/inspector/inspect/drilldown']);
         // this.router.navigate(['app/resume']);
         this.router.navigate(['app/wheelspin']);
-        // this.router.navigate(['app/family']);
+        // this.router.navigate(['app/family/family-routes/familyTree']);
         // this.router.navigate(['app/boneyard']);
     }
 

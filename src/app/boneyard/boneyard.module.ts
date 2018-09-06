@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { BoneyardRoutingModule } from './boneyard-routing.module';
 import { BoneyardComponent } from './boneyard.component';
 import { DragAndDropModule } from 'angular-draggable-droppable';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
@@ -12,8 +13,9 @@ import { DragAndDropModule } from 'angular-draggable-droppable';
         FormsModule,
         SharedModule,
         BoneyardRoutingModule,
-        DragAndDropModule.forRoot(),
+        HttpClientModule,
+        DragAndDropModule.forRoot()
     ],
-    declarations: [BoneyardComponent],
+    declarations: [BoneyardComponent]
 })
 export class BoneyardModule {}

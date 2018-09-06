@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"npm run server\" \"ng serve\"",
-    "server": "json-server server/api/allPictures.json --watch",
+    "server": "json-server server/api/allNewData.json --watch",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -35,13 +35,14 @@
     "hammerjs": "^2.0.8",
     "install": "^0.12.1",
     "jquery": "^3.3.1",
-    "topojson": "^3.0.2",
     "json-server": "0.12.0",
     "ngx-bootstrap": "^3.0.1",
     "npm": "^5.8.0",
     "popper.js": "^1.13.0",
+    "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
     "start": "^5.1.0",
+    "topojson": "^3.0.2",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
@@ -67,7 +68,7 @@
     "typescript": "^2.7.2"
   },
   "prettier": {
-    "trailingComma": "all",
+    "trailingComma": "none",
     "singleQuote": true,
     "printWidth": 100,
     "tabWidth": 4
