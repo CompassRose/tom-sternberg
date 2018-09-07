@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { ChartConfigService } from '../services/chart-config.service';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'app-details',
@@ -15,6 +14,7 @@ export class DetailsComponent implements OnInit {
     ngOnInit(): any {
         // updates details filter
         this.quoteService.newQuoteSubject.subscribe(data => {
+            console.log('detail data, data', data.length);
             this.detailRows = data;
         });
     }

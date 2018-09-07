@@ -3,7 +3,6 @@
   overflow: hidden; }
 
 .mapContainer{
-  //background-color:beige;
   width:1500px;
   height:1000px;
 }
@@ -49,28 +48,4 @@
 #usmap #mapGroup.centered #states path.active:hover {
   cursor: zoom-out; }
 
-.chart-tip-master {
-  width: 230px;
-  border: 1px solid #e7e7e7;
-  position: absolute;
-  pointer-events: none;
-  z-index: 100 !important;
-}
-
-
-
-.chart-tip-master .header {
-  background-color: #4c6cea;
-  font-size: 12px;
-  padding: 2px 5px;
-  text-align: left;
-  color: #FFF;
-}
-
-.tipCell {
-  padding: 3px 0 3px 0;
-  border: 1px solid #CCC;
-  background-color: #fff;
-  text-align: left;
-}
 

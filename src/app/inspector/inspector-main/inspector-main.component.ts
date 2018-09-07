@@ -10,6 +10,8 @@ import * as $ from 'jquery';
     providers: [ChartConfigService]
 })
 export class InspectorMainComponent implements OnInit {
+    public rowAmount: any[] = [];
+
     constructor(private quoteService: ChartConfigService) {}
 
     ngOnInit() {
@@ -22,6 +24,16 @@ export class InspectorMainComponent implements OnInit {
                 .addClass('active');
         });
 
+        this.quoteService.newQuoteSubject.subscribe(data => {
+            // data.map();
+            this.setRowData(data);
+        });
+        // this.quoteService.getSubjectData(this.dynamicData);
         // this.quoteService.getSubjectData(filteredList);
+    }
+
+    setRowData(arg) {
+        console.log('data.length ', typeof arg);
+        this.rowAmount = arg;
     }
 }

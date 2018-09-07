@@ -5,7 +5,7 @@
 }
 
 .axis-text{
-  font-size: .8rem;
+  font-size: .7rem;
   fill:black;
 }
 
@@ -29,7 +29,7 @@
 
 .horizontalGrid {
   shape-rendering: geometricPrecision;
-  stroke: rgba(191, 191, 191, 0.15);
+  stroke: rgba(191, 191, 191, 0.2);
   stroke-width: 1px;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .legend .key text {
-  font-size: .9rem;
+  font-size: .7rem;
   font-weight: bold;
   fill: #000000;
 }
@@ -57,12 +57,13 @@
 
 .headerBold {
   color: black;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
 }
 
 .dataRow {
   color: black;
+  padding: .2rem .5rem !important;
   font-size: 12px;
   font-weight: normal;
   text-align: left;

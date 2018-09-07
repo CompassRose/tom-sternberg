@@ -465,7 +465,7 @@ export class PieChartComponent implements OnInit, OnChanges {
         const legend = this.svg
             .append('g')
             .attr('class', 'legend')
-            .attr('transform', 'translate(' + this.container.height + ', -180)');
+            .attr('transform', 'translate(' + 200 + ', -180)');
 
         let j = 0;
         const offset = 20;
@@ -479,7 +479,6 @@ export class PieChartComponent implements OnInit, OnChanges {
             .attr('class', 'key')
             .attr('transform', function(d, i) {
                 const limit = Math.ceil(parent.container.height / offset);
-                console.log('limit ', limit);
                 if (i >= limit) {
                     j++;
                     return 'translate(130, ' + offset * j + ')';
@@ -491,7 +490,7 @@ export class PieChartComponent implements OnInit, OnChanges {
         key.append('rect')
             .attr('height', offset)
             .attr('width', 180)
-            .attr('x', -20)
+            .attr('x', -15)
             .attr('y', 0)
             .attr('class', 'legend-back');
 

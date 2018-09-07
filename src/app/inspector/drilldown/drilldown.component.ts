@@ -91,6 +91,7 @@ export class DrilldownComponent implements OnInit {
             this.allCharts[2].columnData = this.quoteService.initDropdown(this.fields);
             this.resetCharts();
         });
+        this.activateTabOne();
     }
 
     removeFilter(e, idx) {
@@ -145,6 +146,7 @@ export class DrilldownComponent implements OnInit {
         this.allCharts[index].key = newData.key;
         this.filters.push(setFilterFormat);
         const filteredList = this.returnFiltered('new');
+
         this.setChartData(filteredList);
         this.quoteService.getSubjectData(filteredList);
     }
@@ -244,17 +246,17 @@ export class DrilldownComponent implements OnInit {
     // From Saved list press event
     //////////////////////////////
     saveFilterSet(searchValues) {
-        console.log('saveFilterSet searchValues ', searchValues);
+        // console.log('saveFilterSet searchValues ', searchValues);
 
         let filterSetter = [];
 
         // bootbox.prompt('Give your search criteria a name:', (name: any) => {
         // if (name) {
         filterSetter = JSON.parse(JSON.stringify(searchValues));
-        this.filterSets.push({ name: 'Saved', filters: filterSetter });
+        this.filterSets.push({ filters: filterSetter });
         //  }
         // });
-
+        console.log('saveFilterSet this.filterSets ', this.filterSets);
         const setLength = this.filterSets.length;
         // // need to find a better way of doing this
         $('a.nav-link.one').removeClass('active');
@@ -279,7 +281,7 @@ export class DrilldownComponent implements OnInit {
     // Load filter list
 
     loadFilterList(target) {
-        // console.log('loadFilterList target ', target);
+        console.log('loadFilterList target ', target);
         this.filters = [];
         let filterSetter = [];
 

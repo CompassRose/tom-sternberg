@@ -3,7 +3,6 @@ export interface IFilter {
     values: string[];
 }
 export interface NamedFilter {
-    name: string;
     filters: IFilter[];
 }
 

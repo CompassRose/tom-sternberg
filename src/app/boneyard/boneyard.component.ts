@@ -49,7 +49,7 @@ export class BoneyardComponent implements OnInit {
             .take(this.timevalue)
             .map(v => {
                 if (v === this.timevalue - 1) {
-                    const audio = new Audio('../assets/desk-bells.mp3');
+                    const audio = new Audio('../assets/sounds/desk-bells.mp3');
                     audio.play();
                 }
                 return Number(v + 1);
