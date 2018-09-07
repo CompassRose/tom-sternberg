@@ -17,7 +17,7 @@ import * as $ from 'jquery';
     selector: 'app-drilldown',
     templateUrl: './drilldown.component.html',
     styleUrls: ['./drilldown.component.scss'],
-    providers: [FormatService],
+    providers: [FormatService]
 })
 export class DrilldownComponent implements OnInit {
     constructor(private quoteService: ChartConfigService, private formatService: FormatService) {}
@@ -52,7 +52,7 @@ export class DrilldownComponent implements OnInit {
             isPremium: false,
             columnData: [],
             color: this.color1,
-            data: [],
+            data: []
         },
         <AppChart>{
             title: 'Billing Mode',
@@ -65,7 +65,7 @@ export class DrilldownComponent implements OnInit {
             isPremium: false,
             columnData: [],
             color: this.color1,
-            data: [],
+            data: []
         },
         <AppChart>{
             title: 'Quote Year and Month Created',
@@ -78,8 +78,8 @@ export class DrilldownComponent implements OnInit {
             isPremium: false,
             columnData: [],
             color: this.color1,
-            data: [],
-        },
+            data: []
+        }
     ];
 
     ngOnInit() {
@@ -202,7 +202,7 @@ export class DrilldownComponent implements OnInit {
             ' type ',
             type,
             'newValue ',
-            newValue,
+            newValue
         );
         this.allCharts[i].data = this.quoteService.nestChartData(newValue, this.dynamicData);
         this.allCharts[i].title = newValue;

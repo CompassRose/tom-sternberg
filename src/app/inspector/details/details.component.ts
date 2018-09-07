@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 @Component({
     selector: 'app-details',
     templateUrl: './details.component.html',
-    styleUrls: ['./details.component.scss'],
+    styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
     constructor(public quoteService: ChartConfigService) {}

@@ -7,7 +7,7 @@ import * as $ from 'jquery';
     templateUrl: './inspector-main.component.html',
     styleUrls: ['./inspector-main.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    providers: [ChartConfigService],
+    providers: [ChartConfigService]
 })
 export class InspectorMainComponent implements OnInit {
     constructor(private quoteService: ChartConfigService) {}

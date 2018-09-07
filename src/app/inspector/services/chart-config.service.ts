@@ -101,7 +101,7 @@ export class ChartConfigService {
                 }
                 return {
                     key: group.key,
-                    values: group.value,
+                    values: group.value
                 };
             });
         // console.log('Chart nest ', nest);
@@ -189,7 +189,7 @@ export class ChartConfigService {
                     (document.body.scrollTop || document.documentElement.scrollTop);
                 //  console.log('initMouse x ', parent.mouse.x, ' y ', parent.mouse.y);
             },
-            false,
+            false
         );
     }
 }

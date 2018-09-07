@@ -5,7 +5,7 @@ import {
     Output,
     OnChanges,
     EventEmitter,
-    ViewEncapsulation,
+    ViewEncapsulation
 } from '@angular/core';
 import { ChartConfigService } from '../../services/chart-config.service';
 import { CustomTooltipComponent } from '../../../shared/components/custom-tooltip/custom-tooltip.component';
@@ -18,7 +18,7 @@ import { IChartMargin } from '../../interfaces/Filters';
     selector: 'pie',
     styleUrls: ['./pie.component.scss', '../drilldown-common.scss'],
     templateUrl: './pie.component.html',
-    providers: [ChartConfigService, CustomTooltipComponent],
+    providers: [ChartConfigService, CustomTooltipComponent]
     // encapsulation: ViewEncapsulation.None,
 })
 export class PieChartComponent implements OnInit, OnChanges {
@@ -53,7 +53,7 @@ export class PieChartComponent implements OnInit, OnChanges {
         'Crimson',
         'DeepSkyBlue',
         'DeepPink',
-        'LightSeaGreen',
+        'LightSeaGreen'
     ];
 
     private outerArc;
@@ -159,7 +159,7 @@ export class PieChartComponent implements OnInit, OnChanges {
                 '0, 0, ' +
                     (this.container.width + this.margin.left + this.margin.right) +
                     ', ' +
-                    (this.container.height + this.margin.top + this.margin.bottom),
+                    (this.container.height + this.margin.top + this.margin.bottom)
             )
             .append('g');
 
@@ -191,7 +191,7 @@ export class PieChartComponent implements OnInit, OnChanges {
 
         svg.attr(
             'transform',
-            'translate(' + this.container.width / 1.8 + ',' + this.container.height / 1.55 + ')',
+            'translate(' + this.container.width / 1.8 + ',' + this.container.height / 1.55 + ')'
         );
 
         const color = d3.scaleOrdinal().range(this.colors);

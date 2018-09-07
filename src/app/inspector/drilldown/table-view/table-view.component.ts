@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 @Component({
     selector: 'table-view',
     templateUrl: './table-view.component.html',
-    styleUrls: ['./table-view.component.scss', '../drilldown-common.scss'],
+    styleUrls: ['./table-view.component.scss', '../drilldown-common.scss']
 })
 export class TableViewComponent implements OnInit, OnChanges {
     @Input()
