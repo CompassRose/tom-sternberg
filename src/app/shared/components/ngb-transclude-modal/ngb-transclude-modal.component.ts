@@ -5,39 +5,30 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'ngb-transclude-modal-component',
     styleUrls: ['ngb-transclude-modal.component.scss'],
-    templateUrl: 'ngb-modal.component.html'
+    templateUrl: 'ngb-transclude-modal.component.html'
 })
-export class NgbdModalComponent implements OnInit {
+export class NgbdTranscludeModalComponent implements OnInit {
     @Input()
-    activeIndex;
+    modalName;
     @Input()
-    modalGroup;
+    modalContent;
+    @Input()
+    modalButtons;
 
+    public modalTitle;
     public activeContent;
-    public idx: number;
+    public activeButtons;
 
     constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
 
     ngOnInit() {
-        this.idx = this.activeIndex;
-        this.activeContent = this.modalGroup;
+        this.modalTitle = this.modalName;
+        this.activeContent = this.modalContent;
+        this.activeButtons = this.modalButtons;
+        this.processBodyContent();
     }
 
-    setOriginBack() {
-        if (this.idx > 0) {
-            this.idx--;
-        } else {
-            this.idx = this.activeContent.length - 1;
-        }
-        console.log('setOriginBack ', this.idx, ' length ', this.activeContent.length);
-    }
-
-    setOriginForward() {
-        if (this.idx < this.activeContent.length - 1) {
-            this.idx++;
-        } else {
-            this.idx = 0;
-        }
-        console.log('setOriginForward ', this.idx, ' length ', this.activeContent.length);
+    processBodyContent() {
+        this.activeContent.forEach(d => {});
     }
 }

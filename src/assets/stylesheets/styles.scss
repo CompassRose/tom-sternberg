@@ -1,11 +1,16 @@
 @import 'variables';
 
 body {
-  font-family: 'Open Sans', sans-serif;
+ // font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   // @include gradient(#23577a, lighten(#8192d1, 10));
-  background-color: #040e16;
+ // background-color: #040e16;
   color: black;
   font-size: 16px;
+// project
+ // color:#ffb35c;
+  background-color: #040e16;
+
 }
 
 
@@ -14,7 +19,7 @@ body {
   height: 100vh;
   background-color: $central-blue-container;
   .spacer {
-    margin-top: 80px;
+    margin-top: 70px;
   }
 }
 
@@ -104,16 +109,16 @@ a {
 
 .navbar-nav {
   width: 100%;
+  border-bottom: 1px solid white;
   flex-direction: row;
-  padding: 11px;
-  margin-bottom: 3px;
+  padding: 10px;
 }
 
 
 #topheader li > a {
   text-transform: capitalize;
   transition: background-color .2s, color .2s;
-  padding: 12px 35px;
+  padding: 14px 35px;
   color: white;
   background-color: transparent;
   border-right: 1px solid;
@@ -121,7 +126,7 @@ a {
   border-top: 1px solid;
   border-color: rgba(37, 38, 88, 0.75);
   border-radius: 5px 5px 0 0;
-  margin-right: 4px;
+  margin: 30px 4px;
   border-bottom: 1px transparent;
   &:hover {
     border-color: #52a3ff;

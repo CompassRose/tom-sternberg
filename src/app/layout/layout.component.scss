@@ -30,21 +30,6 @@
   }
 }
 
-
-
-.in-visible {
-  opacity: 0;
-  transition-property: opacity;
-  transition-duration: .5s;
-}
-
-
-.am-visible {
-  opacity: 1;
-  transition-property: opacity;
-  transition-duration: .5s;
-}
-
 .sidebar {
   opacity: 0;
   border-left: 0px solid black;
@@ -63,11 +48,11 @@
   ul {
     padding: 0;
     li {
-      padding: 1.235rem 0;
+      padding: .55rem 0;
       border-top: 1px solid transparent;
       border-bottom: 1px solid rgba(128, 128, 128, 0.69);
       list-style: none;
-      font-size: 1.0rem;
+      font-size: .8rem;
       &:hover {
         border-top: 1px solid;
         border-color: $central-gold;

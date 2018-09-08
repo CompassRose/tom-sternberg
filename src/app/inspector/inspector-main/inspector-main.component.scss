@@ -5,7 +5,8 @@
 }
 
 .axis-text{
-  font-size: .7rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .65rem;
   fill:black;
 }
 
@@ -20,6 +21,10 @@
   z-index:110000;
 }
 
+.btn.btn-sm {
+  font-size: .9rem;
+  padding: 0.1rem 0.7rem;
+}
 
 .pieLabel {
   fill: white;

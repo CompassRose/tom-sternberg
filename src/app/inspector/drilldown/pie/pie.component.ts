@@ -242,79 +242,109 @@ export class PieChartComponent implements OnInit, OnChanges {
 
         text.enter()
             .append('text')
+
+            // .attr('transform', function(d) {
+            //     return 'translate(' + this.outerArc.centroid(d) + ') ' + 'rotate(' + getAngle(d) + ')';
+            // })
+            // .attr('dy', 5)
+            // .style('text-anchor', 'start')
+            // .text(function(d) {
+            //   return d.data.key + 'values';
+            // });
+
+            .attr('transform', d => {
+                d.innerRadius = 0;
+                d.outerRadius = this.radius;
+                d.angle = (d.startAngle + d.endAngle) / 2;
+                return (
+                    'rotate(' +
+                    ((d.angle * 180) / Math.PI - 90) +
+                    ')translate(' +
+                    (d.outerRadius - 10) +
+                    ')'
+                );
+            })
+            .attr('text-anchor', 'start')
+            .attr('dy', '0.35em')
+            .text((d, i) => {
+                return d.data.key;
+            })
+            .style('font-size', '12px')
             .style('fill', 'black')
-            .attr('dy', '.35em')
-            .text(function(d) {
-                return d.data.key + 'values';
-            });
+            .style('font-weight', '600');
+        // .style('fill', 'black')
+        // .attr('dy', '.35em')
+        // .text(function(d) {
+        //     return d.data.key + 'values';
+        // });
 
         function midAngle(d) {
             return d.startAngle + (d.endAngle - d.startAngle) / 2;
         }
 
-        text.transition()
-            .duration(500)
-            .attrTween('transform', function(d) {
-                // if (d.data.values[parent.total] > 20) {
-                this._current = this._current || d;
-                const interpolate = d3.interpolate(this._current, d);
-                this._current = interpolate(0);
-                return function(t) {
-                    const d2 = interpolate(t);
-                    const pos = parent.outerArc.centroid(d2);
-                    pos[0] = parent.radius * (midAngle(d2) < Math.PI ? 1 : -1);
-                    return 'translate(' + pos + ')';
-                };
-                // }
-            })
-            .text(function(d, i) {
-                if (parent.isPrem) {
-                    return d.data.key + ':  ' + parent.setValueFormat(d.data.values[parent.total]);
-                } else {
-                    return d.data.key + ':  ' + parent.setValueFormat(d.data.values[parent.sold]);
-                }
-            })
-            .styleTween('text-anchor', function(d) {
-                this._current = this._current || d;
-                const interpolate = d3.interpolate(this._current, d);
-                this._current = interpolate(0);
-                return function(t) {
-                    const d2 = interpolate(t);
-                    return midAngle(d2) < Math.PI ? 'start' : 'end';
-                };
-            });
-
-        text.exit().remove();
-
-        const polyline = this.svg
-            .select('.lines')
-            .selectAll('polyline')
-            .data(this.pie(this.data));
-
-        polyline
-            .enter()
-            .append('polyline')
-            .style('fill', 'none')
-            .style('stroke', 'black')
-            .style('opacity', 0.6)
-            .style('stroke-width', '2px');
-
-        polyline
-            .transition()
-            .duration(500)
-            .attrTween('points', function(d) {
-                this._current = this._current || d;
-                const interpolate = d3.interpolate(this._current, d);
-                this._current = interpolate(0);
-                return function(t) {
-                    const d2 = interpolate(t);
-                    const pos = parent.outerArc.centroid(d2);
-                    pos[0] = parent.radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-                    return [parent.arc.centroid(d2), parent.outerArc.centroid(d2), pos];
-                };
-            });
-
-        polyline.exit().remove();
+        // text.transition()
+        //     .duration(500)
+        //     .attrTween('transform', function(d) {
+        //         // if (d.data.values[parent.total] > 20) {
+        //         this._current = this._current || d;
+        //         const interpolate = d3.interpolate(this._current, d);
+        //         this._current = interpolate(0);
+        //         return function(t) {
+        //             const d2 = interpolate(t);
+        //             const pos = parent.outerArc.centroid(d2);
+        //             pos[0] = parent.radius * (midAngle(d2) < Math.PI ? 1 : -1);
+        //             return 'translate(' + pos + ')';
+        //         };
+        //         // }
+        //     })
+        //     .text(function(d, i) {
+        //         if (parent.isPrem) {
+        //             return d.data.key + ':  ' + parent.setValueFormat(d.data.values[parent.total]);
+        //         } else {
+        //             return d.data.key + ':  ' + parent.setValueFormat(d.data.values[parent.sold]);
+        //         }
+        //     })
+        //     .styleTween('text-anchor', function(d) {
+        //         this._current = this._current || d;
+        //         const interpolate = d3.interpolate(this._current, d);
+        //         this._current = interpolate(0);
+        //         return function(t) {
+        //             const d2 = interpolate(t);
+        //             return midAngle(d2) < Math.PI ? 'start' : 'end';
+        //         };
+        //     });
+        //
+        // text.exit().remove();
+        //
+        // const polyline = this.svg
+        //     .select('.lines')
+        //     .selectAll('polyline')
+        //     .data(this.pie(this.data));
+        //
+        // polyline
+        //     .enter()
+        //     .append('polyline')
+        //     .style('fill', 'none')
+        //     .style('stroke', 'black')
+        //     .style('opacity', 0.6)
+        //     .style('stroke-width', '2px');
+        //
+        // polyline
+        //     .transition()
+        //     .duration(500)
+        //     .attrTween('points', function(d) {
+        //         this._current = this._current || d;
+        //         const interpolate = d3.interpolate(this._current, d);
+        //         this._current = interpolate(0);
+        //         return function(t) {
+        //             const d2 = interpolate(t);
+        //             const pos = parent.outerArc.centroid(d2);
+        //             pos[0] = parent.radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+        //             return [parent.arc.centroid(d2), parent.outerArc.centroid(d2), pos];
+        //         };
+        //     });
+        //
+        // polyline.exit().remove();
     }
 
     setValueFormat(params) {
@@ -421,15 +451,15 @@ export class PieChartComponent implements OnInit, OnChanges {
             });
 
         // label
-        let label = arcGroup
-            .append('text')
-            .attr('class', 'pieLabel')
-            .attr('transform', function(d) {
-                label = parent.arcLabel(parent.arc.centroid(d));
-                return 'translate(' + label.x + ',' + label.y + ')';
-            })
-            .attr('text-anchor', 'middle');
-
+        // let label = arcGroup
+        //     .append('text')
+        //     .attr('class', 'pieLabel')
+        //     .attr('transform', function(d) {
+        //         label = parent.arcLabel(parent.arc.centroid(d));
+        //         return 'translate(' + label.x + ',' + label.y + ')';
+        //     })
+        //     .attr('text-anchor', 'middle');
+        //
         // label
         //     .append('tspan')
         //     .attr('x', 0)
@@ -508,6 +538,7 @@ export class PieChartComponent implements OnInit, OnChanges {
                 let key = d.data.key;
                 const len = key.length;
                 const limit = Math.ceil(parent.container.height / offset);
+                // Ellypsis for lengths
                 if (parent.data.length > limit) {
                     j++;
                     if (len > 10) {
