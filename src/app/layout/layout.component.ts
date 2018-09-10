@@ -9,21 +9,15 @@ import { Router } from '@angular/router';
 })
 export class LayoutComponent implements OnInit {
     public isExpanded = false;
-    public backdrop = 'background3';
 
     constructor(private router: Router) {}
 
     ngOnInit() {
-        this.backdrop = 'background1';
-        this.router.navigate(['app/inspector/inspect/drilldown']);
+        // this.router.navigate(['app/inspector/inspect/drilldown']);
         // this.router.navigate(['app/resume']);
-        // this.router.navigate(['app/wheelspin']);
+        this.router.navigate(['app/wheelspin']);
         // this.router.navigate(['app/family/family-routes/familyTree']);
         // this.router.navigate(['app/boneyard']);
-    }
-
-    gotoFamily() {
-        this.router.navigate(['app/family']);
     }
 
     menu_OnClick(evt) {

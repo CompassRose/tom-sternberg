@@ -7,7 +7,7 @@ import { NgbdVideoModalComponent } from '../../shared/components/ngb-video-modal
     selector: 'app-carousel',
     templateUrl: './carousel.component.html',
     styleUrls: ['./carousel.component.scss'],
-    providers: [NgbModal],
+    providers: [NgbModal]
 })
 export class CarouselComponent implements OnInit {
     public currdeg1 = 0;
@@ -20,13 +20,12 @@ export class CarouselComponent implements OnInit {
 
     ngOnInit() {
         this.videoPlayer = true;
-        // this.videoSignal = 'https://www.youtube.com/embed/low8HlogFFQ';
     }
 
     openModal(e) {
         console.log('openModal ', e);
         const modalRef = this.modalService.open(NgbdVideoModalComponent, {
-            size: 'lg',
+            size: 'lg'
         });
         modalRef.componentInstance.modalName = e;
         modalRef.componentInstance.modalGroup = 'My Game Name';
