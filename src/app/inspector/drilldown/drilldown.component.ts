@@ -31,7 +31,6 @@ export class DrilldownComponent implements OnInit {
     private btnTypes: any = ['bar', 'pie', 'line', 'table'];
     private allRows: any[] = [];
     public dynamicData: any[] = [];
-    public saveActive = false;
     public tableActive = false;
 
     public showTip = false;
@@ -126,6 +125,7 @@ export class DrilldownComponent implements OnInit {
         this.allCharts.forEach((d, i) => {
             d.data = this.quoteService.nestChartData(d.title, processedRows);
         });
+        this.quoteService.getSubjectData(processedRows);
     }
 
     // Set chart specific buttons active/disabled
@@ -140,7 +140,6 @@ export class DrilldownComponent implements OnInit {
     setCurrentChart(newData, index, setFilter) {
         console.log('setCurrentChart  ', this.allCharts[index], ' newData ', newData);
         this.setChartBtnsState(this.allCharts[index], true);
-        this.saveActive = true;
         const setFilterFormat = { key: this.allCharts[index].title, values: newData.key };
         this.allCharts[index].chartType = 'single';
         this.allCharts[index].key = newData.key;
@@ -153,7 +152,6 @@ export class DrilldownComponent implements OnInit {
 
     // Draws charts with updated data
     setChartData(filteredResponse) {
-        //  console.log('\n filteredResponse', filteredResponse);
         this.allCharts.forEach((v, i) => {
             v.data = this.quoteService.nestChartData(v.title, filteredResponse);
             if (v.key !== '') {
@@ -186,26 +184,26 @@ export class DrilldownComponent implements OnInit {
                     }
                 });
             } else {
-                this.saveActive = false;
                 if (d.title === item.key) {
                     d.key = '';
                     this.setChartData(filteredList);
                 }
                 d.chartType = d.chartTypeInit;
             }
+            this.quoteService.getSubjectData(filteredList);
         });
     }
 
     // From timeline and variable charts dropdown selector
     dropdownSelector(i, type, newValue) {
-        console.log(
-            'dropdownSelector i ',
-            this.allCharts[i].data.length,
-            ' type ',
-            type,
-            'newValue ',
-            newValue
-        );
+        // console.log(
+        //     'dropdownSelector i ',
+        //     this.allCharts[i].data.length,
+        //     ' type ',
+        //     type,
+        //     'newValue ',
+        //     newValue
+        // );
         this.allCharts[i].data = this.quoteService.nestChartData(newValue, this.dynamicData);
         this.allCharts[i].title = newValue;
         let drawTypeVal: number;

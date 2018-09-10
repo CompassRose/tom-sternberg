@@ -92,7 +92,6 @@ export class PieChartComponent implements OnInit, OnChanges {
                 this.initChart(this);
                 this.drawLegend(this);
                 this.initializeEvents(this);
-                console.log('this.isPremium ', this.isPremium);
             }, 0);
         }
     }

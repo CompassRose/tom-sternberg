@@ -5,8 +5,8 @@
         <a routerLink="drilldown" href="#home">Drilldown<span class="sr-only">(current)</span></a></li>
       <li>
         <a routerLink="details" href="#page1">Details
-          <span *ngIf="1 > 0" class="badge" id="savedCount">
-          </span></a>
+          <span *ngIf="rowAmount" class="count-badge" [style.background-color]="rowCountColor">{{rowAmount}}</span>
+        </a>
       </li>
       <li>
         <a routerLink="map" href="#page2">Map</a></li>

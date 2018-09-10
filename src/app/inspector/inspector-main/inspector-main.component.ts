@@ -12,7 +12,8 @@ import { NgbdTranscludeModalComponent } from '../../shared/components/ngb-transc
     providers: [ChartConfigService]
 })
 export class InspectorMainComponent implements OnInit {
-    public rowAmount: any[] = [];
+    public rowCountColor: string;
+    public rowAmount: number;
     public modalButtons = {
         name: 'Close'
     };
@@ -39,17 +40,24 @@ export class InspectorMainComponent implements OnInit {
                 .addClass('active');
         });
 
-        this.quoteService.newQuoteSubject.subscribe(data => {
-            // data.map();
-            this.setRowData(data);
-        });
-        // this.quoteService.getSubjectData(this.dynamicData);
-        // this.quoteService.getSubjectData(filteredList);
+        setTimeout(() => {
+            this.quoteService.newQuoteSubject.subscribe(data => {
+                this.setRowData(data);
+            });
+        }, 300);
     }
 
+    // Set flag for details tab row counts
     setRowData(arg) {
-        console.log('data.length ', typeof arg);
-        this.rowAmount = arg;
+        console.log('data.length ', arg.length);
+        if (arg.length > 6000) {
+            this.rowCountColor = 'red';
+        } else if (arg.length > 100 && arg.length <= 6000) {
+            this.rowCountColor = 'blue';
+        } else {
+            this.rowCountColor = 'LimeGreen';
+        }
+        this.rowAmount = arg.length;
     }
 
     openModal() {

@@ -99,14 +99,17 @@
 
       <ul class="filters-tabs nav nav-tabs nav-justified" id="myTab" role="tablist">
         <li class="nav-item mr-1">
-          <a class="nav-link one" id="filter-tab" role="tab" (click)="activateTabOne()"><div>Search
-            Criteria</div></a>
+          <a class="nav-link one" id="filter-tab" role="tab" (click)="activateTabOne()">
+            <div>Search Criteria<span *ngIf="filters.length > 0" class="count-badge">{{filters.length}}</span>
+            </div>
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link two" id="saved-tab" (click)="activateTabTwo()">
-            <div>Saved Searches<span *ngIf="filterSets.length > 0" class="badge"
+            <div>Saved Searches<span *ngIf="filterSets.length > 0" class="count-badge"
                                     id="savedCount">{{filterSets.length}}</span>
-            </div></a>
+            </div>
+          </a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
@@ -123,7 +126,7 @@
               </button>
             </div>
           </div>
-          <div class="controls" *ngIf="saveActive">
+          <div class="controls" *ngIf="filters.length">
             <button id="saveSearch" class="btn btn-sm btn-primary savebtn" (click)="saveFilterSet(filters);">
               <i class="fa fa-floppy-o mr-1"></i>
             </button>

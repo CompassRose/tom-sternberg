@@ -94,15 +94,18 @@
   border-top: 1px solid;
   border-color: rgba(49, 49, 98, 0.95);
   border-bottom: 0px transparent;
+
   &:hover {
     border-color: #52a3ff;
     color: #bdc1c9;
   }
 }
 
+
 .nav-tabs .nav-link {
   border-radius: 5px 5px 0 0 !important;
 }
+
 
 .nav-tabs .nav-link.active  {
   color: black;

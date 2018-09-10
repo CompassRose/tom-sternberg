@@ -149,7 +149,7 @@ export class ChartConfigService {
 
     // update row count badge text
     setRowCount(details: any[]) {
-        console.log('setRowCount ', details);
+        console.log('setRowCount ', details.length);
         this.detailData = details;
         const len = details.length;
         const badge = $('#rowCount');
