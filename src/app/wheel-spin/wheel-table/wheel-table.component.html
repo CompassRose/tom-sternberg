@@ -2,8 +2,7 @@
   <div class="d-flex align-items-center justify-content-between">
     <div class="gameTitle text-center mt-1 mb-2">Roulette Challenge</div>
     <div class="ml-auto">
-      <div class="table-description ml-auto f-weight-600 text-white">To place bets drag and drop coins on the table, and spin the wheel! </div>
-        <div class="table-description ml-auto f-weight-600 text-white">To remove a placed bet click the cell</div>
+      <div class="help-button" (click)="openModal();">?</div>
     </div>
   </div>
   <div class="d-flex flex-md-column flex-lg-row justify-content-lg-between">
@@ -142,7 +141,7 @@
       </div>
       <div>
         <app-wheel-spinner
-          (spinResultsEvent)="initToolEvent($event)"></app-wheel-spinner>
+          (spinResultsEvent)="processWinningNumber($event)"></app-wheel-spinner>
       </div>
     </div>
     <div class="game-state-frame borders">

@@ -11,12 +11,12 @@ export class NgbdTranscludeModalComponent implements OnInit {
     @Input()
     modalName;
     @Input()
-    modalContent;
+    modalContent: any[];
     @Input()
     modalButtons;
 
     public modalTitle;
-    public activeContent;
+    public activeContent: any[];
     public activeButtons;
 
     constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
@@ -29,6 +29,7 @@ export class NgbdTranscludeModalComponent implements OnInit {
     }
 
     processBodyContent() {
-        this.activeContent.forEach(d => {});
+        console.log('this.activeContent ', this.activeContent);
+        // this.activeContent.forEach(d => {});
     }
 }

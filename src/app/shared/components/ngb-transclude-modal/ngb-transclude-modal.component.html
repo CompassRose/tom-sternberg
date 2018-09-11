@@ -3,11 +3,11 @@
   <a class="header-lg ml-auto" (click)="activeModal.dismiss('Cross click')">&times;</a>
 </div>
 <div class="modal-body">
-  <div class="instruction-row" *ngFor="let instruction of activeContent; let $idx = index;">
+  <div class="instruction-row" *ngFor="let instruction of activeContent;">
     <span class="text-left ml-2 mr-1">{{instruction}}</span>
 </div>
   <div class="d-flex align-items-center my-footer mt-3">
-    <button type="button" class="btn btn-indigo waves-light ml-auto mr-3" data-dismiss="modal"
+    <button type="button" class="btn btn-indigo waves-light ml-auto" data-dismiss="modal"
             (click)="activeModal.dismiss('Cross click')">{{activeButtons.name}}
     </button>
   </div>

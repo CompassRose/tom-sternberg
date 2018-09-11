@@ -1,7 +1,7 @@
 <div class="spin-frame">
   <div id="chart">
-    <span *ngIf="!resultsValue" class="prize"><a (click)="spinFromBtn()">SPIN</a></span>
-    <span *ngIf="resultsValue" class="winner"><a (click)="spinFromBtn()">SPIN</a></span>
+    <span *ngIf="spinShow" class="prize"><a (click)="spinFromBtn()">SPIN</a></span>
+    <span *ngIf="!spinShow" class="winner pulsate">{{resultsValue}}</span>
   </div>
 </div>
 

@@ -9,21 +9,21 @@ import {
 import * as d3 from 'd3';
 
 @Component({
-    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-wheel-spinner',
     templateUrl: './wheel-spinner.component.html',
     styleUrls: ['./wheel-spinner.component.scss']
 })
 export class WheelSpinnerComponent implements OnInit {
     wheelData: any[] = [];
-    color: any[] = [];
+    color = ['red', '#000'];
     container: any;
     rotation: number;
     oldrotation: number;
     picked: number;
     oldpick: number[] = [];
     public wheel;
-    public resultsValue: number;
+    public resultsValue = 0;
+    public spinShow = true;
 
     @Output()
     spinResultsEvent = new EventEmitter<any>();
@@ -73,14 +73,13 @@ export class WheelSpinnerComponent implements OnInit {
         this.resetSpinner();
     }
 
+    // From spin button press
     public spinFromBtn() {
         this.spin(this);
     }
 
     private resetSpinner() {
-        console.log('wheelspin');
-        this.color = ['red', '#000'];
-
+        this.spinShow = true;
         const padding = { top: 16, right: 16, bottom: 16, left: 16 };
         const w = 400 - padding.left - padding.right;
         const h = 400 - padding.top - padding.bottom;
@@ -91,6 +90,10 @@ export class WheelSpinnerComponent implements OnInit {
         this.oldrotation = 0;
 
         const parent = this;
+
+        d3.select('#chart')
+            .select('svg')
+            .remove();
 
         const svg = d3
             .select('#chart')
@@ -190,25 +193,7 @@ export class WheelSpinnerComponent implements OnInit {
 
     // Click Container
     private spin(parent) {
-        // this.picked = 100000;
-        // this.oldpick = [];
-        // this.rotation = 0;
-        // this.oldrotation = 0;
-
-        // all slices have been seen, all done
-        // Only allow single spin temp;
-        //  parent.container.on('click', null);
-
-        // parent.spin(d, parent);
-
-        //  End allow temp
-        // if (this.oldpick.length === this.wheelData.length) {
-        //     parent.container.on('click', null);
-        //     return;
-        // }
-
         const ps = 360 / this.wheelData.length;
-        // let  pieslice = Math.round(1440/this.wheelData.length);
         const rng = Math.floor(Math.random() * 1440 + 360);
         this.rotation = Math.round(rng / ps) * ps;
         this.picked = Math.round(this.wheelData.length - (this.rotation % 360) / ps);
@@ -216,13 +201,10 @@ export class WheelSpinnerComponent implements OnInit {
             this.picked >= this.wheelData.length
                 ? this.picked % this.wheelData.length
                 : this.picked;
-
         if (this.oldpick.indexOf(this.picked) !== -1) {
-            console.log('this.picked ', this.picked);
             d3.select(this).call(this.spin);
             return;
         } else {
-            console.log('else this.picked ', this.picked);
             this.oldpick.push(this.picked);
         }
         this.rotation += 90 - Math.round(ps / 2);
@@ -236,28 +218,21 @@ export class WheelSpinnerComponent implements OnInit {
             .attrTween('transform', parent.rotTween)
             .on('end', () => {
                 this.resultsValue = this.wheelData[parent.picked].label;
+                this.spinShow = false;
                 this.showResults(this.resultsValue);
                 d3.select('.slice:nth-child(' + (parent.picked + 1) + ') path')
-                    // .attr('fill', '#00ff00')
-                    .style('stroke-width', '3px')
-                    .attr('stroke', '#ffc600')
+                    .style('stroke-width', '4px')
+                    .attr('stroke', '#0518ff')
                     .attr('stroke-opacity', 1);
-                // d3.select('.prize')
-                //     .style('opacity', 1)
-                //     .style('margin-left', '15px');
-                //   .text(this.wheelData[parent.picked].label);
-                // parent.oldrotation = parent.rotation;
-
-                // parent.container.on('click', function(d: any) {
-                //     this.resetSpinner();
-                //     // parent.spin(d, parent);
-                // });
+                setTimeout(() => {
+                    this.spinShow = true;
+                    this.resetSpinner();
+                }, 5000);
             });
     }
 
-    // Call parent function to show tooltip
+    // Call parent function to show winners
     showResults(value) {
-        console.log('showTooltip ', value);
         this.spinResultsEvent.next({ value });
     }
 

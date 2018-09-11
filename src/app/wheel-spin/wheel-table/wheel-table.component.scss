@@ -8,6 +8,27 @@ $window-height: 460px;
   padding: 20px;
 }
 
+.btn {
+  padding: 0.84rem 2.14rem;
+  font-size: .91rem;
+}
+
+.help-button {
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: blue;
+  border: 2px solid #0000ae;
+  padding: 0.45rem .8rem;
+  box-shadow: 1px 1px 2px black;
+  &:hover {
+    border-color: $central-gold;
+  }
+}
+
 .gameTitle {
   font-family: 'Racing Sans One', cursive;
   font-size: 4.0rem;
@@ -171,11 +192,6 @@ $window-height: 460px;
     align-items: flex-start;
     flex-wrap: nowrap;
   }
-}
-
-.btn {
-  padding: 0.84rem 2.14rem;
-  font-size: .91rem;
 }
 
 a {

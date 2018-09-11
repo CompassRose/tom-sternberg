@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdTranscludeModalComponent } from '../../shared/components/ngb-transclude-modal/ngb-transclude-modal.component';
 
 @Component({
     selector: 'app-wheel-table',
@@ -143,8 +145,13 @@ export class WheelTableComponent implements OnInit {
     public myFunds: number;
     public winningsPaneActive = false;
     public displayArray: any[] = [];
+    public screenInstructions: any[];
 
-    constructor() {}
+    public modalButtons = {
+        name: 'Close'
+    };
+
+    constructor(private modalService: NgbModal) {}
 
     ngOnInit() {
         this.myFunds = 500;
@@ -164,6 +171,23 @@ export class WheelTableComponent implements OnInit {
                 row: 2
             }
         );
+        this.screenInstructions = [
+            'Start the Game with $' + this.myFunds,
+            'To place bets drag and drop coins on to the betting squares',
+            'You can drag multiple chips on betting squares',
+            'To remove a bet from a square click the square',
+            'When you are finished betting, spin the wheel!'
+        ];
+    }
+
+    openModal() {
+        const modalRef = this.modalService.open(NgbdTranscludeModalComponent, {
+            size: 'lg',
+            windowClass: 'modal-xxl'
+        });
+        modalRef.componentInstance.modalName = 'Roulette Instructions';
+        modalRef.componentInstance.modalContent = this.screenInstructions;
+        modalRef.componentInstance.modalButtons = this.modalButtons;
     }
 
     checkBets() {
@@ -223,7 +247,7 @@ export class WheelTableComponent implements OnInit {
         console.log('addBetValue ', e.directBet);
     }
 
-    initToolEvent(e) {
+    processWinningNumber(e) {
         this.winningNumber = Number(e.value);
         if (this.lastTenNums.length === 10) {
             this.lastTenNums.shift();
@@ -231,6 +255,7 @@ export class WheelTableComponent implements OnInit {
         this.lastTenNums.push(this.numberSquares[this.winningNumber - 1]);
         console.log('this.winningNumber ', e);
         this.processBets();
+        this.removeAllBets();
     }
 
     dragEnd(event) {
