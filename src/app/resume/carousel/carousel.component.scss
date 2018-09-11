@@ -1,101 +1,30 @@
 @import '../../../assets/stylesheets/variables';
 
-.index-top{
-  z-index:111100;
+.width-container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 20px;
+  .carousel-container {
+    opacity: 1;
+    z-index:10;
+    margin:50px auto;
+    width: 250px;
+    height:360px;
+    perspective: 2000px;
+    .carousel {
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease-in-out;
+    }
+  }
 }
-
-.carousel-container {
-  opacity: 1;
-  z-index:10;
-  margin:0 auto;
-  width: 250px;
-  height:200px;
-  perspective: 2000px;
-}
-
-.carousel {
-  height: 80%;
-  width: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.4s ease-in-out;
-}
-
 
 
 .overlay {
-  height:500px;
+  height:540px;
   background-color: rgba(0, 0, 60, 0.9);
-  position:absolute;
-  top:-100px;
 }
-
-
-
-.collapse-tab-static {
-  position:absolute;
-  top:-20px;
-  cursor:pointer;
-  font-size:18px;
-  padding:5px;
-  border-radius:5px;
-  color:black;
-  background-color:white;
-  z-index:10;
-  &:hover{
-    background-color:gold;
-  }
-}
-
-.in-visible {
-  opacity: 0;
-  transition-property: opacity;
-  transition-duration: .5s;
-}
-
-
-.am-visible {
-  opacity: 1;
-  transition-property: opacity;
-  transition-duration: .5s;
-}
-
-.anim-in {
-  animation: revealDown 0.55s forwards;
-}
-
-
-.anim-out {
-  animation: hideUp 0.55s forwards;
-}
-
-
-@keyframes hideUp {
-  0% {
-    transform: translate(0px, -420px);
-    animation-timing-function: ease-in-out;
-  }
-
-  100% {
-    transform: translate(0px, 100px);
-    animation-timing-function: ease-in-out;
-  }
-}
-
-
-
-@keyframes revealDown {
-  0% {
-    transform: translate(0px, 100px);
-    animation-timing-function: ease-in-out;
-  }
-
-  100% {
-    transform: translate(0px, -420px);
-    animation-timing-function: ease-in-out;
-  }
-}
-
 
 
 .item {
@@ -106,30 +35,43 @@
   flex-direction:column;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  color: #ffffff;
+  font-size: 1.1rem;
+  color: $central-gold;
   cursor: pointer;
   text-align: center;
-  border-radius: 5px;
-  background: #172751;
-  border:2px solid #1D65A6;
+  border-radius: 7px;
+  padding: 0 7px;
+  background: rgba(26, 62, 85, 0.92);
+  border:1px solid #3c6d82;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
-//  backface-visibility: hidden;
+  text-shadow: 1px 1px 2px black;
+ // backface-visibility: hidden;
   .box-image{
-    width:170px;
-    padding:10px;
+    width:175px;
+    border:1px solid #213343;
+    margin:10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.65);
+  }
+  .description-area {
+    min-height: 70px;
+    width: 220px;
+    .game-type {
+      font-weight: normal;
+      padding: 0 10px;
+      font-size: 14px;
+      color: $central-gold;
+    }
+    .game-desc {
+      font-weight: normal;
+      padding: 0 10px;
+      font-size: 13px;
+      color: white;
+    }
   }
   &:hover{
-    border:2px solid gold;
+    border:1px solid $central-gold;
   }
 }
-
-
-
-.item img {
-  transform:rotate(0deg);
-}
-
 
 .a {
   transform: rotateY(0deg) translateZ(400px);
@@ -171,11 +113,3 @@
   }
 }
 
-
-.M-L{
-  margin-left:480px;
-}
-
-.M-R{
-  margin-right:480px;
-}

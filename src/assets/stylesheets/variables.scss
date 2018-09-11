@@ -5,8 +5,8 @@ $darkBlue: #191970;
 $green1: #157ad1;
 $green2: #005491;
 $central-blue: #062a3f;
-$central-blue-container:#062e46;
-$central-gold: #ffa94c;
+$central-blue-container: #062137;
+$central-gold: #FFBB46;
 $central-gold-text: #ffca49;
 $default-text-blue: #1a2234;
 
@@ -26,18 +26,6 @@ $sky-blue:#3d6098;
 $sexy-red: #f04b4c;
 $fresh-grey: #e7e7e7;
 
-$mediumGrey: #aaaaaa;
-$darkGrey: rgba(0, 0, 0, 0.4);
-$white-bg: #f0f0f0;
-
-
-@mixin gradient($startColor, $endColor){
-  background: $startColor; /* Old browsers */
-  background: -moz-linear-gradient(top, $startColor 0%, $endColor 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, $startColor 0%,$endColor 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, $startColor 0%,$endColor 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startColor', endColorstr='$endColor',GradientType=0 ); /* IE6-9 */
-}
 
 $layoutMargin: 4.6rem;
 $layoutPadding: 4.6rem;

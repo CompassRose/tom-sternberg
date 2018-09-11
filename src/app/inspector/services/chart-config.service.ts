@@ -13,7 +13,6 @@ import { FormatService } from './format.service';
 @Injectable()
 export class ChartConfigService {
     private mappingData = MAPPING_DATA;
-    public mapDrawValue: string;
     public detailData;
     private rowData: any;
     public mouse: any = { x: 0, y: 0 };
@@ -101,7 +100,7 @@ export class ChartConfigService {
                 }
                 return {
                     key: group.key,
-                    values: group.value,
+                    values: group.value
                 };
             });
         // console.log('Chart nest ', nest);
@@ -150,7 +149,7 @@ export class ChartConfigService {
 
     // update row count badge text
     setRowCount(details: any[]) {
-        // console.log('setRowCount ', details);
+        console.log('setRowCount ', details.length);
         this.detailData = details;
         const len = details.length;
         const badge = $('#rowCount');
@@ -189,7 +188,7 @@ export class ChartConfigService {
                     (document.body.scrollTop || document.documentElement.scrollTop);
                 //  console.log('initMouse x ', parent.mouse.x, ' y ', parent.mouse.y);
             },
-            false,
+            false
         );
     }
 }

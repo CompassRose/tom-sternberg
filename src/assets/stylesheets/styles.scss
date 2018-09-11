@@ -1,20 +1,44 @@
 @import 'variables';
 
 body {
-  font-family: 'Open Sans', sans-serif;
+ // font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   // @include gradient(#23577a, lighten(#8192d1, 10));
-  background-color: #040e16;
+ // background-color: #040e16;
   color: black;
+  font-size: 16px;
+// project
+ // color:#ffb35c;
+  background-color: #041e29;
+
 }
 
 
 .container {
   min-width: $container-width;
-  margin-left: -20px;
- // padding: 20px;
   height: 100vh;
   background-color: $central-blue-container;
+  .spacer {
+    margin-top: 70px;
+  }
 }
+
+
+.heading {
+  padding-bottom: 0;
+  line-height: 1em;
+  color: white;
+  font-size: 1.8rem;
+  text-shadow: -1px 0px 0px rgba(204, 204, 204, 0.35),
+  -2px -1px 0px rgba(186, 186, 186, 0.35),
+  -3px -2px 0px rgba(168, 168, 168, 0.35),
+  -4px -3px 0px rgba(153, 153, 153, 0.35),
+  -5px -4px 0px rgba(135, 135, 135, 0.35),
+  -6px -5px 0px rgba(120, 120, 120, 0.35),
+  -7px -6px 0px rgba(55, 55, 55, 0.35),
+  -8px -7px 0px rgba(40, 40, 40, 0.35);
+}
+
 
 a {
   cursor: pointer
@@ -22,6 +46,10 @@ a {
 
 .gold-text {
   color: $central-gold;
+}
+
+.display-xxs {
+  font-size: 0.55rem;
 }
 
 .display-xs {
@@ -81,24 +109,24 @@ a {
 
 .navbar-nav {
   width: 100%;
+  border-bottom: 1px solid white;
   flex-direction: row;
-  padding: 11px;
-  margin-bottom: 3px;
+  padding: 10px;
 }
 
 
 #topheader li > a {
   text-transform: capitalize;
   transition: background-color .2s, color .2s;
-  padding: 12px 35px;
+  padding: 14px 35px;
   color: white;
   background-color: transparent;
   border-right: 1px solid;
   border-left: 1px solid;
   border-top: 1px solid;
-  border-color: rgba(37, 38, 88, 0.75);
+  border-color: rgba(61, 62, 171, 0.85);
   border-radius: 5px 5px 0 0;
-  margin-right: 4px;
+  margin: 30px 4px;
   border-bottom: 1px transparent;
   &:hover {
     border-color: #52a3ff;

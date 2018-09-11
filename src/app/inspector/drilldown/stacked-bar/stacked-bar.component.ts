@@ -5,7 +5,7 @@ import {
     OnInit,
     OnChanges,
     EventEmitter,
-    ViewEncapsulation,
+    ViewEncapsulation
 } from '@angular/core';
 import { ChartConfigService } from '../../services/chart-config.service';
 import { CustomTooltipComponent } from '../../../shared/components/custom-tooltip/custom-tooltip.component';
@@ -17,7 +17,7 @@ import { IChartMargin } from '../../interfaces/Filters';
     selector: 'app-bar-chart',
     templateUrl: './stacked-bar.component.html',
     styleUrls: ['./stacked-bar.component.scss'],
-    providers: [ChartConfigService, CustomTooltipComponent],
+    providers: [ChartConfigService, CustomTooltipComponent]
 })
 export class BarChartComponent implements OnInit, OnChanges {
     @Input()
@@ -40,10 +40,7 @@ export class BarChartComponent implements OnInit, OnChanges {
     @Output()
     tooltipHide = new EventEmitter<any>();
 
-    constructor(
-        private quoteService: ChartConfigService,
-        private tooltipComponent: CustomTooltipComponent,
-    ) {}
+    constructor(private quoteService: ChartConfigService) {}
 
     private margin: IChartMargin = { top: 20, right: 20, bottom: 30, left: 50 };
     private container: any = {};
@@ -168,13 +165,13 @@ export class BarChartComponent implements OnInit, OnChanges {
         x.domain(
             this.data.map(function(d: any) {
                 return d.key;
-            }),
+            })
         );
         y.domain([
             0,
             d3.max(this.data, function(d: any) {
                 return d.values[parent.total];
-            }),
+            })
         ]);
 
         this.x = x;
@@ -203,7 +200,7 @@ export class BarChartComponent implements OnInit, OnChanges {
                 '0, 0, ' +
                     (this.container.width + this.margin.left + this.margin.right) +
                     ', ' +
-                    (this.container.height + this.margin.top + this.margin.bottom),
+                    (this.container.height + this.margin.top + this.margin.bottom)
             );
 
         const chart = this.svg

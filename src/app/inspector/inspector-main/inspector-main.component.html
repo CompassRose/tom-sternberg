@@ -1,17 +1,17 @@
 <div id="topheader">
-  <div class="w-100">
-    <ul class="navbar-nav" style="border-bottom: 1px solid white;">
+  <div class="d-flex w-100 pt-4">
+    <ul class="navbar-nav">
       <li class="active">
         <a routerLink="drilldown" href="#home">Drilldown<span class="sr-only">(current)</span></a></li>
       <li>
         <a routerLink="details" href="#page1">Details
-          <span *ngIf="1 > 0" class="badge" id="savedCount"
-                style="position:absolute; margin-top:2px; background-color:blue; margin-left: 6px;">6
-          </span></a>
+          <span *ngIf="rowAmount" class="count-badge" [style.background-color]="rowCountColor">{{rowAmount}}</span>
+        </a>
       </li>
       <li>
         <a routerLink="map" href="#page2">Map</a></li>
     </ul>
+    <button class="btn btn-sm help btn-primary display-md f-weight-600" (click)="openModal();">?</button>
   </div>
 </div>
 <router-outlet></router-outlet>

@@ -1,16 +1,13 @@
 <div id="topheader">
-  <nav class="w-100">
-    <div class="w-100 mb-5">
-      <ul class="navbar-nav" style="border-bottom: 1px solid white;">
-        <li class="active"><a routerLink="pictures" href="#home">Pictures<span class="sr-only">(current)</span></a></li>
-        <li><a routerLink="familyTree" href="#page1">Family Tree</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="d-flex w-100 py-4">
+    <ul class="navbar-nav">
+      <li class="active"><a routerLink="pictures" href="#home">Pictures<span class="sr-only">(current)</span></a></li>
+      <li><a routerLink="familyTree" href="#page1">Family Tree</a></li>
+    </ul>
+    <button class="btn btn-sm help btn-primary display-md f-weight-600" (click)="openModal();">?</button>
+  </div>
 </div>
-<div class="ml-3 mr-3">
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>
 <!--<app-read></app-read>-->
 
 

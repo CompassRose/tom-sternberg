@@ -1,0 +1,100 @@
+[
+  {
+    "name":"343 Studios",
+    "position":"User Interface Developer",
+    "date":"1/2012 - 7/2012",
+    "description":"UI developer for the HALO 4 user interface. All elements created and animated using 343’s proprietary user interface development tool.",
+    "headingImage":"logoFlat343",
+    "image":"logoFlatHalo"
+  },
+  {
+    "name":"Zipper Interactive",
+    "position":"Game Artist/Animator",
+    "date":"9/1997 – 12/2011",
+    "description":"Zipper opened its doors in 1995 and closed in 2011. In their 17 year existence shipped 13 games, many of which were AAA titles. Zipper employed an Agile development methodology. During my 15-year tenure at Zipper Interactive, my game development contributions included:",
+    "headingImage":"logoFlatZipper",
+    "image":"squareZipper",
+    "projects": [
+      {
+        "projectName": "SOCOM 1",
+        "projectRole": "Lead UI Artist/Animator, Weapon Effects Animations",
+        "projectPlatform": "3D Video Game for the PS2",
+        "order":"item a",
+        "boxImage": "img_socom1.png",
+        "video": "https://www.youtube.com/embed/XKe2Qvyf2JQ?autoplay=1"
+      },
+      {
+        "projectName": "SOCOM 2",
+        "projectRole": "Lead UI Artist/Programmer, 3D Weapon Modeler",
+        "projectPlatform": "3D Video Game for the PS2",
+        "order":"item b",
+        "boxImage": "img_Socom2.png",
+        "video": "https://www.youtube.com/embed/acTgmc8NFA8?autoplay=1"
+      },
+      {
+        "projectName": "SOCOM 3",
+        "projectRole": "Lead UI Artist/Programmer Weapon Effects Support",
+        "projectPlatform": "3D Video Game for the PS2",
+        "order":"item c",
+        "boxImage": "img_Socom3.png",
+        "video": "https://www.youtube.com/embed/low8HlogFFQ?autoplay=1"
+      },
+      {
+        "projectName": "SOCOM 4",
+        "projectRole": "Lead UI Artist/Programmer 3D Environment Artist",
+        "projectPlatform": "3D Video Game for the PS3",
+        "order":"item d",
+        "boxImage": "img_Socom4.png",
+        "video": "https://www.youtube.com/embed/zzOPSu2AdV8?autoplay=1"
+      },
+      {
+        "projectName": "SOCOM MAG",
+        "projectRole": "UI Artist/Programmer",
+        "projectPlatform": "3D Video Game for the PS3",
+        "order":"item e",
+        "boxImage": "img_mag.png",
+        "video": "https://www.youtube.com/embed/low8HlogFFQ?autoplay=1"
+      },
+      {
+        "projectName": "CRIMSON SKIES",
+        "projectRole": "3D Environments Lead UI Artist/Animator",
+        "projectPlatform": "3D Video Game for the PC",
+        "order":"item f",
+        "boxImage": "img_crimsonSkies.png",
+        "video": "https://www.youtube.com/embed/dtSMoGF7aS8?autoplay=1"
+      },
+      {
+        "projectName": "MECHWARRIOR 3",
+        "projectRole": "3D Environment, User Interface Artist/Animator",
+        "projectPlatform": "3D Video Game for the PC",
+        "order":"item g",
+        "boxImage": "img_mechWarrior3.png",
+        "video": "https://www.youtube.com/embed/nm76b8tzzWI?autoplay=1"
+      },
+      {
+        "projectName": "TOP GUN",
+        "projectRole": "3D Environment Artist/Animator",
+        "projectPlatform": "3D Video Game for the PC",
+        "order":"item h",
+        "boxImage": "img_topGun.png",
+        "video": "https://www.youtube.com/embed/low8HlogFFQ?autoplay=1"
+      },
+      {
+        "projectName": "RECOIL",
+        "projectRole": "3D Environments, Animation Programmer",
+        "projectPlatform": "3D Video Game for the PC",
+        "order":"item i",
+        "boxImage": "img_recoil.png",
+        "video": "https://www.youtube.com/embed/h_a08E-ZT2k?autoplay=1"
+      },
+      {
+        "projectName": "HALO 4",
+        "projectRole": "UI Artist/Programmer",
+        "projectPlatform": "3D Video Game for the Xbox",
+        "order":"item j",
+        "boxImage": "img_Halo4.png",
+        "video": "https://www.youtube.com/embed/qcMmEJo2lFE?autoplay=1"
+      }
+    ]
+  }
+]

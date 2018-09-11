@@ -8,10 +8,8 @@ import {
     ViewEncapsulation,
     Injectable
 } from '@angular/core';
-// import { Headers } from '@angular/common/http';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { catchError } from 'rxjs/operators';

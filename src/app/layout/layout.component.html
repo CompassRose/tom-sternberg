@@ -1,53 +1,48 @@
-<header>
-  <div class="fixed-nav">
-    <div class="d-flex align-items-center contained-elements m-auto">
-      <div class="gold-text header-xl ml-2"><i class="fa fa-500px"></i></div>
-      <div class="text-white header-lg ml-3">Tom Sternberg</div>
-      <div class="nav-icon3 ml-auto mr-3" (click)="menu_OnClick($event)"
-           [ngClass]="isExpanded ?'open':''">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+<div class="fixed-nav">
+  <div class="d-flex align-items-center contained-elements m-auto">
+    <div class="gold-text header-xl ml-3"><i class="fa fa-500px"></i></div>
+    <div class="heading ml-3">Tom Sternberg</div>
+    <div class="nav-icon3 ml-auto mr-5" (click)="menu_OnClick($event)"
+         [ngClass]="isExpanded ?'open':''">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </div>
-</header>
-<!--Main Layout-->
-<div>
-  <div class="container m-auto">
-      <div class="row">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-</div>
-<!--Main Layout-->
-<div [ngClass]="!isExpanded ? 'sidebar in-visible anim-in' : 'sidebar am-visible anim-out'">
-  <div class="d-flex flex-column m-auto">
-    <div class="mt-5">
-      <div class="w-100">
-        <div class="main-navigation-groups w-100">
-          <ul>
-            <li><a routerLink="boneyard" (click)="isExpanded = !isExpanded; backdrop = 'background3'">Boneyard</a>
-            </li>
-            <li><a routerLink="resume" (click)="isExpanded = !isExpanded; backdrop = 'background3'">Resume</a>
-            </li>
-            <li><a routerLink="family/family-routes/pictures" (click)="isExpanded = !isExpanded; backdrop = 'background3'">Family</a>
-            </li>
-            <!--<li><a routerLink="games"-->
-                   <!--(click)="isExpanded = !isExpanded; backdrop = 'background2'">Games</a>  gotoFamily();-->
-            <!--</li>-->
-            <li><a routerLink="inspector/inspect/drilldown" (click)="isExpanded = !isExpanded; backdrop = 'background3'">Inspector</a>
-            </li>
-            <li><a routerLink="wheelspin" (click)="isExpanded = !isExpanded; backdrop = 'background1'">Wheel Spin</a>
-            </li>
-            <!--<li class="mb-3"><a (click)="logout(); isExpanded = !isExpanded; backdrop = 'background2'">Logout<i-->
-              <!--class="fa fa-sign-out disabled ml-2"></i></a>-->
-            <!--</li>-->
-          </ul>
-        </div>
+  <!--Main Layout-->
+  <div [ngClass]="!isExpanded ? 'in-visible anim-out' : 'am-visible anim-in'">
+    <div class="sidebar">
+      <div class="main-navigation-groups w-100">
+        <ul>
+          <li><a routerLink="resume" (click)="isExpanded = !isExpanded;">Resume</a>
+          </li>
+          <li><a routerLink="family/family-routes/pictures"
+                 (click)="isExpanded = !isExpanded;">Family</a>
+          </li>
+          <!--<li><a routerLink="games"-->
+          <!--(click)="isExpanded = !isExpanded; backdrop = 'background2'">Games</a>  gotoFamily();-->
+          <!--</li>-->
+          <li><a routerLink="inspector/inspect/drilldown"
+                 (click)="isExpanded = !isExpanded;">Inspector</a>
+          </li>
+          <li><a routerLink="wheelspin" (click)="isExpanded = !isExpanded;">Wheel Spin</a>
+          </li>
+          <li><a routerLink="boneyard" (click)="isExpanded = !isExpanded;">Boneyard</a>
+          </li>
+          <!--<li class="mb-3"><a (click)="logout(); isExpanded = !isExpanded; backdrop = 'background2'">Logout<i-->
+          <!--class="fa fa-sign-out disabled ml-2"></i></a>-->
+          <!--</li>-->
+        </ul>
       </div>
     </div>
   </div>
 </div>
+<div class="container m-auto">
+  <div class="spacer">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
 

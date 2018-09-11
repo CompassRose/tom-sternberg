@@ -1,16 +1,34 @@
 import { Component, ChangeDetectionStrategy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ChartConfigService } from '../services/chart-config.service';
 import * as $ from 'jquery';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdTranscludeModalComponent } from '../../shared/components/ngb-transclude-modal/ngb-transclude-modal.component';
 
 @Component({
     selector: 'app-inspector-main',
     templateUrl: './inspector-main.component.html',
     styleUrls: ['./inspector-main.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    providers: [ChartConfigService],
+    providers: [ChartConfigService]
 })
 export class InspectorMainComponent implements OnInit {
-    constructor(private quoteService: ChartConfigService) {}
+    public rowCountColor: string;
+    public rowAmount: number;
+    public modalButtons = {
+        name: 'Close'
+    };
+
+    public screenInstructions = [
+        'The Inspector screen shows sales information by Sales Person, Billing Mode and Time Period.',
+        'Hover over chart elements for detailed information',
+        'Click on one or more chart elements and filter for more specific details',
+        'View your filters in the Search Criteria window',
+        'Press Disk button to save filter groups to Saved Searches',
+        'Load or delete Saved Searches',
+        'Details and Map tabs reflect filtered values'
+    ];
+
+    constructor(private quoteService: ChartConfigService, private modalService: NgbModal) {}
 
     ngOnInit() {
         $('#topheader .navbar-nav a').on('click', function() {
@@ -22,6 +40,33 @@ export class InspectorMainComponent implements OnInit {
                 .addClass('active');
         });
 
-        // this.quoteService.getSubjectData(filteredList);
+        setTimeout(() => {
+            this.quoteService.newQuoteSubject.subscribe(data => {
+                this.setRowData(data);
+            });
+        }, 300);
+    }
+
+    // Set flag for details tab row counts
+    setRowData(arg) {
+        if (arg.length > 6000) {
+            this.rowCountColor = 'red';
+        } else if (arg.length > 100 && arg.length <= 6000) {
+            this.rowCountColor = 'blue';
+        } else {
+            this.rowCountColor = 'LimeGreen';
+        }
+        this.rowAmount = arg.length;
+    }
+
+    openModal() {
+        console.log('Inspector Instructions');
+        const modalRef = this.modalService.open(NgbdTranscludeModalComponent, {
+            size: 'lg',
+            windowClass: 'modal-xxl'
+        });
+        modalRef.componentInstance.modalName = 'Inspector Instructions';
+        modalRef.componentInstance.modalContent = this.screenInstructions;
+        modalRef.componentInstance.modalButtons = this.modalButtons;
     }
 }

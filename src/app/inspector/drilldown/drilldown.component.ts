@@ -17,7 +17,7 @@ import * as $ from 'jquery';
     selector: 'app-drilldown',
     templateUrl: './drilldown.component.html',
     styleUrls: ['./drilldown.component.scss'],
-    providers: [FormatService],
+    providers: [FormatService]
 })
 export class DrilldownComponent implements OnInit {
     constructor(private quoteService: ChartConfigService, private formatService: FormatService) {}
@@ -31,7 +31,6 @@ export class DrilldownComponent implements OnInit {
     private btnTypes: any = ['bar', 'pie', 'line', 'table'];
     private allRows: any[] = [];
     public dynamicData: any[] = [];
-    public saveActive = false;
     public tableActive = false;
 
     public showTip = false;
@@ -52,7 +51,7 @@ export class DrilldownComponent implements OnInit {
             isPremium: false,
             columnData: [],
             color: this.color1,
-            data: [],
+            data: []
         },
         <AppChart>{
             title: 'Billing Mode',
@@ -65,7 +64,7 @@ export class DrilldownComponent implements OnInit {
             isPremium: false,
             columnData: [],
             color: this.color1,
-            data: [],
+            data: []
         },
         <AppChart>{
             title: 'Quote Year and Month Created',
@@ -78,8 +77,8 @@ export class DrilldownComponent implements OnInit {
             isPremium: false,
             columnData: [],
             color: this.color1,
-            data: [],
-        },
+            data: []
+        }
     ];
 
     ngOnInit() {
@@ -91,6 +90,7 @@ export class DrilldownComponent implements OnInit {
             this.allCharts[2].columnData = this.quoteService.initDropdown(this.fields);
             this.resetCharts();
         });
+        this.activateTabOne();
     }
 
     removeFilter(e, idx) {
@@ -125,6 +125,7 @@ export class DrilldownComponent implements OnInit {
         this.allCharts.forEach((d, i) => {
             d.data = this.quoteService.nestChartData(d.title, processedRows);
         });
+        this.quoteService.getSubjectData(processedRows);
     }
 
     // Set chart specific buttons active/disabled
@@ -139,19 +140,18 @@ export class DrilldownComponent implements OnInit {
     setCurrentChart(newData, index, setFilter) {
         console.log('setCurrentChart  ', this.allCharts[index], ' newData ', newData);
         this.setChartBtnsState(this.allCharts[index], true);
-        this.saveActive = true;
         const setFilterFormat = { key: this.allCharts[index].title, values: newData.key };
         this.allCharts[index].chartType = 'single';
         this.allCharts[index].key = newData.key;
         this.filters.push(setFilterFormat);
         const filteredList = this.returnFiltered('new');
+
         this.setChartData(filteredList);
         this.quoteService.getSubjectData(filteredList);
     }
 
     // Draws charts with updated data
     setChartData(filteredResponse) {
-        //  console.log('\n filteredResponse', filteredResponse);
         this.allCharts.forEach((v, i) => {
             v.data = this.quoteService.nestChartData(v.title, filteredResponse);
             if (v.key !== '') {
@@ -184,26 +184,26 @@ export class DrilldownComponent implements OnInit {
                     }
                 });
             } else {
-                this.saveActive = false;
                 if (d.title === item.key) {
                     d.key = '';
                     this.setChartData(filteredList);
                 }
                 d.chartType = d.chartTypeInit;
             }
+            this.quoteService.getSubjectData(filteredList);
         });
     }
 
     // From timeline and variable charts dropdown selector
     dropdownSelector(i, type, newValue) {
-        console.log(
-            'dropdownSelector i ',
-            this.allCharts[i].data.length,
-            ' type ',
-            type,
-            'newValue ',
-            newValue,
-        );
+        // console.log(
+        //     'dropdownSelector i ',
+        //     this.allCharts[i].data.length,
+        //     ' type ',
+        //     type,
+        //     'newValue ',
+        //     newValue
+        // );
         this.allCharts[i].data = this.quoteService.nestChartData(newValue, this.dynamicData);
         this.allCharts[i].title = newValue;
         let drawTypeVal: number;
@@ -244,17 +244,17 @@ export class DrilldownComponent implements OnInit {
     // From Saved list press event
     //////////////////////////////
     saveFilterSet(searchValues) {
-        console.log('saveFilterSet searchValues ', searchValues);
+        // console.log('saveFilterSet searchValues ', searchValues);
 
         let filterSetter = [];
 
         // bootbox.prompt('Give your search criteria a name:', (name: any) => {
         // if (name) {
         filterSetter = JSON.parse(JSON.stringify(searchValues));
-        this.filterSets.push({ name: 'Saved', filters: filterSetter });
+        this.filterSets.push({ filters: filterSetter });
         //  }
         // });
-
+        console.log('saveFilterSet this.filterSets ', this.filterSets);
         const setLength = this.filterSets.length;
         // // need to find a better way of doing this
         $('a.nav-link.one').removeClass('active');
@@ -279,7 +279,7 @@ export class DrilldownComponent implements OnInit {
     // Load filter list
 
     loadFilterList(target) {
-        // console.log('loadFilterList target ', target);
+        console.log('loadFilterList target ', target);
         this.filters = [];
         let filterSetter = [];
 
