@@ -161,7 +161,6 @@ export class DrilldownComponent implements OnInit {
             } else if (v.data.length > 2 && v.chartType !== 'single') {
                 v.chartType = v.chartTypeInit;
             }
-            // console.log('setChartData v ', v);
         });
         this.quoteService.setRowCount(filteredResponse);
     }
@@ -207,8 +206,10 @@ export class DrilldownComponent implements OnInit {
         this.allCharts[i].data = this.quoteService.nestChartData(newValue, this.dynamicData);
         this.allCharts[i].title = newValue;
         let drawTypeVal: number;
-        this.allCharts[i].id === 'timeline' ? (drawTypeVal = 170) : (drawTypeVal = 15);
+        this.allCharts[i].id === 'timeline' ? (drawTypeVal = 170) : (drawTypeVal = 10);
         if (this.allCharts[i].data.length >= drawTypeVal) {
+            console.log('this.allCharts[i].id ', this.allCharts[i].id);
+            $('a.nav-link.one').removeClass('active');
             this.setChartType(i, 'table', false);
         } else {
             this.setChartType(i, this.allCharts[i].chartTypeInit, true);
@@ -218,6 +219,7 @@ export class DrilldownComponent implements OnInit {
     // From chart specific button presses
     setChartType(i, type, saved) {
         console.log('setChartType ', type, ' saved ', saved);
+
         if (saved) {
             this.allCharts[i].chartTypeInit = type;
         }

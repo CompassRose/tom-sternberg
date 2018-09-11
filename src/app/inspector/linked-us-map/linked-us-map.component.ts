@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewEncapsulation, EventEmitter } from '@angular/core';
 import * as d3 from 'd3';
 import * as d3GeoTile from '../../../assets/d3.geo.tile';
 import * as topojson from 'topojson';
@@ -10,18 +10,17 @@ import { MapService } from '../services/map.service';
     selector: 'linked-map',
     templateUrl: './linked-us-map.component.html',
     styleUrls: ['./linked-us-map.component.scss'],
-    providers: [MapService],
+    encapsulation: ViewEncapsulation.None,
+    providers: [MapService]
 })
 export class LinkedUSMapComponent implements OnInit {
     private mapFile;
     private sData;
     private pData;
     private stateDetails;
-
     private width: any;
     private height: any;
-
-    private zoom = 5.35;
+    private zoom = 4.35;
     private centered = null;
     private state = null;
     private mapX: number;
@@ -29,6 +28,7 @@ export class LinkedUSMapComponent implements OnInit {
     private scale: any;
     private svg;
     private tiles;
+    private tile;
     private background;
     private mapGroup;
     private states;
@@ -54,11 +54,9 @@ export class LinkedUSMapComponent implements OnInit {
     constructor(private mapService: MapService, private quoteService: ChartConfigService) {}
 
     ngOnInit() {
-        // updates details filter
         this.quoteService.newQuoteSubject.subscribe(data => {
             this.mapDetails = data;
             this.stateDetails = this.mapService.mapStateData(data);
-            console.log('quoteService ', this.stateDetails);
             const stateDetail: any = [];
             this.stateDetails.forEach((d, i) => {
                 if (d.key !== 'Unknown') {
@@ -66,25 +64,13 @@ export class LinkedUSMapComponent implements OnInit {
                 }
             });
             this.stateDetails = stateDetail;
-            console.log('map stateDetails ', this.stateDetails);
         });
 
         this.mapService.getMapData().subscribe(res => {
             this.mapFile = res;
-            // console.log('map shape data ', this.mapFile);
             this.setMapDrawElements();
         });
     }
-
-    // Call parent function to show tooltip
-    // private showTooltip(values, x, y) {
-    //     //     this.tooltipEvent.next({ values: values, x: x, y: y });
-    //     // }
-    //     //
-    //     // // Call parent function to show tooltip
-    //     // private hideTooltip() {
-    //     //     this.tooltipHide.next();
-    //     // }
 
     private setMapDrawElements() {
         this.sData = topojson.feature(this.mapFile, this.mapFile.objects.states).features;
@@ -104,24 +90,19 @@ export class LinkedUSMapComponent implements OnInit {
                 parent.mouse.y =
                     (e.clientY || e.pageY) +
                     (document.body.scrollTop || document.documentElement.scrollTop);
-                // console.log("mouse.x ", parent.mouse.x);
             },
-            false,
+            false
         );
     }
 
-    private resize = function() {
+    private resize() {
         this.clearMap();
-        this.width = $(window).width() - 330;
-        // this.height = $(window).height() - 180;
+        this.width = 1600;
         this.height = 800;
 
         this.mapX = this.width / 2;
         this.mapY = this.height / 2;
         this.scale = Math.max(this.width, this.height);
-        // console.log("scale ", this.scale);
-        // console.log("Size W ", this.width);
-        // console.log("Size H ", this.height);
 
         this.albers = d3
             .geoAlbers()
@@ -140,7 +121,7 @@ export class LinkedUSMapComponent implements OnInit {
         this.setPath(this.mercator);
         this.drawSVG();
         this.drawStates(this, this.mercator);
-    };
+    }
 
     private clearMap() {
         // console.log("clearChart usa map");
@@ -176,7 +157,7 @@ export class LinkedUSMapComponent implements OnInit {
             .attr('class', 'background')
             .attr('width', this.width + 20)
             .attr('height', this.height + 20)
-            .attr('opacity', 0);
+            .attr('opacity', 1);
 
         const mapGroup = svg
             .append('g')
@@ -193,13 +174,6 @@ export class LinkedUSMapComponent implements OnInit {
         this.mapGroup = mapGroup;
         this.states = states;
         this.places = places;
-
-        // console.log("self.svg ", this.svg);
-        // console.log("this.tiles ", this.tiles);
-        // console.log("self.mapGroup ", this.mapGroup);
-        // console.log("this.states ", this.states);
-        // console.log("this.places ", this.places);
-        // console.log('self.background ', this.background);
     }
 
     private drawStates(parent, mercator) {
@@ -222,12 +196,8 @@ export class LinkedUSMapComponent implements OnInit {
                 return d.key === v.properties.state;
             });
             if (s.length) {
-                // console.log("numQuotes ", s);
-                // console.log("typeof 2[0] ", typeof(s));
                 const newVal = 'Number of Quotes';
                 const numQuotes = s[0].value[newVal];
-                // console.log("typeof numQuotes ", typeof(numQuotes));
-                // console.log("numQuotes ", numQuotes);
                 const percent = Math.round((numQuotes / qLen) * 100);
                 stateArr.push(percent);
             }
@@ -264,10 +234,9 @@ export class LinkedUSMapComponent implements OnInit {
                         return ('state ' + quoted) as any;
                     })
                     .attr('fill', c)
-                    .attr('stroke', '#47b187')
+                    .attr('stroke', '#387138')
                     .attr('id', s)
                     .on('click', function(d, i) {
-                        // console.log("state ", state);
                         parent.stateClick(d, i, state, this);
                     })
                     .on('mousemove', function(e) {
@@ -300,6 +269,7 @@ export class LinkedUSMapComponent implements OnInit {
         this.hideTiles();
 
         if (d && this.centered !== d && hasQuote) {
+            console.log('stateClick this.centered ', d, ' this ', this);
             this.changeProjection(this.mercator, this);
 
             const centroid = this.setPath(this.mercator).centroid(d);
@@ -325,10 +295,6 @@ export class LinkedUSMapComponent implements OnInit {
 
             var diff: any = Math.max(perW, perH);
 
-            // console.log("perW ", perW);
-            // console.log("perH ", perH);
-            // console.log("diff ", diff);
-
             if (diff > 1) {
                 zoom = zoom / diff;
             } else {
@@ -350,9 +316,9 @@ export class LinkedUSMapComponent implements OnInit {
         this.mapGroup.selectAll('path').classed(
             'active',
             this.centered &&
-                function(d) {
-                    return d === center;
-                },
+                function(e) {
+                    return e === center;
+                }
         );
 
         this.mapGroup
@@ -370,7 +336,7 @@ export class LinkedUSMapComponent implements OnInit {
                     -x +
                     ',' +
                     -y +
-                    ')',
+                    ')'
             )
             .style('stroke-width', 2.5 / zoom + 'px')
             .attr('class', function() {
@@ -432,7 +398,7 @@ export class LinkedUSMapComponent implements OnInit {
                     }),
                     'Total Premium Sold': d3.sum(leaves, function(d) {
                         return d['Total Premium Sold'];
-                    }),
+                    })
                 } as any;
             })
             .entries(this.mapDetails);
@@ -463,7 +429,6 @@ export class LinkedUSMapComponent implements OnInit {
         // //get the total number of quotes in selected state
         qStates.pop('qStates ', qStates);
         let qTotal = qStates.filter(function(d) {
-            // console.log("d ", d);
             return d.key === centered.properties.state;
         });
         setTimeout(() => {
@@ -472,7 +437,6 @@ export class LinkedUSMapComponent implements OnInit {
                 return b.values['Number of Quotes'] - a.values['Number of Quotes'];
             });
 
-            // console.log("cities ", cities);
             parent.places
                 .selectAll('.place')
                 .data(cities)
@@ -486,7 +450,6 @@ export class LinkedUSMapComponent implements OnInit {
                     const coord2 = mercCoords[1].toFixed(2);
                     const quotes = d.values['Number of Quotes'];
                     const percent = Math.ceil((quotes / qTotal) * 100) * 2;
-                    // console.log("quotes ", quotes);
 
                     radius = percent > 10 ? 10 : percent;
 
@@ -496,35 +459,13 @@ export class LinkedUSMapComponent implements OnInit {
                     d3.select(this)
                         .attr('class', 'place')
                         .attr('r', 0)
-                        .attr('fill', 'rgba(15,20,170,0.3')
+                        .attr('fill', 'rgba(15,20,170,0.4')
                         .attr('transform', function() {
                             return 'translate(' + parent.mercator(geo.geometry.coordinates) + ')';
                         })
-                        // .on('mousemove', function(d) {
-                        //     parent.selectArea(geo.properties.name, geo.values, this, parent);
-                        // })
                         .transition()
                         .duration(1000)
                         .attr('r', radius);
-
-                    // d3.select(this).append("text")
-                    //   .attr("color", "black")
-                    //   .attr("font-size",25)
-                    //   // .attr('transform', function (d: any) {
-                    //   //   return "translate(" + parent.mercator( geo.geometry.coordinates) + ")";
-                    //   // })
-                    //   .text("Hello");
-
-                    console.log(
-                        'cName ',
-                        cName,
-                        ' coord1 ',
-                        coord1,
-                        ' coord2 ',
-                        coord2,
-                        ' this ',
-                        this,
-                    );
                 });
         }, 400);
     }
@@ -543,7 +484,6 @@ export class LinkedUSMapComponent implements OnInit {
             .on('end', function(d, i) {
                 n--;
                 if (n === 0) {
-                    // console.log("parent.mapGroup ", parent.mapGroup);
                     parent.mapGroup.attr('opacity', 1);
                 }
             });
@@ -570,13 +510,13 @@ export class LinkedUSMapComponent implements OnInit {
         this.tiles.attr('opacity', 0);
     }
 
-    // Get apppriate tiles from mapbox and insert them into tiles layer
+    // Get appropriate tiles from mapbox and insert them into tiles layer
     private loadTiles(zoom, x, y, parent) {
+        console.log('loadTiles  ', parent);
+
         let scale = this.mercator.scale();
         let long = this.mercator.center()[0],
             lat = this.mercator.center()[1];
-
-        console.log('scale ', scale);
 
         let projection = d3
             .geoMercator()
@@ -598,8 +538,6 @@ export class LinkedUSMapComponent implements OnInit {
         lat = center[1];
 
         scale = scale * zoom;
-
-        console.log('Second scale ', scale);
 
         projection = d3
             .geoMercator()
@@ -655,8 +593,3 @@ export class LinkedUSMapComponent implements OnInit {
             });
     }
 }
-
-// "http://" + ["a", "b", "c", "d"][Math.random() * 4 | 0]
-// + ".tiles.mapbox.com/v3/x2gboye.jhe1npi6/"
-// + d[2] + "/" + d[0] + "/" + d[1]
-// + ".png?access_token=pk.eyJ1IjoieDJnYm95ZSIsImEiOiI1WXMtdDZVIn0.QUv1GWRAPHytz96Pdac4nw");

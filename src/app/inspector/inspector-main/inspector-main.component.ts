@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ChartConfigService } from '../services/chart-config.service';
 import * as $ from 'jquery';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdTranscludeModalComponent } from '../../shared/components/ngb-transclude-modal/ngb-transclude-modal.component';
 
 @Component({
@@ -14,21 +14,43 @@ import { NgbdTranscludeModalComponent } from '../../shared/components/ngb-transc
 export class InspectorMainComponent implements OnInit {
     public rowCountColor: string;
     public rowAmount: number;
+    public drilldownInstructions;
+    public screenInstructions;
     public modalButtons = {
         name: 'Close'
     };
 
-    public screenInstructions = [
-        'The Inspector screen shows sales information by Sales Person, Billing Mode and Time Period.',
-        'Hover over chart elements for detailed information',
-        'Click on one or more chart elements and filter for more specific details',
-        'View your filters in the Search Criteria window',
-        'Press Disk button to save filter groups to Saved Searches',
-        'Load or delete Saved Searches',
-        'Details and Map tabs reflect filtered values'
-    ];
-
-    constructor(private quoteService: ChartConfigService, private modalService: NgbModal) {}
+    constructor(private quoteService: ChartConfigService, private modalService: NgbModal) {
+        this.screenInstructions = {
+            drilldownInstructions: [
+                'The Inspector Drilldown screen shows sales information by Sales Person, Billing Mode and Time Period.',
+                'Hover over chart elements for detailed information',
+                'Click on one or more chart elements and filter for more specific details',
+                'View your filters in the Search Criteria window',
+                'Press Disk button to save filter groups to Saved Searches',
+                'Load or delete Saved Searches',
+                'Details and Map tabs reflect filtered values'
+            ],
+            detailInstructions: [
+                'The Inspector Drilldown screen shows sales information by Sales Person, Billing Mode and Time Period.',
+                'Hover over chart elements for detailed information',
+                'Click on one or more chart elements and filter for more specific details',
+                'View your filters in the Search Criteria window',
+                'Press Disk button to save filter groups to Saved Searches',
+                'Load or delete Saved Searches',
+                'Details and Map tabs reflect filtered values'
+            ],
+            mapInstructions: [
+                'The Inspector Drilldown screen shows sales information by Sales Person, Billing Mode and Time Period.',
+                'Hover over chart elements for detailed information',
+                'Click on one or more chart elements and filter for more specific details',
+                'View your filters in the Search Criteria window',
+                'Press Disk button to save filter groups to Saved Searches',
+                'Load or delete Saved Searches',
+                'Details and Map tabs reflect filtered values'
+            ]
+        };
+    }
 
     ngOnInit() {
         $('#topheader .navbar-nav a').on('click', function() {

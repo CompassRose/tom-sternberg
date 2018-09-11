@@ -1,18 +1,80 @@
 @import 'variables';
 
 body {
- // font-family: 'Open Sans', sans-serif;
   font-family: 'Montserrat', sans-serif;
-  // @include gradient(#23577a, lighten(#8192d1, 10));
- // background-color: #040e16;
   color: black;
   font-size: 16px;
-// project
- // color:#ffb35c;
-  background-color: #041e29;
-
+  background-color: #01070f;
 }
 
+#map, #map div {
+  overflow: hidden;
+}
+
+#usmap .background {
+  fill: white;
+  fill-opacity: 0;
+}
+
+#usmap #mapGroup #states path {
+  fill-opacity: 0.75;
+  stroke-opacity: 0.95;
+  stroke-width: .5px;
+}
+
+#usmap #mapGroup #states path.quoted:hover {
+  cursor: zoom-in;
+  fill-opacity: 1.0;
+  stroke-opacity: 1.0;
+}
+
+#usmap #mapGroup #states path.active {
+  fill: #fff;
+  stroke: #ddd;
+  fill-opacity: 1;
+  stroke-opacity: 1;
+}
+
+#usmap #mapGroup #states path.active:hover {
+  cursor: zoom-out;
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+
+#usmap #mapGroup #places circle {
+  stroke: white;
+  stroke-width: 0.3px;
+  font-size:24px;
+  color:black;
+}
+
+#usmap #mapGroup #places circle:hover {
+  fill-opacity: 0.95;
+}
+
+#usmap #mapGroup.centered #states path {
+  fill-opacity: 0.5;
+  stroke-opacity: 0.25;
+}
+
+#usmap #mapGroup.centered #states path:hover {
+  cursor: zoom-out;
+  fill-opacity: 0.50;
+  stroke-opacity: 0.50;
+}
+
+#usmap #mapGroup.centered #states path.quoted:hover {
+  cursor: zoom-in;
+}
+
+#usmap #mapGroup.centered #states path.active {
+  fill-opacity: 0;
+  stroke-opacity: 0.25;
+}
+
+#usmap #mapGroup.centered #states path.active:hover {
+  cursor: zoom-out;
+}
 
 .container {
   min-width: $container-width;
