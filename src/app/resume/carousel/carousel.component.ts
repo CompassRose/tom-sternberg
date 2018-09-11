@@ -1,25 +1,33 @@
-import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, ChangeDetectionStrategy, OnInit, Input, OnChanges } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdVideoModalComponent } from '../../shared/components/ngb-video-modal/ngb-video-modal.component';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Component({
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-carousel',
     templateUrl: './carousel.component.html',
     styleUrls: ['./carousel.component.scss'],
     providers: [NgbModal]
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent implements OnChanges {
+    @Input()
+    historyValues: Observable<any>[];
+
     public currdeg1 = 0;
     public aggregate = 0;
     public menuOpen = false;
-    public videoPlayer;
-    public videoSignal: string;
+    public videoPlayer = true;
+    public projectValues$: any[];
+    public IMG_PATH = '../../assets/img/vgames/';
 
-    constructor(private modalService: NgbModal) {}
+    constructor(private modalService: NgbModal, private http: HttpClient) {}
 
-    ngOnInit() {
-        this.videoPlayer = true;
+    ngOnChanges(): void {
+        this.projectValues$ = this.historyValues;
     }
 
     openModal(e) {
@@ -27,8 +35,9 @@ export class CarouselComponent implements OnInit {
         const modalRef = this.modalService.open(NgbdVideoModalComponent, {
             size: 'lg'
         });
-        modalRef.componentInstance.modalName = e;
-        modalRef.componentInstance.modalGroup = 'My Game Name';
+        modalRef.componentInstance.modalName = this.projectValues$[e].video;
+        modalRef.componentInstance.modalGroup = this.projectValues$[e].projectName;
+        modalRef.componentInstance.description = this.projectValues$[e];
     }
 
     setOriginBack(value) {
@@ -51,9 +60,5 @@ export class CarouselComponent implements OnInit {
 
     getCurrentPosition() {
         return 'rotateY(' + this.currdeg1 + 'deg)';
-    }
-
-    toggleMenu() {
-        this.menuOpen = !this.menuOpen;
     }
 }

@@ -5,23 +5,26 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'ngbd-video-modal-component',
     styleUrls: ['ngb-video-modal.component.scss'],
-    templateUrl: 'ngb-video-modal.component.html',
+    templateUrl: 'ngb-video-modal.component.html'
 })
 export class NgbdVideoModalComponent implements OnInit {
     @Input()
     modalName;
     @Input()
     modalGroup;
+    @Input()
+    description;
     public videoPlayer = true;
-    public videoSignal;
-    public gameName;
+    public videoSignal: string;
+    public gameName: string;
+    public gameDescription: string;
 
     constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
 
     ngOnInit() {
-        console.log('ngOnInit ', this.modalName);
         this.videoSignal = this.modalName;
-        this.gameName = this.modalGroup;
+        this.gameName = this.modalGroup + ': A ' + this.description.projectPlatform;
+        this.gameDescription = 'My Roles: ' + this.description.projectRole;
     }
 
     stopVideo() {

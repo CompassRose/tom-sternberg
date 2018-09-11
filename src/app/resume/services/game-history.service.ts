@@ -4,26 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-const BASE_PICTURE_URL = '../assets/allPictures.json';
-const BASE_FAMILY_URL = '../../../assets/data-collections/familyTreeCollection.json';
-
-const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
+const BASE_URL = '../assets/data-collections/experience.json';
 
 @Injectable()
-export class PictureService {
+export class GameHistoryService {
     constructor(private http: HttpClient) {}
 
-    getPictureContents(): Observable<any> {
+    getHistoryContents(): Observable<any> {
         return this.http
-            .get(BASE_PICTURE_URL)
-            .map(response => response)
-            .catch(this.handleError);
-    }
-
-    getFamilyContents(): Observable<any> {
-        return this.http
-            .get(BASE_FAMILY_URL)
-            .map(res => res)
+            .get(BASE_URL)
+            .map(response => response[1].projects)
             .catch(this.handleError);
     }
 

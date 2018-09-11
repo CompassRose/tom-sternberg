@@ -49,7 +49,6 @@ export class InspectorMainComponent implements OnInit {
 
     // Set flag for details tab row counts
     setRowData(arg) {
-        console.log('data.length ', arg.length);
         if (arg.length > 6000) {
             this.rowCountColor = 'red';
         } else if (arg.length > 100 && arg.length <= 6000) {
