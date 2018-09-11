@@ -20,31 +20,15 @@ export class TeamService {
     teamName: string;
     playerList = [];
 
-    public BASE_PICTURE_URL = '../assets/allNewData.json';
+    public BASE_PICTURE_URL = '../assets/data-collections/allNewData.json';
 
-    constructor(
-        private http: HttpClient // teamId: number, // franchiseName: string, // franchiseOwner: string
-    ) {
-        // console.log('TeamService ', franchiseName);
-        // this.teamId = teamId;
-        // this.teamName = franchiseName;
-        // this.ownerNames = franchiseOwner;
-    }
+    constructor(private http: HttpClient) {}
 
     getTeamContents(): Observable<any> {
         return this.http
             .get(this.BASE_PICTURE_URL)
             .map(response => response)
             .catch(this.handleError);
-    }
-
-    createPizza(payload: any): Observable<any> {
-        const newData = JSON.stringify(payload);
-        console.log('createPizza ', payload);
-
-        return this.http
-            .post<any>(this.BASE_PICTURE_URL, payload)
-            .pipe(catchError((error: any) => Observable.throw(error.json())));
     }
 
     private handleError(error: any) {

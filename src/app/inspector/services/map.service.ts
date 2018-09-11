@@ -10,7 +10,7 @@ import * as d3 from 'd3';
 import { timeFormat } from 'd3-time-format';
 
 import { MAPPING_DATA } from './mappings';
-const BASE_URL = '../assets/us.json';
+const BASE_URL = '../assets/data-collections/us.json';
 
 export interface ChartData {
     'Prospect Zip': string;
@@ -72,7 +72,6 @@ export class MapService {
             });
             return obj;
         });
-        console.log('map state ', this.nestMapData(this.mapDrawValue, data));
         return this.nestMapData(this.mapDrawValue, data);
     }
 

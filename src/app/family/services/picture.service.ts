@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-const BASE_PICTURE_URL = '../assets/allPictures.json';
+const BASE_PICTURE_URL = '../assets/data-collections/allPictures.json';
 const BASE_FAMILY_URL = '../../../assets/data-collections/familyTreeCollection.json';
 
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };

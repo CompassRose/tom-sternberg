@@ -14,8 +14,7 @@ import { NgbdTranscludeModalComponent } from '../../shared/components/ngb-transc
 export class InspectorMainComponent implements OnInit {
     public rowCountColor: string;
     public rowAmount: number;
-    public drilldownInstructions;
-    public screenInstructions;
+    public screenInstructions: {};
     public modalButtons = {
         name: 'Close'
     };

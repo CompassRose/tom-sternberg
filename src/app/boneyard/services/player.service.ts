@@ -9,7 +9,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class PlayerService {
-    API_URL = '../../assets/2018-NFL-All.csv';
+    API_URL = '../../assets/data-collections/2018-NFL-All.csv';
 
     constructor(private http: HttpClient) {}
 
