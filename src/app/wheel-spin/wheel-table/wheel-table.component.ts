@@ -49,57 +49,73 @@ export class WheelTableComponent implements OnInit {
         // 36
         {
             name: '-1st 12-',
+            item: 'grid-cell-text grid-item-06',
+            drop: 'cash-drop red ml-5',
             value: 2.5,
             directBet: 0,
             contents: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-            color: 'red'
+            color: 'transparent'
         },
         {
             name: '~2nd 12~',
+            item: 'grid-cell-text grid-item-07',
+            drop: 'cash-drop red ml-5',
             value: 2.5,
             directBet: 0,
             contents: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-            color: 'red'
+            color: 'transparent'
         },
         {
             name: '~3rd 12~',
+            item: 'grid-cell-text grid-item-08',
+            drop: 'cash-drop red ml-5',
             value: 2.5,
             directBet: 0,
             contents: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
-            color: 'red'
+            color: 'transparent'
         },
         {
             name: '-1 thru 18-',
+            item: 'grid-cell-text grid-item-13',
+            drop: 'cash-drop red ml-5',
             value: 2,
             directBet: 0,
             contents: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-            color: 'red'
+            color: 'transparent'
         },
         {
             name: '-18 thru 36-',
+            item: 'grid-cell-text grid-item-14',
+            drop: 'cash-drop red ml-5',
             value: 2,
             directBet: 0,
             contents: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
-            color: 'red'
+            color: 'transparent'
         },
         // Odd/Even 41
         {
             name: 'EVEN',
+            item: 'grid-cell-text grid-item-15',
+            drop: 'cash-drop red ml-5',
             value: 2,
             directBet: 0,
             contents: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36],
-            color: 'red'
+            color: 'transparent'
         },
         {
             name: 'ODD',
+            item: 'grid-cell-text grid-item-16',
+            drop: 'cash-drop red ml-5',
             value: 2,
             directBet: 0,
             contents: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35],
-            color: 'red'
+            color: 'transparent'
         },
-        // Red/Balck 43
+        // Red/Black 43
         {
             name: 'ALL RED',
+            item: 'grid-cell-text grid-item-10',
+            drop: 'cash-drop red ml-5',
             value: 2,
             directBet: 0,
             contents: [1, 7, 16, 19, 25, 34, 5, 14, 23, 32, 3, 9, 12, 18, 21, 27, 30, 36],
@@ -107,6 +123,8 @@ export class WheelTableComponent implements OnInit {
         },
         {
             name: 'ALL BLACK',
+            item: 'grid-cell-text grid-item-11',
+            drop: 'cash-drop red ml-5',
             value: 2,
             directBet: 0,
             contents: [4, 10, 13, 22, 28, 31, 2, 8, 11, 17, 20, 26, 29, 35, 6, 15, 24, 33],
@@ -119,24 +137,30 @@ export class WheelTableComponent implements OnInit {
         // Rows 45
         {
             name: 'ROW',
+            item: 'grid-cell-text grid-item-03',
+            drop: 'cash-drop red',
             value: 2,
             directBet: 0,
             contents: [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34],
-            color: 'red'
+            color: 'transparent'
         },
         {
             name: 'ROW',
+            item: 'grid-cell-text grid-item-04',
+            drop: 'cash-drop red',
             value: 2,
             directBet: 0,
             contents: [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
-            color: 'red'
+            color: 'transparent'
         },
         {
             name: 'ROW',
+            item: 'grid-cell-text grid-item-05',
+            drop: 'cash-drop red',
             value: 2,
             directBet: 0,
             contents: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36],
-            color: 'red'
+            color: 'transparent'
         }
     ];
 
@@ -255,7 +279,7 @@ export class WheelTableComponent implements OnInit {
         this.lastTenNums.push(this.numberSquares[this.winningNumber - 1]);
         console.log('this.winningNumber ', e);
         this.processBets();
-        this.removeAllBets();
+        // this.removeAllBets();
     }
 
     dragEnd(event) {

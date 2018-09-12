@@ -41,107 +41,23 @@
             </div>
           </div>
         </div>
-        <!--Odd/Even-->
-        <div class="grid-cell-text grid-item-15"
-             (click)="removeBetValue(numberSquares[41])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[41])">
-          <span class="f-weight-600">{{numberSquares[41].name}}</span>
-          <div *ngIf="numberSquares[41].directBet > 0" class="cash-drop red ml-5">${{numberSquares[41].directBet}}</div>
-        </div>
-        <div class="grid-cell-text grid-item-16"
-             (click)="removeBetValue(numberSquares[42])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[42])">
-          <span class="f-weight-600">{{numberSquares[42].name}}</span>
-          <div *ngIf="numberSquares[42].directBet > 0" class="cash-drop red ml-5">${{numberSquares[42].directBet}}</div>
-        </div>
         <div class="grid-blank grid-item-17"></div>
-        <!--1 -18 -->
-        <div class="grid-cell-text grid-item-13"
-             (click)="removeBetValue(numberSquares[39])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[39])">
-          <span class="f-weight-600">{{numberSquares[39].name}}</span>
-          <div *ngIf="numberSquares[39].directBet > 0" class="cash-drop red ml-5">${{numberSquares[39].directBet}}</div>
-        </div>
-
-        <!--18 -36 -->
-        <div class="grid-cell-text grid-item-14"
-             (click)="removeBetValue(numberSquares[40])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[40])">
-          <span class="f-weight-600">{{numberSquares[40].name}}</span>
-          <div *ngIf="numberSquares[40].directBet > 0" class="cash-drop red ml-5">${{numberSquares[40].directBet}}</div>
-        </div>
-        <div class="grid-cell-text grid-item-03"
-             (click)="removeBetValue(numberSquares[45])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[45])">
-          <span class="f-weight-600">{{numberSquares[45].name}}</span>
-          <div *ngIf="numberSquares[45].directBet > 0" class="cash-drop red ml-5">${{numberSquares[45].directBet}}</div>
-        </div>
-        <div class="grid-cell-text grid-item-04"
-             (click)="removeBetValue(numberSquares[46])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[46])">
-          <span class="f-weight-600">{{numberSquares[46].name}}</span>
-          <div *ngIf="numberSquares[46].directBet > 0" class="cash-drop red ml-5">${{numberSquares[46].directBet}}</div>
-        </div>
-        <div class="grid-cell-text grid-item-05"
-             (click)="removeBetValue(numberSquares[47])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[47])">
-          <span class="f-weight-600">{{numberSquares[47].name}}</span>
-          <div *ngIf="numberSquares[47].directBet > 0" class="cash-drop red ml-5">${{numberSquares[47].directBet}}</div>
-        </div>
-        <!--1 -12 -->
-        <div class="grid-cell-text grid-item-06"
-             (click)="removeBetValue(numberSquares[36])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[36])">
-          <span class="f-weight-600">{{numberSquares[36].name}}</span>
-          <div *ngIf="numberSquares[36].directBet > 0" class="cash-drop red ml-5">${{numberSquares[36].directBet}}</div>
-        </div>
-        <!--12 -24 -->
-        <div class="grid-cell-text grid-item-07"
-             (click)="removeBetValue(numberSquares[37])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[37])">
-          <span class="f-weight-600">{{numberSquares[37].name}}</span>
-          <div *ngIf="numberSquares[37].directBet > 0" class="cash-drop red ml-5">${{numberSquares[37].directBet}}</div>
-        </div>
-        <!--24 -36 -->
-        <div class="grid-cell-text grid-item-08"
-             (click)="removeBetValue(numberSquares[38])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[38])">
-          <span class="f-weight-600">{{numberSquares[38].name}}</span>
-          <div *ngIf="numberSquares[38].directBet > 0" class="cash-drop red ml-5">${{numberSquares[38].directBet}}</div>
-        </div>
-        <!--Red/Black-->
         <div class="grid-blank grid-item-18"></div>
-        <div class="grid-cell-text grid-item-10"
-             [style.background-color]="numberSquares[43].color == 'red' ? 'red' : 'black'"
-             (click)="removeBetValue(numberSquares[43])"
+        <div [style.background-color]="special.color"
+             *ngFor="let special of numberSquares | slice:36:48; let $idx = index;"
+             [ngClass]="special.item"
+             (click)="removeBetValue(special)"
              mwlDroppable
-             (drop)="onDrop($event, numberSquares[43])">
-          <span class="f-weight-600">{{numberSquares[43].name}}</span>
-          <div *ngIf="numberSquares[43].directBet > 0" class="cash-drop black ml-5">${{numberSquares[43].directBet}}
-          </div>
-        </div>
-        <div class="grid-cell-text grid-item-11"
-             [style.background-color]="numberSquares[44].color == 'red' ? 'red' : 'black'"
-             (click)="removeBetValue(numberSquares[44])"
-             mwlDroppable
-             (drop)="onDrop($event, numberSquares[44])">
-          <span class="f-weight-600 mr-2">{{numberSquares[44].name}}</span>
-          <div *ngIf="numberSquares[44].directBet > 0" class="cash-drop red ml-5">${{numberSquares[44].directBet}}</div>
+             (drop)="onDrop($event, special)">
+          <span class="f-weight-600">{{special.name}}</span>
+          <div *ngIf="special.directBet > 0" [ngClass]="special.drop">${{special.directBet}}</div>
         </div>
       </div>
       <div>
         <app-wheel-spinner
-          (spinResultsEvent)="processWinningNumber($event)"></app-wheel-spinner>
+          (spinResultsEvent)="processWinningNumber($event)"
+          (promptNewEvent)="removeAllBets()">
+        </app-wheel-spinner>
       </div>
     </div>
     <div class="game-state-frame borders">
@@ -157,11 +73,11 @@
       <div class="spin-state-reveal d-flex flex-column mr-auto">
         <div class="category-header f-weight-600 display-md">BETS PLACED</div>
         <div class="bet-reveal">
-            <div *ngFor="let square of numberSquares; let $idx = index;">
-              <div *ngIf="square.directBet" class="display-sm ml-2"><span *ngIf="square.name < 37">Number </span>{{square.name}}
-                = {{square.directBet | currency:'USD' }}
-              </div>
+          <div *ngFor="let square of numberSquares; let $idx = index;">
+            <div *ngIf="square.directBet" class="display-sm ml-2"><span *ngIf="square.name < 37">Number </span>{{square.name}}
+              = {{square.directBet | currency:'USD' }}
             </div>
+          </div>
         </div>
         <div class="win-reveal">
           <div class="category-header f-weight-600 display-md">WINNERS</div>
@@ -175,6 +91,7 @@
     </div>
   </div>
 </div>
+
 
 
 

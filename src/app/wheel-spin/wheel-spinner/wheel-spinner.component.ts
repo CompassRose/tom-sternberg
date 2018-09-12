@@ -23,10 +23,12 @@ export class WheelSpinnerComponent implements OnInit {
     oldpick: number[] = [];
     public wheel;
     public resultsValue = 0;
-    public spinShow = true;
+    public spinShow = 'spin';
 
     @Output()
     spinResultsEvent = new EventEmitter<any>();
+    @Output()
+    promptNewEvent = new EventEmitter<any>();
 
     constructor() {
         this.wheelData = [
@@ -79,7 +81,7 @@ export class WheelSpinnerComponent implements OnInit {
     }
 
     private resetSpinner() {
-        this.spinShow = true;
+        this.spinShow = 'spin';
         const padding = { top: 16, right: 16, bottom: 16, left: 16 };
         const w = 400 - padding.left - padding.right;
         const h = 400 - padding.top - padding.bottom;
@@ -218,15 +220,14 @@ export class WheelSpinnerComponent implements OnInit {
             .attrTween('transform', parent.rotTween)
             .on('end', () => {
                 this.resultsValue = this.wheelData[parent.picked].label;
-                this.spinShow = false;
+                this.spinShow = 'win';
                 this.showResults(this.resultsValue);
                 d3.select('.slice:nth-child(' + (parent.picked + 1) + ') path')
                     .style('stroke-width', '4px')
                     .attr('stroke', '#0518ff')
                     .attr('stroke-opacity', 1);
                 setTimeout(() => {
-                    this.spinShow = true;
-                    this.resetSpinner();
+                    this.spinShow = 'reset';
                 }, 5000);
             });
     }
@@ -234,6 +235,11 @@ export class WheelSpinnerComponent implements OnInit {
     // Call parent function to show winners
     showResults(value) {
         this.spinResultsEvent.next({ value });
+    }
+
+    newgameSend() {
+        this.resetSpinner();
+        this.promptNewEvent.next();
     }
 
     rotTween() {
