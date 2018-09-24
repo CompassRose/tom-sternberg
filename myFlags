@@ -1,0 +1,17 @@
+npm list
+  All package versions
+
+npm list depth=0
+  My package dependancies
+
+npm view <package> dependancies
+
+// upgrade/downgrade version
+npm install <package>@2.4.2 // example only
+
+npm outdated
+  //Shows current, Wanted, latest, location
+
+
+//update major versions
+npm install -g npm-check-updates
