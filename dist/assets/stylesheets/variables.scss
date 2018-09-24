@@ -1,0 +1,49 @@
+/* Colors */
+
+$header: #007bff;
+$darkBlue: #191970;
+$green1: #157ad1;
+$green2: #005491;
+$central-blue: #062a3f;
+$central-blue-container: #062137;
+$stern-central-gold: #ffb35c;
+$central-gold: #FFBB46;
+$central-gold-text: #ffca49;
+$default-text-blue: #1a2234;
+
+$container-width: 1600px;
+
+$baseline-grid:            8px !default;
+$layout-gutter-width:      ($baseline-grid * 2) !default;
+
+$layout-breakpoint-xs:     600px !default;
+$layout-breakpoint-sm:     960px !default;
+$layout-breakpoint-md:     1280px !default;
+$layout-breakpoint-lg:     1920px !default;
+
+// Trusted Safe
+$dark-blue: #213159;
+$sky-blue:#3d6098;
+$sexy-red: #f04b4c;
+$fresh-grey: #e7e7e7;
+
+
+$layoutMargin: 4.6rem;
+$layoutPadding: 4.6rem;
+$layoutPaddingSm: 1.5rem;
+$mini-padding: 1rem;
+
+$layout-breakpoint-xs:     600px !default;
+$layout-breakpoint-sm:     960px !default;
+$layout-breakpoint-md:     1280px !default;
+$layout-breakpoint-lg:     1920px !default;
+
+
+@mixin navColor($navColor){
+  background-color: $navColor;
+}
+
+
+
+
+

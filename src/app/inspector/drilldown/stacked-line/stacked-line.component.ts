@@ -5,7 +5,7 @@ import {
     OnInit,
     OnChanges,
     EventEmitter,
-    ViewEncapsulation,
+    ViewEncapsulation
 } from '@angular/core';
 import { ChartConfigService } from '../../services/chart-config.service';
 import { CustomTooltipComponent } from '../../../shared/components/custom-tooltip/custom-tooltip.component';
@@ -19,7 +19,7 @@ import { IChartMargin } from '../../interfaces/Filters';
     selector: 'app-line-chart',
     templateUrl: './stacked-line.component.html',
     styleUrls: ['./stacked-line.component.scss', '../drilldown-common.scss'],
-    providers: [ChartConfigService, CustomTooltipComponent],
+    providers: [ChartConfigService, CustomTooltipComponent]
 })
 export class LineChartComponent implements OnInit, OnChanges {
     constructor(private quoteService: ChartConfigService) {}
@@ -137,7 +137,7 @@ export class LineChartComponent implements OnInit, OnChanges {
             { d3Curve: d3.curveBasis, curveTitle: 'curveBasis' },
             { d3Curve: d3.curveCardinal, curveTitle: 'curveCardinal' },
             { d3Curve: d3.curveMonotoneX, curveTitle: 'curveMonotoneX' },
-            { d3Curve: d3.curveCatmullRom, curveTitle: 'curveCatmullRom' },
+            { d3Curve: d3.curveCatmullRom, curveTitle: 'curveCatmullRom' }
         ];
 
         const x: any = d3
@@ -150,14 +150,14 @@ export class LineChartComponent implements OnInit, OnChanges {
         x.domain(
             this.data.map((d: any) => {
                 return d.key as any;
-            }),
+            })
         );
 
         y.domain([
             0,
             d3.max(this.data, (d: any) => {
                 return d.values[parent.total] as any;
-            }),
+            })
         ]);
 
         const xAxis = d3
@@ -213,7 +213,7 @@ export class LineChartComponent implements OnInit, OnChanges {
                 '0, 0, ' +
                     (this.container.width + this.margin.left + this.margin.right) +
                     ', ' +
-                    (this.container.height + this.margin.top + this.margin.bottom),
+                    (this.container.height + this.margin.top + this.margin.bottom)
             );
         this.svg = svg;
 

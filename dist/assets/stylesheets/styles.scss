@@ -1,0 +1,213 @@
+@import 'variables';
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: 16px;
+  background-color: #01070f;
+}
+
+#map, #map div {
+  overflow: hidden;
+}
+
+#usmap .background {
+  fill: white;
+  fill-opacity: 0;
+}
+
+#usmap #mapGroup #states path {
+  fill-opacity: 0.75;
+  stroke-opacity: 0.95;
+  stroke-width: .5px;
+}
+
+#usmap #mapGroup #states path.quoted:hover {
+  cursor: zoom-in;
+  fill-opacity: 1.0;
+  stroke-opacity: 1.0;
+}
+
+#usmap #mapGroup #states path.active {
+  fill: #fff;
+  stroke: #ddd;
+  fill-opacity: 1;
+  stroke-opacity: 1;
+}
+
+#usmap #mapGroup #states path.active:hover {
+  cursor: zoom-out;
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+
+#usmap #mapGroup #places circle {
+  stroke: white;
+  stroke-width: 0.3px;
+  font-size:24px;
+  color:black;
+}
+
+#usmap #mapGroup #places circle:hover {
+  fill-opacity: 0.95;
+}
+
+#usmap #mapGroup.centered #states path {
+  fill-opacity: 0.5;
+  stroke-opacity: 0.25;
+}
+
+#usmap #mapGroup.centered #states path:hover {
+  cursor: zoom-out;
+  fill-opacity: 0.50;
+  stroke-opacity: 0.50;
+}
+
+#usmap #mapGroup.centered #states path.quoted:hover {
+  cursor: zoom-in;
+}
+
+#usmap #mapGroup.centered #states path.active {
+  fill-opacity: 0;
+  stroke-opacity: 0.25;
+}
+
+#usmap #mapGroup.centered #states path.active:hover {
+  cursor: zoom-out;
+}
+
+.container {
+  min-width: $container-width;
+  height: 100vh;
+  background-color: $central-blue-container;
+  .spacer {
+    margin-top: 70px;
+  }
+}
+
+
+.heading {
+  padding-bottom: 0;
+  line-height: 1em;
+  color: white;
+  font-size: 1.8rem;
+  text-shadow: -1px 0px 0px rgba(204, 204, 204, 0.35),
+  -2px -1px 0px rgba(186, 186, 186, 0.35),
+  -3px -2px 0px rgba(168, 168, 168, 0.35),
+  -4px -3px 0px rgba(153, 153, 153, 0.35),
+  -5px -4px 0px rgba(135, 135, 135, 0.35),
+  -6px -5px 0px rgba(120, 120, 120, 0.35),
+  -7px -6px 0px rgba(55, 55, 55, 0.35),
+  -8px -7px 0px rgba(40, 40, 40, 0.35);
+}
+
+
+a {
+  cursor: pointer
+}
+
+.gold-text {
+  color: $central-gold;
+}
+
+.display-xxs {
+  font-size: 0.55rem;
+}
+
+.display-xs {
+  font-size: 0.7rem;
+}
+
+.display-sm {
+  font-size: 0.8rem;
+}
+
+.display-md {
+  font-size: 0.9rem;
+}
+
+.display-lg {
+  font-size: 1.0rem;
+}
+
+.display-xl {
+  font-size: 1.1rem;
+}
+
+.header-xs {
+  font-size: 1.2rem;
+}
+
+.header-sm {
+  font-size: 1.3rem;
+}
+
+.header-md {
+  font-size: 1.4rem;
+}
+
+.header-lg {
+  font-size: 1.5rem;
+}
+
+.header-xl {
+  font-size: 2.1rem;
+}
+
+.header-rl {
+  font-size: 2.8rem;
+}
+
+// Open sans 600
+.f-weight-600 {
+  font-weight: 600;
+}
+
+// Open sans 600
+.f-weight-700 {
+  font-weight: 700;
+}
+
+
+.navbar-nav {
+  width: 100%;
+  border-bottom: 1px solid white;
+  flex-direction: row;
+  padding: 10px;
+}
+
+
+#topheader li > a {
+  text-transform: capitalize;
+  transition: background-color .2s, color .2s;
+  padding: 14px 35px;
+  color: white;
+  background-color: transparent;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-color: rgba(61, 62, 171, 0.85);
+  border-radius: 5px 5px 0 0;
+  margin: 30px 4px;
+  border-bottom: 1px transparent;
+  &:hover {
+    border-color: #52a3ff;
+    color: white;
+    border-bottom: 1px solid $central-blue-container;
+  }
+  &:active {
+    border-color: white;
+    border-bottom: 1px solid $central-blue-container;
+  }
+  &:focus {
+    border-color: white;
+    border-bottom: 1px solid $central-blue-container;
+  }
+}
+
+#topheader li.active > a {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+  border-bottom: 2px solid $central-blue-container;
+}

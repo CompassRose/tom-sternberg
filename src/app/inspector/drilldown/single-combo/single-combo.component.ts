@@ -4,7 +4,7 @@ import {
     OnInit,
     OnChanges,
     Input,
-    ViewEncapsulation,
+    ViewEncapsulation
 } from '@angular/core';
 import { ChartConfigService } from '../../services/chart-config.service';
 import * as d3 from 'd3';
@@ -15,7 +15,7 @@ import { IChartMargin } from '../../interfaces/Filters';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'single-combo',
     templateUrl: './single-combo.component.html',
-    styleUrls: ['./single-combo.component.scss'],
+    styleUrls: ['./single-combo.component.scss']
 })
 export class SingleComboComponent implements OnInit, OnChanges {
     private key: any;
@@ -95,7 +95,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
 
         const data: any = {
             quotes: [],
-            premium: [],
+            premium: []
         };
 
         data.quotes.push(q - qS);
@@ -219,7 +219,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
                 '0, 0, ' +
                     (this.container.width + this.margin.left + this.margin.right) +
                     ', ' +
-                    (this.container.height - this.table.height()),
+                    (this.container.height - this.table.height())
             );
 
         // console.log('this.table.height() ', this.table.height());
@@ -257,7 +257,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
                     d3
                         .arc()
                         .outerRadius(0)
-                        .innerRadius(0),
+                        .innerRadius(0)
                 )
                 .transition()
                 .duration(20)
