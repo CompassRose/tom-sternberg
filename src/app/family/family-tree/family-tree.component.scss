@@ -1,31 +1,42 @@
-.family-node-styling {
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 20px;
+#treechart {
+fill: rgba(255, 255, 255, 0);
+  stroke: #ffffff;
+  stroke-width: 1.5px;
+ // overflow: hidden;
 }
 
-.parent-node-styling {
-  min-width: 150px;
-  padding: 10px;
-  background-color: rgba(0, 0, 255, 0.27);
+.circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3.5px;
+  &:hover {
+    fill: red;
+  }
 }
 
-.child-group-styling {
-  padding: 20px;
-  border: 1px solid white;
-  border-bottom-color: transparent;
+.node circle:hover {
+  fill: steelblue;
+  cursor: pointer;
 }
 
-.child-node-styling {
-  min-width: 140px;
-  color: white;
-  padding: 10px;
-  background-color: blue;
+.node {
+  font: 11px sans-serif;
+  fill: none;
+  stroke: none;
 }
 
-.child-child-node-styling {
-  margin-top:200px;
-  min-width: 140px;
-  color: white;
-  padding: 10px;
-  background-color: red;
+
+.link {
+  fill: white;
+  stroke: #ffffff;
+  stroke-width: 1.5px;
 }
+
+.textLabel {
+  font-size: 20px;
+ // fill: white;
+ // opacity: 1;
+  stroke: none !important;
+}
+
+

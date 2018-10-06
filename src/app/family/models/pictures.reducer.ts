@@ -9,27 +9,27 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 
 const comparator = 'id';
 
-export function pictures(state: Picture[] = [], action: Action) {
-    console.log('pictures state ', ...state, 'action.type ', action.type);
-    // switch (action.type) {
-    //
-    //   case ADD_ITEMS:
-    //     return action.payload;
-    //
-    //   case CREATE_ITEM:
-    //     return [...state, action.payload];
-    //
-    //   case UPDATE_ITEM:
-    //     return state.map(picture => {
-    //       return picture[comparator] === action.payload[comparator] ? Object.assign({}, picture, action.payload) : picture;
-    //     });
-    //
-    //   case DELETE_ITEM:
-    //     return state.filter(item => {
-    //       return item[comparator] !== action.payload[comparator];
-    //     });
-    //
-    //   default:
-    //     return state;
-    // }
-}
+// export function pictures(state: Picture[] = [], action: Action) {
+//     console.log('pictures state ', ...state, 'action.type ', action.type);
+//     // switch (action.type) {
+//     //
+//     //   case ADD_ITEMS:
+//     //     return action.payload;
+//     //
+//     //   case CREATE_ITEM:
+//     //     return [...state, action.payload];
+//     //
+//     //   case UPDATE_ITEM:
+//     //     return state.map(picture => {
+//     //       return picture[comparator] === action.payload[comparator] ? Object.assign({}, picture, action.payload) : picture;
+//     //     });
+//     //
+//     //   case DELETE_ITEM:
+//     //     return state.filter(item => {
+//     //       return item[comparator] !== action.payload[comparator];
+//     //     });
+//     //
+//     //   default:
+//     //     return state;
+//     // }
+// }

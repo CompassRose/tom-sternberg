@@ -5,6 +5,7 @@ import {
   EventEmitter,
   OnInit,
   Output,
+  AfterViewInit,
   Pipe,
   PipeTransform
 } from '@angular/core';
@@ -13,19 +14,31 @@ import { PictureService } from '../services/picture.service';
 import { CustomTooltipComponent } from '../../shared/components/custom-tooltip/custom-tooltip.component';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalComponent } from '../../shared/components/ngb-modal/ngb-modal.component';
-import { Observable } from 'rxjs/Observable';
+import { NgbdPictureModalComponent } from '../../shared/components/ngb-picture-modal/ngb-picture-modal.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/interval';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/delay';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush, // works with store only
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-pictures',
   templateUrl: './pictures.component.html',
   styleUrls: ['./pictures.component.scss'],
-  providers: [PictureService, CustomTooltipComponent, NgbModal, NgbActiveModal, NgbdModalComponent]
+  providers: [
+    PictureService,
+    CustomTooltipComponent,
+    NgbModal,
+    NgbActiveModal,
+    NgbdModalComponent,
+    NgbdPictureModalComponent
+  ]
 })
-export class PicturesComponent {
+export class PicturesComponent implements OnInit {
   public pictures: Picture[] = [];
   private activeCategory = [];
   pictureCategories = [];
@@ -38,43 +51,95 @@ export class PicturesComponent {
   public tooltipPositionX;
   public tooltipPositionY;
 
+  picture = new Picture();
+
   public observable: Observable<number>;
+  public pictureChecker: Observable<Picture[]>;
   public PICTURE_PATH = '../assets/img/pictureCollection/';
+
+  allPictures: Observable<Picture[]>;
+  singlePicture: Observable<Picture>;
 
   // First char Upper rest Lower
   static toTitleCase(str) {
-    return str.replace(/\w\S*/g, function(txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
+    if (str) {
+      return str.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      });
+    }
   }
 
-  constructor(private _pictureService: PictureService, private modalService: NgbModal) {
-    this.getPictureCollection();
-    this.observable = this.getObservable();
+  constructor(private pictureService: PictureService, private modalService: NgbModal) {}
+
+  ngOnInit() {
+    this.pictureChecker = this.pictureService.pictures;
+    // this.singlePicture = this.pictureService.pictures.pipe(map(pictures => pictures.find(item => item._id === '1')));
+    this.pictureService.loadAll();
+    // this.pictureService.load('1');
+    this.processPictures();
   }
 
-  getObservable() {
-    return Observable.interval(1000)
-      .take(3)
-      .map(v => v * v);
+  save(picture: Picture): void {
+    this.picture = picture;
+    picture.image = this.PICTURE_PATH + 'default';
+    this.pictureService.create(picture);
   }
 
-  getPictureCollection(): void {
-    this._pictureService.getPictureContents().subscribe(data => {
-      console.log('getPictureContents ', data);
-      this.pictures = data.pictures;
-      this.activePictures = this.pictures.map(d => {
-        if (d.image === '' || d.image === undefined) {
-          d.image = '';
-        } else {
-          d.image = this.PICTURE_PATH + d.image;
+  deletePicture(picture: string) {
+    this.pictureService.remove(picture);
+  }
+
+  getPictureCollection(): any {
+    return this.pictureService.getPictures();
+  }
+
+  processPictures() {
+    this.pictureChecker.subscribe(data => {
+      data.map(d => {
+        if (d.image === this.PICTURE_PATH + 'default' || d.image === undefined || d.image === null) {
+          d.image = 'default';
         }
-        return d;
+        this.filterByCategory(d);
       });
       this.pictureCategories[0] = { name: 'All', checked: true };
       this.addFilter('All');
       this.pictureCategories[0].checked = true;
-      console.log('getPictureContents ', this.pictureCategories);
+    });
+  }
+
+  update(): void {
+    this.pictureService.updatePicture(this.picture).subscribe(result => console.log('Picture Updated Successfully!'));
+  }
+
+  activateEditRoute(pic) {
+    this.openPictureModal(pic);
+  }
+
+  activateAddRoute(pic) {
+    this.openPictureModal(false);
+  }
+
+  openPictureModal(e) {
+    const modalRef = this.modalService.open(NgbdPictureModalComponent, {
+      backdrop: 'static'
+    });
+    if (e) {
+      modalRef.componentInstance.activePicture = e;
+      modalRef.componentInstance.activeProcess = 'Edit';
+    } else {
+      modalRef.componentInstance.activePicture = new Picture();
+      modalRef.componentInstance.activeProcess = 'Add';
+    }
+    modalRef.result.then(userResponse => {
+      // If didnt press cancel
+      if (userResponse) {
+        this.picture = userResponse;
+        if (e) {
+          this.update();
+        } else {
+          this.save(userResponse);
+        }
+      }
     });
   }
 
@@ -111,7 +176,7 @@ export class PicturesComponent {
   }
 
   resetAll() {
-    this.pictureCategories.forEach(item => {
+    this.pictureCategories.map(item => {
       item.checked = false;
     });
   }
@@ -129,7 +194,6 @@ export class PicturesComponent {
           }
         });
       }
-      //  console.log('this.activeFilters.forEach ', this.activeFilters);
       this.filterByCategory(d);
     });
   }
@@ -142,16 +206,15 @@ export class PicturesComponent {
         name: PicturesComponent.toTitleCase(picture.keyword),
         checked: false
       });
-      console.log('filterByCategory ', this.pictureCategories);
     }
   }
 
   // custom tooltip called
   onMouseOver(e, pic) {
     this.showTip = true;
-    this.toolTitle = pic.name;
+    this.toolTitle = pic.title;
     this.toolValues = pic.description;
-    this.tooltipPositionX = e.clientX + 80;
+    this.tooltipPositionX = e.clientX;
     this.tooltipPositionY = e.clientY;
   }
 
@@ -166,6 +229,6 @@ export class PicturesComponent {
       windowClass: 'modal-xxl'
     });
     modalRef.componentInstance.activeIndex = e;
-    modalRef.componentInstance.modalGroup = this.activePictures;
+    modalRef.componentInstance.modalGroup = this.pictureChecker;
   }
 }

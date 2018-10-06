@@ -1,0 +1,58 @@
+<div class="my-header">
+  <div class="modal-title display-lg text-muted f-weight-600" id="exampleModalLabel">{{activeProcess}} Picture</div>
+  <a class="header-lg ml-auto" (click)="activeModal.close(false)">&times;</a>
+</div>
+<div class="modal-body mx-2">
+  <form #addCustomerForm="ngForm">
+    <div class="form-group form-group-sm">
+      <label for="title">Title</label>
+      <input type="text" class="form-control form-control-sm" id="title" placeholder="Picture Title"
+             required
+             [(ngModel)]="picture.title" name="title" #title="ngModel">
+      <div [hidden]="title.valid || title.pristine"
+           class="alert alert-danger">
+        Title is required
+      </div>
+    </div>
+    <div class="form-group form-group-sm">
+      <label for="title">Keyword</label>
+      <input type="text" class="form-control form-control-sm" id="keyword" placeholder="Picture Keyword"
+             required
+             [(ngModel)]="picture.keyword" name="keyword" #keyword="ngModel">
+      <div [hidden]="keyword.valid || keyword.pristine"
+           class="alert alert-danger">
+        Keyword is required
+      </div>
+    </div>
+    <div class="form-group form-group-sm">
+      <label for="title">Description</label>
+      <input type="text" class="form-control form-control-sm" id="description" placeholder="Picture Name"
+             required
+             [(ngModel)]="picture.description" name="description" #description="ngModel">
+      <div [hidden]="description.valid || description.pristine"
+           class="alert alert-danger">
+        Description is required
+      </div>
+    </div>
+    <div class="form-group form-group-sm">
+      <label for="title">Search Names</label>
+      <input type="text" class="form-control form-control-sm" id="tags" placeholder="Picture Name"
+             required
+             [(ngModel)]="picture.tags" name="description" #tags="ngModel">
+    </div>
+    <!--<div class="form-group form-group-sm">-->
+      <!--<label for="title">Select Image</label>-->
+      <!--<input type="text" class="form-control form-control-sm" id="image" placeholder="Image Name"  [(ngModel)]="picture.image" name="image" #image="ngModel">-->
+      <!--&lt;!&ndash;<input type="file" class="form-control ml-auto" placeholder="Image Name" (change)="fileChanged($event)" name="fileupload" value="fileupload" id="fileupload"&ndash;&gt;-->
+    <!--</div>-->
+    <div class="pull-right mb-3 mt-2">
+      <button type="button" class="btn-sm btn-danger mr-1" (click)="activeModal.close(picture)"
+              [disabled]="!addCustomerForm.form.valid">Save
+      </button>
+      <button type="button" class="btn-sm btn-primary" (click)="activeModal.close(false)">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+

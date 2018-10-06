@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "client": "ng serve --proxy-config server.conf.json",
+    "client": "ng serve",
     "ng": "ng",
     "start": "npm-run-all -p client server",
     "server": "nodemon ./server.js",

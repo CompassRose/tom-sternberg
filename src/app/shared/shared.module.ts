@@ -12,34 +12,31 @@ import { NgbdTranscludeModalComponent } from './components/ngb-transclude-modal/
 import { CustomTooltipComponent } from './components/custom-tooltip/custom-tooltip.component';
 import { DefaultPicturePipe } from './pipes/default-picture.pipe';
 import { FilterPipe } from './pipes/filter-pipe';
+import { NgbdPictureModalComponent } from '../shared/components/ngb-picture-modal/ngb-picture-modal.component';
 
 @NgModule({
-    imports: [CommonModule, FormsModule, NgbModule, MDBBootstrapModule.forRoot()],
-    schemas: [NO_ERRORS_SCHEMA],
-    declarations: [
-        DatetimePickerComponent,
-        NgbdModalComponent,
-        NgbdVideoModalComponent,
-        NgbdTranscludeModalComponent,
-        CustomTooltipComponent,
-        // pipes
-        PlaceSuffixPipe,
-        DefaultPicturePipe,
-        SafePipe,
-        FilterPipe
-    ],
-    exports: [
-        DatetimePickerComponent,
-        CustomTooltipComponent,
-        DefaultPicturePipe,
-        SafePipe,
-        FilterPipe
-    ],
-    entryComponents: [
-        NgbdModalComponent,
-        CustomTooltipComponent,
-        NgbdVideoModalComponent,
-        NgbdTranscludeModalComponent
-    ]
+  imports: [CommonModule, FormsModule, NgbModule, MDBBootstrapModule.forRoot()],
+  schemas: [NO_ERRORS_SCHEMA],
+  declarations: [
+    DatetimePickerComponent,
+    NgbdModalComponent,
+    NgbdVideoModalComponent,
+    NgbdTranscludeModalComponent,
+    NgbdPictureModalComponent,
+    CustomTooltipComponent,
+    // pipes
+    PlaceSuffixPipe,
+    DefaultPicturePipe,
+    SafePipe,
+    FilterPipe
+  ],
+  exports: [DatetimePickerComponent, CustomTooltipComponent, DefaultPicturePipe, SafePipe, FilterPipe],
+  entryComponents: [
+    NgbdModalComponent,
+    CustomTooltipComponent,
+    NgbdVideoModalComponent,
+    NgbdTranscludeModalComponent,
+    NgbdPictureModalComponent
+  ]
 })
 export class SharedModule {}

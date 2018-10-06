@@ -3,7 +3,6 @@
 
 .chart-tip-master {
   width: 230px;
-  border: 1px solid #e7e7e7;
   position: absolute;
   pointer-events: none;
   z-index: 100 !important;
@@ -21,7 +20,6 @@
 .tipCell {
   padding: 3px 0;
   font-size: 11px;
-  border: 1px solid #CCC;
   background-color: #fff;
   text-align: left;
 }

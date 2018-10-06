@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, EventEmitter, OnInit, Output } from '@angular/core';
 import { PicturesComponent } from './pictures/pictures.component';
 import { PictureService } from './services/picture.service';
-import { DataService } from '../data.service';
 import { CustomTooltipComponent } from '../shared/components/custom-tooltip/custom-tooltip.component';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdTranscludeModalComponent } from '../shared/components/ngb-transclude-modal/ngb-transclude-modal.component';
@@ -33,7 +32,6 @@ export class FamilyComponent implements OnInit {
     private picturesComponent: PicturesComponent,
     private tooltipComponent: CustomTooltipComponent,
     private _pictureService: PictureService,
-    private _dataService: DataService,
     private modalService: NgbModal
   ) {}
 
@@ -46,32 +44,9 @@ export class FamilyComponent implements OnInit {
         .parent('li')
         .addClass('active');
     });
-    this.getUserCollection();
-    this.getPictureCollection();
-
-    // this._dataService.getUsers().subscribe(res => (this.users = res));
-    // console.log('this.users ', this.users);
-  }
-
-  getUserCollection(): void {
-    this._dataService.getUsers().subscribe(data => {
-      console.log('getUserContents ', data);
-    });
-  }
-
-  getPictureCollection(): void {
-    this._dataService.getPictures().subscribe(data => {
-      console.log('getPictureContents ', data);
-    });
-  }
-
-  postPictureCollection(): void {
-    this._dataService.postPictures();
   }
 
   openModal() {
-    // console.log('Family Instructions');
-    this.postPictureCollection();
     const modalRef = this.modalService.open(NgbdTranscludeModalComponent, {
       size: 'lg',
       windowClass: 'modal-xxl'

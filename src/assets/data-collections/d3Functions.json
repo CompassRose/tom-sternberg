@@ -1,0 +1,97 @@
+{
+  "name": "Sternberg",
+  "children": [
+    {
+      "name": "Thomas",
+      "children": [
+        {
+          "name": "MaryJoe",
+          "children": [
+            {
+              "name": "Unknown"
+            }
+          ]
+        },
+        {
+          "name": "Karen",
+          "children": [
+            {
+              "name": "Reese"
+            },
+            {
+              "name": "Samantha"
+            },
+            {
+              "name": "Chase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Richard",
+      "children": [
+        {
+          "name": "James",
+          "children": [
+            {
+              "name": "Sean"
+            },
+            {
+              "name": "Liam"
+            }
+          ]
+        },
+        {
+          "name": "Thomas",
+          "children": [
+            {
+              "name": "Alison"
+            },
+            {
+              "name": "Jeffrey"
+            }
+          ]
+        },
+        {
+          "name": "Mary Elizabeth",
+          "children": [
+            {
+              "name": "Benjamin"
+            },
+            {
+              "name": "Samuel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "James",
+      "children": [
+        {
+          "name": "Keri",
+          "children": [
+            {
+              "name": "Jackson"
+            },
+            {
+              "name": "Wyatt"
+            }
+          ]
+        },
+        {
+          "name": "Kristen",
+          "children": [
+            {
+              "name": "Sage"
+            },
+            {
+              "name": "Maya"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

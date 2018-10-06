@@ -33,7 +33,6 @@
 .btnGroup {
   display: flex;
   width: 100%;
- // justify-content: flex-end;
   align-content: flex-end;
 
   .posButton {
@@ -58,6 +57,7 @@
 
 .player-list-container {
   height: 1000px;
+  user-select: none;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -80,7 +80,7 @@
   border-left: 1px solid #141a72;
   width: 205px;
   &.for-teams {
-    font-size: 14px;
+    font-size: 12px;
   }
   &:last-child {
     border-bottom: 1px solid #141a72;
