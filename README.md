@@ -4,7 +4,9 @@ This is an Angular/cli Sandbox where I learn/practice Front-End Development conc
 It is a test bed, not production by any means. 
 In the process of implementing Express back-end support.
 
-+ Angular/Cli
+Express/Mongoose  backend support added
+
++ Angular 6
   - Lazy loaded
   - Module pattern
   - Drag n Drop
@@ -18,12 +20,12 @@ In the process of implementing Express back-end support.
 + Flexbox
 + CSS Grids  
 + HTML5 
-+ jQuery -- In the process of replacing
-+ D3 Charts + Heatmaps
++ jQuery -- In the process of removing
++ D3.js v5 Charts + Heatmaps
   - The Inspector - drilldown - maps
   - Wheelspin
+  - Family Tree
 + Animation/Video techniques
-+ @ngrx/store | async pipe
 + rxjs async Observables/BehaviorSubjects
 
 --------------------

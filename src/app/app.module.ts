@@ -4,16 +4,11 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import { LayoutModule } from './layout/layout.module';
-import { StoreModule } from '@ngrx/store';
-// import { reducer } from './reducers/picture.reducer';
-import { ReadComponent } from './read/read.component';
 
 @NgModule({
-  declarations: [AppComponent, ReadComponent],
+  declarations: [AppComponent],
   imports: [
     // Base
     HttpClientModule,

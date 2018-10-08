@@ -15,8 +15,8 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
     // this.router.navigate(['app/inspector/inspect/drilldown']);
     // this.router.navigate(['app/resume']);
-    // this.router.navigate(['app/wheelspin']);
-    this.router.navigate(['app/family/family-routes/dTree']);
+    this.router.navigate(['app/wheelspin']);
+    // this.router.navigate(['app/family/family-routes/dTree']);
     // this.router.navigate(['app/family/family-routes/familyTree']);
     //  this.router.navigate(['app/family/family-routes/pictures']);
     // this.router.navigate(['app/boneyard']);

@@ -12,7 +12,7 @@ import { NgbdTranscludeModalComponent } from './components/ngb-transclude-modal/
 import { CustomTooltipComponent } from './components/custom-tooltip/custom-tooltip.component';
 import { DefaultPicturePipe } from './pipes/default-picture.pipe';
 import { FilterPipe } from './pipes/filter-pipe';
-import { NgbdPictureModalComponent } from '../shared/components/ngb-picture-modal/ngb-picture-modal.component';
+import { NgbdPictureModalComponent } from './components/ngb-picture-modal/ngb-picture-modal.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, NgbModule, MDBBootstrapModule.forRoot()],
@@ -31,12 +31,6 @@ import { NgbdPictureModalComponent } from '../shared/components/ngb-picture-moda
     FilterPipe
   ],
   exports: [DatetimePickerComponent, CustomTooltipComponent, DefaultPicturePipe, SafePipe, FilterPipe],
-  entryComponents: [
-    NgbdModalComponent,
-    CustomTooltipComponent,
-    NgbdVideoModalComponent,
-    NgbdTranscludeModalComponent,
-    NgbdPictureModalComponent
-  ]
+  entryComponents: [NgbdModalComponent, CustomTooltipComponent, NgbdVideoModalComponent, NgbdTranscludeModalComponent, NgbdPictureModalComponent]
 })
 export class SharedModule {}

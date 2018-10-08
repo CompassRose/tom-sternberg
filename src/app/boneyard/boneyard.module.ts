@@ -8,14 +8,7 @@ import { DragAndDropModule } from 'angular-draggable-droppable';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        SharedModule,
-        BoneyardRoutingModule,
-        HttpClientModule,
-        DragAndDropModule.forRoot()
-    ],
-    declarations: [BoneyardComponent]
+  imports: [CommonModule, FormsModule, SharedModule, BoneyardRoutingModule, HttpClientModule, DragAndDropModule.forRoot()],
+  declarations: [BoneyardComponent]
 })
 export class BoneyardModule {}
