@@ -57,11 +57,9 @@ export class PictureService {
   }
 
   create(picture: Picture) {
-    console.log('picture ', picture);
     this.http.post(`${this.baseUrl}/pictures`, picture).subscribe(
       data => {
-        console.log('Could load pictures ', data);
-        //  this.pictureStore.pictures.push(data);
+        this.pictureStore.pictures.push(data as Picture);
         this._pictures.next(Object.assign({}, this.pictureStore).pictures);
       },
       error => console.log('Could not create pictures.')
@@ -90,13 +88,6 @@ export class PictureService {
   //     error => console.log('Could not load todo.')
   //   );
   // }
-
-  getPictures(): Observable<Picture[]> {
-    return this.http.get<Picture[]>(this.picturesUrl).pipe(
-      debounceTime(2400),
-      catchError(this.handleError('getPictures', []))
-    );
-  }
 
   getPicture(id: string): Observable<Picture> {
     const url = `${this.picturesUrl}/${id}`;

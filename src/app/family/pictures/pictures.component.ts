@@ -89,10 +89,6 @@ export class PicturesComponent implements OnInit {
     this.pictureService.remove(picture);
   }
 
-  getPictureCollection(): any {
-    return this.pictureService.getPictures();
-  }
-
   processPictures() {
     this.pictureChecker.subscribe(data => {
       data.map(d => {

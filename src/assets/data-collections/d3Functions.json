@@ -1,5 +1,6 @@
 {
-  "name": "Sternberg",
+  "name": "Thomas H Sternberg",
+  "spouseName": "Mary Elizabeth Magoon",
   "children": [
     {
       "name": "Thomas",
@@ -35,7 +36,16 @@
           "name": "James",
           "children": [
             {
-              "name": "Sean"
+              "name": "Sean",
+              "spouse": "Anne",
+              "children": [
+                {
+                  "name": "Joe"
+                },
+                {
+                  "name": "Mary"
+                }
+              ]
             },
             {
               "name": "Liam"
