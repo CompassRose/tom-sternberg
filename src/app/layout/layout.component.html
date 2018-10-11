@@ -2,7 +2,12 @@
   <div class="d-flex align-items-center contained-elements m-auto">
     <div class="gold-text header-xl ml-3"><i class="fa fa-500px"></i></div>
     <div class="heading ml-3">Tom Sternberg</div>
-    <div class="nav-icon3 ml-auto mr-3" (click)="menu_OnClick($event)"
+
+    <app-home class="ml-auto mr-5"
+              [loggedInAs]="currentUser"></app-home>
+
+    <!--<div *ngIf="currentUser" class="gold-text display-md ml-auto mr-5">{{currentUser?.firstName}}</div>-->
+    <div class="nav-icon3 mr-3" (click)="menu_OnClick($event)"
          [ngClass]="isExpanded ?'open':''">
       <span></span>
       <span></span>
@@ -20,19 +25,13 @@
           <li><a routerLink="family/family-routes/pictures"
                  (click)="isExpanded = !isExpanded;">Family</a>
           </li>
-          <!--<li><a routerLink="games"-->
-          <!--(click)="isExpanded = !isExpanded; backdrop = 'background2'">Games</a>  gotoFamily();-->
-          <!--</li>-->
           <li><a routerLink="inspector/inspect/drilldown"
                  (click)="isExpanded = !isExpanded;">Inspector</a>
           </li>
-          <li><a routerLink="wheelspin" (click)="isExpanded = !isExpanded;">Play Roullette</a>
+          <li><a routerLink="wheelspin" (click)="isExpanded = !isExpanded;">Play Roulette</a>
           </li>
           <li><a routerLink="boneyard" (click)="isExpanded = !isExpanded;">Boneyard</a>
           </li>
-          <!--<li class="mb-3"><a (click)="logout(); isExpanded = !isExpanded; backdrop = 'background2'">Logout<i-->
-          <!--class="fa fa-sign-out disabled ml-2"></i></a>-->
-          <!--</li>-->
         </ul>
       </div>
     </div>

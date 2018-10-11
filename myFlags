@@ -15,3 +15,6 @@ npm outdated
 
 //update major versions
 npm install -g npm-check-updates
+
+
+//    "start": "npm-run-all -p client server",

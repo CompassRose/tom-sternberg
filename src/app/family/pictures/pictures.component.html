@@ -17,13 +17,15 @@
 </div>
 <div class="master-container d-flex flex-wrap">
   <div *ngFor="let picture of pictureChecker | async let $idx = index;">
-    <div (mouseenter)="onMouseOver($event, picture)"
-         (mouseleave)="onMouseLeave($event, picture)">
-      <div class="thumbnail view zoom">
-        <img [src]="PICTURE_PATH + picture.image + '_tn.jpg'" (click)="openModal($idx);">
-        <div class="controls-row">
-          <a (click)="activateEditRoute(picture)"><i class="mx-1 fa fa-pencil-square-o"></i></a>
-          <a (click)="deletePicture(picture._id)"><i class="mx-1 fa fa-trash-o"></i></a>
+    <div *ngIf="activeFilters.indexOf(picture.keyword)>-1 || activeFilters[0] === 'All'">
+      <div (mouseenter)="onMouseOver($event, picture)"
+           (mouseleave)="onMouseLeave($event, picture)">
+        <div class="thumbnail view zoom">
+          <img [src]="PICTURE_PATH + picture.image + '_tn.jpg'" (click)="openModal(picture);">
+          <div class="controls-row">
+            <a (click)="activateEditRoute(picture)"><i class="mx-1 fa fa-pencil-square-o"></i></a>
+            <a (click)="deletePicture(picture)"><i class="mx-1 fa fa-trash-o"></i></a>
+          </div>
         </div>
       </div>
     </div>

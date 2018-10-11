@@ -15,11 +15,12 @@ export class NgbdModalComponent implements OnInit {
 
   public activeContent;
   public idx: number;
-
+  public PICTURE_PATH = '../assets/img/pictureCollection/';
   constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
-    this.idx = this.activeIndex;
+    const index = this.modalGroup.indexOf(this.activeIndex);
+    this.idx = index;
     this.activeContent = this.modalGroup;
   }
 
@@ -29,7 +30,6 @@ export class NgbdModalComponent implements OnInit {
     } else {
       this.idx = this.activeContent.length - 1;
     }
-    console.log('setOriginBack ', this.idx, ' length ', this.activeContent.length);
   }
 
   setOriginForward() {
@@ -38,6 +38,5 @@ export class NgbdModalComponent implements OnInit {
     } else {
       this.idx = 0;
     }
-    console.log('setOriginForward ', this.idx, ' length ', this.activeContent.length);
   }
 }

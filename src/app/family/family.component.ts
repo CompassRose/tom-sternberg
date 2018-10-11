@@ -4,21 +4,29 @@ import { PictureService } from './services/picture.service';
 import { CustomTooltipComponent } from '../shared/components/custom-tooltip/custom-tooltip.component';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdTranscludeModalComponent } from '../shared/components/ngb-transclude-modal/ngb-transclude-modal.component';
+import { SharedTabComponent } from '../shared/components/shared-tab/shared-tab.component';
 import * as $ from 'jquery';
 
 @Component({
   selector: 'app-family',
   templateUrl: './family.component.html',
   styleUrls: ['./family.component.scss'],
-  providers: [PicturesComponent, PictureService, CustomTooltipComponent]
+  providers: [PicturesComponent, PictureService, CustomTooltipComponent, SharedTabComponent]
 })
 export class FamilyComponent implements OnInit {
   public pictures = [];
-  public selectedIdx = 1;
   public users;
   public modalButtons = {
     name: 'Close'
   };
+
+  private tabContents = [
+    { link: 'pictures', name: 'Pictures' },
+    { link: 'familyTree', name: 'Family Tree' },
+    { link: 'parentTree', name: 'Parent Tree' },
+    { link: 'dTree', name: 'D Tree' },
+    { link: 'timeline', name: 'Timeline' }
+  ];
 
   public screenInstructions = [
     'Family Photo Screen',
@@ -35,16 +43,7 @@ export class FamilyComponent implements OnInit {
     private modalService: NgbModal
   ) {}
 
-  ngOnInit() {
-    $('#topheader .navbar-nav a').on('click', function() {
-      $('#topheader .navbar-nav')
-        .find('li.active')
-        .removeClass('active');
-      $(this)
-        .parent('li')
-        .addClass('active');
-    });
-  }
+  ngOnInit() {}
 
   openModal() {
     const modalRef = this.modalService.open(NgbdTranscludeModalComponent, {

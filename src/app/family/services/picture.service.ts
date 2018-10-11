@@ -29,7 +29,7 @@ export interface Picture {
   providedIn: 'root'
 })
 export class PictureService {
-  private picturesUrl = 'http://localhost:8080/api/pictures';
+  private picturesUrl = 'http://localhost:4000/api/pictures';
 
   pictures: Observable<Picture[]>;
   private _pictures: BehaviorSubject<Picture[]>;
@@ -39,7 +39,7 @@ export class PictureService {
   };
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://localhost:8080/api';
+    this.baseUrl = 'http://localhost:4000/api';
     this.pictureStore = { pictures: [] };
     this._pictures = <BehaviorSubject<Picture[]>>new BehaviorSubject([]);
     this.pictures = this._pictures.asObservable();
@@ -48,7 +48,6 @@ export class PictureService {
   loadAll() {
     this.http.get<Picture[]>(`${this.baseUrl}/pictures`).subscribe(
       data => {
-        console.log('data ', data);
         this.pictureStore.pictures = data;
         this._pictures.next(Object.assign({}, this.pictureStore).pictures);
       },

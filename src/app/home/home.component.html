@@ -1,0 +1,9 @@
+﻿<div *ngIf="!identity" class="gold-text display-md ml-auto"><a (click)="signIn();">Sign In</a></div>
+<div *ngIf="identity" class="display-md gold-text"> {{currentUser?.firstName}}<a (click)="openUserProfile = !openUserProfile"><i class="fa fa-caret-down ml-2"></i></a></div>
+<div *ngIf="openUserProfile" class="profile-drop">
+    <div class="d-flex align-items-center profileRow mx-1" *ngFor="let user of users">
+        <div>{{user.username}} ({{user.firstName}} {{user.password}})</div>
+        <div (click)="deleteUser(user.id)" class="text-danger ml-auto"><a><i class="fa fa-times-circle"></i></a></div>
+    </div>
+  <div class="profileRow" (click)="logOut();">Logout</div>
+</div>

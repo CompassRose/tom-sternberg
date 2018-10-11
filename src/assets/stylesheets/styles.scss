@@ -139,13 +139,13 @@ p {
   color: white;
   font-size: 1.8rem;
   text-shadow: -1px 0px 0px rgba(204, 204, 204, 0.35),
-  -2px -1px 0px rgba(186, 186, 186, 0.35),
-  -3px -2px 0px rgba(168, 168, 168, 0.35),
-  -4px -3px 0px rgba(153, 153, 153, 0.35),
-  -5px -4px 0px rgba(135, 135, 135, 0.35),
-  -6px -5px 0px rgba(120, 120, 120, 0.35),
-  -7px -6px 0px rgba(55, 55, 55, 0.35),
-  -8px -7px 0px rgba(40, 40, 40, 0.35);
+  -2px -1px 0px rgba(186, 186, 186, 0.25),
+  -3px -2px 0px rgba(168, 168, 168, 0.25),
+  -4px -3px 0px rgba(153, 153, 153, 0.25),
+  -5px -4px 0px rgba(135, 135, 135, 0.25),
+  -6px -5px 0px rgba(120, 120, 120, 0.25),
+  -7px -6px 0px rgba(55, 55, 55, 0.25),
+  -8px -7px 0px rgba(40, 40, 40, 0.25);
 }
 
 
@@ -216,45 +216,3 @@ a {
 }
 
 
-.navbar-nav {
-  width: 100%;
-  border-bottom: 1px solid white;
-  flex-direction: row;
-  padding: 10px;
-}
-
-
-#topheader li > a {
-  text-transform: capitalize;
-  transition: background-color .2s, color .2s;
-  padding: 14px 35px;
-  color: white;
-  background-color: transparent;
-  border-right: 1px solid;
-  border-left: 1px solid;
-  border-top: 1px solid;
-  border-color: rgba(61, 62, 171, 0.85);
-  border-radius: 5px 5px 0 0;
-  margin: 30px 4px;
-  border-bottom: 1px transparent;
-  &:hover {
-    border-color: #52a3ff;
-    color: white;
-    border-bottom: 1px solid $central-blue-container;
-  }
-  &:active {
-    border-color: white;
-    border-bottom: 1px solid $central-blue-container;
-  }
-  &:focus {
-    border-color: white;
-    border-bottom: 1px solid $central-blue-container;
-  }
-}
-
-#topheader li.active > a {
-  background-color: transparent;
-  border-color: white;
-  color: white;
-  border-bottom: 2px solid $central-blue-container;
-}

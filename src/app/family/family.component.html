@@ -1,15 +1,17 @@
-<div id="topheader">
-  <div class="d-flex w-100 py-4">
-    <ul class="navbar-nav">
-      <li class="active"><a routerLink="pictures" href="#home">Pictures<span class="sr-only">(current)</span></a></li>
-      <li><a routerLink="familyTree" href="#page1">Family Tree</a></li>
-      <li><a routerLink="parentTree" href="#page1">Parent Tree</a></li>
-      <li><a routerLink="dTree" href="#page1">D Tree</a></li>
-    </ul>
-    <button class="btn btn-sm help btn-primary display-md f-weight-600" (click)="openModal();">?</button>
-  </div>
-</div>
+<!--<div id="topheader">-->
+  <!--<div class="d-flex w-100 py-4">-->
+    <!--<ul class="navbar-nav">-->
+      <!--<li class="active"><a routerLink="pictures">Pictures</a></li>-->
+      <!--<li><a routerLink="familyTree">Family Tree</a></li>-->
+      <!--<li><a routerLink="parentTree">Parent Tree</a></li>-->
+      <!--<li><a routerLink="dTree">D Tree</a></li>-->
+    <!--</ul>-->
+    <!--<button class="btn btn-sm help btn-primary display-md f-weight-600" (click)="openModal();">?</button>-->
+  <!--</div>-->
+<!--</div>-->
+<app-shared-tab
+  [tabValues]="tabContents">
+</app-shared-tab>
 <router-outlet></router-outlet>
-<!--<app-read></app-read>-->
 
 

@@ -1,0 +1,8 @@
+<div id="topheader">
+  <div class="d-flex w-100 py-4">
+    <ul class="navbar-nav">
+      <li *ngFor="let tab of tabElements; let $idx = index;"><a (click)="setRoute($idx);">{{tab.name}}</a></li>
+    </ul>
+    <button class="btn btn-sm help btn-primary display-md f-weight-600" (click)="openModal();">?</button>
+  </div>
+</div>

@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
- // apiUrl: 'https://leaderboarddev.racingsnail.co/api/api',
+  apiUrl: 'http://localhost:4000'
 };

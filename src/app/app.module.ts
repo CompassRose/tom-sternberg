@@ -1,14 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import { LayoutModule } from './layout/layout.module';
 
+import { AlertComponent } from './_directives';
+// import { fakeBackendProvider } from './_helpers';
+import { AuthGuard } from './_guards';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { AlertService, AuthenticationService, UserService } from './_services';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AlertComponent],
   imports: [
     // Base
     HttpClientModule,
@@ -24,7 +30,17 @@ import { LayoutModule } from './layout/layout.module';
   ],
 
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [HttpClientModule],
+  providers: [
+    HttpClientModule,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    // provider used to create fake backend
+    // fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

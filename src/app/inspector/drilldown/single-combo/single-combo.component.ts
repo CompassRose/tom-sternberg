@@ -207,13 +207,7 @@ export class SingleComboComponent implements OnInit, OnChanges {
       .append('svg')
       .attr('width', this.container.width + this.margin.left + this.margin.right)
       .attr('height', this.container.height - this.table.height())
-      .attr(
-        'viewBox',
-        '0, 0, ' +
-          (this.container.width + this.margin.left + this.margin.right) +
-          ', ' +
-          (this.container.height - this.table.height())
-      );
+      .attr('viewBox', '0, 0, ' + (this.container.width + this.margin.left + this.margin.right) + ', ' + (this.container.height - this.table.height()));
 
     // console.log('this.table.height() ', this.table.height());
     for (let j = 0; j < d3.keys(this.premiumData).length; j++) {
