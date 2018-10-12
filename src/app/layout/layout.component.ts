@@ -1,9 +1,6 @@
-import { Component, ChangeDetectionStrategy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { first } from 'rxjs/operators';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../_models';
-import { AuthenticationService, UserService } from '../_services';
 
 @Component({
   selector: 'app-layout',
@@ -16,7 +13,7 @@ export class LayoutComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
