@@ -17,7 +17,7 @@ export class SharedTabComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.tabElements = this.tabValues;
-    console.log('SharedTabComponent tabElements ', this.tabElements);
+    // console.log('SharedTabComponent tabElements ', this.tabElements);
   }
 
   ngAfterViewInit() {

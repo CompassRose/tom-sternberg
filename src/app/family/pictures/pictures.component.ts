@@ -30,6 +30,7 @@ export class PicturesComponent implements OnInit {
   public toolValues: string;
   public tooltipPositionX;
   public tooltipPositionY;
+  public searchText: string;
 
   picture = new Picture();
 
@@ -62,7 +63,7 @@ export class PicturesComponent implements OnInit {
     this.picture = picture;
     picture.image = this.PICTURE_PATH + 'default';
     this.pictureService.create(picture);
-    this.addFilter(picture.keyword);
+    this.addFilter('All');
   }
 
   deletePicture(picture: Picture) {
@@ -119,22 +120,25 @@ export class PicturesComponent implements OnInit {
       this.addFilter('All');
       this.pictureCategories[0].checked = true;
     }
+    console.log('removeFilter this.activeFilters ', this.activeFilters);
   }
 
   // Removes filter checkbox
-  removeCategory(cat) {
+  removeCategory(picture) {
     const test1 = [];
     this.pictureChecker.subscribe(data => {
       data.forEach(d => {
-        if (d.keyword === cat.keyword) {
+        if (d.keyword === picture.keyword) {
           console.log('test1 ', d.keyword);
           test1.push(d);
         }
       });
     });
     if (test1.length === 1) {
-      const index = this.pictureCategories.findIndex(p => p.attr1 === cat.keyword);
+      const index = this.pictureCategories.findIndex(p => p.attr1 === picture.keyword);
+      //  console.log('this.pictureCategories ', this.pictureCategories);
       this.pictureCategories.splice(index);
+      //  console.log('this.pictureCategories ', this.pictureCategories);
     }
   }
 
@@ -150,7 +154,7 @@ export class PicturesComponent implements OnInit {
       }
       this.activeFilters.push(cat);
     }
-    console.log('addFilter this.activeFilters ', this.activeFilters);
+    // console.log('addFilter this.activeFilters ', this.activeFilters);
   }
 
   resetAll() {

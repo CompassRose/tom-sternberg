@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivateChild } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
@@ -26,23 +26,28 @@ import { AuthGuard } from './_guards';
             },
             {
               path: 'family',
-              loadChildren: './family/family.module#FamilyModule'
+              loadChildren: './family/family.module#FamilyModule',
+              canActivate: [AuthGuard]
             },
             {
               path: 'resume',
-              loadChildren: './resume/resume.module#ResumeModule'
+              loadChildren: './resume/resume.module#ResumeModule',
+              canActivate: [AuthGuard]
             },
             {
               path: 'games',
-              loadChildren: './games/games.module#GamesModule'
+              loadChildren: './games/games.module#GamesModule',
+              canActivate: [AuthGuard]
             },
             {
               path: 'wheelspin',
-              loadChildren: './wheel-spin/wheel-spin.module#WheelspinModule'
+              loadChildren: './wheel-spin/wheel-spin.module#WheelspinModule',
+              canActivate: [AuthGuard]
             },
             {
               path: 'inspector',
-              loadChildren: './inspector/inspector.module#InspectorModule'
+              loadChildren: './inspector/inspector.module#InspectorModule',
+              canActivate: [AuthGuard]
             },
             // otherwise redirect to home
             {

@@ -1,4 +1,4 @@
-const Picture = require('../models/picture.model.js');
+const Picture = require('./picture.model.js');
 
 
 // POST a Picture

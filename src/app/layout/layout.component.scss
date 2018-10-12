@@ -13,10 +13,10 @@
   @include navColor($central-blue);
   top: 0;
   width: 100%;
-  height: 70px;
   border-bottom: 1px solid $central-gold;
   box-shadow: 4px 0 7px black;
   .contained-elements {
+    height: 70px;
     width: $container-width;
   }
   .sidebar {

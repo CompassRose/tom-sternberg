@@ -1,0 +1,20 @@
+.login-frame {
+  position: absolute;
+  top: 120px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.my-header {
+  border-top-right-radius: 10px;
+  padding: .4rem .8rem;
+  background-color: #e9e9e9;
+  border-bottom: 1px solid #a4a4a4;
+  display: flex;
+  align-items: center;
+}
+
+.my-body {
+  background-color: white;
+  padding: 20px 20px 0 20px;
+}

@@ -89,7 +89,7 @@ export class BarChartComponent implements OnInit, OnChanges {
 
   // Call parent function to show tooltip
   private showTooltip(values, x, y) {
-    this.tooltipEvent.next({ values: values, x: x + 30, y: y });
+    this.tooltipEvent.next({ values: values, x: x + 10, y: y });
   }
 
   // Call parent function to show tooltip
@@ -188,10 +188,7 @@ export class BarChartComponent implements OnInit, OnChanges {
       .attr('height', this.container.height + this.margin.top + this.margin.bottom)
       .attr(
         'viewBox',
-        '0, 0, ' +
-          (this.container.width + this.margin.left + this.margin.right) +
-          ', ' +
-          (this.container.height + this.margin.top + this.margin.bottom)
+        '0, 0, ' + (this.container.width + this.margin.left + this.margin.right) + ', ' + (this.container.height + this.margin.top + this.margin.bottom)
       );
 
     const chart = this.svg.append('g').attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');

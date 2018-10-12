@@ -6,9 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import { LayoutModule } from './layout/layout.module';
-
 import { AlertComponent } from './_directives';
-// import { fakeBackendProvider } from './_helpers';
 import { AuthGuard } from './_guards';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertService, AuthenticationService, UserService } from './_services';
@@ -20,7 +18,6 @@ import { AlertService, AuthenticationService, UserService } from './_services';
     HttpClientModule,
     LayoutModule,
     BrowserModule,
-
     // Application
     AppRoutingModule,
 

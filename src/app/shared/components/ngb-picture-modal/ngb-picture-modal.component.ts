@@ -16,10 +16,15 @@ export class NgbdPictureModalComponent implements OnInit {
   file: any;
   public process;
   public picture: any;
+  myDate: [null];
+  // Initialized to specific date (09.10.2018).
+  public model: any = { date: { year: 2018, month: 10, day: 9 } };
+  // model: IAddYear;
 
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
+    // this.model.mydate = { jsdate: new Date('7/08/2018') };
     this.picture = this.activePicture;
     this.process = this.activeProcess;
   }

@@ -2,10 +2,12 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-
 import { AlertService, AuthenticationService } from '../_services';
 
-@Component({ templateUrl: 'login.component.html' })
+@Component({
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.component.scss']
+})
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
@@ -25,13 +27,11 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-
     // reset login status
-    this.authenticationService.logout();
-
+    //  this.authenticationService.logout();
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '';
-    console.log('returnUrl onSubmit ', this.returnUrl);
+    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '';
+    // console.log('returnUrl onSubmit ', this.returnUrl);
   }
 
   // convenience getter for easy access to form fields
@@ -55,9 +55,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log('onSubmit ', data);
-          this.router.navigate(['app/wheelspin']);
-          // this.router.navigate([this.returnUrl]);
+          // console.log('onSubmit ', data);
         },
         error => {
           this.alertService.error(error);

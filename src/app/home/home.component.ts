@@ -1,9 +1,9 @@
 ﻿import { Component, Input, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
-
 import { User } from '../_models';
-import { UserService } from '../_services';
+import { AuthenticationService, UserService } from '../_services';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,30 +11,28 @@ import { Router } from '@angular/router';
   templateUrl: 'home.component.html'
 })
 export class HomeComponent implements OnInit {
-  @Input()
-  loggedInAs;
-
+  isLoggedIn: Observable<boolean>;
   currentUser: User;
   users: User[] = [];
   public identity = false;
   openUserProfile = false;
 
-  constructor(private userService: UserService, private router: Router) {
-    console.log('user ', JSON.parse(localStorage.getItem('currentUser')));
+  constructor(private userService: UserService, private router: Router, private authenticationService: AuthenticationService) {
+    this.isLoggedIn = this.authenticationService.isLoggedIn();
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    console.log('Home Loading ', this.currentUser);
-    this.currentUser = this.loggedInAs;
-    if (this.loggedInAs) {
-      this.identity = true;
-      this.loadAllUsers();
-    }
-  }
-
-  signIn() {
-    this.router.navigate(['app/login']);
+    this.isLoggedIn.subscribe(data => {
+      this.identity = data;
+      if (this.identity) {
+        this.loadAllUsers();
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.router.navigate(['app/family/family-routes/pictures']);
+      } else {
+        this.router.navigate(['app/login']);
+      }
+    });
   }
 
   deleteUser(id: number) {
@@ -47,6 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   private logOut() {
+    this.authenticationService.logout();
     this.openUserProfile = false;
     this.identity = false;
     this.router.navigate(['app/login']);
@@ -57,7 +56,6 @@ export class HomeComponent implements OnInit {
       .getAll()
       .pipe(first())
       .subscribe(users => {
-        console.log('loadAllUsers ', users);
         this.users = users;
       });
   }
