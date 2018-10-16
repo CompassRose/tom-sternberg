@@ -17,7 +17,8 @@ export class DtreeComponent implements OnInit {
         class: 'man',
         textClass: 'man',
         extra: {
-          born: '11/21/34'
+          born: '11/21/34',
+          cityOfBirth: 'Des Moines'
         },
         marriages: [
           {
@@ -25,7 +26,8 @@ export class DtreeComponent implements OnInit {
               name: 'Mary Magoon',
               class: 'woman',
               extra: {
-                born: '7/11/35'
+                born: '7/11/35',
+                cityOfBirth: 'Lacon'
               }
             },
             children: [
@@ -34,7 +36,8 @@ export class DtreeComponent implements OnInit {
                 class: 'man',
                 textClass: 'man',
                 extra: {
-                  born: '11/21/34'
+                  born: '11/21/34',
+                  cityOfBirth: 'Lacon'
                 },
                 marriages: [
                   {
@@ -42,7 +45,8 @@ export class DtreeComponent implements OnInit {
                       name: 'Lois Sternberg',
                       class: 'woman',
                       extra: {
-                        born: '7/11/35'
+                        born: '7/11/35',
+                        cityOfBirth: 'Bakersfield'
                       }
                     },
                     children: [
@@ -50,14 +54,16 @@ export class DtreeComponent implements OnInit {
                         name: 'James Gunnar Sternberg',
                         class: 'man',
                         extra: {
-                          born: '10/16/1959'
+                          born: '10/16/1959',
+                          cityOfBirth: 'Santa Monica'
                         },
                         marriages: [
                           {
                             spouse: {
                               name: 'Kristen Gronlund',
                               extra: {
-                                born: '10/28/1966'
+                                born: '10/28/1966',
+                                cityOfBirth: 'Seattle'
                               },
                               class: 'woman'
                             },
@@ -66,23 +72,26 @@ export class DtreeComponent implements OnInit {
                                 name: 'Sean Sternberg',
                                 class: 'woman',
                                 extra: {
-                                  born: '4/10/1995'
+                                  born: '4/10/1995',
+                                  cityOfBirth: 'Bellevue'
                                 },
                                 marriages: [
                                   {
                                     spouse: {
-                                      name: 'Martin Davenport',
+                                      name: 'John Martin Sternberg',
                                       class: 'man',
                                       extra: {
-                                        born: '7/11/35'
+                                        born: '7/11/35',
+                                        cityOfBirth: 'Yakima'
                                       }
                                     },
                                     children: [
                                       {
-                                        name: 'Viola Sternberg',
+                                        name: 'Anne Viola Sternberg',
                                         class: 'woman',
                                         extra: {
-                                          born: '10/16/1959'
+                                          born: '10/16/1959',
+                                          cityOfBirth: 'Chicago'
                                         }
                                       }
                                     ]

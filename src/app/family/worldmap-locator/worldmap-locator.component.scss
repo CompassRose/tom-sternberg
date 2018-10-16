@@ -1,0 +1,57 @@
+
+
+#world-body {
+ // position:fixed;
+ // width: 100%;
+   // right:0;
+  // bottom:0;
+  // left:0;
+ // background:black;
+}
+
+svg {
+  width:100%;
+  height: 100%
+}
+
+.country {
+  fill: #d4daff;
+  &:hover {
+    fill: #7c95ff;
+  }
+}
+
+//path {
+//  fill:none;
+//  color: #0e116f;
+//}
+
+.graticule {
+  fill: none;
+  stroke: #bbb;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+circle {
+  stroke: rgba(255, 0, 0, 0.4);
+  fill: rgba(255, 174, 172, 0.3);
+  &:hover {
+    stroke: rgba(255, 0, 0, 0.5);
+    fill: rgba(255, 174, 172, 0.5);
+  }
+}
+
+circle:hover {
+  stroke-width: 2px;
+}
+
+.d3-tip {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 17px;
+  background: black;
+  color: lightgray;
+  border-radius: 10px;
+}

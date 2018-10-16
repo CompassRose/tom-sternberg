@@ -5,6 +5,7 @@ import { PicturesComponent } from './pictures/pictures.component';
 import { FamilyTreeComponent } from './family-tree/family-tree.component';
 import { ParentTreeComponent } from './parent-tree/parent-tree.component';
 import { DtreeComponent } from './dtree/dtree.component';
+import { WorldmapLocatorComponent } from './worldmap-locator/worldmap-locator.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { DtreeComponent } from './dtree/dtree.component';
           { path: 'pictures', component: PicturesComponent },
           { path: 'familyTree', component: FamilyTreeComponent },
           { path: 'parentTree', component: ParentTreeComponent },
-          { path: 'dTree', component: DtreeComponent }
+          { path: 'dTree', component: DtreeComponent },
+          { path: 'worldmap-locator', component: WorldmapLocatorComponent }
         ]
       }
     ])

@@ -5,7 +5,6 @@ const Picture = require('./picture.model.js');
 exports.create = (req, res) => {
     // Create a picture
     const picture = new Picture(req.body);
-
     // Save a Picture in the MongoDB
     picture.save()
     .then(data => {

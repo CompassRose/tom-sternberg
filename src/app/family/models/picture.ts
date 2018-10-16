@@ -1,12 +1,3 @@
-// export interface Picture {
-//   reference: string;
-//   name: string;
-//   image: string;
-//   keyword: string;
-//   description: string;
-//   searchable: string[];
-// }
-
 export class Picture {
   _id: string;
   title: String;
@@ -14,5 +5,6 @@ export class Picture {
   date: Date;
   keyword: String;
   description: String;
+  associations: [String];
   tags: [String];
 }

@@ -28,6 +28,8 @@
           <div class="thumbnail view zoom">
             <img [src]="PICTURE_PATH + picture.image + '_tn.jpg'" (click)="openModal(picture);">
             <div class="controls-row">
+              <a (click)="showTip = !showTip"><i class="mx-1 fa fa-file-text-o"></i></a>
+              <a (click)="openVideoModal(0);  videoPlayer = true"><i class="mx-1 fa fa-video-camera"></i></a>
               <a (click)="activateEditRoute(picture)"><i class="mx-1 fa fa-pencil-square-o"></i></a>
               <a (click)="deletePicture(picture)"><i class="mx-1 fa fa-trash-o"></i></a>
             </div>

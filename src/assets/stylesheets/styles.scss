@@ -7,7 +7,6 @@ body {
   background-color: #01070f;
 }
 
-
 .linage {
   fill: none;
   stroke: #ffffff;
@@ -52,7 +51,14 @@ p {
   margin: 0;
 }
 
-
+.container {
+  min-width: $container-width;
+  height: 100vh;
+  background-color: $central-blue-container;
+  .spacer {
+    margin-top: 70px;
+  }
+}
 
 #map, #map div {
   overflow: hidden;
@@ -122,16 +128,6 @@ p {
 #usmap #mapGroup.centered #states path.active:hover {
   cursor: zoom-out;
 }
-
-.container {
-  min-width: $container-width;
-  height: 100vh;
-  background-color: $central-blue-container;
-  .spacer {
-    margin-top: 70px;
-  }
-}
-
 
 .heading {
   padding-bottom: 0;

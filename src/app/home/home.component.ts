@@ -22,6 +22,19 @@ export class HomeComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
+  // this.loadAllUsers();
+  // this.router.navigate(['app/login']);
+  // console.log('ngOnInit currentUser ', this.currentUser);
+  // this.router.navigate(['app/inspector/inspect/drilldown']);
+  // this.router.navigate(['app/resume']);
+  // this.router.navigate(['app/home']);
+  // this.router.navigate(['app/wheelspin']);
+  // this.router.navigate(['app/login']);
+  // this.router.navigate(['app/family/family-routes/dTree']);
+  // this.router.navigate(['app/family/family-routes/familyTree']);
+  // this.router.navigate(['app/family/family-routes/pictures']);
+  // this.router.navigate(['app/boneyard']);
+
   ngOnInit() {
     this.isLoggedIn.subscribe(data => {
       this.identity = data;
@@ -29,6 +42,7 @@ export class HomeComponent implements OnInit {
         this.loadAllUsers();
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.router.navigate(['app/wheelspin']);
+        // this.router.navigate(['app/family/family-routes/worldmap-locator']);
       } else {
         this.router.navigate(['app/login']);
       }

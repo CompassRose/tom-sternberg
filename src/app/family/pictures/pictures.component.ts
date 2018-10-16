@@ -12,6 +12,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
+import { NgbdVideoModalComponent } from '../../shared/components/ngb-video-modal/ngb-video-modal.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,15 +32,18 @@ export class PicturesComponent implements OnInit {
   public tooltipPositionX;
   public tooltipPositionY;
   public searchText: string;
-
-  picture = new Picture();
+  public picture = new Picture();
 
   public pictureChecker: Observable<Picture[]>;
   public PICTURE_PATH = '../assets/img/pictureCollection/';
-
-  allPictures: Observable<Picture[]>;
-  singlePicture: Observable<Picture>;
   private activeCategory = [];
+
+  private videoContents = {
+    projectName: 'Person -- Subject: ',
+    projectPlatform: 'Explaining --contents--',
+    projectRole: 'Year:, Stories, ',
+    video: 'https://www.youtube.com/embed/jenWdylTtzs?autoplay=1'
+  };
 
   // First char Upper rest Lower
   static toTitleCase(str) {
@@ -176,8 +180,17 @@ export class PicturesComponent implements OnInit {
     this.openPictureModal(false);
   }
 
+  openVideoModal(e) {
+    console.log('openModal ', e);
+    const modalRef = this.modalService.open(NgbdVideoModalComponent, {
+      size: 'lg'
+    });
+    modalRef.componentInstance.modalName = this.videoContents.video;
+    modalRef.componentInstance.modalGroup = this.videoContents.projectName;
+    modalRef.componentInstance.description = this.videoContents;
+  }
+
   openPictureModal(e) {
-    console.log('triage ', e);
     const modalRef = this.modalService.open(NgbdPictureModalComponent, {
       backdrop: 'static'
     });
@@ -203,7 +216,7 @@ export class PicturesComponent implements OnInit {
 
   // custom tooltip called
   onMouseOver(e, pic) {
-    this.showTip = true;
+    // this.showTip = true;
     this.toolTitle = pic.title;
     this.toolValues = pic.description;
     this.tooltipPositionX = e.clientX;
@@ -216,19 +229,17 @@ export class PicturesComponent implements OnInit {
 
   openModal(e) {
     const pictureGroup: Picture[] = [];
-
     this.pictureChecker.subscribe(data => {
       data.map(d => {
-        this.activeFilters.forEach(e => {
-          console.log('e ', e);
-          if (d.keyword === e) {
-            console.log('keyword ', d.keyword);
+        this.activeFilters.forEach(f => {
+          if (d.keyword === f) {
+            pictureGroup.push(d);
+          } else {
             pictureGroup.push(d);
           }
         });
       });
     });
-
     const modalRef = this.modalService.open(NgbdModalComponent, {
       size: 'lg',
       windowClass: 'modal-xxl'

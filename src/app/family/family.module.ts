@@ -7,10 +7,11 @@ import { PicturesComponent } from './pictures/pictures.component';
 import { FamilyTreeComponent } from './family-tree/family-tree.component';
 import { ParentTreeComponent } from './parent-tree/parent-tree.component';
 import { DtreeComponent } from './dtree/dtree.component';
+import { WorldmapLocatorComponent } from './worldmap-locator/worldmap-locator.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, FamilyRoutingModule],
-  declarations: [FamilyComponent, PicturesComponent, FamilyTreeComponent, ParentTreeComponent, DtreeComponent],
+  declarations: [FamilyComponent, PicturesComponent, FamilyTreeComponent, ParentTreeComponent, DtreeComponent, WorldmapLocatorComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class FamilyModule {}

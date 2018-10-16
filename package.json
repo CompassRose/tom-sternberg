@@ -5,7 +5,7 @@
   "scripts": {
     "client": "ng serve",
     "ng": "ng",
-    "start":  "npm-run-all -p client server",
+    "start": "npm-run-all -p client server",
     "server": "nodemon ./server.js",
     "dev": "nodemon ./server.js",
     "build": "ng build --watch",
@@ -36,6 +36,8 @@
     "cors": "^2.8.4",
     "d3": "^5.7.0",
     "d3-dtree": "^2.0.2",
+    "d3-geo-projection": "^2.4.1",
+    "d3-tip": "^0.9.1",
     "dropzone": "^5.4.0",
     "express": "^4.16.3",
     "express-jwt": "^5.3.1",
@@ -91,7 +93,7 @@
   },
   "prettier": {
     "singleQuote": true,
-    "printWidth": 160,
+    "printWidth": 140,
     "tabWidth": 2
   }
 }

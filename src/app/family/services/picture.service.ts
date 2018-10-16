@@ -22,6 +22,7 @@ export interface Picture {
   image: string;
   keyword: string;
   description: string;
+  associations: [string];
   tags: [string];
 }
 

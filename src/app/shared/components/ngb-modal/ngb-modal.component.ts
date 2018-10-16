@@ -15,12 +15,10 @@ export class NgbdModalComponent implements OnInit {
 
   public activeContent;
   public idx: number;
-  public PICTURE_PATH = '../assets/img/pictureCollection/';
   constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
-    const index = this.modalGroup.indexOf(this.activeIndex);
-    this.idx = index;
+    this.idx = this.modalGroup.indexOf(this.activeIndex);
     this.activeContent = this.modalGroup;
   }
 

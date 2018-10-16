@@ -25,7 +25,7 @@ export class FamilyComponent implements OnInit {
     { link: 'familyTree', name: 'Family Tree' },
     { link: 'parentTree', name: 'Parent Tree' },
     { link: 'dTree', name: 'D Tree' },
-    { link: 'timeline', name: 'Timeline' }
+    { link: 'worldmap-locator', name: 'World Locator' }
   ];
 
   public screenInstructions = [
