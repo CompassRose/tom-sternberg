@@ -161,7 +161,7 @@ export class WorldmapLocatorComponent implements OnInit {
           if (d.name === 'Bellevue') {
             // console.log('d.name ', d);
           }
-          return d.population > 2000000 || d.name === 'Bellevue';
+          return d.population > 1000000 || d.name === 'Bellevue';
         });
 
         parent.rScale.domain([
@@ -198,27 +198,7 @@ export class WorldmapLocatorComponent implements OnInit {
         circles.exit().remove();
       }
     });
-
-    console.log('rev ', this.reverseString('hello'));
-    console.log('rev ', this.reverseString2('hello Tom'));
   }
-
-  reverseString2(str) {
-    let newString = '';
-    for (let i = str.length - 1; i >= 0; i--) {
-      newString += str[i]; // or newString = newString + str[i];
-    }
-    console.log(newString);
-  }
-
-  reverseString(str) {
-    return str
-      .split('')
-      .reverse()
-      .join('');
-  }
-
-  returnPrime() {}
 
   zoomed() {
     // container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")"); // not in d3 v4

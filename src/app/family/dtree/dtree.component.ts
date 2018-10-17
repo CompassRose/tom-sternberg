@@ -13,7 +13,7 @@ export class DtreeComponent implements OnInit {
   constructor() {
     this.treeData = [
       {
-        name: 'Thomas Hunter Sternberg',
+        name: 'Thomas Sternberg',
         class: 'man',
         textClass: 'man',
         extra: {
