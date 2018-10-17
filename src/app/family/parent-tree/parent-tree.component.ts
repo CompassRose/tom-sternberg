@@ -25,7 +25,6 @@ export class ParentTreeComponent implements OnInit {
   constructor(private parentalService: ParentalService) {}
 
   ngOnInit() {
-    console.log('ngOnInit');
     this.margin = { top: 0, right: 320, bottom: 0, left: 0 };
     const fullWidth = 960;
     const fullHeight = 500;

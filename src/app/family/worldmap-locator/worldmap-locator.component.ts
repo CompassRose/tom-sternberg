@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 import * as d3 from 'd3';
 import * as d3Projection from 'd3-geo-projection';
 import d3Tip from 'd3-tip';
+import { ParentalService } from '../services/ptree.service';
 
 // (d3 as any).tip = d3Tip;
 
@@ -18,38 +19,46 @@ export class WorldmapLocatorComponent implements OnInit {
   private GEO_COUNTRIES = '../../../assets/data-collections/world-110m.v1.json';
   private GEO_COUNTRY_NAMES = '../../../assets/data-collections/world-110m-country-names.tsv';
 
-  private container;
+  private detailRows = [];
+  private container = {
+    width: 1600,
+    height: 800
+  };
   private rScale;
-  private xColumn;
-  private yColumn;
-  private rColumn;
-  private peoplePerPixel;
-  private parent;
+  private xColumn = 'longitude';
+  private yColumn = 'latitude';
+  private rColumn = 'population';
+  private peoplePerPixel = 9000;
   private projection;
   private margin = { top: 30, right: 0, bottom: 0, left: 0 };
-  private mapX: number;
-  private mapY: number;
-  private scale: number;
+  private mapX = this.container.width / 2;
+  private mapY = this.container.height / 2;
+  private scale = Math.max(this.container.width, this.container.height);
+  private svg;
+  private toolTip;
+  private path;
+  private graticule;
+  private color = d3.schemeCategory10;
 
-  constructor() {}
+  constructor(private parentalService: ParentalService) {}
 
   ngOnInit() {
-    console.log();
-    const parent = this;
-    const promises = [];
-    const color = d3.schemeCategory10;
-    this.xColumn = 'longitude';
-    this.yColumn = 'latitude';
-    this.rColumn = 'population';
-    this.peoplePerPixel = 9000;
+    this.parentalService.globalTreeSubject.subscribe(data => {
+      this.setSubjectData(data);
+    });
 
-    this.container = {
-      width: 1600,
-      height: 800
-    };
-    this.scale = Math.max(this.container.width, this.container.height);
-    this.mapX = this.container.width / 2;
-    this.mapY = this.container.height / 2;
+    this.initWorldChart();
+  }
+
+  setSubjectData(res) {
+    console.log('setSubjectData this.detailRows ', res);
+    this.detailRows = res;
+  }
+
+  // Set up projection config
+
+  initWorldChart() {
+    const parent = this;
 
     this.projection = d3
       .geoMercator()
@@ -57,11 +66,10 @@ export class WorldmapLocatorComponent implements OnInit {
       .scale(250)
       .translate([this.mapX, this.mapY]);
 
-    const path = d3.geoPath().projection(this.projection);
+    this.path = d3.geoPath().projection(this.projection);
+    this.graticule = d3.geoGraticule();
 
-    const graticule = d3.geoGraticule();
-
-    const svg = d3
+    this.svg = d3
       .select('#world-body')
       .append('svg')
       .attr('width', this.container.width - this.margin.left - this.margin.right)
@@ -74,56 +82,62 @@ export class WorldmapLocatorComponent implements OnInit {
     //   .attr('id', 'sphere')
     //   .attr('d', path);
 
-    svg
+    this.svg
       .append('use')
       .attr('class', 'stroke')
       .attr('href', '#sphere');
 
-    svg
+    this.svg
       .append('use')
       .attr('class', 'fill')
       .attr('href', '#sphere');
 
-    svg
+    this.svg
       .append('path')
-      .datum(graticule)
+      .datum(this.graticule)
       .attr('class', 'graticule')
-      .attr('d', path);
+      .attr('d', this.path);
 
+    this.renderWorld(parent);
+  }
+
+  // Render world projection
+
+  renderWorld(parent) {
+    const promises = [];
     promises.push(d3.json(this.GEO_COUNTRIES), d3.tsv(this.GEO_COUNTRY_NAMES));
 
-    Promise.all(promises).then(function(values) {
+    Promise.all(promises).then(values => {
       const world = values[0];
       const countryNames = values[1];
-
       const countries = topojson.feature(world, world.objects.countries).features;
 
-      const tip = d3Tip();
-      tip
+      parent.toolTip = d3Tip();
+      parent.toolTip
         .attr('class', 'd3-tip')
-        .offset([-10, 0])
+        .offset([-40, 0])
         .html(function(d) {
           //  console.log('tip d ', d);
           return d.name;
         });
 
-      svg.call(tip);
+      parent.svg.call(parent.toolTip);
 
-      svg
+      parent.svg
         .selectAll('.country')
         .data(countries)
         .enter()
         .insert('path', '.graticule')
         .attr('class', 'country')
-        .attr('d', path)
+        .attr('d', parent.path)
         .style('stroke', 'white')
         .style('stroke-width', 1)
         .style('opacity', 0.8)
         .on('mouseover', function(d) {
           countryNames.filter(f => {
             if (d.id === f.id) {
-              console.log('tip d ', f.name);
-              tip.show(f, this);
+              //  console.log('tip d ', f.name);
+              parent.toolTip.show(f, this);
             }
           });
           d3.select(this)
@@ -132,7 +146,7 @@ export class WorldmapLocatorComponent implements OnInit {
             .style('stroke-width', 3);
         })
         .on('mouseout', function(d) {
-          tip.hide(d, this);
+          parent.toolTip.hide(d, this);
 
           d3.select(this)
             .style('opacity', 0.8)
@@ -144,7 +158,7 @@ export class WorldmapLocatorComponent implements OnInit {
 
       d3.csv(parent.GEO_CITIES).then(d => {
         type(d);
-        render(d, parent);
+        parent.renderCircles(d, parent);
       });
 
       function type(d) {
@@ -155,54 +169,58 @@ export class WorldmapLocatorComponent implements OnInit {
       }
 
       parent.rScale = d3.scaleSqrt();
-
-      function render(data, parent) {
-        const fData = data.filter(function(d) {
-          if (d.name === 'Bellevue') {
-            // console.log('d.name ', d);
-          }
-          return d.population > 1000000 || d.name === 'Bellevue';
-        });
-
-        parent.rScale.domain([
-          0,
-          d3.max(fData, function(d) {
-            return d[parent.rColumn];
-          })
-        ]);
-        // Compute the size of the biggest circle as a function of peoplePerPixel.
-        const peopleMax = parent.rScale.domain()[1];
-        const rMin = 0;
-        const rMax = Math.sqrt(peopleMax / (parent.peoplePerPixel * Math.PI));
-        parent.rScale.range([rMin, rMax]);
-
-        const circles = svg.selectAll('circle').data(fData);
-        circles
-          .enter()
-          .append('svg:circle')
-          .attr('cx', function(d) {
-            return parent.projection([d[parent.xColumn], d[parent.yColumn]])[0];
-          })
-          .attr('cy', function(d) {
-            return parent.projection([d[parent.xColumn], d[parent.yColumn]])[1];
-          })
-          .attr('r', function(d) {
-            return parent.rScale(d[parent.rColumn]);
-          })
-          .on('mouseover', function(d) {
-            tip.show(d);
-          })
-          .on('mouseout', function(d) {
-            tip.hide(d);
-          });
-        circles.exit().remove();
-      }
     });
+  }
+
+  // Render sub- world elements
+
+  renderCircles(data, parent) {
+    {
+      const fData = data.filter(function(d) {
+        if (d.name === 'Bellevue') {
+          // console.log('d.name ', d);
+        }
+        return d.population > 1000000 || d.name === 'Bellevue';
+      });
+
+      parent.rScale.domain([
+        0,
+        d3.max(fData, function(d) {
+          return d[parent.rColumn];
+        })
+      ]);
+      // Compute the size of the biggest circle as a function of peoplePerPixel.
+      const peopleMax = parent.rScale.domain()[1];
+      const rMin = 0;
+      const rMax = Math.sqrt(peopleMax / (parent.peoplePerPixel * Math.PI));
+      parent.rScale.range([rMin, rMax]);
+
+      const circles = parent.svg.selectAll('circle').data(fData);
+      circles
+        .enter()
+        .append('svg:circle')
+        .attr('cx', function(d) {
+          return parent.projection([d[parent.xColumn], d[parent.yColumn]])[0];
+        })
+        .attr('cy', function(d) {
+          return parent.projection([d[parent.xColumn], d[parent.yColumn]])[1];
+        })
+        .attr('r', function(d) {
+          return parent.rScale(d[parent.rColumn]);
+        })
+        .on('mouseover', function(d) {
+          parent.toolTip.show(d);
+        })
+        .on('mouseout', function(d) {
+          parent.toolTip.hide(d);
+        });
+      circles.exit().remove();
+    }
   }
 
   zoomed() {
     // container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")"); // not in d3 v4
     // container.style("stroke-width", 1.5 / d3.event.transform.k + "px");
-    this.container.attr('transform', d3.event.transform); // updated for d3 v4
+    // this.container.attr('transform', d3.event.transform); // updated for d3 v4
   }
 }

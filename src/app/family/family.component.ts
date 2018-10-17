@@ -5,13 +5,14 @@ import { CustomTooltipComponent } from '../shared/components/custom-tooltip/cust
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdTranscludeModalComponent } from '../shared/components/ngb-transclude-modal/ngb-transclude-modal.component';
 import { SharedTabComponent } from '../shared/components/shared-tab/shared-tab.component';
+import { ParentalService } from './services/ptree.service';
 import * as $ from 'jquery';
 
 @Component({
   selector: 'app-family',
   templateUrl: './family.component.html',
   styleUrls: ['./family.component.scss'],
-  providers: [PicturesComponent, PictureService, CustomTooltipComponent, SharedTabComponent]
+  providers: [PicturesComponent, PictureService, CustomTooltipComponent, SharedTabComponent, ParentalService]
 })
 export class FamilyComponent implements OnInit {
   public pictures = [];
