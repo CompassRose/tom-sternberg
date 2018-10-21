@@ -24,7 +24,6 @@ export class ParentalService {
   constructor(private _http: HttpClient) {}
 
   // Called from behavior subject
-
   getTreeSubjectData(newList) {
     this.globalTreeSubject.next(newList);
   }

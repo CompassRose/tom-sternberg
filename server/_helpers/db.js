@@ -4,6 +4,7 @@ mongoose.connect(config.connectionString);
 mongoose.Promise = global.Promise;
 
 module.exports = {
-    User: require('../users/user.model'),
-    Picture: require('../pictures/picture.model')
+  User: require('../users/user.model'),
+  Picture: require('../pictures/picture.model'),
+  Player: require('../players/player.model')
 };

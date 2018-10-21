@@ -35,6 +35,7 @@ export class PicturesComponent implements OnInit {
   public picture = new Picture();
 
   public pictureChecker: Observable<Picture[]>;
+  public singlePicture: Observable<Picture>;
   public PICTURE_PATH = '../assets/img/pictureCollection/';
   private activeCategory = [];
 
@@ -59,6 +60,7 @@ export class PicturesComponent implements OnInit {
 
   ngOnInit() {
     this.pictureChecker = this.pictureService.pictures;
+
     this.pictureService.loadAll();
     this.processPictures();
   }
@@ -69,6 +71,18 @@ export class PicturesComponent implements OnInit {
     this.pictureService.create(picture);
     this.addFilter('All');
   }
+
+  // getOnePicture(picture: Picture) {
+  //   this.pictureService.getPicture(picture._id);
+  //
+  //   this.singlePicture = this.pictureService.thisPicture;
+  //   console.log('this.singlePicture ', this.singlePicture);
+  //   // this.setPicture();
+  // }
+  //
+  // setPicture() {
+  //   this.singlePicture.subscribe(data => data);
+  // }
 
   deletePicture(picture: Picture) {
     this.pictureService.remove(picture._id);
@@ -124,7 +138,7 @@ export class PicturesComponent implements OnInit {
       this.addFilter('All');
       this.pictureCategories[0].checked = true;
     }
-    console.log('removeFilter this.activeFilters ', this.activeFilters);
+    //  console.log('removeFilter this.activeFilters ', this.activeFilters);
   }
 
   // Removes filter checkbox
@@ -140,9 +154,7 @@ export class PicturesComponent implements OnInit {
     });
     if (test1.length === 1) {
       const index = this.pictureCategories.findIndex(p => p.attr1 === picture.keyword);
-      //  console.log('this.pictureCategories ', this.pictureCategories);
       this.pictureCategories.splice(index);
-      //  console.log('this.pictureCategories ', this.pictureCategories);
     }
   }
 

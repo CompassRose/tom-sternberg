@@ -8,10 +8,6 @@ $window-height: 460px;
   padding: 20px;
 }
 
-.btn {
-  padding: 0.84rem 2.14rem;
-  font-size: .91rem;
-}
 
 .help-button {
   color: white;
@@ -138,13 +134,16 @@ $window-height: 460px;
 
   .funds-frame {
     text-align: center;
-    color: black;
-    background-color: white;
+    color: #00591a;
+    background-color: #fcff85;
   }
 
   .last-ten-frame {
     width: 98%;
     box-shadow: inset 3px 0 3px rgba(0, 0, 0, 0.4);
+    &.bborder {
+      border-bottom: 1px solid rgba(14, 168, 34, 0.4);
+    }
   }
 
   .table-state-reveal {
@@ -167,6 +166,14 @@ $window-height: 460px;
     align-items: flex-start;
     flex-wrap: nowrap;
     border-bottom: 1px solid rgba(0, 0, 0, 0.49);
+    .betFrame {
+      font-size: 13px;
+      border-radius: 3px;
+      border: 1px solid white;
+      &.bets {
+        width: 60px;
+      }
+    }
   }
   .win-reveal {
     width: 100%;
@@ -277,7 +284,6 @@ a {
   grid-template-rows: 1.5fr 1.5fr 3fr 3fr 3fr 1.5fr 1.5fr;
 }
 
-
 .grid-number-cell {
   border: 1px solid #ffffff;
   font-size: 17px;
@@ -342,6 +348,9 @@ a {
   font-size: 13px;
   border-radius: 3px;
   border: 1px solid white;
+  &.bets {
+    width: 60px;
+  }
 }
 
 .grid-item-02 {

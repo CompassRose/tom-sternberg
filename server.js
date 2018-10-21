@@ -17,6 +17,7 @@ app.use(jwt());
 // api routes
 app.use('/users', require('./server/users/users.controller'));
 require('./server/pictures/picture.routes.js')(app);
+require('./server/players/player.routes.js')(app);
 
 // global error handler
 app.use(errorHandler);

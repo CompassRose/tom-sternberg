@@ -63,21 +63,24 @@
     <div class="game-state-frame borders">
       <div class="table-state-reveal">
         <div class="category-header display-md f-weight-600 text-white">MY BANK</div>
-        <div class="last-ten-frame funds-frame f-weight-600 display-md mb-3">{{myFunds | currency:'USD'}}</div>
-        <button class="btn-sm btn-success" (click)="removeAllBets();">Clear Bets</button>
+        <div class="last-ten-frame funds-frame f-weight-600 display-md">{{myFunds | currency:'USD'}}</div>
+        <button class="btn-sm btn-success mt-auto" (click)="removeAllBets();">Clear Bets</button>
         <div class="category-header display-md text-white f-weight-600 mt-5">LAST TEN</div>
         <div [style.background-color]="digit.color" *ngFor="let digit of lastTenNums;"
-             class="last-ten-frame display-sm f-weight-600  text-center">{{digit.name}}
+             class="last-ten-frame bborder display-sm f-weight-600 text-center">{{digit.value}}
         </div>
       </div>
       <div class="spin-state-reveal d-flex flex-column mr-auto">
         <div class="category-header f-weight-600 display-md">BETS PLACED</div>
         <div class="bet-reveal">
-          <div *ngFor="let square of numberSquares; let $idx = index;">
-            <div *ngIf="square.directBet" class="display-sm ml-2"><span *ngIf="square.name < 37">Number </span>{{square.name}}
-              = {{square.directBet | currency:'USD' }}
+          <div class="w-100" *ngFor="let square of numberSquares; let $idx = index;">
+              <div *ngIf="square.directBet" class="d-flex align-items-center justify-content-between display-sm mx-2">
+                  <span *ngIf="square.name < 37" class="betFrame bets text-center" [style.background-color]="square.color">
+                    {{square.name}}</span>
+                <span *ngIf="square.contents.length > 1">{{square.name}}</span>
+                <div class="ml-auto">{{square.directBet | currency:'USD' }}</div>
+              </div>
             </div>
-          </div>
         </div>
         <div class="win-reveal">
           <div class="category-header f-weight-600 display-md">WINNERS</div>

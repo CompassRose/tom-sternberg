@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import * as topojson from 'topojson';
-import * as $ from 'jquery';
 import * as d3 from 'd3';
-import * as d3Projection from 'd3-geo-projection';
 import d3Tip from 'd3-tip';
 import { ParentalService } from '../services/ptree.service';
 
@@ -46,7 +44,6 @@ export class WorldmapLocatorComponent implements OnInit {
     this.parentalService.globalTreeSubject.subscribe(data => {
       this.setSubjectData(data);
     });
-
     this.initWorldChart();
   }
 

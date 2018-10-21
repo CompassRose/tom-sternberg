@@ -19,6 +19,7 @@ exports.create = (req, res) => {
 
 // FETCH all Pictures
 exports.findAll = (req, res) => {
+  console.log('findAll');
     Picture.find()
     .then(picture => {
         res.json(picture);
@@ -30,8 +31,10 @@ exports.findAll = (req, res) => {
 };
 
 
+
 // FIND a Picture
 exports.findOne = (req, res) => {
+  console.log('findOne ');
     Picture.findById(req.params.pictureId)
     .then(picture => {
         if(!picture) {
@@ -54,7 +57,8 @@ exports.findOne = (req, res) => {
 
 // UPDATE a Customer
 exports.update = (req, res) => {
-    // Find customer and update it
+  console.log('update ', req);
+    // Find picture and update it
     Picture.findByIdAndUpdate(req.body._id, req.body, {new: true})
     .then(picture => {
         if(!picture) {

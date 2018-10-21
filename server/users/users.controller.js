@@ -38,6 +38,7 @@ function getCurrent(req, res, next) {
 }
 
 function getById(req, res, next) {
+  console.log('getById user ', req.user.sub);
     userService.getById(req.params.id)
         .then(user => user ? res.json(user) : res.sendStatus(404))
         .catch(err => next(err));

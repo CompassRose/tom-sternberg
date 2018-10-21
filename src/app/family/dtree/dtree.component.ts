@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import * as dTree from 'd3-dtree';
+import TreeBuilder from './builder.js';
+// import * as TreeBuilder from 'd3-dtree';
 import { ParentalService } from '../services/ptree.service';
 
 @Component({
@@ -29,7 +31,16 @@ export class DtreeComponent implements OnInit {
       debug: true,
       height: 800,
       width: 1600,
+      nodeWidth: 200,
+      nodeHeight: 200,
       callbacks: {
+        nodeRenderer: function nodeRenderer(name, x, y, height, width, extra, id, nodeClass, textClass, textRenderer) {
+          // console.log('textRenderer ', name, ' \n extra ', extra, ' \n nodeClass ', nodeClass);
+          return TreeBuilder._nodeRenderer(name, x, y, height, width, extra, id, nodeClass, textClass, textRenderer);
+        },
+        nodeSize: function nodeSize(nodes, width, textRenderer) {
+          return TreeBuilder._nodeSize(nodes, width, textRenderer);
+        },
         nodeClick: function(name, extra) {
           console.log(name);
         },

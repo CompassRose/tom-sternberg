@@ -23,8 +23,8 @@ export class FamilyComponent implements OnInit {
 
   private tabContents = [
     { link: 'pictures', name: 'Pictures' },
-    { link: 'familyTree', name: 'Family Tree' },
-    { link: 'parentTree', name: 'Parent Tree' },
+    // { link: 'familyTree', name: 'Family Tree' },
+    // { link: 'parentTree', name: 'Parent Tree' },
     { link: 'dTree', name: 'D Tree' },
     { link: 'worldmap-locator', name: 'World Locator' }
   ];
