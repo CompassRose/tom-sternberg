@@ -8,29 +8,18 @@ $window-height: 460px;
   padding: 20px;
 }
 
-
-.help-button {
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  font-size: .9rem;
-  font-weight: bold;
-  border-radius: 5px;
-  background-color: blue;
-  border: 2px solid #0000ae;
-  padding: 0.45rem .8rem;
-  box-shadow: 1px 1px 2px black;
-  &:hover {
-    border-color: $central-gold;
-  }
+.btn.btn-sm {
+  font-size: 0.8rem;
+  padding: 0.5rem 0.7rem;
 }
+
 
 .gameTitle {
   font-family: 'Racing Sans One', cursive;
   font-size: 4.0rem;
   letter-spacing: 1px;
   color: #00b700;
-  text-shadow: 2px 2px 2px #bcff00;
+  text-shadow: 2px 2px 3px yellow;
 }
 
 [mwlDraggable] {
@@ -113,6 +102,15 @@ $window-height: 460px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
+.funds-frame {
+  padding: 7px 5px;
+  border-radius: 4px;
+  text-align: center;
+  color: #000000;
+  border: 1px solid yellow;
+  background-color: #ffce06;
+}
+
 .game-state-frame {
   display: flex;
   flex-direction: row;
@@ -132,16 +130,13 @@ $window-height: 460px;
     flex-wrap: nowrap;
   }
 
-  .funds-frame {
-    text-align: center;
-    color: #00591a;
-    background-color: #fcff85;
-  }
+
 
   .last-ten-frame {
     width: 98%;
-    box-shadow: inset 3px 0 3px rgba(0, 0, 0, 0.4);
+   // box-shadow: inset 3px 0 3px rgba(0, 0, 0, 0.4);
     &.bborder {
+      padding: 3px 0;
       border-bottom: 1px solid rgba(14, 168, 34, 0.4);
     }
   }
@@ -157,6 +152,7 @@ $window-height: 460px;
     align-items: center;
     flex-wrap: nowrap;
   }
+
   .bet-reveal {
     display: flex;
     flex-direction: column;

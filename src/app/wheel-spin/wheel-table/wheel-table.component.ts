@@ -28,6 +28,7 @@ export class WheelTableComponent implements OnInit {
   public lastTenNums: ILastTenNums[] = [];
   public winningNumber: number;
   public myFunds: number;
+  public bankAccount: number;
   public winningsPaneActive = false;
   public displayArray: any[] = [];
   public screenInstructions: any[];
@@ -76,8 +77,19 @@ export class WheelTableComponent implements OnInit {
     // this.playerService.create(player);
   }
 
+  addMoney() {
+    if (this.myFunds < 500 && this.bankAccount > 100) {
+      this.myFunds += 100;
+      this.player.cashInHand = this.myFunds;
+      this.player.cashInBank -= 100;
+      this.bankAccount = this.player.cashInBank;
+      this.update();
+    }
+  }
+
   setPlayerValues() {
     this.myFunds = this.player.cashInHand;
+    this.bankAccount = this.player.cashInBank;
     this.lastTenNums = [];
     this.player.lastTen.forEach(d => {
       this.lastTenProcess(d);
@@ -90,9 +102,6 @@ export class WheelTableComponent implements OnInit {
     }
     const index = this.numberSquares.findIndex(p => p.name === value);
     this.lastTenNums.push({ value: this.numberSquares[index].name, color: this.numberSquares[index].color });
-
-    console.log('this.lastTenNums ', this.lastTenNums);
-    console.log('this.player ', this.player);
   }
 
   processWinningNumber(e) {
