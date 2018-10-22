@@ -1,8 +1,47 @@
-//#graph {
-//  fill: rgba(255, 255, 255, 0);
-//  stroke: #ffffff;
-//  stroke-width: 1.5px;
-//  font: 10px sans-serif;
-//  // overflow: hidden;
-//}
+
+.linage {
+  fill: none;
+  stroke: #ffffff;
+}
+
+.title {
+  font-weight: 600;
+  color: black;
+}
+.tester {
+  font-weight: normal;
+  color: black;
+}
+
+.textClass {
+  background-color: red;
+}
+
+.marriage {
+  fill: none;
+  stroke: #ffffff;
+}
+
+.man {
+  background-color: #5b98f5;
+  border-top: 2px solid #bcd1ff;
+  border-bottom: 2px solid #4b7096;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  &:hover {
+    color: white;
+    background-color: #0005ff;
+  }
+}
+
+.woman {
+  background-color: #ff6b6f;
+  border-top: 2px solid #ffa5a5;
+  border-bottom: 2px solid #8e2e26;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  &:hover {
+    color: white;
+    background-color: #bf5a67;
+  }
+}
 

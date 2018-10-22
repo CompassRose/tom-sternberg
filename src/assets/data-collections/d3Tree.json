@@ -1,95 +1,151 @@
 [
   {
-    "name": "Thomas Sternberg",
-    "class": "man",
-    "textClass": "man",
+    "name": "Viola Swanson",
+    "class": "woman",
+    "textClass": "title",
+    "depthOffset": 0,
     "extra": {
-      "born": "11/21/34",
-      "cityOfBirth": "Des Moines"
+      "born": "2/7/1778",
+      "cityOfBirth": "Kearney",
+      "stateOfBirth": "Nebraska"
+    },
+    "marriages": [{
+      "spouse": {
+        "name": "Donald Claire Parriott",
+        "class": "man",
+        "textClass": "title",
+        "extra": {
+          "born": "4/10/1914",
+          "passed": "6/12/2004",
+          "cityOfBirth": "Kearney",
+          "stateOfBirth": "Nebraska"
+        }
+      },
+      "children": [
+        {
+          "name": "Lois Yvonne Parriott",
+          "class": "woman",
+          "extra": {
+            "born": "4/10/1995",
+            "cityOfBirth": "Bakersfield",
+            "stateOfBirth": "California"
+          },
+          "marriages": []
+        },
+        {
+          "name": "Phyllis Claire Parriott",
+          "class": "woman",
+          "extra": {
+            "born": "2/7/1998",
+            "cityOfBirth": "Bakersfield",
+            "stateOfBirth": "California"
+          },
+          "marriages": []
+        },
+        {
+          "name": "Sylvia Parriott",
+          "class": "woman",
+          "extra": {
+            "born": "2/7/1998",
+            "cityOfBirth": "Bakersfield",
+            "stateOfBirth": "California"
+          },
+          "marriages": []
+        }
+      ]
+    }]
+  },
+  {
+    "name": "Thomas Hunter Sternberg",
+    "class": "man",
+    "textClass": "title",
+    "extra": {
+      "born": "11/21/19",
+      "passed": "2000",
+      "cityOfBirth": "Des Moines",
+      "stateOfBirth": "Iowa"
     },
     "marriages": [
       {
         "spouse": {
+          "rootFamily": "Magoon",
           "name": "Mary Magoon",
           "class": "woman",
+          "textClass": "title",
           "extra": {
-            "born": "7/11/35",
-            "cityOfBirth": "Lacon"
+            "born": "7/11/21",
+            "passed": "2000",
+            "cityOfBirth": "Lacon",
+            "stateOfBirth": "Illinois"
           }
         },
         "children": [
           {
             "name": "Richard Sternberg",
             "class": "man",
-            "textClass": "man",
+            "textClass": "title",
             "extra": {
               "born": "11/21/34",
-              "cityOfBirth": "Lacon"
+              "passed": null,
+              "cityOfBirth": "Lacon",
+              "stateOfBirth": "Illinois"
             },
             "marriages": [
               {
                 "spouse": {
+                  "rootFamily": "Swanson",
                   "name": "Lois Sternberg",
                   "class": "woman",
+                  "textClass": "title",
                   "extra": {
                     "born": "7/11/35",
-                    "cityOfBirth": "Bakersfield"
+                    "cityOfBirth": "Bakersfield",
+                    "stateOfBirth": "California"
                   }
                 },
                 "children": [
                   {
                     "name": "James Gunnar Sternberg",
                     "class": "man",
+                    "textClass": "title",
                     "extra": {
                       "born": "10/16/1959",
-                      "cityOfBirth": "Santa Monica"
+                      "cityOfBirth": "Santa Monica",
+                      "stateOfBirth": "California"
                     },
                     "marriages": [
                       {
                         "spouse": {
+                          "rootFamily": "Gronlund",
                           "name": "Kristen Gronlund",
+                          "class": "woman",
+                          "textClass": "title",
                           "extra": {
                             "born": "10/28/1966",
-                            "cityOfBirth": "Seattle"
-                          },
-                          "class": "woman"
+                            "cityOfBirth": "Seattle",
+                            "stateOfBirth": "Washington"
+                          }
                         },
                         "children": [
                           {
                             "name": "Sean Sternberg",
                             "class": "woman",
+                            "textClass": "title",
                             "extra": {
                               "born": "4/10/1995",
-                              "cityOfBirth": "Bellevue"
+                              "cityOfBirth": "Bellevue",
+                              "stateOfBirth": "Washington"
                             },
-                            "marriages": [
-                              {
-                                "spouse": {
-                                  "name": "John Martin Sternberg",
-                                  "class": "man",
-                                  "extra": {
-                                    "born": "7/11/35",
-                                    "cityOfBirth": "Yakima"
-                                  }
-                                },
-                                "children": [
-                                  {
-                                    "name": "Anne Viola Sternberg",
-                                    "class": "woman",
-                                    "extra": {
-                                      "born": "10/16/1959",
-                                      "cityOfBirth": "Chicago"
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
+                            "marriages": []
                           },
                           {
-                            "name": "Jeffrey Donald Sternberg",
+                            "name": "William Sternberg",
                             "class": "man",
+                            "textClass": "title",
                             "extra": {
-                              "born": "2/7/1998"
+                              "born": "2/7/1998",
+                              "cityOfBirth": "Bellevue",
+                              "stateOfBirth": "Washington"
                             },
                             "marriages": []
                           }
@@ -100,15 +156,20 @@
                   {
                     "name": "Thomas Claire Sternberg",
                     "class": "man",
+                    "textClass": "title",
                     "extra": {
                       "born": "10/16/1959"
                     },
                     "marriages": [
                       {
                         "spouse": {
+                          "rootFamily": "Conces",
                           "name": "Annette Conces",
+                          "textClass": "title",
                           "extra": {
-                            "born": "10/28/1966"
+                            "born": "10/28/1966",
+                            "cityOfBirth": "Bellevue",
+                            "stateOfBirth": "Washington"
                           },
                           "class": "woman"
                         },
@@ -116,42 +177,34 @@
                           {
                             "name": "Alison Claire Sternberg",
                             "class": "woman",
+                            "textClass": "title",
                             "extra": {
-                              "born": "4/10/1995"
+                              "born": "4/10/1995",
+                              "cityOfBirth": "Bellevue",
+                              "stateOfBirth": "Washington"
                             },
                             "marriages": [
                               {
                                 "spouse": {
                                   "name": "Martin Davenport",
                                   "class": "man",
+                                  "textClass": "title",
                                   "extra": {
                                     "born": "7/11/35"
                                   }
                                 },
-                                "children": [
-                                  {
-                                    "name": "Viola Sternberg",
-                                    "class": "woman",
-                                    "extra": {
-                                      "born": "10/16/1959"
-                                    }
-                                  },
-                                  {
-                                    "name": "Donald Sternberg",
-                                    "class": "man",
-                                    "extra": {
-                                      "born": "10/16/1959"
-                                    }
-                                  }
-                                ]
+                                "children": []
                               }
                             ]
                           },
                           {
                             "name": "Jeffrey Donald Sternberg",
                             "class": "man",
+                            "textClass": "title",
                             "extra": {
-                              "born": "2/7/1998"
+                              "born": "2/7/1998",
+                              "cityOfBirth": "Bellevue",
+                              "stateOfBirth": "Washington"
                             },
                             "marriages": []
                           }
@@ -161,23 +214,27 @@
                   },
                   {
                     "name": "Mary Elizabeth Sternberg",
-                    "class": "man",
+                    "class": "woman",
                     "extra": {
-                      "born": "10/16/1959"
+                      "born": "6/3/1966",
+                      "cityOfBirth": "Seattle",
+                      "stateOfBirth": "Washington"
                     },
                     "marriages": [
                       {
                         "spouse": {
                           "name": "Steve Dagg",
+                          "class": "man",
+                          "textClass": "title",
                           "extra": {
                             "born": "10/28/1966"
-                          },
-                          "class": "man"
+                          }
                         },
                         "children": [
                           {
                             "name": "Benjamin Dagg",
                             "class": "man",
+                            "textClass": "title",
                             "extra": {
                               "born": "4/10/1995"
                             },
@@ -186,6 +243,7 @@
                           {
                             "name": "Samuel Dagg",
                             "class": "man",
+                            "textClass": "title",
                             "extra": {
                               "born": "2/7/1998"
                             },

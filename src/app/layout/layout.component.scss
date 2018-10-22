@@ -7,10 +7,29 @@
   text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
+.heading {
+  font-family: 'Montserrat', sans-serif;
+ // letter-spacing: 3px;
+  padding-bottom: 0;
+  line-height: 1em;
+  color: $central-gold;
+  font-size: 2rem;
+  text-shadow: -1px 0px 0px rgba(204, 204, 204, 0.25),
+  -2px -1px 0px rgba(186, 186, 186, 0.1),
+  -3px -2px 0px rgba(168, 168, 168, 0.1),
+  -4px -3px 0px rgba(153, 153, 153, 0.1),
+  -5px -4px 0px rgba(135, 135, 135, 0.1),
+  -6px -5px 0px rgba(120, 120, 120, 0.1),
+  -7px -6px 0px rgba(55, 55, 55, 0.1),
+  -8px -7px 0px rgba(40, 40, 40, 0.1);
+}
+
+
 .fixed-nav {
   z-index: 100;
   position: fixed;
-  @include navColor($central-blue);
+  // @include navColor($central-blue);
+  background-color: #031218 !important;
   top: 0;
   width: 100%;
   border-bottom: 1px solid $central-gold;

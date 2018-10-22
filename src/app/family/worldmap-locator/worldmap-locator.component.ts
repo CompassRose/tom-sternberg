@@ -26,7 +26,7 @@ export class WorldmapLocatorComponent implements OnInit {
   private xColumn = 'longitude';
   private yColumn = 'latitude';
   private rColumn = 'population';
-  private peoplePerPixel = 9000;
+  private peoplePerPixel = 5000;
   private projection;
   private margin = { top: 30, right: 0, bottom: 0, left: 0 };
   private mapX = this.container.width / 2;
@@ -50,6 +50,10 @@ export class WorldmapLocatorComponent implements OnInit {
   setSubjectData(res) {
     console.log('setSubjectData this.detailRows ', res);
     this.detailRows = res;
+  }
+
+  parseTreeData() {
+    this.detailRows.forEach((d, i) => {});
   }
 
   // Set up projection config
@@ -177,7 +181,7 @@ export class WorldmapLocatorComponent implements OnInit {
         if (d.name === 'Bellevue') {
           // console.log('d.name ', d);
         }
-        return d.population > 1000000 || d.name === 'Bellevue';
+        return d.population > 3000000 || d.name === 'Bellevue';
       });
 
       parent.rScale.domain([

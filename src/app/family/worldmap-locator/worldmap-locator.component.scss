@@ -15,7 +15,7 @@ svg {
 }
 
 .country {
-  fill: #d4daff;
+  fill: #b8beff;
   &:hover {
     fill: #7c95ff;
   }
@@ -34,8 +34,8 @@ svg {
 }
 
 circle {
-  stroke: rgba(255, 0, 0, 0.4);
-  fill: rgba(255, 174, 172, 0.3);
+  stroke: rgba(238, 182, 0, 0.4);
+  fill: rgba(255, 251, 153, 0.31);
   &:hover {
     stroke: rgba(255, 0, 0, 0.5);
     fill: rgba(255, 174, 172, 0.5);

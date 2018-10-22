@@ -7,43 +7,6 @@ body {
   background-color: #01070f;
 }
 
-.linage {
-  fill: none;
-  stroke: #ffffff;
-}
-
-.textClass {
-  background-color: red;
-}
-
-.marriage {
-  fill: none;
-  stroke: #ffffff;
-}
-
-.man {
-  background-color: lightblue;
-  border-style: solid;
-  border-width: 1px;
-  color: black;
-  &:hover {
-    color: white;
-    background-color: #0005ff;
-  }
-}
-
-.woman {
-  background-color: pink;
-  border-style: solid;
-  border-width: 1px;
-  &:hover {
-    color: white;
-    background-color: #bf5a67;
-  }
-}
-
-
-
 .emphasis {
   font-style: italic;
 }
@@ -129,21 +92,6 @@ p {
 
 #usmap #mapGroup.centered #states path.active:hover {
   cursor: zoom-out;
-}
-
-.heading {
-  padding-bottom: 0;
-  line-height: 1em;
-  color: white;
-  font-size: 1.8rem;
-  text-shadow: -1px 0px 0px rgba(204, 204, 204, 0.35),
-  -2px -1px 0px rgba(186, 186, 186, 0.25),
-  -3px -2px 0px rgba(168, 168, 168, 0.25),
-  -4px -3px 0px rgba(153, 153, 153, 0.25),
-  -5px -4px 0px rgba(135, 135, 135, 0.25),
-  -6px -5px 0px rgba(120, 120, 120, 0.25),
-  -7px -6px 0px rgba(55, 55, 55, 0.25),
-  -8px -7px 0px rgba(40, 40, 40, 0.25);
 }
 
 
