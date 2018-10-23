@@ -1,3 +1,32 @@
 @import '../../assets/stylesheets/variables';
 
+.width-container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+.overlay {
+  border-radius: 10px;
+  height: auto;
+  padding: 20px 50px;
+  background-color: rgba(0, 0, 60, 0.25);
+}
+
+.profile-drop {
+  z-index: 120;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 4px;
+  width: 140px;
+  padding: 5px;
+  background-color: white;
+  .profileRow {
+    color: black;
+    cursor: pointer;
+    //  border-bottom: 1px solid rgba(211, 211, 211, 0.6);
+    &:hover {
+      background-color: rgba(211, 211, 211, 0.55);
+    }
+  }
+}

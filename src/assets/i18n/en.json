@@ -1,0 +1,11 @@
+{
+	"demo": {
+		"bullet1": "Capable of managing a broad scope of subjects in fast-paced, complex, and multi-layer organizational setting",
+		"bullet2": "Extensive experience working directly with designers to rapidly prototype iterations in order to fine-tune user experience",
+		"bullet3": "Well rounded knowledge of configuring PC hardware, operating systems and applications, designing and troubleshooting networks and optimizing workflows",
+		"greeting": "To whom it may concern:",
+		"introduction": "My name is Tom Sternberg - I am a versatile Front-End Developer with 10+ years of experience developing and managing user interfaces for complex projects, with the last three specializing in responsive Angular-cli web-apps.  This recent experience is enhanced by several years as a video game Developer, UI specialist, 2d and 3d Artist,  Asset Animator, Sound/Video Engineer, Localization Specialist, Team Leader and Classroom Instructor. Click on Carousel entries to view a video of examples of my work. ",
+		"text": "This is a simple demonstration app for ngx-translate",
+		"title": "My name is Tom Sternberg"
+	}
+}

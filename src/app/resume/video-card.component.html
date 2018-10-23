@@ -1,0 +1,11 @@
+<modal-media-card>
+  <modal-media-card-header>
+    <div>I am the media header</div>
+  </modal-media-card-header>
+  <modal-media-card>
+    <div class="offset">I am the media body</div>
+  </modal-media-card>
+  <modal-media-card-footer *ngIf="game.owner | async">
+    <div>I am the media footer</div>
+  </modal-media-card-footer>
+</modal-media-card>

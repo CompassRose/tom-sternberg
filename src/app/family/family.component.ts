@@ -25,7 +25,7 @@ export class FamilyComponent implements OnInit {
     { link: 'pictures', name: 'Pictures' },
     // { link: 'familyTree', name: 'Family Tree' },
     // { link: 'parentTree', name: 'Parent Tree' },
-    { link: 'dTree', name: 'D Tree' },
+    { link: 'dTree', name: 'Family Tree' },
     { link: 'worldmap-locator', name: 'World Locator' }
   ];
 

@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Picture } from '../../family/models/picture';
 
 @Component({
   // changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,18 +14,23 @@ import 'rxjs/add/operator/catch';
   styleUrls: ['./carousel.component.scss'],
   providers: [NgbModal]
 })
-export class CarouselComponent implements OnChanges {
+export class CarouselComponent implements OnInit, OnChanges {
   @Input()
   historyValues: Observable<any>[];
 
+  public historyChecker: Observable<any[]>;
+
   public currdeg1 = 0;
   public aggregate = 0;
-  public menuOpen = false;
   public videoPlayer = true;
   public projectValues$: any[];
   public IMG_PATH = '../../assets/img/vgames/';
 
   constructor(private modalService: NgbModal, private http: HttpClient) {}
+  ngOnInit() {
+    // this.projectValues$ = this.historyValues;
+    // console.log('this.projectValues$ ', this.projectValues$);
+  }
 
   ngOnChanges(): void {
     this.projectValues$ = this.historyValues;

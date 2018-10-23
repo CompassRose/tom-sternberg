@@ -42,7 +42,8 @@ export class HomeComponent implements OnInit {
       if (this.identity) {
         this.loadAllUsers();
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.router.navigate(['app/wheelspin']);
+        // this.router.navigate(['app/wheelspin']);
+        this.router.navigate(['app/resume']);
         // this.router.navigate(['app/family/family-routes/worldmap-locator']);
         // this.router.navigate(['app/family/family-routes/dTree']);
         // this.router.navigate(['app/family/family-routes/pictures']);

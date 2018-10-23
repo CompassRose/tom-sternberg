@@ -60,10 +60,12 @@ export class DtreeComponent implements OnInit {
         },
         textRenderer: function(name, extra, textClass) {
           if (!parent.memberData.includes(name)) {
-            parent.memberData.push({
-              name: name,
-              extra: extra
-            });
+            if (name !== '') {
+              parent.memberData.push({
+                name: name,
+                extra: extra
+              });
+            }
           }
 
           if (extra) {
