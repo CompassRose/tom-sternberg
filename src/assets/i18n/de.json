@@ -1,11 +1,13 @@
 {
 	"demo": {
+		"art-tools": "Artistik-Werkzeuge: Adobe Photoshop, After Effects, Premiere, Illustrator, Sketch, 3D: Autodesk Maya",
 		"bullet1": "Kann eine breite Palette von Themen in schnelllebigen, komplexen und mehrschichtigen organisatorischen Umgebungen verwalten",
 		"bullet2": "Umfangreiche Erfahrung in der direkten Zusammenarbeit mit Designern, um Iterationen schnell Prototypen zu erstellen, um die Benutzererfahrung zu optimieren",
 		"bullet3": "Gut gerundetes Wissen über die Konfiguration von PC-Hardware, Betriebssystemen und Anwendungen, das Entwerfen und Behandeln von Netzwerken und das Optimieren von Workflows",
 		"greeting": "Wen es angeht:",
-		"introduction": "Mein Name ist Tom Sternberg - Ich bin ein vielseitiger Front-End-Entwickler mit mehr als 10 Jahren Erfahrung in der Entwicklung und Verwaltung von Benutzeroberflächen für komplexe Projekte. Die letzten drei haben sich auf responsive Angular-cli-Web-Apps spezialisiert. Diese Erfahrung wird seit einigen Jahren als Videospiel-Entwickler, UI-Spezialist, 2D- und 3D-Artist, Asset-Animator, Ton- / Videoingenieur, Lokalisierungsspezialist, Teamleiter und Klassenlehrer vertieft. Klicken Sie auf Caousel-Einträge, um ein Video mit Beispielen meiner Arbeit anzuzeigen.",
+		"introduction": "Tom Sternberg:  Ein vielseitiger Front-End-Entwickler mit über 10 Jahren Erfahrung in der Entwicklung und Verwaltung von Benutzeroberflächen für komplexe Projekte. Die letzten drei spezialisierten sich auf reaktionsschnelle Angular-cli-Web-Apps. Diese Erfahrung wird seit einigen Jahren als Videospiel-Entwickler, UI-Spezialist, 2D- und 3D-Artist, Asset-Animator, Ton- / Videoingenieur, Lokalisierungsspezialist, Teamleiter und Klassenlehrer vertieft. Klicken Sie auf Karusselleinträge, um ein Video mit Beispielen meiner Arbeit anzuzeigen.",
 		"text": "﻿Dies ist eine einfache Applikation um die Funktionen von ngx-transalte zu demonstrieren.",
-		"title": "Übersetzungs-Demo"
+		"title": "Übersetzungs-Demo",
+		"tools": "Web-Entwicklungstools: Angular 6, JavaScript, HTML5, CSS, SASS, TypeScript, Bootstrap4, HTML5, jQuery, Express, d3js, Highcharts, Rxjs, Git"
 	}
 }

@@ -27,10 +27,7 @@ export class CarouselComponent implements OnInit, OnChanges {
   public IMG_PATH = '../../assets/img/vgames/';
 
   constructor(private modalService: NgbModal, private http: HttpClient) {}
-  ngOnInit() {
-    // this.projectValues$ = this.historyValues;
-    // console.log('this.projectValues$ ', this.projectValues$);
-  }
+  ngOnInit() {}
 
   ngOnChanges(): void {
     this.projectValues$ = this.historyValues;

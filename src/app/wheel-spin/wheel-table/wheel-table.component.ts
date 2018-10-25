@@ -22,8 +22,6 @@ export interface NamedFilter {
   providers: [TableService]
 })
 export class WheelTableComponent implements OnInit {
-  private activeUser;
-
   public numberSquares = [];
   public lastTenNums: ILastTenNums[] = [];
   public winningNumber: number;
@@ -48,11 +46,11 @@ export class WheelTableComponent implements OnInit {
     this.loadAll();
 
     this.screenInstructions = [
-      'Start the Game with $' + this.myFunds,
       'To place bets drag and drop coins on to the betting squares',
       'You can drag multiple chips on betting squares',
       'To remove a bet from a square click the square',
-      'When you are finished betting, spin the wheel!'
+      'When you are finished betting, spin the wheel!',
+      'If chips run low press the green add $ button (Appears when chips are below $500)'
     ];
   }
 

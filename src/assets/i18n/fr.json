@@ -1,11 +1,13 @@
 {
 	"demo": {
+		"art-tools": "Outils Artistry: Adobe PhotoShop, After Effects, Première, Illustrator, Sketch, 3D: Autodesk Maya",
 		"bullet1": "Capable de gérer un large éventail de sujets dans un environnement organisationnel rapide, complexe et à plusieurs niveaux",
 		"bullet2": "Vaste expérience de travail direct avec les concepteurs pour réaliser rapidement des prototypes d'itérations afin d'affiner l'expérience utilisateur",
 		"bullet3": "Connaissance approfondie de la configuration du matériel informatique, des systèmes d'exploitation et des applications, de la conception et du dépannage de réseaux et de l'optimisation des flux de travail",
 		"greeting": "À qui cela concerne:",
-		"introduction": "Je m'appelle Tom Sternberg. Je suis un développeur front-end polyvalent avec plus de 10 ans d'expérience dans le développement et la gestion d'interfaces utilisateur pour des projets complexes, les trois derniers étant spécialisés dans les applications Web Angular-cli réactives. Cette expérience récente est complétée par plusieurs années en tant que développeur de jeux vidéo, spécialiste en interface utilisateur, artiste 2D et 3D, animateur de ressources, ingénieur son / vidéo, spécialiste en localisation, chef d'équipe et instructeur en salle de classe. Cliquez sur les entrées de Caousel pour voir une vidéo contenant des exemples de mon travail.",
+		"introduction": "Tom Sternberg:  Développeur front-end polyvalent avec plus de 10 ans d'expérience dans le développement et la gestion d'interfaces utilisateur pour des projets complexes, les trois derniers étant spécialisés dans les applications Web Angular-cli réactives. Cette expérience récente est complétée par plusieurs années en tant que développeur de jeux vidéo, spécialiste en interface utilisateur, artiste 2D et 3D, animateur de ressources, ingénieur son / vidéo, spécialiste en localisation, chef d'équipe et instructeur en salle de classe. Cliquez sur les entrées du carrousel pour voir une vidéo contenant des exemples de mon travail.",
 		"text": "﻿Dies ist eine einfache Applikation um die Funktionen von ngx-transalte zu demonstrieren.",
-		"title": "Übersetzungs-Demo"
+		"title": "Übersetzungs-Demo",
+		"tools": "Outils de développement Web: Angular 6, JavaScript, HTML5, CSS, SASS, TypeScript, Bootstrap4, HTML5, jQuery, Express, d3js, Highcharts, Rxjs, Git"
 	}
 }
