@@ -20,20 +20,30 @@ export class FamilyComponent implements OnInit {
     name: 'Close'
   };
 
-  private tabContents = [
-    { link: 'pictures', name: 'Pictures' },
-    // { link: 'familyTree', name: 'Family Tree' },
-    // { link: 'parentTree', name: 'Parent Tree' },
-    { link: 'dTree', name: 'Family Tree' },
-    { link: 'worldmap-locator', name: 'World Locator' }
-  ];
-
-  public screenInstructions = [
+  public pictureInstructions = [
     'Family Photo Screen',
     'Hover over pictures for more detailed information',
     'Click on one or more pictures for a larger view',
     'Select All, or one or more dynamically generated checkboxes to filter by category',
     'Load/Edit/Save process forthcoming'
+  ];
+
+  public familyTreeInstructions = [
+    'Family Tree Screen',
+    'Hover forthcoming',
+    'Click on forthcoming',
+    'Select All forthcoming',
+    'Load/Edit/Save process forthcoming'
+  ];
+
+  public familyMapInstructions = ['Family Map Screen', 'Hover forthcoming', 'Click on forthcoming', 'Select All forthcoming'];
+
+  private tabContents = [
+    { link: 'pictures', name: 'Pictures', instructions: this.pictureInstructions },
+    // { link: 'familyTree', name: 'Family Tree' },
+    // { link: 'parentTree', name: 'Parent Tree' },
+    { link: 'dTree', name: 'Family Tree', instructions: this.familyTreeInstructions },
+    { link: 'worldmap-locator', name: 'World Locator', instructions: this.familyMapInstructions }
   ];
 
   constructor(
@@ -44,14 +54,4 @@ export class FamilyComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
-
-  openModal() {
-    const modalRef = this.modalService.open(NgbdTranscludeModalComponent, {
-      size: 'lg',
-      windowClass: 'modal-xxl'
-    });
-    modalRef.componentInstance.modalName = 'Family Page Instructions';
-    modalRef.componentInstance.modalContent = this.screenInstructions;
-    modalRef.componentInstance.modalButtons = this.modalButtons;
-  }
 }

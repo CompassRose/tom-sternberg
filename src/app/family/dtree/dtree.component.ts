@@ -23,14 +23,14 @@ export class DtreeComponent implements OnInit {
       this.treeDataArray = res;
       this.initTree(res, parent);
     });
-
+    console.log('parent.memberData ', this.memberData);
     console.log('getGlobalTreeData ', this.treeDataArray);
   }
 
   initTree(res, parent) {
     this.treeData = res;
 
-    this.parentalService.getTreeSubjectData(this.treeData);
+    this.parentalService.getTreeSubjectData(this.memberData);
 
     dTree.init(this.treeData, {
       target: '#graph',
@@ -48,7 +48,6 @@ export class DtreeComponent implements OnInit {
       callbacks: {
         nodeRenderer: function nodeRenderer(name, x, y, height, width, extra, id, nodeClass, textClass, textRenderer) {
           // console.log('textRenderer ', name, ' \n extra ', extra, ' \n nodeClass ', nodeClass, ' \n height ', height);
-
           return TreeBuilder._nodeRenderer(name, x, y, height, width, extra, id, nodeClass, textClass, textRenderer);
         },
         nodeSize: function nodeSize(nodes, width, textRenderer) {
@@ -59,27 +58,34 @@ export class DtreeComponent implements OnInit {
           console.log(name);
         },
         textRenderer: function(name, extra, textClass) {
-          if (!parent.memberData.includes(name)) {
+          // if (name !== '') {
+          //   console.log('extra ', Object.values(extra));
+          // }
+
+          function exists() {
+            return parent.memberData.some(x => x.name === name);
+          }
+
+          if (!exists()) {
             if (name !== '') {
               parent.memberData.push({
                 name: name,
-                extra: extra
+                extra: [Object.values(extra)]
               });
             }
           }
 
           if (extra) {
             extra = extra.born;
-            // birth = extra.cityOfBirth;
           } else {
             extra = '\n';
           }
+
           return (
             "<div align='center' class='" + textClass + "'>" + name + "<div align='center' class='tester'>" + extra + '</div>' + '</div>'
           );
         }
       }
     });
-    console.log('parent.memberData ', parent.memberData);
   }
 }

@@ -25,11 +25,7 @@ export class NgbdTranscludeModalComponent implements OnInit {
     this.modalTitle = this.modalName;
     this.activeContent = this.modalContent;
     this.activeButtons = this.modalButtons;
-    this.processBodyContent();
-  }
-
-  processBodyContent() {
-    // console.log('this.activeContent ', this.activeContent);
-    // this.activeContent.forEach(d => {});
+    console.log('this.modalName ', this.modalName);
+    console.log('this.activeContent ', this.activeContent);
   }
 }

@@ -1,8 +1,27 @@
 @import '../../../../assets/stylesheets/variables';
 
-$modal-width: 700px;
+$modal-width: 840px;
+
+
+.my-header {
+  border-top-right-radius: 10px;
+  width: $modal-width;
+  padding: .4rem .8rem;
+  background-color: #e9e9e9;
+  border-bottom: 1px solid #a4a4a4;
+  display: flex;
+  align-items: center;
+}
+
+.modal-title {
+  font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
 
 .modal-body {
+  width: $modal-width;
+  color: gray;
   background-color: white;
   padding: 20px 20px 0 20px;
   .instruction-row {
@@ -16,23 +35,6 @@ $modal-width: 700px;
 .btn {
   padding: 0.45rem 1rem;
 }
-
-
-.my-header {
-  border-top-right-radius: 10px;
-  padding: .4rem .8rem;
-  background-color: #e9e9e9;
-  border-bottom: 1px solid #a4a4a4;
-  display: flex;
-  align-items: center;
-}
-
-
-.modal-title {
-  font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-}
-
 
 .my-footer {
   border-top: 1px solid rgba(0, 0, 0, 0.31);

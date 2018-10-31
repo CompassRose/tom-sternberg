@@ -1,5 +1,5 @@
 <div class="my-header">
-  <div class="modal-title display-lg text-muted f-weight-600" id="exampleModalLabel">{{modalName}}</div>
+  <div class="modal-title display-lg text-muted f-weight-600" id="exampleModalLabel">{{modalTitle}}</div>
   <a class="header-lg ml-auto" (click)="activeModal.dismiss('Cross click')">&times;</a>
 </div>
 <div class="modal-body">
@@ -7,8 +7,8 @@
     <span class="text-left ml-2 mr-1">{{instruction}}</span>
 </div>
   <div class="d-flex align-items-center my-footer mt-3">
-    <button type="button" class="btn btn-indigo waves-light ml-auto" data-dismiss="modal"
-            (click)="activeModal.dismiss('Cross click')">{{activeButtons.name}}
+    <button type="button" class="btn btn-indigo waves-light ml-auto my-2" data-dismiss="modal"
+            (click)="activeModal.dismiss('Cross click')">Close
     </button>
   </div>
 </div>

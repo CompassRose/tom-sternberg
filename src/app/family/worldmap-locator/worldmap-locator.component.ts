@@ -39,6 +39,7 @@ export class WorldmapLocatorComponent implements OnInit {
   public openPopSelect = false;
   public activePopulation = 2;
   private color = d3.schemeCategory10;
+  private cityDefs;
 
   constructor(private parentalService: ParentalService) {}
 
@@ -50,15 +51,14 @@ export class WorldmapLocatorComponent implements OnInit {
   }
 
   setPopulationBreakpoint(index) {
-    console.log('setPopulationBreakpoint  ', index);
     this.activePopulation = index;
-
     this.openPopSelect = false;
+    this.callRenderCircles(this);
   }
 
   setSubjectData(res) {
-    // console.log('setSubjectData this.detailRows ', res);
     this.detailRows = res;
+    console.log('setSubjectData this.detailRows ', this.detailRows[0]);
   }
 
   parseTreeData() {
@@ -166,11 +166,6 @@ export class WorldmapLocatorComponent implements OnInit {
 
       const populationFormat = d3.format(',');
 
-      d3.csv(parent.GEO_CITIES).then(d => {
-        type(d);
-        parent.renderCircles(d, parent);
-      });
-
       function type(d) {
         d.latitude = +d.latitude;
         d.longitude = +d.longitude;
@@ -178,21 +173,56 @@ export class WorldmapLocatorComponent implements OnInit {
         return d;
       }
 
+      d3.csv(parent.GEO_CITIES).then(d => {
+        this.cityDefs = d;
+        this.callRenderCircles(parent);
+
+        // type(d);
+        // parent.renderCircles(d, parent);
+      });
+
       parent.rScale = d3.scaleSqrt();
     });
   }
 
-  // Render sub- world elements
+  callRenderCircles(parent) {
+    // console.log('callRenderCircles ', this.cityDefs);
+    type(this.cityDefs);
 
-  renderCircles(data, parent) {
+    function type(d) {
+      d.latitude = +d.latitude;
+      d.longitude = +d.longitude;
+      d.population = +d.population;
+      return d;
+    }
+
+    this.renderCircles(parent);
+  }
+
+  // Render sub- world elements
+  renderCircles(parent) {
+    console.log('renderCircles ', this.detailRows);
+    // console.log('renderCircles ', this.popBreakpoint[this.activePopulation]);
     {
-      const fData = data.filter(function(d) {
-        if (d.name === 'Bellevue') {
-        }
-        // console.log('d.name ', d, ' d ', parent.popBreakpoint[parent.activePopulation]);
-        return d.population > parent.popBreakpoint[parent.activePopulation] || d.name === 'Bellevue';
+      const tempPop = this.popBreakpoint[this.activePopulation];
+      const fData = this.cityDefs.filter(function(d) {
+        // if (d.name === 'Bellevue') {
+        // }
+        return d.population > tempPop || d.name === 'Bellevue';
       });
 
+      this.detailRows.forEach((d, i) => {
+        console.log(getCity(d));
+      });
+
+      function getCity(d) {
+        fData.filter((el, index, a) => {
+          //  console.log(d.extra[0]);
+          return d.extra[1] === el.name;
+        });
+      }
+
+      //  console.log('fData ', fData);
       parent.rScale.domain([
         0,
         d3.max(fData, function(d) {
