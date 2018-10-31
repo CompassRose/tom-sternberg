@@ -240,6 +240,7 @@ export class PicturesComponent implements OnInit {
   }
 
   openModal(e) {
+    console.log('openModal ', e);
     const pictureGroup: Picture[] = [];
     this.pictureChecker.subscribe(data => {
       data.map(d => {

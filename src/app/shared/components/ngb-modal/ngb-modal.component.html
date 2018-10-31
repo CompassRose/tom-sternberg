@@ -7,7 +7,7 @@
     <div (click)="setOriginBack()" class="next mr-auto ml-3 mb-3"><i class="fa fa-arrow-circle-o-left"></i></div>
     <div class="">
       <div><img onError="this.src='../assets/img/pictureCollection/default.jpg'" class="modalImage"
-                [src]="PICTURE_PATH + activeContent[idx].image + '.jpg'"></div>
+                [src]="'../assets/img/pictureCollection/' + activeContent[idx].image + '.jpg'"></div>
     </div>
     <div (click)="setOriginForward()" class="prev ml-auto mr-3 mb-3"><i class="fa fa-arrow-circle-o-right"></i></div>
   </div>

@@ -16,7 +16,6 @@ export class WorldmapLocatorComponent implements OnInit {
   private GEO_CITIES = '../../../assets/data-collections/geonames_cities100000.csv';
   private GEO_COUNTRIES = '../../../assets/data-collections/world-110m.v1.json';
   private GEO_COUNTRY_NAMES = '../../../assets/data-collections/world-110m-country-names.tsv';
-
   private detailRows = [];
   private container = {
     width: 1600,
@@ -36,6 +35,9 @@ export class WorldmapLocatorComponent implements OnInit {
   private toolTip;
   private path;
   private graticule;
+  private popBreakpoint = [1000000, 2000000, 5000000];
+  public openPopSelect = false;
+  public activePopulation = 2;
   private color = d3.schemeCategory10;
 
   constructor(private parentalService: ParentalService) {}
@@ -47,8 +49,15 @@ export class WorldmapLocatorComponent implements OnInit {
     this.initWorldChart();
   }
 
+  setPopulationBreakpoint(index) {
+    console.log('setPopulationBreakpoint  ', index);
+    this.activePopulation = index;
+
+    this.openPopSelect = false;
+  }
+
   setSubjectData(res) {
-    console.log('setSubjectData this.detailRows ', res);
+    // console.log('setSubjectData this.detailRows ', res);
     this.detailRows = res;
   }
 
@@ -179,9 +188,9 @@ export class WorldmapLocatorComponent implements OnInit {
     {
       const fData = data.filter(function(d) {
         if (d.name === 'Bellevue') {
-          // console.log('d.name ', d);
         }
-        return d.population > 3000000 || d.name === 'Bellevue';
+        // console.log('d.name ', d, ' d ', parent.popBreakpoint[parent.activePopulation]);
+        return d.population > parent.popBreakpoint[parent.activePopulation] || d.name === 'Bellevue';
       });
 
       parent.rScale.domain([

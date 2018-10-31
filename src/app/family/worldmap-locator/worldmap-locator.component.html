@@ -6,4 +6,16 @@
     [tipPositionY]="tooltipPositionY">
   </app-custom-tooltip>
 </ng-container>
+<div class="display-md gold-text pull-right mb-2">{{popBreakpoint[activePopulation]}}
+  <a (click)="openPopSelect = !openPopSelect">
+    <i class="fa fa-caret-down ml-2"></i></a>
+  <div class="profile-drop" *ngIf="openPopSelect">
+    <div (click)="setPopulationBreakpoint($idx)" *ngFor="let pop of popBreakpoint let $idx = index;"
+         class="d-flex align-items-center profileRow mx-1">
+      {{pop}}
+    </div>
+  </div>
+</div>
+<!--<div class="text-white">{{popBreakpoint}}</div>-->
 <div id="world-body"></div>
+

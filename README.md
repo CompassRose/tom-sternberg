@@ -2,7 +2,7 @@
 
 This is an Angular/cli Sandbox where I learn/practice Front-End Development concepts.
 It is a test bed, not production by any means. 
-In the process of implementing Express back-end support.
+Data is served by express/Mongoose backend
 
 Express/Mongoose  backend support added
 
@@ -13,6 +13,7 @@ Express/Mongoose  backend support added
   - Decorators
   - Pipes
   - Typescript
+  - i18n Translations
 + SCSS
   - Mixins
   - Functions
@@ -25,6 +26,7 @@ Express/Mongoose  backend support added
   - The Inspector - drilldown - maps
   - Wheelspin
   - Family Tree
+  - World Map - counties, cities
 + Animation/Video techniques
 + rxjs async Observables/BehaviorSubjects
 
