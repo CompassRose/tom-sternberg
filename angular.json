@@ -24,7 +24,9 @@
               "node_modules/font-awesome/scss/font-awesome.scss",
               "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
-              "src/assets/stylesheets/styles.scss"
+              "src/assets/stylesheets/styles.scss",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/mapbox-gl/dist/mapbox-gl.css"
             ],
             "scripts": [
               "node_modules/lodash/lodash.js",
@@ -33,7 +35,8 @@
               "node_modules/d3-geo-projection/dist/d3-geo-projection.js",
               "node_modules/jquery/dist/jquery.js",
               "node_modules/chart.js/dist/Chart.js",
-              "node_modules/hammerjs/hammer.min.js"
+              "node_modules/hammerjs/hammer.min.js",
+              "node_modules/leaflet/dist/leaflet.js"
             ]
           },
           "configurations": {

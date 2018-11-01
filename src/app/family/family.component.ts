@@ -36,13 +36,19 @@ export class FamilyComponent implements OnInit {
     'Load/Edit/Save process forthcoming'
   ];
 
+  public geoLeafletMapInstructions = [
+    'geoLeafletMapInstructions Screen',
+    'Hover forthcoming',
+    'Click on forthcoming',
+    'Select All forthcoming'
+  ];
+
   public familyMapInstructions = ['Family Map Screen', 'Hover forthcoming', 'Click on forthcoming', 'Select All forthcoming'];
 
   private tabContents = [
     { link: 'pictures', name: 'Pictures', instructions: this.pictureInstructions },
-    // { link: 'familyTree', name: 'Family Tree' },
-    // { link: 'parentTree', name: 'Parent Tree' },
     { link: 'dTree', name: 'Family Tree', instructions: this.familyTreeInstructions },
+    { link: 'Leaflet', name: 'Geo Tiled', instructions: this.geoLeafletMapInstructions },
     { link: 'worldmap-locator', name: 'World Locator', instructions: this.familyMapInstructions }
   ];
 

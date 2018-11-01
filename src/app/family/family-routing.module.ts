@@ -6,6 +6,7 @@ import { FamilyTreeComponent } from './family-tree/family-tree.component';
 import { ParentTreeComponent } from './parent-tree/parent-tree.component';
 import { DtreeComponent } from './dtree/dtree.component';
 import { WorldmapLocatorComponent } from './worldmap-locator/worldmap-locator.component';
+import { GeoLeafletMapComponent } from './geo-leaflet-world-map/geo-leaflet-world-map.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { WorldmapLocatorComponent } from './worldmap-locator/worldmap-locator.co
           { path: 'familyTree', component: FamilyTreeComponent },
           { path: 'parentTree', component: ParentTreeComponent },
           { path: 'dTree', component: DtreeComponent },
+          { path: 'Leaflet', component: GeoLeafletMapComponent },
           { path: 'worldmap-locator', component: WorldmapLocatorComponent }
         ]
       }

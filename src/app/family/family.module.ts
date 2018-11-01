@@ -8,10 +8,19 @@ import { FamilyTreeComponent } from './family-tree/family-tree.component';
 import { ParentTreeComponent } from './parent-tree/parent-tree.component';
 import { DtreeComponent } from './dtree/dtree.component';
 import { WorldmapLocatorComponent } from './worldmap-locator/worldmap-locator.component';
+import { GeoLeafletMapComponent } from './geo-leaflet-world-map/geo-leaflet-world-map.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, FamilyRoutingModule],
-  declarations: [FamilyComponent, PicturesComponent, FamilyTreeComponent, ParentTreeComponent, DtreeComponent, WorldmapLocatorComponent],
+  declarations: [
+    FamilyComponent,
+    PicturesComponent,
+    FamilyTreeComponent,
+    ParentTreeComponent,
+    DtreeComponent,
+    WorldmapLocatorComponent,
+    GeoLeafletMapComponent
+  ],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class FamilyModule {}
