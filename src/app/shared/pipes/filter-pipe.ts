@@ -1,21 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
-    name: 'filter'
+  name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-    transform(items: any[], searchText: string): any[] {
-        if (!items) {
-            return [];
-        }
-        if (!searchText) {
-            return items;
-        }
-        searchText = searchText.toLowerCase();
-        return items.filter(it => {
-            return it.playername
-                .toString()
-                .toLowerCase()
-                .includes(searchText);
-        });
+  transform(items: any[], searchText: string): any[] {
+    console.log('FilterPipe ', searchText, ' items ', items);
+    if (!items) {
+      return [];
     }
+    if (!searchText) {
+      return items;
+    }
+    searchText = searchText.toLowerCase();
+    return items.filter(it => {
+      return it.playername
+        .toString()
+        .toLowerCase()
+        .includes(searchText);
+    });
+  }
 }

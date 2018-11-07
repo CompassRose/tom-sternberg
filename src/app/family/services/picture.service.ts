@@ -22,7 +22,6 @@ const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 })
 export class PictureService {
   private picturesUrl = 'http://localhost:4000/api/pictures';
-  thisPicture: Observable<Picture>;
   pictures: Observable<Picture[]>;
   private _pictures: BehaviorSubject<Picture[]>;
   private baseUrl: string;
@@ -47,7 +46,7 @@ export class PictureService {
     );
   }
 
-  create(picture: Picture) {
+  createPicture(picture: Picture) {
     this.http.post(`${this.baseUrl}/pictures`, picture).subscribe(
       data => {
         this.pictureStore.pictures.push(data as Picture);
@@ -65,11 +64,7 @@ export class PictureService {
     return this.http.put(this.picturesUrl, picture, httpOptions);
   }
 
-  addPicture(picture: Picture): Observable<any> {
-    return this.http.post(this.picturesUrl, picture, httpOptions);
-  }
-
-  remove(todoId: string) {
+  removePicture(todoId: string) {
     this.http.delete(`${this.baseUrl}/pictures/${todoId}`).subscribe(
       response => {
         this.pictureStore.pictures.forEach((t, i) => {
@@ -102,109 +97,5 @@ export class PictureService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
-
-  testFunctions() {
-    this.generateArrays();
-
-    const priceArray = Array.from({ length: 40 }, () => Math.floor(Math.random() * 30));
-    const tempObject = this.GetBuyandSellPoints(priceArray);
-
-    console.log('Buy at: $', priceArray[tempObject.buy]);
-    console.log('Sell at: $', priceArray[tempObject.sell]);
-
-    //  console.log('rev ', this.reverseString('hello Joe whatcha know'));
-    //  console.log('rev ', this.reverseString2('hello Tom Joe Blow'));
-    // this.callAmPrime();
-  }
-
-  GetBuyandSellPoints(arry: Array<number>) {
-    const lower = arry.indexOf(Math.min(...arry));
-    const higher = arry.indexOf(Math.max(...arry));
-
-    return {
-      buy: lower,
-      sell: higher
-    };
-  }
-
-  reverseString2(str) {
-    let newString = '';
-    for (let i = str.length - 1; i >= 0; i--) {
-      newString += str[i];
-    }
-    return newString;
-  }
-
-  reverseString(str) {
-    return str
-      .split('')
-      .reverse()
-      .join('');
-  }
-
-  isPrime(num) {
-    if (num < 2) {
-      return false;
-    }
-    for (let i = 2; i < num; i++) {
-      if (num % i === 0) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  callAmPrime() {
-    const primeArray = [];
-    for (let i = 0; i < 100; i++) {
-      if (this.isPrime(i)) {
-        primeArray.push(i);
-      }
-    }
-    console.log('primeArray ', primeArray);
-  }
-
-  generateArrays() {
-    const returnedData = this.processArrays();
-    console.log('There are', returnedData.length, 'Matching Items \n');
-    returnedData.forEach(d => {
-      // console.log('Matching Value ', d.value, '\n', '   1st index: ', d.index1, '\n', '   2nd index: ', d.index2, '\n\n');
-    });
-  }
-
-  processArrays() {
-    const arr1 = [1, 4, 5, 'joe', 6, 7, 5, 6, 5, 56, 'news', 11, 78, 9789, 8679, 7, 10];
-    const arr2 = [1, 5, 6, 8, 7, 8, 5, 6, 7, 8, 10, 11, 'news', 78, 'frankie'];
-
-    function sortNumber(a, b) {
-      return a - b;
-    }
-
-    console.log('sorted ', arr1.sort(sortNumber));
-    console.log('sorted 2 ', arr2.sort(sortNumber));
-
-    // Remove Dups
-    arr1.filter((el, index, a) => {
-      return index === a.indexOf(el);
-    });
-    arr2.filter((el, index, a) => {
-      return index === a.indexOf(el);
-    });
-
-    const finalArray = [];
-    // run the intersection
-    arr1.forEach((e1, i) =>
-      arr2.forEach((e2, j) => {
-        if (e1 === e2) {
-          finalArray.push({ value: e1, index1: i, index2: j });
-        }
-      })
-    );
-
-    const merged = arr1.concat(arr2);
-    console.log('merged ', merged);
-
-    return finalArray;
   }
 }

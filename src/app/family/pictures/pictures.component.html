@@ -21,7 +21,7 @@
     <button class="btn-sm btn-primary mt-auto" (click)="activateAddRoute()">Add Picture</button>
   </div>
   <div class="picture-container d-flex flex-wrap">
-    <div *ngFor="let picture of pictureChecker |  async  let $idx = index;">
+    <div *ngFor="let picture of ( pictureChecker  |  async )">
       <div *ngIf="activeFilters.indexOf(picture.keyword)>-1 || activeFilters[0] === 'All'">
         <div (mouseenter)="onMouseOver($event, picture)"
              (mouseleave)="onMouseLeave($event, picture)">

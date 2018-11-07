@@ -68,24 +68,12 @@ export class PicturesComponent implements OnInit {
   save(picture: Picture): void {
     this.picture = picture;
     picture.image = this.PICTURE_PATH + 'default';
-    this.pictureService.create(picture);
+    this.pictureService.createPicture(picture);
     this.addFilter('All');
   }
 
-  // getOnePicture(picture: Picture) {
-  //   this.pictureService.getPicture(picture._id);
-  //
-  //   this.singlePicture = this.pictureService.thisPicture;
-  //   console.log('this.singlePicture ', this.singlePicture);
-  //   // this.setPicture();
-  // }
-  //
-  // setPicture() {
-  //   this.singlePicture.subscribe(data => data);
-  // }
-
   deletePicture(picture: Picture) {
-    this.pictureService.remove(picture._id);
+    this.pictureService.removePicture(picture._id);
     this.showTip = false;
     this.removeFilter(picture);
     this.removeCategory(picture);
@@ -101,7 +89,7 @@ export class PicturesComponent implements OnInit {
         if (d.image === this.PICTURE_PATH + 'default' || d.image === undefined || d.image === null) {
           d.image = 'default';
         }
-        this.filterByCategory(d);
+        this.collectCategory(d);
       });
     });
     if (!this.activeFilters[0]) {
@@ -111,7 +99,7 @@ export class PicturesComponent implements OnInit {
   }
 
   // Sets up category list and capitalizes
-  filterByCategory(picture) {
+  collectCategory(picture) {
     if (!this.activeCategory.includes(picture.keyword)) {
       this.activeCategory.push(picture.keyword);
       this.pictureCategories.push({
@@ -193,7 +181,6 @@ export class PicturesComponent implements OnInit {
   }
 
   openVideoModal(e) {
-    console.log('openModal ', e);
     const modalRef = this.modalService.open(NgbdVideoModalComponent, {
       size: 'lg'
     });
@@ -240,7 +227,6 @@ export class PicturesComponent implements OnInit {
   }
 
   openModal(e) {
-    console.log('openModal ', e);
     const pictureGroup: Picture[] = [];
     this.pictureChecker.subscribe(data => {
       data.map(d => {

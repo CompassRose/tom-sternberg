@@ -5,6 +5,11 @@ import * as topojson from 'topojson';
 import * as $ from 'jquery';
 import { ChartConfigService } from '../services/chart-config.service';
 import { MapService } from '../services/map.service';
+import { Observable } from 'rxjs';
+import { fromEvent } from 'rxjs';
+import { map, throttle } from 'rxjs/operators';
+import { interval } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'linked-map',
@@ -80,15 +85,12 @@ export class LinkedUSMapComponent implements OnInit {
   }
 
   private initMouse(parent) {
-    parent.mouse.x = 0;
-    document.addEventListener(
-      'mousemove',
-      function(e) {
-        parent.mouse.x = (e.clientX || e.pageX) + (document.body.scrollLeft || document.documentElement.scrollLeft);
-        parent.mouse.y = (e.clientY || e.pageY) + (document.body.scrollTop || document.documentElement.scrollTop);
-      },
-      false
-    );
+    const mouseMoves = fromEvent(document, 'mousemove').pipe(throttleTime(200));
+    const subscription = mouseMoves.subscribe((evt: MouseEvent) => {
+      parent.mouse.x = (evt.clientX || evt.pageX) + (document.body.scrollLeft || document.documentElement.scrollLeft);
+      parent.mouse.y = (evt.clientY || evt.pageY) + (document.body.scrollTop || document.documentElement.scrollTop);
+      // console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
+    });
   }
 
   private resize() {

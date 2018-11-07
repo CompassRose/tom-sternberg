@@ -14,7 +14,7 @@ import { MapService } from '../services/map.service';
   selector: 'north-america-map',
   templateUrl: './geo-leaflet-world-map.component.html',
   styleUrls: ['./geo-leaflet-world-map.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
   providers: [MapService]
 })
 export class GeoLeafletMapComponent implements OnInit {

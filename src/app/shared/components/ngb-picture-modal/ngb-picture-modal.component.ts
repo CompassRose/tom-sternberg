@@ -27,11 +27,12 @@ export class NgbdPictureModalComponent implements OnInit {
     // this.model.mydate = { jsdate: new Date('7/08/2018') };
     this.picture = this.activePicture;
     this.process = this.activeProcess;
+    //  console.log('this.picture ', this.picture);
   }
 
   fileChanged(e) {
     this.file = e.target.files[0];
     const str = this.file.name.slice(0, -4);
-    console.log('this.file', ' this.picture ', this.picture, ' ', str);
+    //  console.log('this.file', ' this.picture ', this.picture, ' ', str);
   }
 }
