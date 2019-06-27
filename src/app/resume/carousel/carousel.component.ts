@@ -31,7 +31,7 @@ export class CarouselComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.projectValues$ = this.historyValues;
-    console.log('this.projectValues$ ', this.projectValues$);
+   // console.log('this.projectValues$ ', this.projectValues$);
   }
 
   openModal(e) {

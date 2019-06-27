@@ -15,9 +15,19 @@ import { DefaultPicturePipe } from './pipes/default-picture.pipe';
 import { FilterPipe } from './pipes/filter-pipe';
 import { NgbdPictureModalComponent } from './components/ngb-picture-modal/ngb-picture-modal.component';
 import { SharedTabComponent } from './components/shared-tab/shared-tab.component';
+import { DemoMaterialModule } from '../material-module';
+import { GridListDynamicComponent } from './components/grid-list-dynamic/grid-list-dynamic.component';
+import { AutocompleteFilterComponent } from './components/autocomplete-filter/autocomplete-filter.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, NgbModule, MDBBootstrapModule.forRoot()],
+  imports: [
+    CommonModule,
+    FormsModule,
+    DemoMaterialModule,
+    NgbModule,
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot()
+  ],
   schemas: [NO_ERRORS_SCHEMA],
   declarations: [
     DatetimePickerComponent,
@@ -27,20 +37,36 @@ import { SharedTabComponent } from './components/shared-tab/shared-tab.component
     NgbdPictureModalComponent,
     CustomTooltipComponent,
     SharedTabComponent,
+    GridListDynamicComponent,
+    AutocompleteFilterComponent,
     // pipes
     PlaceSuffixPipe,
     DefaultPicturePipe,
     SafePipe,
     FilterPipe
   ],
-  exports: [DatetimePickerComponent, SharedTabComponent, CustomTooltipComponent, DefaultPicturePipe, SafePipe, FilterPipe, FormsModule, ReactiveFormsModule],
+  exports: [
+    DatetimePickerComponent,
+    SharedTabComponent,
+    CustomTooltipComponent,
+    DefaultPicturePipe,
+    SafePipe,
+    FilterPipe,
+    FormsModule,
+    GridListDynamicComponent,
+    AutocompleteFilterComponent,
+    ReactiveFormsModule
+  ],
   entryComponents: [
     NgbdModalComponent,
     CustomTooltipComponent,
     NgbdVideoModalComponent,
     NgbdTranscludeModalComponent,
     NgbdPictureModalComponent,
-    SharedTabComponent
+    SharedTabComponent,
+    GridListDynamicComponent,
+    AutocompleteFilterComponent
   ]
 })
-export class SharedModule {}
+export class SharedModule {
+}

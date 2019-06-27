@@ -20,3 +20,146 @@ npm install -g npm-check-updates
 //    "start": "npm-run-all -p client server",
 
  [ngStyle]="{'transform': getCurrentPosition()}"
+
+
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "module": "es2015",
+    "baseUrl": "./"
+  },
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false,
+    "genDir": "./locale"
+  },
+  "include": [
+    "node_modules/angular-bootstrap-md/**/*.ts",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "test.ts"
+  ]
+}
+
+
+{
+  "name": "tsternberg-app",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "client": "ng serve",
+    "ng": "ng",
+    "start": "npm-run-all -p client server",
+    "server": "nodemon ./server.js",
+    "dev": "nodemon ./server.js",
+    "build": "ng build --watch",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular-devkit/build-angular": "^0.12.4",
+    "@angular/animations": "^8.0.2",
+    "@angular/cdk": "^8.0.1",
+    "@angular/common": "^6.1.3",
+    "@angular/compiler": "^6.1.10",
+    "@angular/compiler-cli": "^6.1.10",
+    "@angular/core": "^8.0.2",
+    "@angular/forms": "^6.1.3",
+    "@angular/material": "^8.0.1",
+    "@angular/platform-browser": "^6.1.3",
+    "@angular/platform-browser-dynamic": "^6.1.3",
+    "@angular/router": "^6.1.3",
+    "@ng-bootstrap/ng-bootstrap": "^3.0.0",
+    "@ngrx/store": "^6.1.0",
+    "@ngx-translate/core": "^10.0.2",
+    "@ngx-translate/http-loader": "^3.0.1",
+    "angular-bootstrap-md": "^6.2.2",
+    "angular-draggable-droppable": "^2.0.0",
+    "angular-swfobject": "^1.2.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.3.1",
+    "chart.js": "^2.5.0",
+    "core-js": "^2.4.1",
+    "cors": "^2.8.4",
+    "d3": "^5.7.0",
+    "d3-dtree": "^2.0.2",
+    "d3-geo-projection": "^2.4.1",
+    "d3-tip": "^0.9.1",
+    "dropzone": "^5.4.0",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "font-awesome": "^4.7.0",
+    "hammerjs": "^2.0.8",
+    "install": "^0.12.1",
+    "jquery": "^3.4.1",
+    "json-server": "0.12.0",
+    "jsonwebtoken": "^8.2.2",
+    "leaflet": "^1.3.4",
+    "lodash": "^4.17.11",
+    "mapbox-gl": "^0.49.0",
+    "mongodb": "^3.1.4",
+    "mongoose": "^5.2.16",
+    "morgan": "^1.9.1",
+    "mydatepicker": "^2.6.6",
+    "ng2-redux": "^5.1.2",
+    "ngx-bootstrap": "^3.0.1",
+    "ngx-mapbox-gl": "^2.2.0",
+    "npm": "^5.8.0",
+    "popper.js": "^1.13.0",
+    "redux": "^4.0.0",
+    "rootpath": "^0.1.2",
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.2.2",
+    "start": "^5.1.0",
+    "topojson": "^3.0.2",
+    "underscore": "^1.9.1",
+    "zone.js": "^0.8.19"
+  },
+  "devDependencies": {
+    "@angular/cli": "^6.1.4",
+    "@types/jasmine": "~2.8.3",
+    "@types/jasminewd2": "~2.0.2",
+    "@types/lodash": "^4.14.116",
+    "@types/node": "^6.0.101",
+    "codelyzer": "^4.0.1",
+    "concurrently": "^3.4.0",
+    "jasmine-core": "~2.8.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "jshint": "^2.9.6",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.17.5",
+    "npm-run-all": "^4.1.3",
+    "prettier": "1.14.2",
+    "protractor": "~5.1.2",
+    "ts-node": "~4.1.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.5.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 140,
+    "tabWidth": 2
+  }
+}

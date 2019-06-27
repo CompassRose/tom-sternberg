@@ -14,15 +14,17 @@
              (click)="filterTriage($event, category.name)">
       <label class="ml-1 mt-2 text-white">{{category.name }}</label>
     </div>
-    <!--<div class="d-flex align-items-center ml-auto">-->
-      <!--<div class="text-white mr-2">Search:</div>-->
-      <!--<input type="text" class="input-search mr-5" [(ngModel)]="searchText"-->
-             <!--placeholder="Search"/></div>-->
+    <div class="mat-app-background basic-container">
+      <autocomplete-filter
+        [acFilterValues]="subjectList"
+        (resetEvent)="setPicturesFromSearch($event)">
+      </autocomplete-filter>
+    </div>
     <button class="btn-sm btn-primary mt-auto" (click)="activateAddRoute()">Add Picture</button>
   </div>
   <div class="picture-container d-flex flex-wrap">
     <div *ngFor="let picture of ( pictureChecker  |  async )">
-      <div *ngIf="activeFilters.indexOf(picture.keyword)>-1 || activeFilters[0] === 'All'">
+      <ng-container *ngIf="activeFilters.indexOf(picture.keyword)>-1 || activeFilters[0] === 'All';">
         <div (mouseenter)="onMouseOver($event, picture)"
              (mouseleave)="onMouseLeave($event, picture)">
           <div class="thumbnail view zoom">
@@ -35,7 +37,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 </div>

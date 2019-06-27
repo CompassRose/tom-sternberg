@@ -16,27 +16,29 @@ import { TableViewComponent } from './drilldown/table-view/table-view.component'
 import { LinkedUSMapComponent } from './linked-us-map/linked-us-map.component';
 import { FormatService } from './services/format.service';
 
+
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        RouterModule,
-        SharedModule,
-        InspectorRoutingModule,
-        MDBBootstrapModule.forRoot(),
-    ],
-    declarations: [
-        InspectorMainComponent,
-        DrilldownComponent,
-        BarChartComponent,
-        PieChartComponent,
-        LineChartComponent,
-        SingleComboComponent,
-        DetailsComponent,
-        LinkedUSMapComponent,
-        TableViewComponent,
-    ],
-    providers: [FormatService],
-    schemas: [NO_ERRORS_SCHEMA],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    SharedModule,
+    InspectorRoutingModule,
+    MDBBootstrapModule.forRoot()
+  ],
+  declarations: [
+    InspectorMainComponent,
+    DrilldownComponent,
+    BarChartComponent,
+    PieChartComponent,
+    LineChartComponent,
+    SingleComboComponent,
+    DetailsComponent,
+    LinkedUSMapComponent,
+    TableViewComponent
+  ],
+  providers: [FormatService],
+  schemas: [NO_ERRORS_SCHEMA]
 })
-export class InspectorModule {}
+export class InspectorModule {
+}

@@ -19,6 +19,8 @@ import { throttleTime } from 'rxjs/operators';
   providers: [MapService]
 })
 export class LinkedUSMapComponent implements OnInit {
+
+  public showTip = false;
   private mapFile;
   private sData;
   private pData;

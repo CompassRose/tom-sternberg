@@ -22,14 +22,15 @@ import * as $ from 'jquery';
 export class DrilldownComponent implements OnInit {
   constructor(private quoteService: ChartConfigService, private formatService: FormatService) {}
 
-  private color1 = ['#05d6ff', '#012172'];
-  private color2 = ['#00e75b', '#006f2e'];
+  public color1 = ['#05d6ff', '#012172'];
+  public color2 = ['#00e75b', '#006f2e'];
 
-  filters: IFilter[] = [];
-  filterSets: NamedFilter[] = [];
-  private fields;
-  private btnTypes: any = ['bar', 'pie', 'line', 'table'];
-  private allRows: any[] = [];
+  public saveActive;
+  public filters: IFilter[] = [];
+  public filterSets: NamedFilter[] = [];
+  public fields;
+  public btnTypes: any = ['bar', 'pie', 'line', 'table'];
+  public allRows: any[] = [];
   public dynamicData: any[] = [];
   public tableActive = false;
 
@@ -152,7 +153,7 @@ export class DrilldownComponent implements OnInit {
 
   // Draws charts with updated data
   setChartData(filteredResponse) {
-    this.allCharts.forEach((v, i) => {
+    this.allCharts.forEach((v) => {
       v.data = this.quoteService.nestChartData(v.title, filteredResponse);
       if (v.key !== '') {
         v.chartType = 'single';
@@ -174,7 +175,7 @@ export class DrilldownComponent implements OnInit {
       }
       const filteredList = this.returnFiltered('remove');
       if (this.filters.length > 0) {
-        this.filters.forEach((el, index) => {
+        this.filters.forEach((el) => {
           if (d.title === item.key) {
             d.key = '';
             d.chartType = d.chartTypeInit;
@@ -195,20 +196,11 @@ export class DrilldownComponent implements OnInit {
 
   // From timeline and variable charts dropdown selector
   dropdownSelector(i, type, newValue) {
-    // console.log(
-    //     'dropdownSelector i ',
-    //     this.allCharts[i].data.length,
-    //     ' type ',
-    //     type,
-    //     'newValue ',
-    //     newValue
-    // );
     this.allCharts[i].data = this.quoteService.nestChartData(newValue, this.dynamicData);
     this.allCharts[i].title = newValue;
     let drawTypeVal: number;
     this.allCharts[i].id === 'timeline' ? (drawTypeVal = 170) : (drawTypeVal = 10);
     if (this.allCharts[i].data.length >= drawTypeVal) {
-      console.log('this.allCharts[i].id ', this.allCharts[i].id);
       $('a.nav-link.one').removeClass('active');
       this.setChartType(i, 'table', false);
     } else {
@@ -218,8 +210,6 @@ export class DrilldownComponent implements OnInit {
 
   // From chart specific button presses
   setChartType(i, type, saved) {
-    console.log('setChartType ', type, ' saved ', saved);
-
     if (saved) {
       this.allCharts[i].chartTypeInit = type;
     }
@@ -249,9 +239,6 @@ export class DrilldownComponent implements OnInit {
     // console.log('saveFilterSet searchValues ', searchValues);
 
     let filterSetter = [];
-
-    // bootbox.prompt('Give your search criteria a name:', (name: any) => {
-    // if (name) {
     filterSetter = JSON.parse(JSON.stringify(searchValues));
     this.filterSets.push({ filters: filterSetter });
     //  }
@@ -266,9 +253,10 @@ export class DrilldownComponent implements OnInit {
     $('div.tab-pane.two').addClass('active show');
   }
 
+
   setKeysToFilter() {
-    this.allCharts.forEach((d: any, idx) => {
-      this.filters.forEach((f, i) => {
+    this.allCharts.forEach((d: any) => {
+      this.filters.forEach((f) => {
         if (f.key === d.title) {
           d.key = f.values;
         }
@@ -281,7 +269,6 @@ export class DrilldownComponent implements OnInit {
   // Load filter list
 
   loadFilterList(target) {
-    console.log('loadFilterList target ', target);
     this.filters = [];
     let filterSetter = [];
 
@@ -294,7 +281,6 @@ export class DrilldownComponent implements OnInit {
     this.allCharts.forEach((d, idx) => {
       d.data = [];
       filteredList = this.returnFiltered('new');
-      console.log('this.allCharts.forEach ', d);
     });
     this.setKeysToFilter();
     this.setChartData(filteredList);

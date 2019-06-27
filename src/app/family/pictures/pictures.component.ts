@@ -31,15 +31,17 @@ export class PicturesComponent implements OnInit {
   public toolValues: string;
   public tooltipPositionX;
   public tooltipPositionY;
+
+  public autoCompleteValues = [];
+
   public searchText: string;
   public picture = new Picture();
-
   public pictureChecker: Observable<Picture[]>;
-  public singlePicture: Observable<Picture>;
   public PICTURE_PATH = '../assets/img/pictureCollection/';
   private activeCategory = [];
+  private subjectList: string[] = [];
 
-  private videoContents = {
+  public videoContents = {
     projectName: 'Person -- Subject: ',
     projectPlatform: 'Explaining --contents--',
     projectRole: 'Year:, Stories, ',
@@ -56,11 +58,11 @@ export class PicturesComponent implements OnInit {
     }
   }
 
-  constructor(private pictureService: PictureService, private modalService: NgbModal) {}
+  constructor(private pictureService: PictureService, private modalService: NgbModal) {
+  }
 
   ngOnInit() {
     this.pictureChecker = this.pictureService.pictures;
-
     this.pictureService.loadAll();
     this.processPictures();
   }
@@ -79,6 +81,7 @@ export class PicturesComponent implements OnInit {
     this.removeCategory(picture);
   }
 
+
   processPictures() {
     this.pictureCategories = [];
     this.pictureCategories[0] = { name: 'All', checked: true };
@@ -86,6 +89,7 @@ export class PicturesComponent implements OnInit {
 
     this.pictureChecker.subscribe(data => {
       data.map(d => {
+        this.setAssociationArray(d.associations);
         if (d.image === this.PICTURE_PATH + 'default' || d.image === undefined || d.image === null) {
           d.image = 'default';
         }
@@ -98,6 +102,18 @@ export class PicturesComponent implements OnInit {
     this.pictureCategories[0].checked = true;
   }
 
+
+  // Sets up picture subjects to search by Person
+  setAssociationArray(assoc): any {
+    console.log('setAssociationArray ', assoc);
+    assoc.forEach(d => {
+      if (!this.subjectList.includes(d)) {
+        this.subjectList.push(d);
+      }
+    });
+  }
+
+
   // Sets up category list and capitalizes
   collectCategory(picture) {
     if (!this.activeCategory.includes(picture.keyword)) {
@@ -109,6 +125,21 @@ export class PicturesComponent implements OnInit {
     }
   }
 
+
+  // From search to set filters from search list
+  setPicturesFromSearch(newData) {
+    const testFilter1 = [];
+    this.pictureChecker.subscribe(data => {
+      data.forEach(d => {
+        if (d.associations.includes(PicturesComponent.toTitleCase(newData))) {
+          testFilter1.push(d);
+        }
+      });
+      console.log('testFilter1 ', testFilter1);
+    });
+  }
+
+
   // Decides to add or remove filters and acts accordingly
   filterTriage(e, cat) {
     if (e.target.checked) {
@@ -118,33 +149,6 @@ export class PicturesComponent implements OnInit {
     }
   }
 
-  // Splices from the filter collection and draws list
-  removeFilter(cat) {
-    const index = this.activeFilters.indexOf(cat);
-    this.activeFilters.splice(index);
-    if (!this.activeFilters[0]) {
-      this.addFilter('All');
-      this.pictureCategories[0].checked = true;
-    }
-    //  console.log('removeFilter this.activeFilters ', this.activeFilters);
-  }
-
-  // Removes filter checkbox
-  removeCategory(picture) {
-    const test1 = [];
-    this.pictureChecker.subscribe(data => {
-      data.forEach(d => {
-        if (d.keyword === picture.keyword) {
-          console.log('test1 ', d.keyword);
-          test1.push(d);
-        }
-      });
-    });
-    if (test1.length === 1) {
-      const index = this.pictureCategories.findIndex(p => p.attr1 === picture.keyword);
-      this.pictureCategories.splice(index);
-    }
-  }
 
   // Adds to the filter collection and calls draw
   addFilter(cat) {
@@ -158,7 +162,32 @@ export class PicturesComponent implements OnInit {
       }
       this.activeFilters.push(cat);
     }
-    // console.log('addFilter this.activeFilters ', this.activeFilters);
+  }
+
+  // Splices from the filter collection and draws list
+  removeFilter(cat) {
+    const index = this.activeFilters.indexOf(cat);
+    this.activeFilters.splice(index);
+    if (!this.activeFilters[0]) {
+      this.addFilter('All');
+      this.pictureCategories[0].checked = true;
+    }
+  }
+
+  // Removes filter checkbox
+  removeCategory(picture) {
+    const test1 = [];
+    this.pictureChecker.subscribe(data => {
+      data.forEach(d => {
+        if (d.keyword === picture.keyword) {
+          test1.push(d);
+        }
+      });
+    });
+    if (test1.length === 1) {
+      const index = this.pictureCategories.findIndex( p => p.attr1 === picture.keyword);
+      this.pictureCategories.splice(index);
+    }
   }
 
   resetAll() {
@@ -175,7 +204,7 @@ export class PicturesComponent implements OnInit {
     this.openPictureModal(pic);
   }
 
-  activateAddRoute(pic) {
+  activateAddRoute() {
     this.showTip = false;
     this.openPictureModal(false);
   }

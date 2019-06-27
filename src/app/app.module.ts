@@ -12,10 +12,16 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertService, AuthenticationService, UserService } from './_services';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { DemoMaterialModule} from './material-module';
 
 @NgModule({
   declarations: [AppComponent, AlertComponent],
   imports: [
+    MatButtonModule,
+    MatCheckboxModule,
+    DemoMaterialModule,
     // Base
     HttpClientModule,
     LayoutModule,
@@ -32,9 +38,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule
   ],
-
   schemas: [NO_ERRORS_SCHEMA],
   providers: [
     HttpClientModule,

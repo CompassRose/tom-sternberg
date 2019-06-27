@@ -13,13 +13,13 @@ export class SharedTabComponent implements OnInit, AfterViewInit {
   @Input()
   tabValues: any[];
 
-  private tabElements: any[] = [];
-  private indexFrom = 0;
+  public tabElements: any[] = [];
+  public indexFrom = 0;
   constructor(private router: Router, private modalService: NgbModal) {}
 
   ngOnInit() {
     this.tabElements = this.tabValues;
-    console.log('SharedTabComponent tabElements ', this.tabElements);
+   // console.log('SharedTabComponent tabElements ', this.tabElements);
   }
 
   ngAfterViewInit() {

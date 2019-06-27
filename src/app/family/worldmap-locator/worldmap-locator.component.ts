@@ -13,11 +13,13 @@ import { ParentalService } from '../services/ptree.service';
   encapsulation: ViewEncapsulation.None
 })
 export class WorldmapLocatorComponent implements OnInit {
-  private GEO_CITIES = '../../../assets/data-collections/geonames_cities100000.csv';
-  private GEO_COUNTRIES = '../../../assets/data-collections/world-110m.v1.json';
-  private GEO_COUNTRY_NAMES = '../../../assets/data-collections/world-110m-country-names.tsv';
-  private detailRows = [];
-  private container = {
+
+  public GEO_CITIES = '../../../assets/data-collections/geonames_cities100000.csv';
+  public GEO_COUNTRIES = '../../../assets/data-collections/world-110m.v1.json';
+  public GEO_COUNTRY_NAMES = '../../../assets/data-collections/world-110m-country-names.tsv';
+  public detailRows = [];
+  public showTip;
+  public container = {
     width: 1600,
     height: 800
   };
@@ -35,10 +37,10 @@ export class WorldmapLocatorComponent implements OnInit {
   private toolTip;
   private path;
   private graticule;
-  private popBreakpoint = [1000000, 2000000, 5000000];
+  public popBreakpoint = [1000000, 2000000, 5000000];
   public openPopSelect = false;
   public activePopulation = 2;
-  private color = d3.schemeCategory10;
+ // private color = d3.schemeCategory10;
   private cityDefs;
 
   constructor(private parentalService: ParentalService) {}
@@ -208,7 +210,7 @@ export class WorldmapLocatorComponent implements OnInit {
       const fData = this.cityDefs.filter(function(d) {
         // if (d.name === 'Bellevue') {
         // }
-        return d.population > tempPop || d.name === 'Bellevue';
+        return d.population > tempPop || d.name === 'Bellevue' || d.name === 'Nebraska';
       });
 
       this.detailRows.forEach((d, i) => {

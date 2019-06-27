@@ -17,10 +17,6 @@ import { AuthGuard } from './_guards';
             { path: 'login', component: LoginComponent },
             { path: 'register', component: RegisterComponent },
             {
-              path: 'home',
-              loadChildren: './home/home.module#HomeModule'
-            },
-            {
               path: 'boneyard',
               loadChildren: './boneyard/boneyard.module#BoneyardModule'
             },

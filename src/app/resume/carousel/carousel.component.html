@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center overlay w-100 pt-3">
     <div (click)="setOriginBack(36);" class="next mr-auto ml-5"><i class="fa fa-arrow-circle-o-left"></i></div>
     <div class="carousel-container">
-      <div class="carousel" *ngIf="projectValues$.length" [ngStyle]="{'transform': getCurrentPosition()}">
+      <div class="carousel" *ngIf="projectValues$?.length" [ngStyle]="{'transform': getCurrentPosition()}">
         <div *ngFor="let game of projectValues$; let $idx = index;">
           <div (click)="openModal($idx);  videoPlayer = true"
                [ngClass]="game.order">

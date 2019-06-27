@@ -15,7 +15,7 @@ export class DtreeComponent implements OnInit {
   public treeDataArray: any[] = [];
   public memberData: any[] = [];
 
-  constructor(private parentalService: ParentalService) {}
+  constructor(private parentalService: ParentalService) { }
 
   ngOnInit() {
     const parent = this;
@@ -29,7 +29,7 @@ export class DtreeComponent implements OnInit {
 
   initTree(res, parent) {
     this.treeData = res;
-
+    const self = this;
     this.parentalService.getTreeSubjectData(this.memberData);
 
     dTree.init(this.treeData, {
@@ -37,7 +37,7 @@ export class DtreeComponent implements OnInit {
       debug: true,
       height: 800,
       width: 1500,
-      nodeWidth: 230,
+      nodeWidth: 300,
       nodeHeight: 300,
       styles: {
         node: 'node',
@@ -48,18 +48,25 @@ export class DtreeComponent implements OnInit {
       callbacks: {
         nodeRenderer: function nodeRenderer(name, x, y, height, width, extra, id, nodeClass, textClass, textRenderer) {
           // console.log('textRenderer ', name, ' \n extra ', extra, ' \n nodeClass ', nodeClass, ' \n height ', height);
+          console.log(
+            'textRenderer ', name,
+            '\n extra ', extra,
+            '\n nodeClass ', nodeClass,
+            '\n height ', height,
+            '\ntext class', textClass);
           return TreeBuilder._nodeRenderer(name, x, y, height, width, extra, id, nodeClass, textClass, textRenderer);
         },
         nodeSize: function nodeSize(nodes, width, textRenderer) {
           // console.log('name ', TreeBuilder._nodeSize(nodes, width, textRenderer));
           return TreeBuilder._nodeSize(nodes, width, textRenderer);
         },
-        nodeClick: function(name, extra) {
-          console.log(name);
+        nodeClick: function (name, extra) {
+          console.log('nodeClick ', name, ' extra ', extra);
+          self.parentalService.openModal(name, extra);
         },
-        textRenderer: function(name, extra, textClass) {
+        textRenderer: function (name, extra, textClass) {
           // if (name !== '') {
-          //   console.log('extra ', Object.values(extra));
+          //  console.log('name ', name, ' extra ', extra, 'textClass ', textClass);
           // }
 
           function exists() {
@@ -76,14 +83,20 @@ export class DtreeComponent implements OnInit {
           }
 
           if (extra) {
-            extra = extra.born;
+            // extra = extra.born;
           } else {
             extra = '\n';
           }
 
-          return (
-            "<div align='center' class='" + textClass + "'>" + name + "<div align='center' class='tester'>" + extra + '</div>' + '</div>'
-          );
+          const markup =
+            `<div class='class='title'>
+              <div align='center' class='class'> ${name}
+              <div align='center'>${extra.born}</div>
+              <div align='center'>${extra.cityOfBirth}</div>
+              <div align='center'>${extra.stateOfBirth}</div>
+              </div>
+          </div>`;
+          return markup;
         }
       }
     });

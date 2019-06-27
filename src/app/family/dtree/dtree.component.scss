@@ -6,11 +6,15 @@
 
 .title {
   font-weight: 600;
-  color: black;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+  padding: 3px;
+ // border-radius: 3px;
+ // color: black;
 }
+
 .tester {
   font-weight: normal;
-  color: black;
+ // color: black;
 }
 
 .textClass {
@@ -23,10 +27,13 @@
 }
 
 .man {
-  background-color: #5b98f5;
-  border-top: 2px solid #bcd1ff;
-  border-bottom: 2px solid #4b7096;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: #478bf1;
+  border-top: 7px solid;
+  border-bottom: 7px solid;
+  border-right: 7px solid;
+  border-left: 7px solid;
+  border-color: #76aaf7;
+ // box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8) !important;
   color: black;
   &:hover {
     color: white;
@@ -34,11 +41,23 @@
   }
 }
 
-.woman {
-  background-color: #ff6b6f;
-  border-top: 2px solid #ffa5a5;
-  border-bottom: 2px solid #8e2e26;
+ .divorced {
+  background-color: #183d10;
+  border-top: 2px solid #6ec75a;
+  color:rgba(255, 255, 255, 0.37) !important;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.woman {
+  background-color: #fd242b;
+  border-top: 7px solid;
+  border-bottom: 7px solid;
+  border-right: 7px solid;
+  border-left: 7px solid;
+  border-color: #ff8f8f;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  color: black;
   &:hover {
     color: white;
     background-color: #bf5a67;

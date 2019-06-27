@@ -45,7 +45,7 @@ export class FamilyComponent implements OnInit {
 
   public familyMapInstructions = ['Family Map Screen', 'Hover forthcoming', 'Click on forthcoming', 'Select All forthcoming'];
 
-  private tabContents = [
+  public tabContents = [
     { link: 'pictures', name: 'Pictures', instructions: this.pictureInstructions },
     { link: 'dTree', name: 'Family Tree', instructions: this.familyTreeInstructions },
     { link: 'Leaflet', name: 'Geo Tiled', instructions: this.geoLeafletMapInstructions },
